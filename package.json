@@ -7,7 +7,7 @@
   "description": "Open dataset and dashboard of U.S. Congress and executive branch stock trades disclosed under the STOCK Act",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/prerender.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

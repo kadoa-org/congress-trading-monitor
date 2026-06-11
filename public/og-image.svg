@@ -15,14 +15,14 @@
   <text x="120" y="415" font-family="Inter, system-ui, sans-serif" font-size="34" font-weight="500" fill="#5d5d5f">executive branch under the STOCK Act.</text>
 
   <g transform="translate(120, 490)">
-    <rect x="0" y="0" width="200" height="60" rx="10" fill="#eaeaf2"/>
-    <text x="24" y="38" font-family="JetBrains Mono, ui-monospace, monospace" font-size="26" font-weight="700" fill="#5e6ad2">54,102 trades</text>
+    <rect x="0" y="0" width="245" height="60" rx="10" fill="#eaeaf2"/>
+    <text x="24" y="38" font-family="JetBrains Mono, ui-monospace, monospace" font-size="26" font-weight="700" fill="#5e6ad2">57,000+ trades</text>
   </g>
-  <g transform="translate(344, 490)">
+  <g transform="translate(389, 490)">
     <rect x="0" y="0" width="160" height="60" rx="10" fill="#eaeaf2"/>
-    <text x="24" y="38" font-family="JetBrains Mono, ui-monospace, monospace" font-size="26" font-weight="700" fill="#5e6ad2">380 filers</text>
+    <text x="24" y="38" font-family="JetBrains Mono, ui-monospace, monospace" font-size="26" font-weight="700" fill="#5e6ad2">430 filers</text>
   </g>
-  <g transform="translate(528, 490)">
+  <g transform="translate(573, 490)">
     <rect x="0" y="0" width="200" height="60" rx="10" fill="#eaeaf2"/>
     <text x="24" y="38" font-family="JetBrains Mono, ui-monospace, monospace" font-size="26" font-weight="700" fill="#5e6ad2">2012 – today</text>
   </g>
