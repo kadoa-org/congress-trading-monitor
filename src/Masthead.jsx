@@ -93,25 +93,6 @@ export default function Masthead({ stats, onOpenCmdK }) {
         </div>
       </section>
 
-      <div className="govuk-phase-banner" style={{ borderBottom: "1px solid #b1b4b6" }}>
-        <div className="govuk-width-container">
-          <p className="govuk-phase-banner__content">
-            <strong className="govuk-tag govuk-phase-banner__content__tag">Experimental</strong>
-            <span className="govuk-phase-banner__text">
-              GOV.UK-style redesign. Data updates daily.{" "}
-              <a
-                className="govuk-link"
-                href="https://github.com/kadoa-org/congress-trading-monitor"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Star on GitHub
-              </a>
-              .
-            </span>
-          </p>
-        </div>
-      </div>
     </>
   );
 }

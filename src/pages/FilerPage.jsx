@@ -19,7 +19,7 @@ import {
   SourceLink,
 } from "../ui";
 
-// GOV.UK palette for data colouring (green = buy/positive, red = sell/negative).
+// data-kit palette for data colouring (green = buy/positive, red = sell/negative).
 const GREEN = "text-[#0f7a52]";
 const RED = "text-[#ca3535]";
 
@@ -291,7 +291,7 @@ export default function FilerPage({ filerId, filersIndex, filersById, prices: pr
         </div>
       </div>
 
-      {/* Key facts as a GOV.UK summary list. */}
+      {/* Key facts as a summary list. */}
       <dl className="govuk-summary-list" style={{ marginBottom: 40 }}>
         <FactRow label="Chamber">
           {filer.branch === "executive" ? "Executive branch" : filer.chamber === "senate" ? "Senate" : "House"}
@@ -600,7 +600,7 @@ function AlphaDriversSection({ drivers, trades }) {
 }
 
 // Compact stat block used in the portfolio card: small secondary label above a
-// bold tabular value, GOV.UK colours only.
+// bold tabular value, data-kit colours only.
 function PortfolioStat({ label, value, valueTone = "text-[#0b0c0c]", hint, hintTone = "text-[#505a5f]" }) {
   return (
     <div>

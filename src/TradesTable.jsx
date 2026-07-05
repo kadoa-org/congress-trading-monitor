@@ -18,7 +18,7 @@ const COLUMNS = [
 
 const DEFAULT_PAGE_SIZE = 200;
 
-// GOV.UK palette
+// data-kit palette
 const GREEN = "#00703c";
 const RED = "#d4351c";
 
@@ -155,7 +155,7 @@ export default function TradesTable({ trades, tall = false, sortCol, onSort, fil
 
   return (
     <div>
-      {/* Mobile: stacked cards. Desktop (lg+): a GOV.UK table. */}
+      {/* Mobile: stacked cards. Desktop (lg+): a data-kit table. */}
       <div className="lg:hidden border border-[#b1b4b6] bg-white divide-y divide-[#b1b4b6]">
         {displayed.length === 0 && (
           <div className="px-4 py-10 text-[14px] text-[#505a5f] text-center">No trades match the current filters.</div>

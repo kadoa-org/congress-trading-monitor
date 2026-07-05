@@ -47,7 +47,7 @@ export default function LatestActivity({ trades, limit = 12 }) {
               <span style={{ display: "block", fontWeight: 500 }}>{t.filer_name}</span>
               <span className="flex items-center gap-1.5" style={{ marginTop: 1 }}>
                 {t.ticker && <TickerBadge ticker={t.ticker} size="sm" />}
-                <span className="dk-hint truncate" style={{ maxWidth: 120 }} title={fullAsset}>
+                <span className="dk-hint truncate" style={{ maxWidth: 96 }} title={fullAsset}>
                   {fullAsset}
                 </span>
               </span>

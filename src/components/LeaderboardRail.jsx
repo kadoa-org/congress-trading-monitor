@@ -7,7 +7,7 @@ import { TickerBadge } from "./TickerBadge";
 // who trades most, who earns most, which stock is hot, who has the best hit rate,
 // what's the biggest single trade.
 
-// Compact KPI cell in the GOV.UK idiom: a square 1px #b1b4b6 bordered white
+// Compact KPI cell in the data-kit idiom: a square 1px #b1b4b6 bordered white
 // panel — no radius, no shadow. Renders identically on every breakpoint — the
 // parent grid controls 2-column on mobile vs 5-column on desktop.
 //

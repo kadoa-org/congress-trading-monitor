@@ -193,19 +193,19 @@ export default function TickerPage({ symbol, filersById }) {
 
       <div className="mb-10">
         <SectionHeader title="Top holders" subtitle="Ranked by number of trades in this ticker" />
-        <Card className="overflow-hidden">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 divide-x divide-y divide-[#b1b4b6]">
+        <div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6" style={{ gap: 10 }}>
             {stats.topFilers.map((f) => {
               const lookup = filersById?.get?.(f.id) ?? { full_name: f.name, chamber: f.chamber, branch: f.branch };
               return (
                 <RowLink
                   key={f.id}
                   to={`/filer/${f.id}`}
-                  className="px-4 py-[10px] flex items-center gap-2.5 hover:bg-[#f3f2f1] text-left min-w-0 text-[#0b0c0c] no-underline"
+                  className="px-3 py-[8px] flex items-center gap-2.5 hover:bg-[#f3f2f1] text-left min-w-0 text-[#0b0c0c] no-underline border border-[#b1b4b6] bg-white"
                 >
                   <FilerAvatar filer={lookup} size={28} />
                   <div className="flex-1 min-w-0">
-                    <div className="text-[16px] font-bold text-[#0b0c0c] truncate">{f.name}</div>
+                    <div className="text-[15px] font-medium text-[#0b0c0c] truncate">{f.name}</div>
                     <div className="text-[14px] text-[#505a5f] tabular-nums whitespace-nowrap mt-[1px]">
                       {f.count} · {fmtUSD(f.vol)}
                     </div>
@@ -214,7 +214,7 @@ export default function TickerPage({ symbol, filersById }) {
               );
             })}
           </div>
-        </Card>
+        </div>
       </div>
 
       <SectionHeader title="All trades" subtitle={`${fmtInt(filtered.length)} of ${fmtInt(trades.length)}`} />

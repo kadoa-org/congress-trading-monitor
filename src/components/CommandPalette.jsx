@@ -6,7 +6,7 @@ function role(f) {
   return `${f.chamber === "senate" ? "Senate" : "House"} · ${f.party ?? "-"} · ${f.state ?? "-"}`;
 }
 
-// Command palette restyled to GOV.UK conventions. Fuzzy-filters filers + tickers.
+// Command palette restyled to data-kit conventions. Fuzzy-filters filers + tickers.
 export default function CommandPalette({ open, onClose, filers = [], tickers = [] }) {
   const [q, setQ] = useState("");
   const [idx, setIdx] = useState(0);

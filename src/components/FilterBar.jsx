@@ -544,7 +544,7 @@ function AddFilterButton({ categories, onAdd, open, setOpen }) {
       <button
         ref={btnRef}
         onClick={() => setOpen(!open)}
-        className="inline-flex items-center gap-1.5 h-10 px-3 border border-[#0b0c0c] bg-white text-[14px] font-medium text-[#0b0c0c] hover:bg-[#f3f2f1] transition-colors"
+        className="inline-flex items-center gap-1.5 h-8 px-3 border border-[#0b0c0c] bg-white text-[15px] font-medium text-[#0b0c0c] hover:bg-[#f3f2f1] transition-colors"
       >
         <span>{icon.plus}</span>
         <span>Filter</span>

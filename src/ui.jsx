@@ -314,7 +314,7 @@ export function Link({ to, className = "", children, onClick, ...rest }) {
 // When `to` is set the card renders as a RowLink so the whole surface is
 // cmd/ctrl-clickable (and middle-clickable) to open in a new tab.
 export function Card({ children, className = "", to }) {
-  // GOV.UK has no card component; nearest idiom is a square 1px-bordered panel.
+  // data-kit has no card component; nearest idiom is a square 1px-bordered panel.
   const base = `border border-[#b1b4b6] bg-white ${className}`;
   if (to) {
     return (
