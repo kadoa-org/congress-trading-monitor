@@ -1,6 +1,7 @@
 // Small reusable primitives. Sized to Linear.app: root is 18px, body is 0.9375rem (16.875px).
 import React from "react";
 import { navigate } from "./router";
+import { Tag as DkTag, Section as DkSection } from "./kit";
 
 // Canonical Tailwind class for table column headers.
 // Matches Linear's data-table convention: small, muted, regular case, no tracking —
@@ -199,23 +200,10 @@ export function pct(n, digits = 0) {
 // The semantic `buy/sell/warn` tones keep the same rounded-square shape too,
 // since our earlier capsule pill read as "loud status chip" rather than a
 // calm category label.
-export function Pill({ tone = "neutral", children, size = "default" }) {
-  // GOV.UK tag component (strong.govuk-tag) with the official colour variants.
-  const toneCls = {
-    neutral: "govuk-tag--grey",
-    blue: "govuk-tag--blue",
-    violet: "govuk-tag--purple",
-    amber: "govuk-tag--orange",
-    buy: "govuk-tag--green",
-    sell: "govuk-tag--red",
-    warn: "govuk-tag--yellow",
-  }[tone];
-  const sz = size === "xs" ? { fontSize: "12px", paddingTop: 1, paddingBottom: 1 } : undefined;
-  return (
-    <strong className={`govuk-tag ${toneCls}`} style={sz}>
-      {children}
-    </strong>
-  );
+export function Pill({ tone = "neutral", children }) {
+  // Alias onto the kit Tag so every tag in the app shares one implementation.
+  const map = { neutral: "grey", blue: "blue", violet: "purple", amber: "orange", buy: "green", sell: "red", warn: "yellow" };
+  return <DkTag tone={map[tone] || "grey"}>{children}</DkTag>;
 }
 
 export function sourcePill(source) {
@@ -340,14 +328,12 @@ export function Card({ children, className = "", to }) {
 
 export function SectionHeader({ title, subtitle, right }) {
   return (
-    <div className="flex items-baseline justify-between gap-4 mb-4">
-      <div className="min-w-0">
-        <h2 className="govuk-heading-m" style={{ marginBottom: subtitle ? 2 : 0 }}>
-          {title}
-        </h2>
-        {subtitle && <p className="govuk-hint" style={{ marginBottom: 0, fontSize: "16px" }}>{subtitle}</p>}
+    <div className="dk-section-head">
+      <div style={{ minWidth: 0 }}>
+        <h2>{title}</h2>
+        {subtitle && <p className="dk-hint">{subtitle}</p>}
       </div>
-      {right && <div className="shrink-0 whitespace-nowrap">{right}</div>}
+      {right && <div style={{ flexShrink: 0, whiteSpace: "nowrap" }}>{right}</div>}
     </div>
   );
 }

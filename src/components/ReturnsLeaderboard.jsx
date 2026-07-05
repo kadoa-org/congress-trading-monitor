@@ -1,5 +1,6 @@
 import React from "react";
-import { RowLink, TABLE_HEADER_CLS } from "../ui";
+import { DataTable } from "../kit";
+import { RowLink } from "../ui";
 import { FilerAvatar, RankBadge, SampleChip } from "./TablePrimitives";
 
 function role(f) {
@@ -7,59 +8,46 @@ function role(f) {
   return `${f.chamber === "senate" ? "Senate" : "House"} · ${f.party ?? "-"} · ${f.state ?? "-"}`;
 }
 
+const COLUMNS = [
+  { key: "rank", header: "#", width: 36, render: (f) => <RankBadge rank={f._rank} /> },
+  {
+    key: "filer",
+    header: "Filer",
+    render: (f) => (
+      <RowLink
+        to={`/filer/${f.id}`}
+        className="flex items-center gap-2.5 min-w-0 no-underline"
+        style={{ color: "var(--dk-ink)" }}
+      >
+        <FilerAvatar filer={f} size={28} />
+        <span className="min-w-0">
+          <span style={{ display: "block", fontWeight: 500 }}>{f.full_name}</span>
+          <span className="dk-hint">{role(f)}</span>
+        </span>
+      </RowLink>
+    ),
+  },
+  {
+    key: "spy",
+    header: "vs SPY",
+    align: "right",
+    render: (f) => (
+      <span className={f.weighted_excess >= 0 ? "dk-pos" : "dk-neg"} style={{ fontWeight: 600 }}>
+        {f.weighted_excess >= 0 ? "+" : ""}
+        {f.weighted_excess.toFixed(1)}%
+      </span>
+    ),
+  },
+  { key: "scored", header: "Scored", align: "right", render: (f) => <SampleChip n={f.scored_buys} /> },
+];
+
 export default function ReturnsLeaderboard({ returns }) {
   if (!returns || returns.length === 0) {
-    return (
-      <div className="border border-[#b1b4b6] bg-white p-4 text-small text-ink_muted">
-        Return data not yet computed. Run <span className="font-mono text-ink">bun collectors/fetchPrices.ts</span> then{" "}
-        <span className="font-mono text-ink">bun extractors/computeReturns.ts</span>.
-      </div>
-    );
+    return <p className="dk-hint">Return data not yet computed.</p>;
   }
-
-  const ranked = [...returns].sort((a, b) => b.weighted_excess - a.weighted_excess).slice(0, 15);
-
-  return (
-    <div className="border border-[#b1b4b6] bg-white overflow-hidden">
-      <div
-        className={`grid grid-cols-[28px_minmax(0,1fr)_96px_56px] gap-3 px-4 py-[10px] border-b border-stroke items-center ${TABLE_HEADER_CLS}`}
-      >
-        <span></span>
-        <span>Filer</span>
-        <span className="tabular-nums text-right">vs SPY</span>
-        <span className="tabular-nums text-right">Scored</span>
-      </div>
-      <div className="divide-y divide-stroke_soft">
-        {ranked.map((f, i) => {
-          const ex = f.weighted_excess;
-          const exSign = ex >= 0 ? "+" : "";
-          return (
-            <RowLink
-              key={f.id}
-              to={`/filer/${f.id}`}
-              className="w-full grid grid-cols-[28px_minmax(0,1fr)_96px_56px] gap-3 px-4 py-[10px] items-center text-left text-ink no-underline hover:bg-muted"
-            >
-              <RankBadge rank={i + 1} />
-              <div className="flex items-center gap-2.5 min-w-0">
-                <FilerAvatar filer={f} size={28} />
-                <div className="min-w-0">
-                  <div className="text-small text-ink font-medium truncate">{f.full_name}</div>
-                  <div className="text-mini text-ink_muted truncate mt-[1px]">{role(f)}</div>
-                </div>
-              </div>
-              <span
-                className={`text-small font-semibold tabular-nums text-right ${ex >= 0 ? "text-buy" : "text-sell"}`}
-              >
-                {exSign}
-                {ex.toFixed(1)}%
-              </span>
-              <div className="text-right">
-                <SampleChip n={f.scored_buys} />
-              </div>
-            </RowLink>
-          );
-        })}
-      </div>
-    </div>
-  );
+  const ranked = [...returns]
+    .sort((a, b) => b.weighted_excess - a.weighted_excess)
+    .slice(0, 15)
+    .map((f, i) => ({ ...f, _rank: i + 1 }));
+  return <DataTable columns={COLUMNS} rows={ranked} rowKey={(f) => f.id} />;
 }

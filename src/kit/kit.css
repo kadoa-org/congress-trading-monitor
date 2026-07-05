@@ -1,0 +1,75 @@
+/* ── Kadoa data-kit tokens ────────────────────────────────────────────────
+   Single source of truth for the dataset micropages. GOV.UK-derived palette
+   and idioms (square, 1px rules, yellow focus) at data-app density.
+   Everything in the kit derives from these variables — components never
+   hard-code sizes or colours. */
+:root {
+  --dk-font: "Inter", arial, sans-serif;
+  /* type scale */
+  --dk-fs-xs: 0.75rem;    /* 12 — table headers, hints-in-cells */
+  --dk-fs-s: 0.8125rem;   /* 13 — secondary text, breadcrumbs */
+  --dk-fs-m: 0.9375rem;   /* 15 — body, cells */
+  --dk-fs-l: 1.0625rem;   /* 17 — section headings */
+  --dk-fs-xl: 1.375rem;   /* 22 — page titles */
+  --dk-fs-xxl: 1.75rem;   /* 28 — hero */
+  /* palette (GOV.UK) */
+  --dk-ink: #0b0c0c;
+  --dk-muted: #505a5f;
+  --dk-faint: #b1b4b6;
+  --dk-rule: #b1b4b6;
+  --dk-rule-soft: #e5e6e7;
+  --dk-bg: #ffffff;
+  --dk-bg-hover: #f3f2f1;
+  --dk-link: #1d70b8;
+  --dk-green: #0f7a52;
+  --dk-red: #ca3535;
+  --dk-focus: #ffdd00;
+  /* spacing */
+  --dk-cell-y: 7px;
+  --dk-cell-x: 12px;
+}
+
+/* ── DataTable ── one table look, everywhere ── */
+.dk-table-wrap { overflow-x: auto; border: 1px solid var(--dk-rule); background: var(--dk-bg); }
+.dk-table-wrap--plain { border: none; }
+.dk-table { width: 100%; border-collapse: collapse; font: 400 var(--dk-fs-m)/1.45 var(--dk-font); color: var(--dk-ink); }
+.dk-table th {
+  font-size: var(--dk-fs-xs); font-weight: 600; color: var(--dk-muted);
+  text-align: left; padding: var(--dk-cell-y) var(--dk-cell-x);
+  border-bottom: 1px solid var(--dk-rule); white-space: nowrap;
+}
+.dk-table td { padding: var(--dk-cell-y) var(--dk-cell-x); border-bottom: 1px solid var(--dk-rule-soft); vertical-align: middle; }
+.dk-table tbody tr:last-child td { border-bottom: none; }
+.dk-table tbody tr:hover { background: var(--dk-bg-hover); }
+.dk-table .dk-num { text-align: right; font-variant-numeric: tabular-nums; }
+.dk-table a { color: var(--dk-link); }
+.dk-th-btn { background: none; border: 0; padding: 0; font: inherit; color: inherit; cursor: pointer; display: inline-flex; gap: 4px; align-items: center; }
+.dk-th-btn:focus-visible, .dk-table a:focus-visible { outline: 3px solid var(--dk-focus); outline-offset: 0; }
+.dk-empty { padding: 28px 12px; text-align: center; color: var(--dk-muted); font-size: var(--dk-fs-s); }
+.dk-pos { color: var(--dk-green); } .dk-neg { color: var(--dk-red); }
+
+/* ── Tag ── */
+.dk-tag {
+  display: inline-block; font: 600 0.6875rem/1 var(--dk-font); letter-spacing: 0.02em;
+  padding: 3px 6px 2px; white-space: nowrap;
+}
+.dk-tag--grey { background: #eeefef; color: #383f43; }
+.dk-tag--green { background: #d7f5e8; color: #0d5c3f; }
+.dk-tag--red { background: #f9dfdf; color: #942222; }
+.dk-tag--blue { background: #d2e2f1; color: #144e81; }
+.dk-tag--purple { background: #e6e0f2; color: #3d2b6b; }
+.dk-tag--orange { background: #fce3d0; color: #6e3619; }
+.dk-tag--yellow { background: #fff3bf; color: #594d00; }
+
+/* ── Section ── */
+.dk-section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin: 0 0 10px; }
+.dk-section-head h2 { font: 700 var(--dk-fs-l)/1.3 var(--dk-font); color: var(--dk-ink); margin: 0; }
+.dk-section-head .dk-hint { margin: 2px 0 0; }
+.dk-hint { font-size: var(--dk-fs-s); color: var(--dk-muted); }
+
+/* ── StatPanel ── */
+.dk-stats { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); }
+.dk-stat { border: 1px solid var(--dk-rule); background: var(--dk-bg); padding: 10px 12px; }
+.dk-stat .dk-stat-label { font-size: var(--dk-fs-xs); font-weight: 600; color: var(--dk-muted); margin-bottom: 4px; }
+.dk-stat .dk-stat-value { font: 700 var(--dk-fs-l)/1.2 var(--dk-font); color: var(--dk-ink); }
+.dk-stat .dk-stat-sub { font-size: var(--dk-fs-xs); color: var(--dk-muted); margin-top: 2px; }
