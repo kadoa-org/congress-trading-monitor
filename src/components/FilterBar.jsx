@@ -349,7 +349,7 @@ export default function FilterBar({ filters, setFilters, trades }) {
   const anyApplied = appliedKeys.length > 0 || (filters.search ?? "") !== "";
 
   return (
-    <div className="flex flex-wrap items-center gap-[15px]">
+    <div className="dk-toolbar">
       <InlineSearch value={filters.search ?? ""} onChange={(v) => setFilters((prev) => ({ ...prev, search: v }))} />
 
       {appliedKeys.map((k) => (
@@ -393,7 +393,7 @@ export function InlineSearchInput({ value, onChange, placeholder = "Search…", 
       placeholder={placeholder}
       aria-label={placeholder}
       style={{ width }}
-      className="govuk-input"
+      className="dk-input"
     />
   );
 }
@@ -467,7 +467,7 @@ function InlineSearch({ value, onChange }) {
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder="Search ticker, filer, asset…"
-        className="govuk-input"
+        className="dk-input"
         style={{ width: 260 }}
       />
     </div>
@@ -544,7 +544,7 @@ function AddFilterButton({ categories, onAdd, open, setOpen }) {
       <button
         ref={btnRef}
         onClick={() => setOpen(!open)}
-        className="inline-flex items-center gap-1.5 h-8 px-3 border border-[#0b0c0c] bg-white text-[15px] font-medium text-[#0b0c0c] hover:bg-[#f3f2f1] transition-colors"
+        className="dk-btn"
       >
         <span>{icon.plus}</span>
         <span>Filter</span>
@@ -666,7 +666,7 @@ function ValuePicker({ cat, value, onPick }) {
             if (e.key === "Enter") onPick(textValue);
           }}
           placeholder={cat.placeholder}
-          className="govuk-input"
+          className="dk-input"
         />
         <button onClick={() => onPick(textValue)} className="govuk-button mt-2 w-full" style={{ marginBottom: 0 }}>
           Apply

@@ -73,3 +73,47 @@
 .dk-stat .dk-stat-label { font-size: var(--dk-fs-xs); font-weight: 600; color: var(--dk-muted); margin-bottom: 4px; }
 .dk-stat .dk-stat-value { font: 700 var(--dk-fs-l)/1.2 var(--dk-font); color: var(--dk-ink); }
 .dk-stat .dk-stat-sub { font-size: var(--dk-fs-xs); color: var(--dk-muted); margin-top: 2px; }
+
+/* ── SiteHeader + NavBar ── */
+.dk-container { max-width: 960px; margin: 0 auto; padding: 0 15px; }
+@media (min-width: 40.0625em) { .dk-container { padding: 0 30px; } }
+.dk-header { background: var(--dk-link); color: #fff; }
+.dk-header-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 10px; padding-bottom: 10px; }
+.dk-header-brand { color: #fff; font: 700 1.0625rem/1.2 var(--dk-font); text-decoration: none; white-space: nowrap; }
+.dk-header-brand:focus-visible { outline: 3px solid var(--dk-focus); outline-offset: 2px; }
+.dk-btn--inverse { background: none; border: 1px solid rgba(255,255,255,0.55); color: #fff; }
+.dk-btn--inverse:hover { background: rgba(255,255,255,0.12); }
+.dk-nav { background: #fff; border-bottom: 1px solid var(--dk-rule-soft); }
+.dk-nav-list { display: flex; gap: 24px; margin: 0; padding: 0; list-style: none; overflow-x: auto; }
+.dk-nav a {
+  display: inline-block; padding: 11px 0 8px; color: var(--dk-ink); text-decoration: none;
+  font-size: var(--dk-fs-m); border-bottom: 3px solid transparent; white-space: nowrap;
+}
+.dk-nav a:hover { border-bottom-color: var(--dk-faint); }
+.dk-nav a[aria-current="true"] { border-bottom-color: var(--dk-link); font-weight: 600; }
+.dk-nav a:focus-visible { outline: 3px solid var(--dk-focus); outline-offset: -1px; }
+
+/* ── Toolbar, inputs, buttons ── */
+.dk-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 14px; }
+.dk-input {
+  height: 32px; border: 2px solid var(--dk-ink); background: #fff; padding: 0 8px;
+  font: 400 var(--dk-fs-m)/1 var(--dk-font); color: var(--dk-ink);
+}
+.dk-input:focus { outline: 3px solid var(--dk-focus); outline-offset: 0; }
+.dk-btn {
+  display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px;
+  border: 2px solid var(--dk-ink); background: #fff; color: var(--dk-ink);
+  font: 500 var(--dk-fs-m)/1 var(--dk-font); cursor: pointer; white-space: nowrap;
+}
+.dk-btn:hover { background: var(--dk-bg-hover); }
+.dk-btn:focus-visible { outline: 3px solid var(--dk-focus); outline-offset: 0; }
+
+/* Hard overrides: host apps often route through a Link component that carries
+   legacy link styling (govuk-link et al). Kit chrome owns its own look, and
+   focus feedback is :focus-visible only — no sticky highlight after click. */
+.dk-nav a, .dk-nav a:visited { color: var(--dk-ink) !important; text-decoration: none !important; }
+.dk-nav a:focus { background: none !important; box-shadow: none !important; outline: none !important; color: var(--dk-ink) !important; }
+.dk-nav a:focus-visible { outline: 3px solid var(--dk-focus) !important; outline-offset: -1px; }
+.dk-header-brand, .dk-header-brand:visited { color: #fff !important; text-decoration: none !important; }
+.dk-header-brand:focus { background: none !important; box-shadow: none !important; outline: none !important; color: #fff !important; }
+.dk-header-brand:focus-visible { outline: 3px solid var(--dk-focus) !important; outline-offset: 2px; }

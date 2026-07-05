@@ -123,7 +123,7 @@ export default function CommandPalette({ open, onClose, filers = [], tickers = [
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="Search filers, tickers, or jump to a view…"
-            className="govuk-input flex-1"
+            className="dk-input flex-1"
           />
           <kbd className="px-1.5 py-0.5 border border-[#b1b4b6] bg-[#f3f2f1] font-mono text-[14px] text-[#505a5f]">
             Esc

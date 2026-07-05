@@ -101,3 +101,65 @@ export function Delta({ value, children }) {
   const cls = value > 0 ? "dk-pos" : value < 0 ? "dk-neg" : undefined;
   return <span className={cls}>{children}</span>;
 }
+
+// Site chrome: brand bar + tab navigation. linkComponent lets the host app
+// inject its SPA Link; falls back to plain anchors.
+export function SiteHeader({ brand, brandHref = "/", right, LinkComponent = "a" }) {
+  const L = LinkComponent;
+  return (
+    <header className="dk-header">
+      <div className="dk-container dk-header-inner">
+        <L href={brandHref} to={brandHref} className="dk-header-brand">
+          {brand}
+        </L>
+        {right}
+      </div>
+    </header>
+  );
+}
+
+export function NavBar({ items, LinkComponent = "a" }) {
+  const L = LinkComponent;
+  return (
+    <nav className="dk-nav" aria-label="Primary">
+      <div className="dk-container">
+        <ul className="dk-nav-list">
+          {items.map((it) => (
+            <li key={it.href}>
+              <L href={it.href} to={it.href} aria-current={it.active ? "true" : undefined}>
+                {it.label}
+              </L>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </nav>
+  );
+}
+
+export function Toolbar({ children }) {
+  return <div className="dk-toolbar">{children}</div>;
+}
+
+export function SearchInput({ value, onChange, placeholder, width = 260, ...rest }) {
+  return (
+    <input
+      type="search"
+      className="dk-input"
+      style={{ width }}
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+      placeholder={placeholder}
+      aria-label={placeholder}
+      {...rest}
+    />
+  );
+}
+
+export function Button({ children, inverse = false, ...rest }) {
+  return (
+    <button type="button" className={`dk-btn${inverse ? " dk-btn--inverse" : ""}`} {...rest}>
+      {children}
+    </button>
+  );
+}

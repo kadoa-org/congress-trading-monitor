@@ -69,7 +69,7 @@ export default function TickersPage({ data }) {
         <input
           id="ticker-filter"
           type="text"
-          className="govuk-input"
+          className="dk-input"
           style={{ maxWidth: 320 }}
           value={qs.q}
           onChange={(e) => setQs({ q: e.target.value })}
