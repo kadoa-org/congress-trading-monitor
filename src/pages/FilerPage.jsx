@@ -270,10 +270,10 @@ export default function FilerPage({ filerId, filersIndex, filersById, prices: pr
       </nav>
 
       {/* Hero: avatar, name as page heading, role/office line as hint, branch tag. */}
-      <div className="flex items-start gap-4 mb-6">
-        <AvatarPrimitive filer={filer} size={56} />
+      <div className="flex items-center gap-3 mb-6">
+        <AvatarPrimitive filer={filer} size={44} />
         <div className="min-w-0">
-          <h1 className="govuk-heading-xl" style={{ marginBottom: 8 }}>
+          <h1 className="govuk-heading-l" style={{ marginBottom: 2 }}>
             {filer.full_name}{" "}
             <span className="align-middle inline-block" style={{ verticalAlign: "middle" }}>
               <Pill tone={meta.tone}>{meta.label}</Pill>

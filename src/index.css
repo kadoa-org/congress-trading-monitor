@@ -50,3 +50,33 @@ html, body {
   outline: 2px solid rgba(94, 106, 210, 0.35);
   outline-offset: 1px;
 }
+
+/* ── GOV.UK compact scale ─────────────────────────────────────────────
+   The stock GOV.UK type scale (19px body, 48px XL) is tuned for prose-heavy
+   government content, not dense data tables. Keep the components and visual
+   idioms, but at this app's original compact sizing (Inter, ~15px body). */
+.govuk-body, .govuk-body-s, .govuk-hint,
+.govuk-table, .govuk-table__header, .govuk-table__cell {
+  font-size: 0.9375rem !important; /* 15px */
+  line-height: 1.45 !important;
+}
+.govuk-body-l { font-size: 1.0625rem !important; line-height: 1.5 !important; }
+.govuk-heading-xl { font-size: 1.75rem !important; line-height: 1.15 !important; margin-bottom: 14px !important; }
+.govuk-heading-l { font-size: 1.375rem !important; line-height: 1.2 !important; margin-bottom: 10px !important; }
+.govuk-heading-m { font-size: 1.0625rem !important; line-height: 1.3 !important; margin-bottom: 8px !important; }
+.govuk-heading-s { font-size: 0.9375rem !important; }
+.govuk-hint { font-size: 0.8125rem !important; margin-bottom: 8px !important; }
+.govuk-table__header, .govuk-table__cell { padding: 7px 12px 7px 0 !important; }
+.govuk-table__header { font-size: 0.8125rem !important; }
+.govuk-tag {
+  font-size: 0.6875rem !important;
+  line-height: 1 !important;
+  padding: 3px 6px 2px !important;
+  letter-spacing: 0.02em;
+}
+.govuk-phase-banner__content, .govuk-phase-banner__text { font-size: 0.8125rem !important; }
+.govuk-service-navigation__link, .govuk-service-navigation__item { font-size: 0.9375rem !important; }
+.govuk-input, .govuk-select { font-size: 0.9375rem !important; height: 32px !important; }
+.govuk-button { font-size: 0.9375rem !important; padding: 6px 12px !important; }
+.govuk-breadcrumbs__list-item, .govuk-breadcrumbs__link { font-size: 0.8125rem !important; }
+.govuk-summary-list__key, .govuk-summary-list__value { font-size: 0.9375rem !important; padding-top: 7px !important; padding-bottom: 7px !important; }

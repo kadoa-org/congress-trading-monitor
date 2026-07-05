@@ -35,7 +35,7 @@ export default function LatestActivity({ trades, limit = 12 }) {
     <div className="border border-[#b1b4b6] bg-white overflow-hidden">
       {/* Column header only renders at sm+ — mobile layout is a stacked card. */}
       <div
-        className={`hidden sm:grid grid-cols-[minmax(0,1fr)_56px_88px_64px_88px] gap-3 px-4 py-[10px] border-b border-stroke items-center ${TABLE_HEADER_CLS}`}
+        className={`hidden sm:grid grid-cols-[minmax(0,1fr)_44px_74px_58px_60px] gap-2 px-4 py-[10px] border-b border-stroke items-center ${TABLE_HEADER_CLS}`}
       >
         <span>Filer</span>
         <span>Side</span>
@@ -55,7 +55,7 @@ export default function LatestActivity({ trades, limit = 12 }) {
             <RowLink
               key={t.id}
               to={t.filer_id ? `/filer/${t.filer_id}` : undefined}
-              className="w-full px-3 sm:px-4 py-[10px] text-left even:bg-[lch(95.5%_0_282)] hover:bg-muted block sm:grid sm:grid-cols-[minmax(0,1fr)_56px_88px_64px_88px] sm:gap-3 sm:items-center text-ink no-underline"
+              className="w-full px-3 sm:px-4 py-[10px] text-left hover:bg-muted block sm:grid sm:grid-cols-[minmax(0,1fr)_44px_74px_58px_60px] sm:gap-2 sm:items-center text-ink no-underline"
             >
               {/* Filer block — a SINGLE grid cell on desktop (col 1, 1fr) that
                   contains avatar + name + asset inline. On mobile this is a

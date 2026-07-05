@@ -41,7 +41,7 @@ export default function LateLeaderboard({ filers }) {
             <RowLink
               key={f.id}
               to={`/filer/${f.id}`}
-              className="w-full grid grid-cols-[28px_minmax(0,1fr)_80px_112px] gap-3 px-4 py-[10px] items-center text-left text-ink no-underline even:bg-[lch(95.5%_0_282)] hover:bg-muted"
+              className="w-full grid grid-cols-[28px_minmax(0,1fr)_80px_112px] gap-3 px-4 py-[10px] items-center text-left text-ink no-underline hover:bg-muted"
             >
               <RankBadge rank={i + 1} />
               <div className="flex items-center gap-2.5 min-w-0">
