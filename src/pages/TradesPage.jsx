@@ -2,7 +2,7 @@ import React, { useMemo, useState } from "react";
 import FilterBar, { applyFilters, defaultFilters } from "../components/FilterBar";
 import { useQueryState } from "../router";
 import TradesTable from "../TradesTable";
-import { fmtInt, SectionHeader } from "../ui";
+import { fmtInt } from "../ui";
 
 const FILTER_KEYS = ["q", "source", "type", "size", "late", "party", "state", "asset"];
 const QUERY_DEFAULTS = {
@@ -76,7 +76,12 @@ export default function TradesPage({ data }) {
 
   return (
     <div className="max-w-[1440px] mx-auto px-4 sm:px-6 pt-8 pb-16">
-      <SectionHeader title="All trades" subtitle={`${fmtInt(filtered.length)} of ${fmtInt(trades.length)}`} />
+      <h1 className="govuk-heading-l" style={{ marginBottom: 10 }}>
+        All trades
+      </h1>
+      <p className="govuk-hint">
+        {fmtInt(filtered.length)} of {fmtInt(trades.length)}
+      </p>
 
       <div className="mb-4">
         <FilterBar filters={filters} setFilters={setFilters} trades={trades} />

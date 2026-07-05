@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useRoute } from "./router";
-import { Link, Pill } from "./ui";
+import { Link } from "./ui";
 
 const TABS = [
   { to: "/", label: "Overview", match: "overview" },
@@ -10,17 +10,12 @@ const TABS = [
   { to: "/about", label: "About", match: "about" },
 ];
 
-function isMac() {
-  return typeof navigator !== "undefined" && /Mac|iPod|iPhone|iPad/.test(navigator.platform);
-}
-
+// GOV.UK-style chrome: black header with service name (crown omitted — it is
+// licence-restricted to gov.uk services), service navigation, and a phase
+// banner marking this design as an experiment.
 export default function Masthead({ stats, onOpenCmdK }) {
   const route = useRoute();
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [mac, setMac] = useState(false);
-  useEffect(() => setMac(isMac()), []);
 
-  // Active tab detection - detail pages highlight nearest tab
   const activeTab = (() => {
     if (route.name === "filer") return "filers";
     if (route.name === "ticker") return "tickers";
@@ -28,135 +23,95 @@ export default function Masthead({ stats, onOpenCmdK }) {
   })();
 
   return (
-    <header className="border-b border-stroke bg-canvas/95 backdrop-blur sticky top-0 z-30">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 h-12 flex items-center justify-between gap-4">
-        <div className="flex items-center gap-2 min-w-0">
-          <Link
-            to="/"
-            className="flex items-center gap-1.5 text-small font-semibold tracking-[-0.005em] text-ink no-underline hover:no-underline whitespace-nowrap"
+    <>
+      <header className="govuk-header" data-module="govuk-header">
+        <div className="govuk-header__container govuk-width-container">
+          <div
+            className="govuk-header__logo"
+            style={{
+              width: "auto",
+              float: "none",
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
           >
-            <span className="text-[15px]">🏛️</span>
-            Congress Trading Monitor
-          </Link>
-          <span className="hidden lg:inline-flex items-center gap-1 text-mini text-[#10b981] ml-1.5 whitespace-nowrap">
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#10b981] opacity-75" />
-              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#10b981]" />
-            </span>
-            updated daily
-          </span>
+            <Link to="/" className="govuk-header__link govuk-header__link--homepage">
+              <span className="govuk-header__logotype" style={{ fontWeight: 700, color: "#ffffff" }}>
+                🏛️ Congress Trading Monitor
+              </span>
+            </Link>
+            <button
+              type="button"
+              onClick={onOpenCmdK}
+              aria-label="Search (Cmd+K)"
+              style={{
+                background: "none",
+                border: "1px solid rgba(255,255,255,0.5)",
+                color: "#ffffff",
+                font: "inherit",
+                fontSize: 16,
+                padding: "2px 10px",
+                cursor: "pointer",
+              }}
+            >
+              Search ⌘K
+            </button>
+          </div>
         </div>
-        <nav className="hidden md:flex items-center h-full">
-          {TABS.map((t) => {
-            const active = activeTab === t.match;
-            return (
-              <Link
-                key={t.to}
-                to={t.to}
-                className={`relative h-12 flex items-center px-3 text-small font-medium no-underline hover:no-underline transition-colors ${
-                  active ? "text-ink" : "text-ink_muted hover:text-ink"
-                }`}
+      </header>
+
+      <section aria-label="Service information" className="govuk-service-navigation">
+        <div className="govuk-width-container">
+          <div className="govuk-service-navigation__container">
+            <nav aria-label="Menu" className="govuk-service-navigation__wrapper">
+              <ul className="govuk-service-navigation__list">
+                {TABS.map((t) => {
+                  const active = activeTab === t.match;
+                  return (
+                    <li
+                      key={t.to}
+                      className={`govuk-service-navigation__item${active ? " govuk-service-navigation__item--active" : ""}`}
+                    >
+                      <Link
+                        to={t.to}
+                        className="govuk-service-navigation__link"
+                        aria-current={active ? "true" : undefined}
+                      >
+                        {active ? (
+                          <strong className="govuk-service-navigation__active-fallback">{t.label}</strong>
+                        ) : (
+                          t.label
+                        )}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </section>
+
+      <div className="govuk-phase-banner" style={{ borderBottom: "1px solid #b1b4b6" }}>
+        <div className="govuk-width-container">
+          <p className="govuk-phase-banner__content">
+            <strong className="govuk-tag govuk-phase-banner__content__tag">Experimental</strong>
+            <span className="govuk-phase-banner__text">
+              GOV.UK-style redesign. Data updates daily.{" "}
+              <a
+                className="govuk-link"
+                href="https://github.com/kadoa-org/congress-trading-monitor"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                {t.label}
-                {active && <span className="absolute left-2 right-2 bottom-[-1px] h-[2px] bg-accent rounded-t-full" />}
-              </Link>
-            );
-          })}
-        </nav>
-        <div className="flex items-center gap-2">
-          <button
-            onClick={onOpenCmdK}
-            className="hidden sm:flex items-center gap-2 h-7 pl-2 pr-1.5 rounded-md border border-stroke text-ink_muted hover:text-ink hover:border-ink_faint text-small bg-panel"
-            aria-label="Search"
-          >
-            <svg
-              width="12"
-              height="12"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <circle cx="11" cy="11" r="8" />
-              <path d="m21 21-4.35-4.35" />
-            </svg>
-            <span className="text-ink_muted">Search…</span>
-            <span className="hidden lg:inline-flex ml-4 items-center gap-[2px] text-mini text-ink_faint">
-              <kbd className="px-1 py-[1px] rounded border border-stroke bg-muted font-mono text-[11px] leading-none">
-                {mac ? "⌘" : "Ctrl"}
-              </kbd>
-              <kbd className="px-1 py-[1px] rounded border border-stroke bg-muted font-mono text-[11px] leading-none">
-                K
-              </kbd>
+                Star on GitHub
+              </a>
+              .
             </span>
-          </button>
-          <a
-            href="https://github.com/kadoa-org/congress-trading-monitor"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Star on GitHub"
-            className="flex items-center gap-1.5 px-2 sm:px-2.5 h-7 rounded-md bg-[#191919] text-white text-mini font-medium hover:bg-[#333] transition-colors"
-          >
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
-              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z" />
-            </svg>
-            <span className="hidden lg:inline">Star on GitHub</span>
-          </a>
-          <button
-            className="md:hidden w-8 h-8 rounded-md flex items-center justify-center border border-stroke text-ink_muted hover:text-ink"
-            onClick={() => setMenuOpen((o) => !o)}
-            aria-label="Menu"
-          >
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.6"
-              strokeLinecap="round"
-            >
-              {menuOpen ? (
-                <>
-                  <path d="M4 4l8 8" />
-                  <path d="M12 4l-8 8" />
-                </>
-              ) : (
-                <>
-                  <path d="M3 5h10" />
-                  <path d="M3 8h10" />
-                  <path d="M3 11h10" />
-                </>
-              )}
-            </svg>
-          </button>
+          </p>
         </div>
       </div>
-      {menuOpen && (
-        <div className="md:hidden border-t border-stroke bg-canvas px-4 py-3 flex flex-col gap-[2px]">
-          {TABS.map((t) => (
-            <Link
-              key={t.to}
-              to={t.to}
-              onClick={() => setMenuOpen(false)}
-              className={`py-2 text-small no-underline hover:no-underline ${activeTab === t.match ? "text-ink font-medium" : "text-ink_muted"}`}
-            >
-              {t.label}
-            </Link>
-          ))}
-          <button
-            onClick={() => {
-              setMenuOpen(false);
-              onOpenCmdK();
-            }}
-            className="mt-2 py-2 text-left text-small text-ink_muted"
-          >
-            Search…
-          </button>
-        </div>
-      )}
-    </header>
+    </>
   );
 }

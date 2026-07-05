@@ -1,5 +1,6 @@
 import React, { useMemo } from "react";
-import { dateInAdmin, findAdmin, fmtInt, fmtUSD, Link, RowLink, SectionHeader, TABLE_HEADER_CLS } from "../ui";
+import { navigate } from "../router";
+import { dateInAdmin, findAdmin, fmtInt, fmtUSD, Link, RowLink, SectionHeader } from "../ui";
 import { FilerAvatar } from "./TablePrimitives";
 
 // Trump II cabinet spotlight. Surfaces executive-branch officials with any
@@ -8,6 +9,11 @@ import { FilerAvatar } from "./TablePrimitives";
 // trade large one-off positions rather than many small ones.
 //
 // Inspired by open-cabinet.org's "What is Trump's cabinet buying?" hero block.
+
+// GOV.UK buy/sell text colours.
+const BUY = "text-[#0f7a52]";
+const SELL = "text-[#ca3535]";
+
 export default function CabinetSpotlight({ filers, trades }) {
   const admin = findAdmin("trump2");
 
@@ -67,47 +73,43 @@ export default function CabinetSpotlight({ filers, trades }) {
       <SectionHeader
         title="Cabinet activity"
         subtitle={`${fmtInt(spotlight.officials.length)} officials · ${fmtInt(spotlight.totalTrades)} trades · ${fmtUSD(spotlight.totalVol)} since 2025-01-20`}
-        right={
-          <Link to="/filers?admin=trump2&branch=executive" className="text-small no-underline hover:no-underline">
-            See all →
-          </Link>
-        }
+        right={<Link to="/filers?admin=trump2&branch=executive">See all</Link>}
       />
-      <div className="border border-stroke rounded-md bg-panel overflow-hidden">
-        {/* Mobile/tablet: stacked rows with zebra. */}
-        <div className="lg:hidden divide-y divide-stroke_soft">
+      {/* Mobile/tablet: stacked rows inside a square bordered panel. */}
+      <div className="lg:hidden border border-[#b1b4b6] bg-white">
+        <div className="divide-y divide-[#b1b4b6]">
           {spotlight.officials.slice(0, 10).map((o, i) => {
             const netBias = o.trades ? ((o.buys - o.sells) / o.trades) * 100 : 0;
             return (
               <RowLink
                 key={o.id}
                 to={`/filer/${o.id}`}
-                className="block w-full px-3 py-3 text-left text-ink no-underline even:bg-[lch(95.5%_0_282)] hover:bg-muted/70"
+                className="block w-full px-3 py-3 text-left text-[#0b0c0c] no-underline hover:bg-[#f3f2f1]"
               >
                 <div className="flex items-center justify-between gap-3">
                   <div className="flex items-center gap-2 min-w-0 flex-1">
-                    <span className="text-mini text-ink_faint tabular-nums w-5 shrink-0 text-right">{i + 1}</span>
+                    <span className="text-mini text-[#505a5f] tabular-nums w-5 shrink-0 text-right">{i + 1}</span>
                     <FilerAvatar filer={o} size={28} />
                     <div className="min-w-0">
-                      <div className="text-small text-ink font-medium truncate">{o.name}</div>
-                      <div className="text-mini text-ink_muted truncate mt-[1px]">
+                      <div className="text-small text-[#0b0c0c] font-bold truncate">{o.name}</div>
+                      <div className="text-mini text-[#505a5f] truncate mt-[1px]">
                         {o.level || "Official"}
                         {o.agency ? ` · ${o.agency}` : ""}
                       </div>
                     </div>
                   </div>
                   <div className="text-right shrink-0 tabular-nums">
-                    <div className="text-small text-ink font-medium">{fmtUSD(o.volume)}</div>
-                    <div className="text-mini text-ink_muted mt-[1px]">{fmtInt(o.trades)} trades</div>
+                    <div className="text-small text-[#0b0c0c] font-bold">{fmtUSD(o.volume)}</div>
+                    <div className="text-mini text-[#505a5f] mt-[1px]">{fmtInt(o.trades)} trades</div>
                   </div>
                 </div>
-                <div className="mt-1.5 ml-7 flex items-center gap-2 text-mini tabular-nums text-ink_muted">
+                <div className="mt-1.5 ml-7 flex items-center gap-2 text-mini tabular-nums text-[#505a5f]">
                   <span>
-                    <span className="text-buy">{o.buys}</span>
-                    <span className="text-ink_faint mx-[2px]">/</span>
-                    <span className="text-sell">{o.sells}</span>
+                    <span className={BUY}>{o.buys}</span>
+                    <span className="mx-[2px]">/</span>
+                    <span className={SELL}>{o.sells}</span>
                   </span>
-                  <span className={netBias > 20 ? "text-buy" : netBias < -20 ? "text-sell" : "text-ink_faint"}>
+                  <span className={netBias > 20 ? BUY : netBias < -20 ? SELL : "text-[#505a5f]"}>
                     {netBias > 20 ? "buy bias" : netBias < -20 ? "sell bias" : "balanced"}
                   </span>
                 </div>
@@ -115,60 +117,82 @@ export default function CabinetSpotlight({ filers, trades }) {
             );
           })}
         </div>
-        {/* Desktop: full grid table. */}
-        <div className="hidden lg:block overflow-x-auto">
-          <div className="min-w-[720px]">
-            <div
-              className={`grid grid-cols-[32px_minmax(0,1.3fr)_minmax(0,1fr)_70px_136px_110px] gap-3 px-4 py-[10px] border-b border-stroke items-center ${TABLE_HEADER_CLS}`}
-            >
-              <span className="text-right">#</span>
-              <span>Official</span>
-              <span>Agency</span>
-              <span className="tabular-nums text-right">Trades</span>
-              <span className="tabular-nums text-right">Buy / Sell · bias</span>
-              <span className="tabular-nums text-right">Est. volume</span>
-            </div>
-            <div className="divide-y divide-stroke_soft">
-              {spotlight.officials.slice(0, 10).map((o, i) => {
-                const netBias = o.trades ? ((o.buys - o.sells) / o.trades) * 100 : 0;
-                const biasArrow = netBias > 20 ? "↑" : netBias < -20 ? "↓" : "•";
-                const biasTone = netBias > 20 ? "text-buy" : netBias < -20 ? "text-sell" : "text-ink_faint";
-                return (
-                  <RowLink
-                    key={o.id}
-                    to={`/filer/${o.id}`}
-                    className="w-full grid grid-cols-[32px_minmax(0,1.3fr)_minmax(0,1fr)_70px_136px_110px] gap-3 px-4 py-[10px] items-center text-left text-small text-ink no-underline hover:bg-muted/70"
-                  >
-                    <span className="text-right text-mini text-ink_faint tabular-nums">{i + 1}</span>
+      </div>
+      {/* Desktop: semantic GOV.UK table. */}
+      <div className="hidden lg:block overflow-x-auto">
+        <table className="govuk-table" style={{ marginBottom: 0 }}>
+          <thead className="govuk-table__head">
+            <tr className="govuk-table__row">
+              <th scope="col" className="govuk-table__header govuk-table__header--numeric w-[40px]">
+                #
+              </th>
+              <th scope="col" className="govuk-table__header">
+                Official
+              </th>
+              <th scope="col" className="govuk-table__header">
+                Agency
+              </th>
+              <th scope="col" className="govuk-table__header govuk-table__header--numeric">
+                Trades
+              </th>
+              <th scope="col" className="govuk-table__header govuk-table__header--numeric">
+                Buy / Sell · bias
+              </th>
+              <th scope="col" className="govuk-table__header govuk-table__header--numeric">
+                Est. volume
+              </th>
+            </tr>
+          </thead>
+          <tbody className="govuk-table__body">
+            {spotlight.officials.slice(0, 10).map((o, i) => {
+              const netBias = o.trades ? ((o.buys - o.sells) / o.trades) * 100 : 0;
+              const biasArrow = netBias > 20 ? "↑" : netBias < -20 ? "↓" : "•";
+              const biasTone = netBias > 20 ? BUY : netBias < -20 ? SELL : "text-[#505a5f]";
+              return (
+                <tr
+                  key={o.id}
+                  className="govuk-table__row hover:bg-[#f3f2f1] cursor-pointer"
+                  onClick={(e) => {
+                    // Anchors handle their own navigation (incl. cmd/ctrl-click).
+                    if (e.target.closest("a") || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+                    navigate(`/filer/${o.id}`);
+                  }}
+                >
+                  <td className="govuk-table__cell govuk-table__cell--numeric text-[#505a5f] tabular-nums">{i + 1}</td>
+                  <td className="govuk-table__cell">
                     <div className="flex items-center gap-2.5 min-w-0">
                       <FilerAvatar filer={o} size={28} />
                       <div className="min-w-0">
-                        <div className="text-ink font-medium truncate">{o.name}</div>
-                        <div className="text-mini text-ink_muted truncate">{o.level || "Official"}</div>
+                        <RowLink to={`/filer/${o.id}`} className="govuk-link font-bold truncate">
+                          {o.name}
+                        </RowLink>
+                        <div className="text-mini text-[#505a5f] truncate">{o.level || "Official"}</div>
                       </div>
                     </div>
-                    <span className="text-ink_muted truncate">{o.agency || "—"}</span>
-                    <span className="tabular-nums text-right text-ink">{fmtInt(o.trades)}</span>
-                    <div className="flex items-center justify-end gap-2">
-                      <span className="text-mini tabular-nums whitespace-nowrap">
-                        <span className="text-buy">{o.buys}</span>
-                        <span className="text-ink_faint mx-[2px]">/</span>
-                        <span className="text-sell">{o.sells}</span>
+                  </td>
+                  <td className="govuk-table__cell text-[#505a5f]">{o.agency || "—"}</td>
+                  <td className="govuk-table__cell govuk-table__cell--numeric tabular-nums">{fmtInt(o.trades)}</td>
+                  <td className="govuk-table__cell govuk-table__cell--numeric">
+                    <span className="inline-flex items-center justify-end gap-2">
+                      <span className="tabular-nums whitespace-nowrap">
+                        <span className={BUY}>{o.buys}</span>
+                        <span className="text-[#505a5f] mx-[2px]">/</span>
+                        <span className={SELL}>{o.sells}</span>
                       </span>
                       <span
-                        className={`text-small tabular-nums w-[12px] text-center ${biasTone}`}
+                        className={`tabular-nums w-[12px] text-center ${biasTone}`}
                         title={`Net bias ${netBias.toFixed(0)}%`}
                       >
                         {biasArrow}
                       </span>
-                    </div>
-                    <span className="tabular-nums text-right text-ink_muted">{fmtUSD(o.volume)}</span>
-                  </RowLink>
-                );
-              })}
-            </div>
-          </div>
-        </div>
+                    </span>
+                  </td>
+                  <td className="govuk-table__cell govuk-table__cell--numeric tabular-nums">{fmtUSD(o.volume)}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
     </div>
   );

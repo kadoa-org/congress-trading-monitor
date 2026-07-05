@@ -6,7 +6,7 @@ function role(f) {
   return `${f.chamber === "senate" ? "Senate" : "House"} · ${f.party ?? "-"} · ${f.state ?? "-"}`;
 }
 
-// Linear-style command palette. Fuzzy-filters filers + tickers.
+// Command palette restyled to GOV.UK conventions. Fuzzy-filters filers + tickers.
 export default function CommandPalette({ open, onClose, filers = [], tickers = [] }) {
   const [q, setQ] = useState("");
   const [idx, setIdx] = useState(0);
@@ -111,37 +111,27 @@ export default function CommandPalette({ open, onClose, filers = [], tickers = [
 
   return (
     <div className="fixed inset-0 z-50 flex items-start justify-center pt-[12vh] px-4">
-      <div className="absolute inset-0 bg-ink/10 backdrop-blur-sm" onClick={onClose} />
-      <div className="relative w-full max-w-[560px] bg-panel border border-stroke rounded-md shadow-hover overflow-hidden">
-        <div className="flex items-center gap-2 px-3 border-b border-stroke h-11">
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            className="text-ink_muted"
-          >
-            <circle cx="11" cy="11" r="8" />
-            <path d="m21 21-4.35-4.35" />
-          </svg>
+      <div className="absolute inset-0 bg-[rgba(11,12,12,0.5)]" onClick={onClose} />
+      <div className="relative w-full max-w-[560px] bg-white border-2 border-[#0b0c0c] overflow-hidden">
+        <div className="flex items-center gap-2 p-3 border-b border-[#b1b4b6]">
+          <label htmlFor="command-palette-search" className="govuk-visually-hidden">
+            Search filers, tickers, or jump to a view
+          </label>
           <input
+            id="command-palette-search"
             ref={inputRef}
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="Search filers, tickers, or jump to a view…"
-            className="flex-1 bg-transparent text-regular placeholder:text-ink_faint text-ink focus:outline-none"
+            className="govuk-input flex-1"
           />
-          <kbd className="px-1.5 py-0.5 rounded border border-stroke bg-muted font-mono text-mini text-ink_muted">
+          <kbd className="px-1.5 py-0.5 border border-[#b1b4b6] bg-[#f3f2f1] font-mono text-[14px] text-[#505a5f]">
             Esc
           </kbd>
         </div>
         <div ref={listRef} className="max-h-[52vh] overflow-auto py-1">
           {items.length === 0 ? (
-            <div className="px-3 py-6 text-small text-ink_muted text-center">No matches</div>
+            <div className="px-3 py-6 text-[16px] text-[#505a5f] text-center">No matches</div>
           ) : (
             (() => {
               let lastType = null;
@@ -151,7 +141,7 @@ export default function CommandPalette({ open, onClose, filers = [], tickers = [
                 const label = { page: "Jump to", filer: "Filers", ticker: "Tickers" }[it.type];
                 return (
                   <React.Fragment key={`${it.type}-${it.id}`}>
-                    {showHeader && <div className="px-3 pt-2 pb-1 text-mini font-medium text-ink_muted">{label}</div>}
+                    {showHeader && <div className="px-3 pt-2 pb-1 text-[14px] font-bold text-[#505a5f]">{label}</div>}
                     <button
                       data-idx={i}
                       onMouseEnter={() => setIdx(i)}
@@ -159,21 +149,22 @@ export default function CommandPalette({ open, onClose, filers = [], tickers = [
                         onClose();
                         navigate(it.id);
                       }}
-                      className={`w-full flex items-center gap-3 px-3 py-[7px] text-small text-left ${
-                        idx === i ? "bg-muted text-ink" : "text-ink_secondary hover:bg-muted/60"
+                      className={`w-full flex items-center gap-3 px-3 py-[7px] text-[16px] text-left text-[#0b0c0c] ${
+                        idx === i ? "bg-[#f3f2f1]" : "hover:bg-[#f3f2f1]"
                       }`}
                     >
-                      <span className="w-5 h-5 flex items-center justify-center rounded bg-muted text-mini text-ink_muted font-mono">
+                      <span className="w-5 h-5 flex items-center justify-center border border-[#b1b4b6] bg-[#f3f2f1] text-[12px] text-[#505a5f] font-mono">
                         {it.type === "filer" ? "P" : it.type === "ticker" ? "$" : "→"}
                       </span>
                       <span
-                        className={`flex-1 ${it.type === "ticker" ? "font-mono font-semibold text-ink" : "font-medium text-ink"}`}
+                        className={`flex-1 font-bold ${it.type === "ticker" ? "font-mono" : ""}`}
+                        style={{ color: idx === i ? "#1d70b8" : "#0b0c0c" }}
                       >
                         {it.label}
                       </span>
-                      <span className="text-mini text-ink_muted truncate max-w-[180px]">{it.hint}</span>
+                      <span className="text-[14px] text-[#505a5f] truncate max-w-[180px]">{it.hint}</span>
                       {it.right && (
-                        <span className="text-mini text-ink_muted tabular-nums min-w-[72px] text-right">
+                        <span className="text-[14px] text-[#505a5f] tabular-nums min-w-[72px] text-right">
                           {it.right}
                         </span>
                       )}
@@ -184,14 +175,14 @@ export default function CommandPalette({ open, onClose, filers = [], tickers = [
             })()
           )}
         </div>
-        <div className="flex items-center gap-3 px-3 h-8 border-t border-stroke text-mini text-ink_muted">
+        <div className="flex items-center gap-3 px-3 h-8 border-t border-[#b1b4b6] text-[14px] text-[#505a5f]">
           <span className="inline-flex items-center gap-1">
-            <kbd className="px-1 rounded border border-stroke bg-muted font-mono">↑</kbd>
-            <kbd className="px-1 rounded border border-stroke bg-muted font-mono">↓</kbd>
+            <kbd className="px-1 border border-[#b1b4b6] bg-[#f3f2f1] font-mono">↑</kbd>
+            <kbd className="px-1 border border-[#b1b4b6] bg-[#f3f2f1] font-mono">↓</kbd>
             <span className="ml-1">navigate</span>
           </span>
           <span className="inline-flex items-center gap-1">
-            <kbd className="px-1 rounded border border-stroke bg-muted font-mono">↵</kbd>
+            <kbd className="px-1 border border-[#b1b4b6] bg-[#f3f2f1] font-mono">↵</kbd>
             <span className="ml-1">open</span>
           </span>
         </div>

@@ -32,7 +32,7 @@ export default function LatestActivity({ trades, limit = 12 }) {
   if (!rows.length) return null;
 
   return (
-    <div className="border border-stroke rounded-md bg-panel overflow-hidden">
+    <div className="border border-[#b1b4b6] bg-white overflow-hidden">
       {/* Column header only renders at sm+ — mobile layout is a stacked card. */}
       <div
         className={`hidden sm:grid grid-cols-[minmax(0,1fr)_56px_88px_64px_88px] gap-3 px-4 py-[10px] border-b border-stroke items-center ${TABLE_HEADER_CLS}`}

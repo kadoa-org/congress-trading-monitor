@@ -200,17 +200,22 @@ export function pct(n, digits = 0) {
 // since our earlier capsule pill read as "loud status chip" rather than a
 // calm category label.
 export function Pill({ tone = "neutral", children, size = "default" }) {
+  // GOV.UK tag component (strong.govuk-tag) with the official colour variants.
   const toneCls = {
-    neutral: "bg-muted text-ink_muted",
-    blue: "bg-[lch(93%_8_265)] text-[lch(38%_20_265)]",
-    violet: "bg-[lch(93%_8_300)] text-[lch(38%_25_295)]",
-    amber: "bg-[lch(94%_12_70)] text-[lch(38%_30_55)]",
-    buy: "bg-buy_bg text-buy",
-    sell: "bg-sell_bg text-sell",
-    warn: "bg-warn_bg text-warn",
+    neutral: "govuk-tag--grey",
+    blue: "govuk-tag--blue",
+    violet: "govuk-tag--purple",
+    amber: "govuk-tag--orange",
+    buy: "govuk-tag--green",
+    sell: "govuk-tag--red",
+    warn: "govuk-tag--yellow",
   }[tone];
-  const sz = size === "xs" ? "text-[0.6875rem] px-[5px] py-[1px]" : "text-mini px-[6px] py-[2px]";
-  return <span className={`inline-flex items-center rounded-[4px] font-[450] ${sz} ${toneCls}`}>{children}</span>;
+  const sz = size === "xs" ? { fontSize: "12px", paddingTop: 1, paddingBottom: 1 } : undefined;
+  return (
+    <strong className={`govuk-tag ${toneCls}`} style={sz}>
+      {children}
+    </strong>
+  );
 }
 
 export function sourcePill(source) {
@@ -303,7 +308,7 @@ export function Link({ to, className = "", children, onClick, ...rest }) {
   return (
     <a
       href={to}
-      className={`text-accent hover:underline underline-offset-2 ${className}`}
+      className={`govuk-link ${className}`}
       onClick={(e) => {
         if (e.metaKey || e.ctrlKey || e.shiftKey) return;
         e.preventDefault();
@@ -321,10 +326,11 @@ export function Link({ to, className = "", children, onClick, ...rest }) {
 // When `to` is set the card renders as a RowLink so the whole surface is
 // cmd/ctrl-clickable (and middle-clickable) to open in a new tab.
 export function Card({ children, className = "", to }) {
-  const base = `border border-stroke rounded-md bg-panel ${className}`;
+  // GOV.UK has no card component; nearest idiom is a square 1px-bordered panel.
+  const base = `border border-[#b1b4b6] bg-white ${className}`;
   if (to) {
     return (
-      <RowLink to={to} className={`block text-ink no-underline hover:bg-muted/40 ${base}`}>
+      <RowLink to={to} className={`block text-ink no-underline hover:bg-[#f3f2f1] ${base}`}>
         {children}
       </RowLink>
     );
@@ -336,8 +342,10 @@ export function SectionHeader({ title, subtitle, right }) {
   return (
     <div className="flex items-baseline justify-between gap-4 mb-4">
       <div className="min-w-0">
-        <h2 className="text-large font-semibold text-ink tracking-[-0.005em]">{title}</h2>
-        {subtitle && <p className="text-small text-ink_muted mt-[2px]">{subtitle}</p>}
+        <h2 className="govuk-heading-m" style={{ marginBottom: subtitle ? 2 : 0 }}>
+          {title}
+        </h2>
+        {subtitle && <p className="govuk-hint" style={{ marginBottom: 0, fontSize: "16px" }}>{subtitle}</p>}
       </div>
       {right && <div className="shrink-0 whitespace-nowrap">{right}</div>}
     </div>
@@ -392,13 +400,13 @@ export function dateInAdmin(d, admin) {
 export function Segmented({ value, onChange, options, size = "default" }) {
   const h = size === "sm" ? "h-6 text-mini px-2" : "h-7 text-small px-2.5";
   return (
-    <div className="inline-flex items-center border border-stroke rounded-md bg-panel overflow-hidden">
+    <div className="inline-flex items-center border border-[#0b0c0c] bg-white overflow-hidden">
       {options.map((o, i) => (
         <button
           key={o.k}
           onClick={() => onChange(o.k)}
           className={`${h} transition-colors whitespace-nowrap font-medium ${
-            value === o.k ? "bg-accent text-white" : "text-ink_muted hover:bg-muted hover:text-ink"
+            value === o.k ? "bg-[#1d70b8] text-white" : "text-[#0b0c0c] hover:bg-[#f3f2f1]"
           } ${i > 0 ? "border-l border-stroke" : ""}`}
         >
           {o.label}

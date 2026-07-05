@@ -10,7 +10,7 @@ function role(f) {
 export default function ReturnsLeaderboard({ returns }) {
   if (!returns || returns.length === 0) {
     return (
-      <div className="border border-stroke rounded-md bg-panel p-4 text-small text-ink_muted">
+      <div className="border border-[#b1b4b6] bg-white p-4 text-small text-ink_muted">
         Return data not yet computed. Run <span className="font-mono text-ink">bun collectors/fetchPrices.ts</span> then{" "}
         <span className="font-mono text-ink">bun extractors/computeReturns.ts</span>.
       </div>
@@ -20,7 +20,7 @@ export default function ReturnsLeaderboard({ returns }) {
   const ranked = [...returns].sort((a, b) => b.weighted_excess - a.weighted_excess).slice(0, 15);
 
   return (
-    <div className="border border-stroke rounded-md bg-panel overflow-hidden">
+    <div className="border border-[#b1b4b6] bg-white overflow-hidden">
       <div
         className={`grid grid-cols-[28px_minmax(0,1fr)_96px_56px] gap-3 px-4 py-[10px] border-b border-stroke items-center ${TABLE_HEADER_CLS}`}
       >

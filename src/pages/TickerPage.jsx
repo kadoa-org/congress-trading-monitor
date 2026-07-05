@@ -2,7 +2,6 @@ import React, { useEffect, useMemo, useState } from "react";
 import FilterBar, { applyFilters, defaultFilters } from "../components/FilterBar";
 import PersonalTimeline from "../components/PersonalTimeline";
 import { FilerAvatar } from "../components/TablePrimitives";
-import { TickerBadge } from "../components/TickerBadge";
 import TradesTable from "../TradesTable";
 import { bestAssetNameByTicker, Card, fmtInt, fmtUSD, Link, RowLink, SectionHeader } from "../ui";
 
@@ -83,10 +82,10 @@ export default function TickerPage({ symbol, filersById }) {
   if (error) {
     return (
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 py-16">
-        <div className="text-small text-ink_muted">
-          No trades found for <span className="font-mono text-ink">{symbol}</span>.
-        </div>
-        <Link to="/" className="text-small mt-3 inline-block">
+        <p className="govuk-body">
+          No trades found for <strong>{symbol}</strong>.
+        </p>
+        <Link to="/" className="govuk-body inline-block">
           ← Back to all trades
         </Link>
       </div>
@@ -94,67 +93,96 @@ export default function TickerPage({ symbol, filersById }) {
   }
 
   if (!data) {
-    return <div className="max-w-[1440px] mx-auto px-4 sm:px-6 py-16 text-ink_muted text-small">Loading…</div>;
+    return <div className="max-w-[1440px] mx-auto px-4 sm:px-6 py-16 govuk-body text-[#505a5f]">Loading…</div>;
   }
 
   return (
     <div className="max-w-[1440px] mx-auto px-4 sm:px-6 pt-8 pb-16">
-      <nav className="text-small text-ink_muted mb-4 flex items-center gap-1.5" aria-label="Breadcrumb">
-        <Link to="/" className="no-underline hover:text-ink hover:no-underline">
-          Overview
-        </Link>
-        <span className="text-ink_faint">›</span>
-        <Link to="/tickers" className="no-underline hover:text-ink hover:no-underline">
-          Tickers
-        </Link>
-        <span className="text-ink_faint">›</span>
-        <span className="text-ink font-semibold">{ticker}</span>
+      <nav className="govuk-breadcrumbs mb-6" aria-label="Breadcrumb" style={{ marginTop: 0 }}>
+        <ol className="govuk-breadcrumbs__list">
+          <li className="govuk-breadcrumbs__list-item">
+            <Link to="/" className="govuk-breadcrumbs__link">
+              Overview
+            </Link>
+          </li>
+          <li className="govuk-breadcrumbs__list-item">
+            <Link to="/tickers" className="govuk-breadcrumbs__link">
+              Tickers
+            </Link>
+          </li>
+          <li className="govuk-breadcrumbs__list-item" aria-current="page">
+            {ticker}
+          </li>
+        </ol>
       </nav>
 
       <div className="flex items-start justify-between flex-wrap gap-4 mb-8">
-        <div className="flex items-start gap-3 flex-wrap min-w-0">
-          <TickerBadge ticker={ticker} size="lg" />
-          <div className="min-w-0">
-            {fullName && (
-              <div className="text-large font-semibold text-ink leading-tight" title={fullName}>
-                {fullName}
-              </div>
-            )}
-            <div className="text-regular text-ink_muted mt-[2px]">
-              traded by <span className="text-ink font-medium">{stats.filerCount}</span> filers,{" "}
-              <span className="text-ink font-medium">{fmtInt(stats.count)}</span> times
-              <a
-                href={`https://finance.yahoo.com/quote/${encodeURIComponent(ticker)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="ml-2 text-mini text-ink_faint hover:text-accent hover:underline"
-                title={`Open ${ticker} on Yahoo Finance`}
-              >
-                Yahoo Finance ↗
-              </a>
-            </div>
-          </div>
+        <div className="min-w-0">
+          <h1 className="govuk-heading-xl" style={{ marginBottom: 5 }}>
+            {ticker}
+          </h1>
+          {fullName && (
+            <p className="govuk-hint" style={{ marginBottom: 5 }} title={fullName}>
+              {fullName}
+            </p>
+          )}
+          <p className="govuk-body-s" style={{ color: "#505a5f", marginBottom: 0 }}>
+            traded by <strong style={{ color: "#0b0c0c" }}>{stats.filerCount}</strong> filers,{" "}
+            <strong style={{ color: "#0b0c0c" }}>{fmtInt(stats.count)}</strong> times
+            <a
+              href={`https://finance.yahoo.com/quote/${encodeURIComponent(ticker)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="govuk-link ml-2"
+              title={`Open ${ticker} on Yahoo Finance`}
+            >
+              Yahoo Finance ↗
+            </a>
+          </p>
         </div>
         {price && <PriceTicker price={price} />}
       </div>
 
-      <Card className="mb-8 overflow-hidden">
-        <div className="grid grid-cols-2 md:grid-cols-6 divide-x divide-stroke md:divide-y-0 divide-y">
-          <Stat label="Trades" value={fmtInt(stats.count)} />
-          <Stat label="Buys" value={fmtInt(stats.buys)} className="text-buy" />
-          <Stat label="Sells" value={fmtInt(stats.sells)} className="text-sell" />
-          <Stat label="Est. volume" value={fmtUSD(stats.vol)} />
-          <Stat label="Late" value={`${fmtInt(stats.late)}`} />
-          {stats.avgExcess != null && (
-            <Stat
-              label="Avg cumulative vs SPY"
-              value={`${stats.avgExcess >= 0 ? "+" : ""}${stats.avgExcess.toFixed(0)}%`}
-              className={stats.avgExcess >= 0 ? "text-buy" : "text-sell"}
-              sub={`${stats.scored} scored buys, trade-date to today`}
-            />
-          )}
+      <dl className="govuk-summary-list mb-8" style={{ maxWidth: 640 }}>
+        <div className="govuk-summary-list__row">
+          <dt className="govuk-summary-list__key">Trades</dt>
+          <dd className="govuk-summary-list__value tabular-nums">{fmtInt(stats.count)}</dd>
         </div>
-      </Card>
+        <div className="govuk-summary-list__row">
+          <dt className="govuk-summary-list__key">Buys</dt>
+          <dd className="govuk-summary-list__value tabular-nums" style={{ color: "#0f7a52" }}>
+            {fmtInt(stats.buys)}
+          </dd>
+        </div>
+        <div className="govuk-summary-list__row">
+          <dt className="govuk-summary-list__key">Sells</dt>
+          <dd className="govuk-summary-list__value tabular-nums" style={{ color: "#ca3535" }}>
+            {fmtInt(stats.sells)}
+          </dd>
+        </div>
+        <div className="govuk-summary-list__row">
+          <dt className="govuk-summary-list__key">Est. volume</dt>
+          <dd className="govuk-summary-list__value tabular-nums">{fmtUSD(stats.vol)}</dd>
+        </div>
+        <div className="govuk-summary-list__row">
+          <dt className="govuk-summary-list__key">Late filings</dt>
+          <dd className="govuk-summary-list__value tabular-nums">{fmtInt(stats.late)}</dd>
+        </div>
+        {stats.avgExcess != null && (
+          <div className="govuk-summary-list__row">
+            <dt className="govuk-summary-list__key">Avg cumulative vs SPY</dt>
+            <dd className="govuk-summary-list__value tabular-nums">
+              <span style={{ color: stats.avgExcess >= 0 ? "#0f7a52" : "#ca3535" }}>
+                {stats.avgExcess >= 0 ? "+" : ""}
+                {stats.avgExcess.toFixed(0)}%
+              </span>
+              <span className="govuk-hint" style={{ marginBottom: 0, display: "block" }}>
+                {stats.scored} scored buys, trade-date to today
+              </span>
+            </dd>
+          </div>
+        )}
+      </dl>
 
       <div className="mb-8">
         <SectionHeader title="Trade timeline" />
@@ -166,19 +194,19 @@ export default function TickerPage({ symbol, filersById }) {
       <div className="mb-10">
         <SectionHeader title="Top holders" subtitle="Ranked by number of trades in this ticker" />
         <Card className="overflow-hidden">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 divide-x divide-y divide-stroke_soft">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 divide-x divide-y divide-[#b1b4b6]">
             {stats.topFilers.map((f) => {
               const lookup = filersById?.get?.(f.id) ?? { full_name: f.name, chamber: f.chamber, branch: f.branch };
               return (
                 <RowLink
                   key={f.id}
                   to={`/filer/${f.id}`}
-                  className="px-4 py-[10px] flex items-center gap-2.5 hover:bg-muted text-left min-w-0 text-ink no-underline"
+                  className="px-4 py-[10px] flex items-center gap-2.5 hover:bg-[#f3f2f1] text-left min-w-0 text-[#0b0c0c] no-underline"
                 >
                   <FilerAvatar filer={lookup} size={28} />
                   <div className="flex-1 min-w-0">
-                    <div className="text-small font-medium text-ink truncate">{f.name}</div>
-                    <div className="text-mini text-ink_muted tabular-nums whitespace-nowrap mt-[1px]">
+                    <div className="text-[16px] font-bold text-[#0b0c0c] truncate">{f.name}</div>
+                    <div className="text-[14px] text-[#505a5f] tabular-nums whitespace-nowrap mt-[1px]">
                       {f.count} · {fmtUSD(f.vol)}
                     </div>
                   </div>
@@ -198,35 +226,21 @@ export default function TickerPage({ symbol, filersById }) {
   );
 }
 
-function Stat({ label, value, className = "", sub }) {
-  return (
-    <div className="px-5 py-4 flex-1 min-w-0">
-      <div className="text-small font-medium text-ink_muted">{label}</div>
-      <div
-        className={`mt-2 text-[1.5rem] font-semibold leading-none tabular-nums tracking-[-0.012em] ${className || "text-ink"}`}
-      >
-        {value}
-      </div>
-      {sub && <div className="text-mini text-ink_muted mt-2">{sub}</div>}
-    </div>
-  );
-}
-
 function PriceTicker({ price }) {
   const last = price.latest?.close ?? null;
   const prev = price.previous?.close ?? null;
   const change = last != null && prev != null ? ((last - prev) / prev) * 100 : null;
-  const tone = change == null ? "text-ink_muted" : change >= 0 ? "text-buy" : "text-sell";
+  const tone = change == null ? "#505a5f" : change >= 0 ? "#0f7a52" : "#ca3535";
   return (
     <div className="text-right">
-      <div className="text-small text-ink_muted">
-        Last close <span className="font-mono text-ink_muted">{price.latest?.date ?? "—"}</span>
+      <div className="text-[16px] text-[#505a5f]">
+        Last close <span className="tabular-nums">{price.latest?.date ?? "—"}</span>
       </div>
       <div className="flex items-baseline gap-2 justify-end">
-        <span className="text-[1.25rem] font-semibold tabular-nums text-ink">
+        <span className="text-[1.25rem] font-bold tabular-nums text-[#0b0c0c]">
           ${last != null ? last.toFixed(2) : "—"}
         </span>
-        <span className={`text-small font-semibold tabular-nums ${tone}`}>
+        <span className="text-[16px] font-bold tabular-nums" style={{ color: tone }}>
           {change == null ? "" : `${change >= 0 ? "+" : ""}${change.toFixed(2)}%`}
         </span>
       </div>

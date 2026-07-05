@@ -2,7 +2,11 @@ import React, { useMemo } from "react";
 import { InlineSearchInput, SingleSelectChip } from "../components/FilterBar";
 import { FilerAvatar, SampleChip } from "../components/TablePrimitives";
 import { useQueryState } from "../router";
-import { Card, fmtInt, fmtUSD, RowLink, SectionHeader, SortHeader, TABLE_HEADER_CLS } from "../ui";
+import { Card, fmtInt, fmtUSD, RowLink, SectionHeader, SortHeader } from "../ui";
+
+// GOV.UK palette for data colouring (green = buy/positive, red = sell/negative).
+const GREEN = "text-[#0f7a52]";
+const RED = "text-[#ca3535]";
 
 const SORTS = {
   trades: { label: "Most trades", fn: (a, b) => b.trade_count - a.trade_count },
@@ -58,7 +62,8 @@ export default function FilersPage({ data }) {
 
   return (
     <div className="max-w-[1440px] mx-auto px-4 sm:px-6 pt-8 pb-16">
-      <SectionHeader title="Filers" subtitle={`${fmtInt(filtered.length)} of ${fmtInt(enrichedFilers.length)}`} />
+      <h1 className="govuk-heading-l" style={{ marginBottom: 10 }}>Filers</h1>
+      <p className="govuk-hint" style={{ marginTop: -6 }}>{`${fmtInt(filtered.length)} of ${fmtInt(enrichedFilers.length)}`}</p>
 
       <div className="flex flex-wrap items-center gap-1.5 mb-4">
         <InlineSearchInput
@@ -86,199 +91,122 @@ export default function FilersPage({ data }) {
 }
 
 // Columns: rank · avatar+name · trades · buy/sell split · volume · late share · alpha vs SPY
-// Sortable headers let the user drive the order; URL ?sort=<key> still works.
-const GRID = "32px minmax(180px,1.6fr) 86px 104px 128px 120px 128px";
-
+// Sortable headers stay inside <th>; URL ?sort=<key> still works.
 function FilersTable({ filtered, sort, setSort, onClear }) {
-  const empty = filtered.length === 0 && (
-    <div className="px-4 py-8 text-small text-ink_muted text-center">
-      No filers match these filters.{" "}
-      <button onClick={onClear} className="text-accent hover:underline">
-        Clear filters
-      </button>
-      .
-    </div>
-  );
   return (
     <Card className="overflow-hidden">
-      {/* Mobile/tablet: stacked rows with zebra. */}
-      <div className="lg:hidden divide-y divide-stroke_soft">
-        {empty}
-        {filtered.slice(0, 500).map((f, i) => {
-          const alpha = f.weighted_excess;
-          const officeLine =
-            f.branch === "executive"
-              ? `${f.level ?? ""} ${f.agency ?? ""}`.trim() || "Executive"
-              : `${f.chamber === "senate" ? "Senate" : "House"} · ${f.party ?? "-"} · ${f.state ?? "-"}`;
-          return (
-            <RowLink
-              key={f.id}
-              to={`/filer/${f.id}`}
-              className="block w-full px-3 py-3 text-left text-ink no-underline even:bg-[lch(95.5%_0_282)] hover:bg-muted/70"
-            >
-              <div className="flex items-start justify-between gap-3">
-                <div className="flex items-start gap-2 min-w-0 flex-1">
-                  <span className="text-mini text-ink_faint tabular-nums w-5 shrink-0 text-right mt-[1px]">
-                    {i + 1}
-                  </span>
-                  <FilerAvatar filer={f} size={28} />
-                  <div className="min-w-0 flex-1">
-                    <div className="text-small text-ink font-medium truncate">{f.full_name}</div>
-                    <div className="text-mini text-ink_muted truncate mt-[1px]">{officeLine}</div>
-                  </div>
-                </div>
-                {alpha != null ? (
-                  <div
-                    className={`text-small font-semibold tabular-nums shrink-0 ${alpha >= 0 ? "text-buy" : "text-sell"}`}
+      <div className="overflow-x-auto">
+        <table className="govuk-table" style={{ marginBottom: 0 }}>
+          <thead className="govuk-table__head">
+            <tr className="govuk-table__row">
+              <th scope="col" className="govuk-table__header govuk-table__header--numeric">
+                #
+              </th>
+              <th scope="col" className="govuk-table__header">
+                Filer
+              </th>
+              <th scope="col" className="govuk-table__header govuk-table__header--numeric">
+                <SortHeader label="Trades" sortKey="trades" sort={sort} setSort={setSort} align="right" />
+              </th>
+              <th scope="col" className="govuk-table__header govuk-table__header--numeric whitespace-nowrap">
+                Buy / Sell mix
+              </th>
+              <th scope="col" className="govuk-table__header govuk-table__header--numeric whitespace-nowrap">
+                <SortHeader label="Est. volume" sortKey="volume" sort={sort} setSort={setSort} align="right" />
+              </th>
+              <th scope="col" className="govuk-table__header govuk-table__header--numeric whitespace-nowrap">
+                <SortHeader label="Late share" sortKey="late" sort={sort} setSort={setSort} align="right" />
+              </th>
+              <th scope="col" className="govuk-table__header govuk-table__header--numeric whitespace-nowrap">
+                <SortHeader label="vs SPY" sortKey="alpha" sort={sort} setSort={setSort} align="right" />
+              </th>
+            </tr>
+          </thead>
+          <tbody className="govuk-table__body">
+            {filtered.length === 0 && (
+              <tr className="govuk-table__row">
+                <td colSpan={7} className="govuk-table__cell text-center text-[#505a5f]">
+                  No filers match these filters.{" "}
+                  <button
+                    onClick={onClear}
+                    className="govuk-link"
+                    style={{ background: "none", border: 0, padding: 0, cursor: "pointer" }}
                   >
-                    {alpha >= 0 ? "+" : ""}
-                    {alpha.toFixed(1)}%
-                  </div>
-                ) : (
-                  <div className="text-mini text-ink_faint shrink-0">no data</div>
-                )}
-              </div>
-              <div className="mt-1.5 ml-9 text-mini tabular-nums text-ink_muted">
-                <span>
-                  {f.trade_count.toLocaleString()} trades
-                  <span className="text-ink_faint mx-1">·</span>
-                  <span className="text-buy">{f.purchases || 0} buys</span>
-                  <span className="text-ink_faint mx-1">·</span>
-                  <span className="text-sell">{f.sales || 0} sells</span>
-                  {f.est_volume ? (
-                    <>
-                      <span className="text-ink_faint mx-1">·</span>
-                      {fmtUSD(f.est_volume)}
-                    </>
-                  ) : null}
-                </span>
-              </div>
-              {f.late_filings > 0 && (
-                <div className="mt-[2px] ml-9 text-mini tabular-nums">
-                  <span className={f.late_filings / f.trade_count >= 0.5 ? "text-warn font-medium" : "text-ink_muted"}>
-                    {((f.late_filings / f.trade_count) * 100).toFixed(0)}% late ({f.late_filings})
-                  </span>
-                </div>
-              )}
-            </RowLink>
-          );
-        })}
-      </div>
-      {/* Desktop: full grid table. */}
-      <div className="hidden lg:block overflow-x-auto">
-        <div className="min-w-[900px]">
-          <div
-            className={`grid gap-3 px-4 py-[10px] border-b border-stroke items-center ${TABLE_HEADER_CLS}`}
-            style={{ gridTemplateColumns: GRID }}
-          >
-            <span className="text-right">#</span>
-            <span>Filer</span>
-            <SortHeader label="Trades" sortKey="trades" sort={sort} setSort={setSort} align="right" />
-            <span className="tabular-nums text-right">Buy / Sell mix</span>
-            <SortHeader label="Est. volume" sortKey="volume" sort={sort} setSort={setSort} align="right" />
-            <SortHeader label="Late share" sortKey="late" sort={sort} setSort={setSort} align="right" />
-            <SortHeader label="vs SPY" sortKey="alpha" sort={sort} setSort={setSort} align="right" />
-          </div>
-          <div className="divide-y divide-stroke_soft">
-            {empty}
+                    Clear filters
+                  </button>
+                  .
+                </td>
+              </tr>
+            )}
             {filtered.slice(0, 500).map((f, i) => {
               const alpha = f.weighted_excess;
+              const officeLine =
+                f.branch === "executive"
+                  ? `${f.level ?? ""} ${f.agency ?? ""}`.trim() || "Executive"
+                  : `${f.chamber === "senate" ? "Senate" : "House"} · ${f.party ?? "-"} · ${f.state ?? "-"}`;
               return (
-                <RowLink
-                  key={f.id}
-                  to={`/filer/${f.id}`}
-                  className="w-full grid gap-3 px-4 py-[10px] items-center text-left text-ink no-underline even:bg-[lch(95.5%_0_282)] hover:bg-muted/70"
-                  style={{ gridTemplateColumns: GRID }}
-                >
-                  <span className="text-right text-mini text-ink_faint tabular-nums">{i + 1}</span>
-
-                  <div className="flex items-center gap-2.5 min-w-0">
-                    <FilerAvatar filer={f} size={32} />
-                    <div className="min-w-0">
-                      <div className="text-small text-ink font-medium truncate">{f.full_name}</div>
-                      <div className="text-mini text-ink_muted truncate mt-[1px]">
-                        {f.branch === "executive"
-                          ? `${f.level ?? ""} ${f.agency ?? ""}`.trim() || "Executive"
-                          : `${f.chamber === "senate" ? "Senate" : "House"} · ${f.party ?? "-"} · ${f.state ?? "-"}`}
+                <tr key={f.id} className="govuk-table__row hover:bg-[#f3f2f1]">
+                  <td className="govuk-table__cell govuk-table__cell--numeric tabular-nums text-[#505a5f]">{i + 1}</td>
+                  <td className="govuk-table__cell">
+                    <div className="flex items-center gap-2.5 min-w-0">
+                      <FilerAvatar filer={f} size={32} />
+                      <div className="min-w-0">
+                        <RowLink to={`/filer/${f.id}`} className="govuk-link">
+                          {f.full_name}
+                        </RowLink>
+                        <div className="text-[#505a5f] truncate" style={{ fontSize: "14px" }}>
+                          {officeLine}
+                        </div>
                       </div>
                     </div>
-                  </div>
-
-                  <span className="tabular-nums text-right text-small text-ink">{f.trade_count.toLocaleString()}</span>
-
-                  <span className="text-mini text-ink_muted tabular-nums text-right whitespace-nowrap">
-                    <span className="text-buy">{f.purchases || 0}</span>
-                    <span className="text-ink_faint mx-[2px]">/</span>
-                    <span className="text-sell">{f.sales || 0}</span>
-                  </span>
-
-                  <span className="tabular-nums text-right text-small text-ink_muted">
+                  </td>
+                  <td className="govuk-table__cell govuk-table__cell--numeric tabular-nums">
+                    {f.trade_count.toLocaleString()}
+                  </td>
+                  <td className="govuk-table__cell govuk-table__cell--numeric tabular-nums whitespace-nowrap">
+                    <span className={GREEN}>{f.purchases || 0}</span>
+                    <span className="text-[#b1b4b6] mx-[2px]">/</span>
+                    <span className={RED}>{f.sales || 0}</span>
+                  </td>
+                  <td className="govuk-table__cell govuk-table__cell--numeric tabular-nums text-[#505a5f]">
                     {f.est_volume ? fmtUSD(f.est_volume) : "—"}
-                  </span>
-
-                  <div className="flex items-center justify-end gap-2 tabular-nums">
+                  </td>
+                  <td className="govuk-table__cell govuk-table__cell--numeric tabular-nums whitespace-nowrap">
                     {f.late_filings > 0 ? (
                       <>
-                        <span
-                          className={`text-small font-semibold tabular-nums ${
-                            f.late_filings / f.trade_count >= 0.5 ? "text-warn" : "text-ink_muted"
-                          }`}
-                        >
+                        <span className={`font-bold ${f.late_filings / f.trade_count >= 0.5 ? RED : "text-[#505a5f]"}`}>
                           {((f.late_filings / f.trade_count) * 100).toFixed(0)}%
-                        </span>
-                        <span className="text-mini text-ink_faint tabular-nums whitespace-nowrap min-w-[34px] text-right">
-                          {f.late_filings}
-                        </span>
+                        </span>{" "}
+                        <span className="text-[#505a5f]">({f.late_filings})</span>
                       </>
                     ) : (
-                      <span className="text-small text-ink_faint">—</span>
+                      <span className="text-[#505a5f]">—</span>
                     )}
-                  </div>
-
-                  <div className="flex items-center justify-end gap-2 tabular-nums">
+                  </td>
+                  <td className="govuk-table__cell govuk-table__cell--numeric tabular-nums whitespace-nowrap">
                     {alpha == null ? (
-                      <span className="text-small text-ink_faint">—</span>
+                      <span className="text-[#505a5f]">—</span>
                     ) : (
                       <>
-                        <span
-                          className={`text-small font-semibold tabular-nums ${alpha >= 0 ? "text-buy" : "text-sell"}`}
-                        >
+                        <span className={`font-bold ${alpha >= 0 ? GREEN : RED}`}>
                           {alpha >= 0 ? "+" : ""}
                           {alpha.toFixed(1)}%
                         </span>
                         <SampleChip n={f.scored_buys} />
                       </>
                     )}
-                  </div>
-                </RowLink>
+                  </td>
+                </tr>
               );
             })}
-          </div>
-        </div>
+          </tbody>
+        </table>
       </div>
       {filtered.length > 500 && (
-        <div className="px-4 py-2 border-t border-stroke text-mini text-ink_muted text-center">
+        <div className="px-4 py-2 border-t border-[#b1b4b6] text-[#505a5f] text-center" style={{ fontSize: "14px" }}>
           Showing 500 of {filtered.length.toLocaleString()} filers. Narrow the search to see the rest.
         </div>
       )}
     </Card>
-  );
-}
-
-function Segmented({ value, onChange, options }) {
-  return (
-    <div className="flex items-center border border-stroke rounded-md bg-panel overflow-hidden text-small">
-      {options.map((o, i) => (
-        <button
-          key={o.k}
-          onClick={() => onChange(o.k)}
-          className={`px-2.5 h-7 transition-colors whitespace-nowrap ${
-            value === o.k ? "bg-accent text-white" : "text-ink_muted hover:bg-muted hover:text-ink"
-          } ${i > 0 ? "border-l border-stroke" : ""}`}
-        >
-          {o.label}
-        </button>
-      ))}
-    </div>
   );
 }

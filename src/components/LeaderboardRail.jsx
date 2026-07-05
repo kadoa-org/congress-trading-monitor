@@ -7,20 +7,18 @@ import { TickerBadge } from "./TickerBadge";
 // who trades most, who earns most, which stock is hot, who has the best hit rate,
 // what's the biggest single trade.
 
-// Compact KPI cell. Renders identically on every breakpoint — the parent
-// grid controls 2-column on mobile vs 5-column on desktop. Padding is
-// uniform (p-3) which is tight enough that 5 cells in a 2x3 grid fit in
-// ~270px of vertical space on a phone, vs ~750px before.
+// Compact KPI cell in the GOV.UK idiom: a square 1px #b1b4b6 bordered white
+// panel — no radius, no shadow. Renders identically on every breakpoint — the
+// parent grid controls 2-column on mobile vs 5-column on desktop.
 //
 // Renders as a RowLink when `to` is set (whole-card cmd+clickable) or a
 // plain div otherwise. Optional className is appended so callers can grant
 // individual cards col-span on mobile.
 function Card({ children, to, className = "" }) {
-  const base =
-    "text-left p-3 rounded-md border border-stroke bg-panel hover:border-ink_faint hover:shadow-card transition-all flex flex-col gap-1 h-full min-w-0";
+  const base = "text-left p-3 border border-[#b1b4b6] bg-white flex flex-col gap-1 h-full min-w-0";
   if (to) {
     return (
-      <RowLink to={to} className={`${base} text-ink no-underline ${className}`}>
+      <RowLink to={to} className={`${base} text-[#0b0c0c] no-underline hover:bg-[#f3f2f1] ${className}`}>
         {children}
       </RowLink>
     );
@@ -28,8 +26,13 @@ function Card({ children, to, className = "" }) {
   return <div className={`${base} ${className}`}>{children}</div>;
 }
 
+// Panel label in govuk-hint styling (secondary #505a5f).
 function Metric({ label }) {
-  return <span className="text-mini text-ink_muted font-medium truncate">{label}</span>;
+  return (
+    <span className="govuk-hint truncate" style={{ marginBottom: 0, fontSize: "14px" }}>
+      {label}
+    </span>
+  );
 }
 
 export default function LeaderboardRail({ filers = [], returns = [], trades = [], prices = {}, stats = {} }) {
@@ -132,8 +135,8 @@ export default function LeaderboardRail({ filers = [], returns = [], trades = []
           <div className="flex items-center gap-2 min-w-0">
             <FilerAvatar filer={data.mostActive} size={24} />
             <div className="min-w-0 flex-1">
-              <div className="text-small font-medium text-ink truncate">{data.mostActive.full_name}</div>
-              <div className="text-mini text-ink_muted tabular-nums">{fmtInt(data.mostActive.metric)} trades</div>
+              <div className="text-small font-bold text-[#0b0c0c] truncate">{data.mostActive.full_name}</div>
+              <div className="text-mini text-[#505a5f] tabular-nums">{fmtInt(data.mostActive.metric)} trades</div>
             </div>
           </div>
         </Card>
@@ -145,13 +148,15 @@ export default function LeaderboardRail({ filers = [], returns = [], trades = []
           <div className="flex items-center gap-2 min-w-0">
             <FilerAvatar filer={data.highestAlpha} size={24} />
             <div className="min-w-0 flex-1">
-              <div className="text-small font-medium text-ink truncate">{data.highestAlpha.full_name}</div>
+              <div className="text-small font-bold text-[#0b0c0c] truncate">{data.highestAlpha.full_name}</div>
               <div className="text-mini tabular-nums truncate">
-                <span className={data.highestAlpha.metric >= 0 ? "text-buy font-semibold" : "text-sell font-semibold"}>
+                <span
+                  className={data.highestAlpha.metric >= 0 ? "text-[#0f7a52] font-bold" : "text-[#ca3535] font-bold"}
+                >
                   {data.highestAlpha.metric >= 0 ? "+" : ""}
                   {data.highestAlpha.metric.toFixed(0)}%
                 </span>
-                <span className="text-ink_muted"> vs SPY</span>
+                <span className="text-[#505a5f]"> vs SPY</span>
               </div>
             </div>
           </div>
@@ -165,14 +170,14 @@ export default function LeaderboardRail({ filers = [], returns = [], trades = []
             <TickerBadge ticker={data.hottestStock.ticker} size="sm" />
             {data.hottestStock.change != null && (
               <span
-                className={`text-small tabular-nums font-semibold ${data.hottestStock.change >= 0 ? "text-buy" : "text-sell"}`}
+                className={`text-small tabular-nums font-bold ${data.hottestStock.change >= 0 ? "text-[#0f7a52]" : "text-[#ca3535]"}`}
               >
                 {data.hottestStock.change >= 0 ? "+" : ""}
                 {data.hottestStock.change.toFixed(1)}%
               </span>
             )}
           </div>
-          <div className="text-mini text-ink_muted tabular-nums truncate">
+          <div className="text-mini text-[#505a5f] tabular-nums truncate">
             {fmtInt(data.hottestStock.trades)} trades · 60d
           </div>
         </Card>
@@ -182,16 +187,16 @@ export default function LeaderboardRail({ filers = [], returns = [], trades = []
         <Card>
           <Metric label="Disclosure lag" />
           <div className="flex items-baseline gap-1.5 min-w-0">
-            <span className="text-small font-semibold text-ink tabular-nums">
+            <span className="govuk-heading-m tabular-nums" style={{ marginBottom: 0 }}>
               {stats.disclosureLag.medianDaysToFile}d
             </span>
-            <span className="text-mini text-ink_muted truncate">median · 45d cap</span>
+            <span className="text-mini text-[#505a5f] truncate">median · 45d cap</span>
           </div>
           <div className="text-mini tabular-nums truncate">
-            <span className="text-warn font-semibold">
+            <span className="text-[#ca3535] font-bold">
               {((stats.disclosureLag.lateCount / stats.disclosureLag.tradesWithLag) * 100).toFixed(0)}%
             </span>
-            <span className="text-ink_muted"> late</span>
+            <span className="text-[#505a5f]"> late</span>
           </div>
         </Card>
       )}
@@ -203,12 +208,14 @@ export default function LeaderboardRail({ filers = [], returns = [], trades = []
         >
           <Metric label="Biggest single trade" />
           <div className="flex items-center gap-2 min-w-0">
-            <span className="text-small font-semibold text-ink tabular-nums">{fmtUSD(data.biggestTrade.mid)}</span>
+            <span className="govuk-heading-m tabular-nums" style={{ marginBottom: 0 }}>
+              {fmtUSD(data.biggestTrade.mid)}
+            </span>
             {data.biggestTrade.ticker && <TickerBadge ticker={data.biggestTrade.ticker} size="sm" />}
           </div>
-          <div className="text-mini text-ink_muted truncate">
+          <div className="text-mini text-[#505a5f] truncate">
             {data.biggestTrade.filer_name}
-            {data.biggestTrade.date && <span className="text-ink_faint"> · {data.biggestTrade.date}</span>}
+            {data.biggestTrade.date && <span> · {data.biggestTrade.date}</span>}
           </div>
         </Card>
       )}

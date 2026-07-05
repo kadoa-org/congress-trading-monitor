@@ -82,64 +82,163 @@ export function applyFilters(trades, filters) {
 
 const icon = {
   search: (
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <circle cx="11" cy="11" r="8" />
       <path d="m21 21-4.35-4.35" />
     </svg>
   ),
   source: (
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <path d="M2 3h20M4 3v18M20 3v18M4 21h16" />
       <path d="M8 7h8M8 11h8M8 15h5" />
     </svg>
   ),
   type: (
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <path d="M7 7l10 10M17 7v10M7 7h10" />
     </svg>
   ),
   asset: (
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <rect x="3" y="7" width="18" height="13" rx="2" />
       <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
     </svg>
   ),
   size: (
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <path d="M12 2v20M5 8l7-6 7 6" />
     </svg>
   ),
   late: (
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <circle cx="12" cy="12" r="9" />
       <path d="M12 7v5l3 2" />
     </svg>
   ),
   party: (
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
       <circle cx="9" cy="7" r="4" />
       <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
     </svg>
   ),
   state: (
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
       <circle cx="12" cy="10" r="3" />
     </svg>
   ),
   plus: (
-    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <path d="M12 5v14M5 12h14" />
     </svg>
   ),
   close: (
-    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      width="10"
+      height="10"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <path d="M18 6 6 18M6 6l12 12" />
     </svg>
   ),
   check: (
-    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      width="11"
+      height="11"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <path d="M20 6 9 17l-5-5" />
     </svg>
   ),
@@ -250,11 +349,8 @@ export default function FilterBar({ filters, setFilters, trades }) {
   const anyApplied = appliedKeys.length > 0 || (filters.search ?? "") !== "";
 
   return (
-    <div className="flex flex-wrap items-center gap-1.5">
-      <InlineSearch
-        value={filters.search ?? ""}
-        onChange={(v) => setFilters((prev) => ({ ...prev, search: v }))}
-      />
+    <div className="flex flex-wrap items-center gap-[15px]">
+      <InlineSearch value={filters.search ?? ""} onChange={(v) => setFilters((prev) => ({ ...prev, search: v }))} />
 
       {appliedKeys.map((k) => (
         <FilterChip
@@ -278,10 +374,7 @@ export default function FilterBar({ filters, setFilters, trades }) {
       />
 
       {anyApplied && (
-        <button
-          onClick={clearAll}
-          className="ml-auto h-7 px-2 text-small text-ink_muted hover:text-ink transition-colors"
-        >
+        <button onClick={clearAll} className="ml-auto govuk-button govuk-button--secondary" style={{ marginBottom: 0 }}>
           Clear
         </button>
       )}
@@ -293,19 +386,15 @@ export default function FilterBar({ filters, setFilters, trades }) {
 
 export function InlineSearchInput({ value, onChange, placeholder = "Search…", width = 220 }) {
   return (
-    <div className="relative">
-      <span className="absolute left-2 top-1/2 -translate-y-1/2 text-ink_faint pointer-events-none">
-        {icon.search}
-      </span>
-      <input
-        type="text"
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        placeholder={placeholder}
-        style={{ width }}
-        className="h-7 pl-7 pr-2 text-small bg-panel border border-stroke rounded-md placeholder:text-ink_faint text-ink focus:outline-none focus:ring-2 focus:ring-accent/25 focus:border-accent/40"
-      />
-    </div>
+    <input
+      type="text"
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+      placeholder={placeholder}
+      aria-label={placeholder}
+      style={{ width }}
+      className="govuk-input"
+    />
   );
 }
 
@@ -317,18 +406,27 @@ export function SingleSelectChip({ label, icon: chipIcon, options, value, onChan
   const btnRef = useRef(null);
   const current = options.find((o) => o.k === value) ?? options[0];
   return (
-    <div className="relative inline-flex items-stretch border border-stroke rounded-md bg-panel overflow-hidden h-7 text-small">
-      <span className="inline-flex items-center gap-1.5 pl-2 pr-1.5 text-ink_muted border-r border-stroke">
-        {chipIcon && <span className="text-ink_muted">{chipIcon}</span>}
-        <span className="font-medium text-ink">{label}</span>
+    <div className="relative inline-flex items-stretch border border-[#0b0c0c] bg-white overflow-hidden h-10 text-[14px]">
+      <span className="inline-flex items-center gap-1.5 pl-2.5 pr-2 text-[#505a5f] border-r border-[#b1b4b6]">
+        {chipIcon && <span className="text-[#505a5f]">{chipIcon}</span>}
+        <span className="font-medium text-[#0b0c0c]">{label}</span>
       </span>
       <button
         ref={btnRef}
         onClick={() => setOpen((o) => !o)}
-        className="inline-flex items-center gap-1 px-2 text-ink hover:bg-muted transition-colors"
+        className="inline-flex items-center gap-1 px-2.5 text-[#0b0c0c] hover:bg-[#f3f2f1] transition-colors"
       >
         <span className="font-medium">{current.label}</span>
-        <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" className="text-ink_muted">
+        <svg
+          width="10"
+          height="10"
+          viewBox="0 0 10 10"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.4"
+          strokeLinecap="round"
+          className="text-[#505a5f]"
+        >
           <path d="M2 4 L5 7 L8 4" />
         </svg>
       </button>
@@ -342,9 +440,9 @@ export function SingleSelectChip({ label, icon: chipIcon, options, value, onChan
                   onChange(o.k);
                   setOpen(false);
                 }}
-                className="w-full flex items-center gap-2 px-3 py-1.5 text-small text-left text-ink hover:bg-muted/70"
+                className="w-full flex items-center gap-2 px-3 py-1.5 text-[14px] text-left text-[#0b0c0c] hover:bg-[#f3f2f1]"
               >
-                <span className="w-3 text-accent">{value === o.k ? icon.check : null}</span>
+                <span className="w-3 text-[#1d70b8]">{value === o.k ? icon.check : null}</span>
                 <span className="flex-1">{o.label}</span>
               </button>
             ))}
@@ -359,16 +457,18 @@ export function SingleSelectChip({ label, icon: chipIcon, options, value, onChan
 
 function InlineSearch({ value, onChange }) {
   return (
-    <div className="relative">
-      <span className="absolute left-2 top-1/2 -translate-y-1/2 text-ink_faint pointer-events-none">
-        {icon.search}
-      </span>
+    <div>
+      <label className="govuk-label govuk-label--s govuk-visually-hidden" htmlFor="filter-bar-search">
+        Search trades
+      </label>
       <input
+        id="filter-bar-search"
         type="text"
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder="Search ticker, filer, asset…"
-        className="h-7 w-[220px] pl-7 pr-2 text-small bg-panel border border-stroke rounded-md placeholder:text-ink_faint text-ink focus:outline-none focus:ring-2 focus:ring-accent/25 focus:border-accent/40"
+        className="govuk-input"
+        style={{ width: 260 }}
       />
     </div>
   );
@@ -386,29 +486,36 @@ function FilterChip({ cat, value, onChange, onRemove, open, setOpen }) {
   const btnRef = useRef(null);
 
   return (
-    <div className="relative inline-flex items-stretch border border-stroke rounded-md bg-panel overflow-hidden h-7 text-small">
-      <span className="inline-flex items-center gap-1.5 pl-2 pr-1.5 text-ink_muted border-r border-stroke">
-        <span className="text-ink_muted">{cat.icon}</span>
-        <span className="font-medium text-ink">{cat.label}</span>
+    <div className="relative inline-flex items-stretch border border-[#0b0c0c] bg-white overflow-hidden h-10 text-[14px]">
+      <span className="inline-flex items-center gap-1.5 pl-2.5 pr-2 text-[#505a5f] border-r border-[#b1b4b6]">
+        <span className="text-[#505a5f]">{cat.icon}</span>
+        <span className="font-medium text-[#0b0c0c]">{cat.label}</span>
       </span>
-      <span className="inline-flex items-center px-1.5 text-ink_muted border-r border-stroke">is</span>
+      <span className="inline-flex items-center px-2 text-[#505a5f] border-r border-[#b1b4b6]">is</span>
       <button
         ref={btnRef}
         onClick={() => setOpen(!open)}
-        className="inline-flex items-center gap-1 px-2 text-ink hover:bg-muted transition-colors"
+        className="inline-flex items-center gap-1 px-2.5 bg-[#1d70b8] text-white hover:bg-[#003078] transition-colors"
       >
         <span className="font-medium">{valueLabel}</span>
       </button>
       <button
         onClick={onRemove}
-        className="inline-flex items-center px-1.5 text-ink_muted hover:text-ink hover:bg-muted transition-colors"
+        className="inline-flex items-center px-2 text-[#505a5f] hover:text-[#0b0c0c] hover:bg-[#f3f2f1] transition-colors border-l border-[#b1b4b6]"
         aria-label={`Remove ${cat.label} filter`}
       >
         {icon.close}
       </button>
       {open && (
         <Popover anchor={btnRef} onClose={() => setOpen(false)}>
-          <ValuePicker cat={cat} value={value} onPick={(v) => { onChange(v); setOpen(false); }} />
+          <ValuePicker
+            cat={cat}
+            value={value}
+            onPick={(v) => {
+              onChange(v);
+              setOpen(false);
+            }}
+          />
         </Popover>
       )}
     </div>
@@ -430,16 +537,14 @@ function AddFilterButton({ categories, onAdd, open, setOpen }) {
   }, [open]);
 
   if (categories.length === 0) return null;
-  const filtered = query
-    ? categories.filter((c) => c.label.toLowerCase().includes(query.toLowerCase()))
-    : categories;
+  const filtered = query ? categories.filter((c) => c.label.toLowerCase().includes(query.toLowerCase())) : categories;
 
   return (
     <div className="relative inline-block">
       <button
         ref={btnRef}
         onClick={() => setOpen(!open)}
-        className="inline-flex items-center gap-1.5 h-7 px-2.5 rounded-md border border-stroke bg-panel text-small text-ink_muted hover:text-ink hover:border-ink_faint transition-colors"
+        className="inline-flex items-center gap-1.5 h-10 px-3 border border-[#0b0c0c] bg-white text-[14px] font-medium text-[#0b0c0c] hover:bg-[#f3f2f1] transition-colors"
       >
         <span>{icon.plus}</span>
         <span>Filter</span>
@@ -447,13 +552,13 @@ function AddFilterButton({ categories, onAdd, open, setOpen }) {
       {open && (
         <Popover anchor={btnRef} onClose={() => setOpen(false)}>
           <div className="min-w-[220px]">
-            <div className="p-1.5 border-b border-stroke">
+            <div className="p-1.5 border-b border-[#b1b4b6]">
               <input
                 autoFocus
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Filter…"
-                className="w-full h-7 px-2 text-small bg-transparent border-none outline-none placeholder:text-ink_faint"
+                className="w-full h-7 px-2 text-[14px] bg-transparent border-none outline-none placeholder:text-[#505a5f]"
               />
             </div>
             <div className="py-1 max-h-[300px] overflow-y-auto">
@@ -469,9 +574,7 @@ function AddFilterButton({ categories, onAdd, open, setOpen }) {
                   }}
                 />
               ))}
-              {filtered.length === 0 && (
-                <div className="px-3 py-2 text-small text-ink_muted">No filters match.</div>
-              )}
+              {filtered.length === 0 && <div className="px-3 py-2 text-[14px] text-[#505a5f]">No filters match.</div>}
             </div>
           </div>
         </Popover>
@@ -511,14 +614,23 @@ function CategoryRow({ cat, active, onHover, onSelect }) {
     >
       <button
         onClick={handleClick}
-        className={`w-full flex items-center gap-2 px-3 py-1.5 text-small text-left hover:bg-muted/70 ${
-          active ? "bg-muted/50" : ""
+        className={`w-full flex items-center gap-2 px-3 py-1.5 text-[14px] text-left hover:bg-[#f3f2f1] ${
+          active ? "bg-[#f3f2f1]" : ""
         }`}
       >
-        <span className="text-ink_muted">{cat.icon}</span>
-        <span className="text-ink flex-1">{cat.label}</span>
+        <span className="text-[#505a5f]">{cat.icon}</span>
+        <span className="text-[#0b0c0c] flex-1">{cat.label}</span>
         {cat.kind !== "text" && (
-          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" className="text-ink_muted">
+          <svg
+            width="10"
+            height="10"
+            viewBox="0 0 10 10"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="1.4"
+            strokeLinecap="round"
+            className="text-[#505a5f]"
+          >
             <path d="M3.5 2l3 3-3 3" />
           </svg>
         )}
@@ -554,12 +666,9 @@ function ValuePicker({ cat, value, onPick }) {
             if (e.key === "Enter") onPick(textValue);
           }}
           placeholder={cat.placeholder}
-          className="w-full h-8 px-2 text-small bg-transparent border border-stroke rounded-md focus:outline-none focus:ring-2 focus:ring-accent/25 focus:border-accent/40"
+          className="govuk-input"
         />
-        <button
-          onClick={() => onPick(textValue)}
-          className="mt-2 w-full h-7 rounded-md bg-accent text-white text-mini font-medium hover:bg-accent/90"
-        >
+        <button onClick={() => onPick(textValue)} className="govuk-button mt-2 w-full" style={{ marginBottom: 0 }}>
           Apply
         </button>
       </div>
@@ -569,13 +678,13 @@ function ValuePicker({ cat, value, onPick }) {
   return (
     <div className="min-w-[200px] max-h-[320px] overflow-auto">
       {cat.options.length > 8 && (
-        <div className="p-1.5 border-b border-stroke">
+        <div className="p-1.5 border-b border-[#b1b4b6]">
           <input
             autoFocus
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="Search…"
-            className="w-full h-7 px-2 text-small bg-transparent border-none outline-none placeholder:text-ink_faint"
+            className="w-full h-7 px-2 text-[14px] bg-transparent border-none outline-none placeholder:text-[#505a5f]"
           />
         </div>
       )}
@@ -584,13 +693,13 @@ function ValuePicker({ cat, value, onPick }) {
           <button
             key={o.k}
             onClick={() => onPick(o.k)}
-            className="w-full flex items-center gap-2 px-3 py-1.5 text-small text-left text-ink hover:bg-muted/70"
+            className="w-full flex items-center gap-2 px-3 py-1.5 text-[14px] text-left text-[#0b0c0c] hover:bg-[#f3f2f1]"
           >
-            <span className="w-3 text-accent">{value === o.k ? icon.check : null}</span>
+            <span className="w-3 text-[#1d70b8]">{value === o.k ? icon.check : null}</span>
             <span className="flex-1">{o.label}</span>
           </button>
         ))}
-        {filtered.length === 0 && <div className="px-3 py-2 text-small text-ink_muted">No matches.</div>}
+        {filtered.length === 0 && <div className="px-3 py-2 text-[14px] text-[#505a5f]">No matches.</div>}
       </div>
     </div>
   );
@@ -639,11 +748,7 @@ function Popover({ anchor, children, onClose, placement = "bottom" }) {
 
   if (!pos) return null;
   return (
-    <div
-      ref={ref}
-      className="fixed z-50 bg-panel border border-stroke rounded-md shadow-hover"
-      style={{ top: pos.top, left: pos.left }}
-    >
+    <div ref={ref} className="fixed z-50 bg-white border border-[#b1b4b6]" style={{ top: pos.top, left: pos.left }}>
       {children}
     </div>
   );

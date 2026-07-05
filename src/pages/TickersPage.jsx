@@ -1,8 +1,6 @@
 import React, { useMemo } from "react";
-import { InlineSearchInput } from "../components/FilterBar";
-import { TickerBadge, TickerLabel } from "../components/TickerBadge";
 import { useQueryState } from "../router";
-import { Card, fmtInt, fmtUSD, RowLink, SectionHeader, SortHeader, TABLE_HEADER_CLS } from "../ui";
+import { fmtInt, fmtUSD, RowLink, SectionHeader, SortHeader } from "../ui";
 
 const SORTS = {
   trades: { label: "Most trades", fn: (a, b) => b.trade_count - a.trade_count },
@@ -10,8 +8,6 @@ const SORTS = {
   volume: { label: "Highest volume", fn: (a, b) => (b.est_volume || 0) - (a.est_volume || 0) },
   buys: { label: "Net buys", fn: (a, b) => b.purchases - b.sales - (a.purchases - a.sales) },
 };
-
-const GRID = "28px 72px 80px 130px 72px minmax(140px,1fr) 120px";
 
 function dailyChange(p) {
   if (!p?.latest || !p?.previous) return null;
@@ -43,196 +39,157 @@ export default function TickersPage({ data }) {
 
       {mostWidelyHeld.length > 0 && (
         <div className="mb-6 flex flex-wrap items-center gap-2">
-          <span className="text-small text-ink_muted mr-1">Most widely held</span>
+          <span className="text-[16px] text-[#505a5f] mr-1">Most widely held</span>
           {mostWidelyHeld.map((t) => {
             const change = dailyChange(prices[t.ticker]);
             return (
               <RowLink
                 key={t.ticker}
                 to={`/ticker/${t.ticker}`}
-                className="inline-flex items-center gap-2 h-8 px-2 rounded-md border border-stroke bg-panel text-ink no-underline hover:border-ink_faint hover:bg-muted transition-colors"
+                className="inline-flex items-center gap-2 h-8 px-2 border border-[#b1b4b6] bg-white text-[#0b0c0c] no-underline hover:bg-[#f3f2f1]"
               >
-                <TickerBadge ticker={t.ticker} size="sm" />
+                <span className="font-bold text-[14px]">{t.ticker}</span>
                 {change != null && (
-                  <span className={`text-mini tabular-nums ${change >= 0 ? "text-buy" : "text-sell"}`}>
+                  <span className="text-[14px] tabular-nums" style={{ color: change >= 0 ? "#0f7a52" : "#ca3535" }}>
                     {change >= 0 ? "+" : ""}
                     {change.toFixed(1)}%
                   </span>
                 )}
-                <span className="text-mini text-ink_faint tabular-nums">· {t.filer_count}</span>
+                <span className="text-[14px] text-[#505a5f] tabular-nums">· {t.filer_count}</span>
               </RowLink>
             );
           })}
         </div>
       )}
 
-      <div className="flex flex-wrap items-center gap-1.5 mb-4">
-        <InlineSearchInput value={qs.q} onChange={(v) => setQs({ q: v })} placeholder="Filter ticker…" width={200} />
+      <div className="govuk-form-group mb-6">
+        <label className="govuk-label govuk-label--s" htmlFor="ticker-filter">
+          Filter by ticker
+        </label>
+        <input
+          id="ticker-filter"
+          type="text"
+          className="govuk-input"
+          style={{ maxWidth: 320 }}
+          value={qs.q}
+          onChange={(e) => setQs({ q: e.target.value })}
+        />
       </div>
 
-      <Card className="overflow-hidden">
-        {/* Mobile/tablet: stacked rows with zebra. */}
-        <div className="lg:hidden divide-y divide-stroke_soft">
-          {filtered.length === 0 && (
-            <div className="px-4 py-8 text-small text-ink_muted text-center">
-              No tickers match.{" "}
-              <button onClick={() => setQs({ q: "", sort: "trades" })} className="text-accent hover:underline">
-                Clear filters
-              </button>
-              .
-            </div>
-          )}
-          {filtered.slice(0, 1000).map((t, i) => {
-            const p = prices[t.ticker];
-            const change = dailyChange(p);
-            return (
-              <RowLink
-                key={t.ticker}
-                to={`/ticker/${t.ticker}`}
-                className="block w-full px-3 py-3 text-left text-ink no-underline even:bg-[lch(95.5%_0_282)] hover:bg-muted/70"
-              >
-                <div className="flex items-center justify-between gap-3">
-                  <div className="flex items-center gap-2 min-w-0 flex-1">
-                    <span className="text-mini text-ink_faint tabular-nums w-5 shrink-0 text-right">{i + 1}</span>
-                    <TickerLabel ticker={t.ticker} size="sm" />
-                  </div>
-                  <div className="text-right shrink-0 tabular-nums">
+      <div className="overflow-x-auto">
+        <table className="govuk-table min-w-[880px]">
+          <thead className="govuk-table__head">
+            <tr className="govuk-table__row">
+              <th scope="col" className="govuk-table__header govuk-table__header--numeric">
+                #
+              </th>
+              <th scope="col" className="govuk-table__header">
+                Ticker
+              </th>
+              <th scope="col" className="govuk-table__header govuk-table__header--numeric">
+                <SortHeader
+                  label="Trades"
+                  sortKey="trades"
+                  sort={qs.sort}
+                  setSort={(v) => setQs({ sort: v })}
+                  align="right"
+                />
+              </th>
+              <th scope="col" className="govuk-table__header govuk-table__header--numeric">
+                Last · Δ1d
+              </th>
+              <th scope="col" className="govuk-table__header govuk-table__header--numeric">
+                <SortHeader
+                  label="Filers"
+                  sortKey="filers"
+                  sort={qs.sort}
+                  setSort={(v) => setQs({ sort: v })}
+                  align="right"
+                />
+              </th>
+              <th scope="col" className="govuk-table__header govuk-table__header--numeric">
+                <SortHeader
+                  label="Buy / Sell mix"
+                  sortKey="buys"
+                  sort={qs.sort}
+                  setSort={(v) => setQs({ sort: v })}
+                  align="right"
+                />
+              </th>
+              <th scope="col" className="govuk-table__header govuk-table__header--numeric">
+                <SortHeader
+                  label="Est. volume"
+                  sortKey="volume"
+                  sort={qs.sort}
+                  setSort={(v) => setQs({ sort: v })}
+                  align="right"
+                />
+              </th>
+            </tr>
+          </thead>
+          <tbody className="govuk-table__body">
+            {filtered.length === 0 && (
+              <tr className="govuk-table__row">
+                <td colSpan={7} className="govuk-table__cell text-center text-[#505a5f]">
+                  No tickers match.{" "}
+                  <button onClick={() => setQs({ q: "", sort: "trades" })} className="govuk-link">
+                    Clear filters
+                  </button>
+                  .
+                </td>
+              </tr>
+            )}
+            {filtered.slice(0, 1000).map((t, i) => {
+              const p = prices[t.ticker];
+              const change = dailyChange(p);
+              return (
+                <tr key={t.ticker} className="govuk-table__row hover:bg-[#f3f2f1]">
+                  <td className="govuk-table__cell govuk-table__cell--numeric text-[#505a5f]">{i + 1}</td>
+                  <td className="govuk-table__cell">
+                    <RowLink to={`/ticker/${t.ticker}`} className="govuk-link govuk-link--no-visited-state font-bold">
+                      {t.ticker}
+                    </RowLink>
+                  </td>
+                  <td className="govuk-table__cell govuk-table__cell--numeric tabular-nums">
+                    {t.trade_count.toLocaleString()}
+                  </td>
+                  <td className="govuk-table__cell govuk-table__cell--numeric tabular-nums">
                     {p?.latest?.close != null ? (
                       <>
-                        <span className="text-small text-ink font-mono">${p.latest.close.toFixed(2)}</span>
+                        <span>${p.latest.close.toFixed(2)}</span>
                         {change != null && (
-                          <span className={`text-mini ml-1 ${change >= 0 ? "text-buy" : "text-sell"}`}>
+                          <span className="ml-1" style={{ color: change >= 0 ? "#0f7a52" : "#ca3535" }}>
                             {change >= 0 ? "+" : ""}
                             {change.toFixed(1)}%
                           </span>
                         )}
                       </>
                     ) : (
-                      <span className="text-small text-ink_faint">—</span>
+                      <span className="text-[#505a5f]">—</span>
                     )}
-                  </div>
-                </div>
-                <div className="mt-1.5 ml-7 text-mini tabular-nums text-ink_muted">
-                  <span>
-                    {t.trade_count.toLocaleString()} trades
-                    <span className="text-ink_faint mx-1">·</span>
-                    {t.filer_count} filers
-                    <span className="text-ink_faint mx-1">·</span>
+                  </td>
+                  <td className="govuk-table__cell govuk-table__cell--numeric tabular-nums text-[#505a5f]">
+                    {t.filer_count}
+                  </td>
+                  <td className="govuk-table__cell govuk-table__cell--numeric tabular-nums whitespace-nowrap">
+                    <span style={{ color: "#0f7a52" }}>{t.purchases}</span>
+                    <span className="text-[#b1b4b6] mx-[2px]">/</span>
+                    <span style={{ color: "#ca3535" }}>{t.sales}</span>
+                  </td>
+                  <td className="govuk-table__cell govuk-table__cell--numeric tabular-nums text-[#505a5f]">
                     {fmtUSD(t.est_volume)}
-                  </span>
-                </div>
-                <div className="mt-[2px] ml-7 text-mini tabular-nums">
-                  <span className="text-buy">{t.purchases} buys</span>
-                  <span className="text-ink_faint mx-1.5">·</span>
-                  <span className="text-sell">{t.sales} sells</span>
-                </div>
-              </RowLink>
-            );
-          })}
-        </div>
-        <div className="hidden lg:block overflow-x-auto">
-          <div className="min-w-[880px]">
-            <div
-              className={`grid gap-3 px-4 py-[10px] border-b border-stroke items-center ${TABLE_HEADER_CLS}`}
-              style={{ gridTemplateColumns: GRID }}
-            >
-              <span className="text-right">#</span>
-              <span>Ticker</span>
-              <SortHeader
-                label="Trades"
-                sortKey="trades"
-                sort={qs.sort}
-                setSort={(v) => setQs({ sort: v })}
-                align="right"
-              />
-              <span className="tabular-nums text-right">Last · Δ1d</span>
-              <SortHeader
-                label="Filers"
-                sortKey="filers"
-                sort={qs.sort}
-                setSort={(v) => setQs({ sort: v })}
-                align="right"
-              />
-              <SortHeader
-                label="Buy / Sell mix"
-                sortKey="buys"
-                sort={qs.sort}
-                setSort={(v) => setQs({ sort: v })}
-                align="right"
-              />
-              <SortHeader
-                label="Est. volume"
-                sortKey="volume"
-                sort={qs.sort}
-                setSort={(v) => setQs({ sort: v })}
-                align="right"
-              />
-            </div>
-            <div className="divide-y divide-stroke_soft">
-              {filtered.length === 0 && (
-                <div className="px-4 py-8 text-small text-ink_muted text-center">
-                  No tickers match.{" "}
-                  <button onClick={() => setQs({ q: "", sort: "trades" })} className="text-accent hover:underline">
-                    Clear filters
-                  </button>
-                  .
-                </div>
-              )}
-              {filtered.slice(0, 1000).map((t, i) => {
-                const p = prices[t.ticker];
-                const change = dailyChange(p);
-                return (
-                  <RowLink
-                    key={t.ticker}
-                    to={`/ticker/${t.ticker}`}
-                    className="w-full grid gap-3 px-4 py-[10px] items-center text-left text-ink no-underline even:bg-[lch(95.5%_0_282)] hover:bg-muted/70"
-                    style={{ gridTemplateColumns: GRID }}
-                  >
-                    <span className="text-right text-mini text-ink_faint tabular-nums">{i + 1}</span>
-
-                    <TickerLabel ticker={t.ticker} size="sm" />
-
-                    <span className="tabular-nums text-right text-small text-ink">
-                      {t.trade_count.toLocaleString()}
-                    </span>
-
-                    <div className="text-right tabular-nums">
-                      {p?.latest?.close != null ? (
-                        <>
-                          <span className="text-small text-ink font-mono">${p.latest.close.toFixed(2)}</span>
-                          {change != null && (
-                            <span className={`text-mini ml-1 ${change >= 0 ? "text-buy" : "text-sell"}`}>
-                              {change >= 0 ? "+" : ""}
-                              {change.toFixed(1)}%
-                            </span>
-                          )}
-                        </>
-                      ) : (
-                        <span className="text-small text-ink_faint">—</span>
-                      )}
-                    </div>
-
-                    <span className="tabular-nums text-right text-small text-ink_muted">{t.filer_count}</span>
-
-                    <span className="text-mini tabular-nums text-right whitespace-nowrap">
-                      <span className="text-buy">{t.purchases}</span>
-                      <span className="text-ink_faint mx-[2px]">/</span>
-                      <span className="text-sell">{t.sales}</span>
-                    </span>
-
-                    <span className="tabular-nums text-right text-small text-ink_muted">{fmtUSD(t.est_volume)}</span>
-                  </RowLink>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-        {filtered.length > 1000 && (
-          <div className="px-4 py-2 border-t border-stroke text-mini text-ink_muted text-center">
-            Showing 1,000 of {fmtInt(filtered.length)} tickers. Narrow the search to see the rest.
-          </div>
-        )}
-      </Card>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+      {filtered.length > 1000 && (
+        <p className="govuk-hint text-center">
+          Showing 1,000 of {fmtInt(filtered.length)} tickers. Narrow the search to see the rest.
+        </p>
+      )}
     </div>
   );
 }

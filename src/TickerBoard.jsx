@@ -1,6 +1,7 @@
 import React from "react";
 import { TickerLabel } from "./components/TickerBadge";
-import { RowLink, TABLE_HEADER_CLS } from "./ui";
+import { navigate } from "./router";
+import { RowLink } from "./ui";
 
 function dailyChange(p) {
   if (!p?.latest || !p?.previous) return null;
@@ -10,52 +11,72 @@ function dailyChange(p) {
   return ((a - b) / b) * 100;
 }
 
+// GOV.UK buy/sell text colours.
+const BUY = "text-[#0f7a52]";
+const SELL = "text-[#ca3535]";
+
 export default function TickerBoard({ tickers, prices = {} }) {
   return (
-    <div className="border border-stroke rounded-md bg-panel overflow-hidden">
-      <div
-        className={`grid grid-cols-[72px_minmax(0,1fr)_88px_96px] gap-3 px-4 py-[10px] border-b border-stroke items-center ${TABLE_HEADER_CLS}`}
-      >
-        <span>Ticker</span>
-        <span className="tabular-nums text-right">Δ1d</span>
-        <span className="tabular-nums text-right">Trades</span>
-        <span className="tabular-nums text-right">Buy / Sell</span>
-      </div>
-      <div className="divide-y divide-stroke_soft">
-        {tickers.map((t, i) => {
-          const change = dailyChange(prices[t.ticker]);
-          return (
-            <RowLink
-              key={t.ticker}
-              to={`/ticker/${t.ticker}`}
-              className="w-full grid grid-cols-[72px_minmax(0,1fr)_88px_96px] gap-3 px-4 py-[10px] items-center text-left text-ink no-underline even:bg-[lch(95.5%_0_282)] hover:bg-muted"
-            >
-              <div className="flex items-center gap-1.5 min-w-0">
-                <TickerLabel ticker={t.ticker} size="sm" />
-              </div>
-              <div className="text-right tabular-nums">
-                {change != null ? (
-                  <span className={`text-small whitespace-nowrap ${change >= 0 ? "text-buy" : "text-sell"}`}>
-                    {change >= 0 ? "+" : ""}
-                    {change.toFixed(1)}%
-                  </span>
-                ) : (
-                  <span className="text-small text-ink_faint">—</span>
-                )}
-              </div>
-              <div className="text-small tabular-nums text-right">
-                <span className="text-ink font-semibold">{t.trade_count}</span>
-                <span className="text-ink_muted ml-1 text-mini">· {t.filer_count}f</span>
-              </div>
-              <span className="text-mini tabular-nums text-right whitespace-nowrap">
-                <span className="text-buy">{t.purchases}</span>
-                <span className="text-ink_faint mx-[2px]">/</span>
-                <span className="text-sell">{t.sales}</span>
-              </span>
-            </RowLink>
-          );
-        })}
-      </div>
+    <div className="overflow-x-auto">
+      <table className="govuk-table" style={{ marginBottom: 0 }}>
+        <thead className="govuk-table__head">
+          <tr className="govuk-table__row">
+            <th scope="col" className="govuk-table__header">
+              Ticker
+            </th>
+            <th scope="col" className="govuk-table__header govuk-table__header--numeric">
+              Δ1d
+            </th>
+            <th scope="col" className="govuk-table__header govuk-table__header--numeric">
+              Trades
+            </th>
+            <th scope="col" className="govuk-table__header govuk-table__header--numeric">
+              Buy / Sell
+            </th>
+          </tr>
+        </thead>
+        <tbody className="govuk-table__body">
+          {tickers.map((t) => {
+            const change = dailyChange(prices[t.ticker]);
+            return (
+              <tr
+                key={t.ticker}
+                className="govuk-table__row hover:bg-[#f3f2f1] cursor-pointer"
+                onClick={(e) => {
+                  // Anchors handle their own navigation (incl. cmd/ctrl-click).
+                  if (e.target.closest("a") || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+                  navigate(`/ticker/${t.ticker}`);
+                }}
+              >
+                <td className="govuk-table__cell">
+                  <RowLink to={`/ticker/${t.ticker}`} className="no-underline inline-flex items-center gap-1.5">
+                    <TickerLabel ticker={t.ticker} size="sm" />
+                  </RowLink>
+                </td>
+                <td className="govuk-table__cell govuk-table__cell--numeric tabular-nums">
+                  {change != null ? (
+                    <span className={`whitespace-nowrap ${change >= 0 ? BUY : SELL}`}>
+                      {change >= 0 ? "+" : ""}
+                      {change.toFixed(1)}%
+                    </span>
+                  ) : (
+                    <span className="text-[#505a5f]">—</span>
+                  )}
+                </td>
+                <td className="govuk-table__cell govuk-table__cell--numeric tabular-nums">
+                  <span className="text-[#0b0c0c] font-bold">{t.trade_count}</span>
+                  <span className="text-[#505a5f] ml-1">· {t.filer_count}f</span>
+                </td>
+                <td className="govuk-table__cell govuk-table__cell--numeric tabular-nums whitespace-nowrap">
+                  <span className={BUY}>{t.purchases}</span>
+                  <span className="text-[#505a5f] mx-[2px]">/</span>
+                  <span className={SELL}>{t.sales}</span>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
     </div>
   );
 }

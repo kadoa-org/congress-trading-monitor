@@ -98,7 +98,7 @@ export default function PersonalTimeline({ trades, highlightTicker = null }) {
           x={MARGIN.left + 4}
           y={MARGIN.top + plotH * 0.32}
           fontSize="10"
-          fill="#0f7b3f"
+          fill="#0f7a52"
           dominantBaseline="middle"
           fontWeight={500}
         >
@@ -108,7 +108,7 @@ export default function PersonalTimeline({ trades, highlightTicker = null }) {
           x={MARGIN.left + 4}
           y={MARGIN.top + plotH * 0.68}
           fontSize="10"
-          fill="#be2929"
+          fill="#ca3535"
           dominantBaseline="middle"
           fontWeight={500}
         >
@@ -133,9 +133,9 @@ export default function PersonalTimeline({ trades, highlightTicker = null }) {
                 cx={cx}
                 cy={cy}
                 r={r(mid)}
-                fill={isBuy ? "#0f7b3f" : isSell ? "#be2929" : "#8a8f98"}
+                fill={isBuy ? "#0f7a52" : isSell ? "#ca3535" : "#8a8f98"}
                 fillOpacity={highlighted ? 1 : t.is_late ? 0.85 : 0.55}
-                stroke={t.is_late ? "#bc4a00" : highlighted ? "#23252a" : "none"}
+                stroke={t.is_late ? "#f47738" : highlighted ? "#23252a" : "none"}
                 strokeWidth={t.is_late ? 0.7 : highlighted ? 0.9 : 0}
                 style={{ cursor: "crosshair" }}
                 onMouseEnter={(e) => {

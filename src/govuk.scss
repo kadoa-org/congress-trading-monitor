@@ -1,0 +1,9 @@
+// GOV.UK Design System styles for the congress-trading-monitor experiment.
+//
+// GDS Transport is licence-restricted to gov.uk domains, so we keep the
+// system's metrics but substitute an open font stack. The crown logo is
+// likewise omitted (govuk-header used without logotype).
+$govuk-font-family: "Inter", arial, sans-serif;
+$govuk-include-default-font-face: false;
+
+@import "govuk-frontend/dist/govuk/index";
