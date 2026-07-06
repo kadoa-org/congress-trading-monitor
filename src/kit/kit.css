@@ -130,3 +130,14 @@
 .dk-ticker--lg { height: 28px; padding: 0 10px; font-size: 14px; }
 .dk-tag--teal { background: #d1ecec; color: #10504f; }
 .dk-tag--slate { background: #e4e8ec; color: #33414c; }
+
+/* ── LiveBadge ── freshness indicator for the header ── */
+.dk-live { display: inline-flex; align-items: center; gap: 6px; font-size: var(--dk-fs-s); color: rgba(255,255,255,0.85); white-space: nowrap; }
+.dk-live-dot { width: 7px; height: 7px; border-radius: 50%; background: #00e58c; position: relative; flex-shrink: 0; }
+.dk-live-dot::after {
+  content: ""; position: absolute; inset: -3px; border-radius: 50%;
+  border: 1px solid #00e58c; opacity: 0; animation: dk-pulse 2.4s ease-out infinite;
+}
+@keyframes dk-pulse { 0% { transform: scale(0.6); opacity: 0.8; } 70% { transform: scale(1.4); opacity: 0; } 100% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .dk-live-dot::after { animation: none; } }
+@media (max-width: 640px) { .dk-live { display: none; } }

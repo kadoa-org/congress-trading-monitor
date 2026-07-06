@@ -179,3 +179,14 @@ export function TickerTag({ ticker, size = "md" }) {
     <span className={`dk-tag dk-tag--${tickerTone(ticker)} dk-ticker dk-ticker--${size}`}>{ticker || "—"}</span>
   );
 }
+
+// Freshness indicator (pulsing dot + label), designed for the dark header.
+// Hidden on small screens where header space is scarce.
+export function LiveBadge({ children }) {
+  return (
+    <span className="dk-live">
+      <span className="dk-live-dot" aria-hidden="true" />
+      {children}
+    </span>
+  );
+}
