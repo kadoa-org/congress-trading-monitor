@@ -46,7 +46,7 @@ export default function TickersPage({ data }) {
               <RowLink
                 key={t.ticker}
                 to={`/ticker/${t.ticker}`}
-                className="inline-flex items-center gap-2 h-8 px-2 border border-[#b1b4b6] bg-white text-[#0b0c0c] no-underline hover:bg-[#f3f2f1]"
+                className="inline-flex items-center gap-2 h-[32px] px-2 border border-[#b1b4b6] bg-white text-[#0b0c0c] no-underline hover:bg-[#f3f2f1]"
               >
                 <span className="font-bold text-[14px]">{t.ticker}</span>
                 {change != null && (

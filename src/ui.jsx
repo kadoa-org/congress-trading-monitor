@@ -384,7 +384,7 @@ export function dateInAdmin(d, admin) {
 
 // Linear-style segmented control used for admin + scope toggles.
 export function Segmented({ value, onChange, options, size = "default" }) {
-  const h = size === "sm" ? "h-6 text-mini px-2" : "h-8 text-[15px] px-2.5";
+  const h = size === "sm" ? "h-[26px] text-mini px-2" : "h-[32px] text-[15px] px-2.5";
   return (
     <div className="inline-flex items-center border border-[#0b0c0c] bg-white overflow-hidden">
       {options.map((o, i) => (
