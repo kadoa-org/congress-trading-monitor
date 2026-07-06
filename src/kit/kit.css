@@ -117,3 +117,16 @@
 .dk-header-brand, .dk-header-brand:visited { color: #fff !important; text-decoration: none !important; }
 .dk-header-brand:focus { background: none !important; box-shadow: none !important; outline: none !important; color: #fff !important; }
 .dk-header-brand:focus-visible { outline: 3px solid var(--dk-focus) !important; outline-offset: 2px; }
+
+/* ── TickerTag ── square tint chip, mono glyphs, non-semantic hues only
+   (green/red are reserved for buy/sell meaning in adjacent cells) */
+.dk-ticker {
+  display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-weight: 600; letter-spacing: 0.02em; line-height: 1; white-space: nowrap;
+}
+.dk-ticker--sm { height: 18px; padding: 0 5px; font-size: 10.5px; }
+.dk-ticker--md { height: 22px; padding: 0 7px; font-size: 11.5px; }
+.dk-ticker--lg { height: 28px; padding: 0 10px; font-size: 14px; }
+.dk-tag--teal { background: #d1ecec; color: #10504f; }
+.dk-tag--slate { background: #e4e8ec; color: #33414c; }

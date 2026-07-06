@@ -163,3 +163,19 @@ export function Button({ children, inverse = false, ...rest }) {
     </button>
   );
 }
+
+// Ticker symbol chip. Stable hue per symbol (hash-based) drawn from the
+// non-semantic tag colourways so it never collides with buy/sell greens/reds.
+const TICKER_TONES = ["blue", "purple", "orange", "yellow", "teal", "slate"];
+function tickerTone(ticker) {
+  if (!ticker) return "grey";
+  let h = 0;
+  for (let i = 0; i < ticker.length; i++) h = ((h << 5) - h + ticker.charCodeAt(i)) | 0;
+  return TICKER_TONES[Math.abs(h) % TICKER_TONES.length];
+}
+
+export function TickerTag({ ticker, size = "md" }) {
+  return (
+    <span className={`dk-tag dk-tag--${tickerTone(ticker)} dk-ticker dk-ticker--${size}`}>{ticker || "—"}</span>
+  );
+}
