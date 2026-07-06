@@ -81,6 +81,7 @@ export default function CabinetSpotlight({ filers, trades }) {
           {
             key: "official",
             header: "Official",
+            clamp: true,
             render: (o) => (
               <RowLink to={`/filer/${o.id}`} className="flex items-center gap-2.5 min-w-0 no-underline" style={{ color: "var(--dk-ink)" }}>
                 <FilerAvatar filer={o} size={28} />
@@ -91,12 +92,13 @@ export default function CabinetSpotlight({ filers, trades }) {
               </RowLink>
             ),
           },
-          { key: "agency", header: "Agency", render: (o) => <span style={{ color: "var(--dk-muted)" }}>{o.agency || "—"}</span> },
+          { key: "agency", header: "Agency", hideBelow: "sm", render: (o) => <span style={{ color: "var(--dk-muted)" }}>{o.agency || "—"}</span> },
           { key: "trades", header: "Trades", align: "right", render: (o) => fmtInt(o.trades) },
           {
             key: "mix",
             header: "Buy / Sell",
             align: "right",
+            hideBelow: "sm",
             render: (o) => {
               const netBias = o.trades ? ((o.buys - o.sells) / o.trades) * 100 : 0;
               return (

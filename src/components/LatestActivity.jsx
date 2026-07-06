@@ -34,6 +34,7 @@ export default function LatestActivity({ trades, limit = 12 }) {
     {
       key: "filer",
       header: "Filer",
+      clamp: true,
       render: (t) => {
         const fullAsset = bestNames.get(t.ticker) || cleanAssetName(t.asset_name) || "";
         return (
@@ -76,6 +77,7 @@ export default function LatestActivity({ trades, limit = 12 }) {
       key: "spy",
       header: "vs SPY",
       align: "right",
+      hideBelow: "sm",
       headerHint: "Stock's excess return vs SPY since the transaction date",
       render: (t) =>
         t.excess_since == null ? (
@@ -91,6 +93,7 @@ export default function LatestActivity({ trades, limit = 12 }) {
       key: "filed",
       header: "Filed",
       align: "right",
+      hideBelow: "sm",
       render: (t) => <span style={{ color: "var(--dk-muted)" }}>{relativeDate(t.filing_date)}</span>,
     },
   ];

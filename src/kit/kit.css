@@ -141,3 +141,13 @@
 @keyframes dk-pulse { 0% { transform: scale(0.6); opacity: 0.8; } 70% { transform: scale(1.4); opacity: 0; } 100% { opacity: 0; } }
 @media (prefers-reduced-motion: reduce) { .dk-live-dot::after { animation: none; } }
 @media (max-width: 640px) { .dk-live { display: none; } }
+
+/* ── Responsive column priority ── columns declare hideBelow:"sm"|"md";
+   on small screens they disappear instead of forcing horizontal scroll. */
+@media (max-width: 640px) { .dk-hide-sm { display: none !important; } }
+@media (max-width: 900px) { .dk-hide-md { display: none !important; } }
+
+/* ── Column clamp ── the flexible text column in a full-width table truncates
+   with ellipsis instead of forcing horizontal overflow (max-width:0 trick). */
+.dk-table td.dk-clamp { max-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dk-table td.dk-clamp * { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

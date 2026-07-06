@@ -22,10 +22,11 @@ export function DataTable({ columns, rows, rowKey, sort, onSort, caption, empty 
                   {c.sortable && <span aria-hidden="true">{active ? (sort.dir === "asc" ? "▲" : "▼") : "↕"}</span>}
                 </>
               );
+              const hideCls = c.hideBelow ? ` dk-hide-${c.hideBelow}` : "";
               return (
                 <th
                   key={c.key}
-                  className={c.align === "right" ? "dk-num" : undefined}
+                  className={(c.align === "right" ? "dk-num" : "") + hideCls || undefined}
                   style={c.width ? { width: c.width } : undefined}
                   aria-sort={active ? (sort.dir === "asc" ? "ascending" : "descending") : undefined}
                   title={c.headerHint}
@@ -51,7 +52,7 @@ export function DataTable({ columns, rows, rowKey, sort, onSort, caption, empty 
           {rows.map((r) => (
             <tr key={rowKey(r)}>
               {columns.map((c) => (
-                <td key={c.key} className={c.align === "right" ? "dk-num" : undefined}>
+                <td key={c.key} className={[(c.align === "right" ? "dk-num" : ""), c.hideBelow ? `dk-hide-${c.hideBelow}` : "", c.clamp ? "dk-clamp" : ""].filter(Boolean).join(" ") || undefined}>
                   {c.render ? c.render(r) : (r[c.key] ?? "—")}
                 </td>
               ))}
