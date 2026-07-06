@@ -95,21 +95,21 @@ function LoadingScreen() {
   return (
     <div className="min-h-screen bg-canvas">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 pt-20">
-        <div className="h-4 w-40 bg-muted rounded animate-pulse mb-4" />
-        <div className="h-10 w-3/4 bg-muted rounded animate-pulse mb-3" />
-        <div className="h-4 w-2/3 bg-muted rounded animate-pulse mb-8" />
-        <div className="border border-stroke rounded-md bg-panel overflow-hidden">
+        <div className="h-4 w-40 bg-muted  animate-pulse mb-4" />
+        <div className="h-10 w-3/4 bg-muted  animate-pulse mb-3" />
+        <div className="h-4 w-2/3 bg-muted  animate-pulse mb-8" />
+        <div className="border border-[#b1b4b6]  bg-white overflow-hidden">
           <div className="grid grid-cols-5">
             {[...Array(5)].map((_, i) => (
-              <div key={i} className="px-5 py-4 border-r border-stroke last:border-r-0">
-                <div className="h-3 w-16 bg-muted rounded animate-pulse mb-3" />
-                <div className="h-6 w-20 bg-muted rounded animate-pulse" />
+              <div key={i} className="px-5 py-4 border-r border-[#b1b4b6] last:border-r-0">
+                <div className="h-3 w-16 bg-muted  animate-pulse mb-3" />
+                <div className="h-6 w-20 bg-muted  animate-pulse" />
               </div>
             ))}
           </div>
         </div>
-        <div className="mt-8 h-6 w-64 bg-muted rounded animate-pulse" />
-        <div className="mt-4 border border-stroke rounded-md bg-panel p-4 animate-pulse h-[520px]" />
+        <div className="mt-8 h-6 w-64 bg-muted  animate-pulse" />
+        <div className="mt-4 border border-[#b1b4b6]  bg-white p-4 animate-pulse h-[520px]" />
       </div>
     </div>
   );
