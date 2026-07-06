@@ -1,8 +1,24 @@
 {
   "redirects": [
     {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "congress.kadoa.com"
+        }
+      ],
+      "destination": "https://www.kadoa.com/congress/",
+      "permanent": true
+    },
+    {
       "source": "/:path*",
-      "has": [{ "type": "host", "value": "congress.kadoa.com" }],
+      "has": [
+        {
+          "type": "host",
+          "value": "congress.kadoa.com"
+        }
+      ],
       "destination": "https://www.kadoa.com/congress/:path*",
       "permanent": true
     }
