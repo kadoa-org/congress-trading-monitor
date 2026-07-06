@@ -12,31 +12,31 @@ import { useRoute } from "./router";
 
 async function loadAll() {
   const [stats, trades, filers, tickers, scatter, returns, prices, alphaIndex, adminStats] = await Promise.all([
-    fetch("/data/stats.json")
+    fetch(`${import.meta.env.BASE_URL}data/stats.json`)
       .then((r) => r.json())
       .catch(() => null),
-    fetch("/data/trades.json")
+    fetch(`${import.meta.env.BASE_URL}data/trades.json`)
       .then((r) => r.json())
       .catch(() => []),
-    fetch("/data/filers.json")
+    fetch(`${import.meta.env.BASE_URL}data/filers.json`)
       .then((r) => r.json())
       .catch(() => []),
-    fetch("/data/tickers.json")
+    fetch(`${import.meta.env.BASE_URL}data/tickers.json`)
       .then((r) => r.json())
       .catch(() => []),
-    fetch("/data/scatter.json")
+    fetch(`${import.meta.env.BASE_URL}data/scatter.json`)
       .then((r) => r.json())
       .catch(() => ({ filers: [], trades: [] })),
-    fetch("/data/returns.json")
+    fetch(`${import.meta.env.BASE_URL}data/returns.json`)
       .then((r) => (r.ok ? r.json() : []))
       .catch(() => []),
-    fetch("/data/prices.json")
+    fetch(`${import.meta.env.BASE_URL}data/prices.json`)
       .then((r) => (r.ok ? r.json() : {}))
       .catch(() => ({})),
-    fetch("/data/alpha-index.json")
+    fetch(`${import.meta.env.BASE_URL}data/alpha-index.json`)
       .then((r) => (r.ok ? r.json() : {}))
       .catch(() => ({})),
-    fetch("/data/admin-stats.json")
+    fetch(`${import.meta.env.BASE_URL}data/admin-stats.json`)
       .then((r) => (r.ok ? r.json() : {}))
       .catch(() => ({})),
   ]);

@@ -44,7 +44,7 @@ export default function FilerPage({ filerId, filersIndex, filersById, prices: pr
   useEffect(() => {
     setData(null);
     setError(null);
-    fetch(`/data/filer/${encodeURIComponent(filerId)}.json`)
+    fetch(`${import.meta.env.BASE_URL}data/filer/${encodeURIComponent(filerId)}.json`)
       .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
       .then(setData)
       .catch(setError);

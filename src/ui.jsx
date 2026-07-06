@@ -1,6 +1,6 @@
 // Small reusable primitives. Sized to Linear.app: root is 18px, body is 0.9375rem (16.875px).
 import React from "react";
-import { navigate } from "./router";
+import { navigate, withBase } from "./router";
 import { Tag as DkTag, Section as DkSection } from "./kit";
 
 // Canonical Tailwind class for table column headers.
@@ -235,7 +235,7 @@ export function RowLink({ to, onClick, className = "", children, ...rest }) {
   }
   return (
     <a
-      href={to}
+      href={withBase(to)}
       className={className}
       onClick={(e) => {
         if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
@@ -295,7 +295,7 @@ export function SourceLink({ url, className = "" }) {
 export function Link({ to, className = "", children, onClick, ...rest }) {
   return (
     <a
-      href={to}
+      href={withBase(to)}
       className={`govuk-link ${className}`}
       onClick={(e) => {
         if (e.metaKey || e.ctrlKey || e.shiftKey) return;

@@ -22,9 +22,10 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
-const DIST = path.join(ROOT, "dist");
+const DIST = path.join(ROOT, "dist", "congress"); // vite outDir (site lives under /congress/)
 const DATA = path.join(ROOT, "public", "data");
-const BASE = "https://congress.kadoa.com";
+const PREFIX = "/congress"; // public path prefix behind the www.kadoa.com reverse proxy
+const BASE = `https://www.kadoa.com${PREFIX}`;
 
 const esc = (s) =>
   String(s ?? "")
@@ -136,7 +137,7 @@ function renderRoute(template, route) {
   if (route.h1) {
     html = html.replace(
       /(<div id="root">)(<\/div>)/,
-      `$1<main><h1>${esc(route.h1)}</h1>${route.body ?? ""}<p><a href="/">Congress Trading Monitor home</a></p></main>$2`,
+      `$1<main><h1>${esc(route.h1)}</h1>${route.body ?? ""}<p><a href="${PREFIX}/">Congress Trading Monitor home</a></p></main>$2`,
     );
   }
   return html;

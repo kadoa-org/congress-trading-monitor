@@ -1,3 +1,16 @@
 {
-  "rewrites": [{ "source": "/((?!data/|assets/|favicon|robots|sitemap).*)", "destination": "/index.html" }]
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "congress.kadoa.com" }],
+      "destination": "https://www.kadoa.com/congress/:path*",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/congress/((?!data/|assets/|favicon|robots|sitemap|og-image).*)",
+      "destination": "/congress/index.html"
+    }
+  ]
 }

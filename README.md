@@ -1,6 +1,6 @@
 # Congress Trading Monitor
 
-**Live demo: [congress.kadoa.com](https://congress.kadoa.com/)**
+**Live demo: [kadoa.com/congress](https://www.kadoa.com/congress/)**
 
 Interactive dashboard and open dataset of every stock trade disclosed by U.S. Senators, Representatives, and senior executive branch officials under the STOCK Act.
 

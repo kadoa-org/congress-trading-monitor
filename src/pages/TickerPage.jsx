@@ -13,7 +13,7 @@ export default function TickerPage({ symbol, filersById }) {
   useEffect(() => {
     setData(null);
     setError(null);
-    fetch(`/data/ticker/${encodeURIComponent(symbol)}.json`)
+    fetch(`${import.meta.env.BASE_URL}data/ticker/${encodeURIComponent(symbol)}.json`)
       .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
       .then(setData)
       .catch(setError);
