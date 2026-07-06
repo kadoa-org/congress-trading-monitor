@@ -65,7 +65,7 @@ export default function FilersPage({ data }) {
       <h1 className="govuk-heading-l" style={{ marginBottom: 10 }}>Filers</h1>
       <p className="govuk-hint" style={{ marginTop: -6 }}>{`${fmtInt(filtered.length)} of ${fmtInt(enrichedFilers.length)}`}</p>
 
-      <div className="flex flex-wrap items-center gap-1.5 mb-4">
+      <div className="dk-toolbar">
         <InlineSearchInput
           value={qs.q}
           onChange={(v) => setQs({ q: v })}

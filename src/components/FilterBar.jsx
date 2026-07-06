@@ -406,7 +406,7 @@ export function SingleSelectChip({ label, icon: chipIcon, options, value, onChan
   const btnRef = useRef(null);
   const current = options.find((o) => o.k === value) ?? options[0];
   return (
-    <div className="relative inline-flex items-stretch border border-[#0b0c0c] bg-white overflow-hidden h-10 text-[14px]">
+    <div className="relative inline-flex items-stretch border border-[#0b0c0c] bg-white overflow-hidden h-8 text-[15px]">
       <span className="inline-flex items-center gap-1.5 pl-2.5 pr-2 text-[#505a5f] border-r border-[#b1b4b6]">
         {chipIcon && <span className="text-[#505a5f]">{chipIcon}</span>}
         <span className="font-medium text-[#0b0c0c]">{label}</span>
@@ -486,7 +486,7 @@ function FilterChip({ cat, value, onChange, onRemove, open, setOpen }) {
   const btnRef = useRef(null);
 
   return (
-    <div className="relative inline-flex items-stretch border border-[#0b0c0c] bg-white overflow-hidden h-10 text-[14px]">
+    <div className="relative inline-flex items-stretch border border-[#0b0c0c] bg-white overflow-hidden h-8 text-[15px]">
       <span className="inline-flex items-center gap-1.5 pl-2.5 pr-2 text-[#505a5f] border-r border-[#b1b4b6]">
         <span className="text-[#505a5f]">{cat.icon}</span>
         <span className="font-medium text-[#0b0c0c]">{cat.label}</span>

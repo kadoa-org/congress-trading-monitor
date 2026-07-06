@@ -96,13 +96,13 @@
 /* ── Toolbar, inputs, buttons ── */
 .dk-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 14px; }
 .dk-input {
-  height: 32px; border: 2px solid var(--dk-ink); background: #fff; padding: 0 8px;
+  height: 32px; border: 1px solid var(--dk-ink); background: #fff; padding: 0 8px;
   font: 400 var(--dk-fs-m)/1 var(--dk-font); color: var(--dk-ink);
 }
 .dk-input:focus { outline: 3px solid var(--dk-focus); outline-offset: 0; }
 .dk-btn {
   display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 12px;
-  border: 2px solid var(--dk-ink); background: #fff; color: var(--dk-ink);
+  border: 1px solid var(--dk-ink); background: #fff; color: var(--dk-ink);
   font: 500 var(--dk-fs-m)/1 var(--dk-font); cursor: pointer; white-space: nowrap;
 }
 .dk-btn:hover { background: var(--dk-bg-hover); }
