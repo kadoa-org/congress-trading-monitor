@@ -4,6 +4,13 @@ Self-contained design system for Kadoa's dataset micropages (congress, layoffs,
 quant jobs, potus). GOV.UK-derived idioms (square, 1px rules, yellow
 :focus-visible, tint tags) at data-app density.
 
+## Canonical home
+
+This folder in `congress-trading-monitor` is the single source of truth.
+Consumers vendor it via `npm run kit:sync` — never edit a vendored copy;
+change it here, push, sync all consumers the same day. See MIGRATION.md for
+the full migration playbook.
+
 ## Reuse in another project (copy-paste, zero deps)
 
 1. Copy this folder (`kit.css` + `index.jsx`) into the target repo.
@@ -20,6 +27,9 @@ quant jobs, potus). GOV.UK-derived idioms (square, 1px rules, yellow
   Change a token, not a component.
 - **One control rail.** Inputs/buttons/chips are 32px tall, 1px ink borders,
   15px text. If you add a control, match the rail.
+- **Clamp needs width.** A `clamp: true` column must also set a proportional
+  `width` ("28-35%"), or desktop truncates too. No tags inside clamped cells
+  (they mid-word ellipsize) — status tags get their own `hideBelow` column.
 - **Semantic colours are reserved.** Green/red mean positive/negative
   (`.dk-pos`/`.dk-neg`, `Tag` green/red). `TickerTag` and decoration draw from
   the non-semantic hues only.

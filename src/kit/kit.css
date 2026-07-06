@@ -151,3 +151,10 @@
    with ellipsis instead of forcing horizontal overflow (max-width:0 trick). */
 .dk-table td.dk-clamp { max-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .dk-table td.dk-clamp * { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* ── Page-level typography helpers ── */
+.dk-h1 { font: 700 var(--dk-fs-xl)/1.2 var(--dk-font); color: var(--dk-ink); margin: 0 0 10px; }
+.dk-lede { font: 400 var(--dk-fs-l)/1.5 var(--dk-font); color: var(--dk-muted); margin: 0 0 16px; max-width: 72ch; }
+.dk-link { color: var(--dk-link); text-decoration: underline; text-underline-offset: 2px; }
+.dk-link:hover { text-decoration-thickness: 2px; }
+.dk-link:focus-visible { outline: 3px solid var(--dk-focus); outline-offset: 0; }
