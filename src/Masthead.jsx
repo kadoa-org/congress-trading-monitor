@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, LiveBadge, NavBar, SiteHeader } from "./kit";
+import { Button, GitHubButton, LiveBadge, NavBar, SiteHeader } from "./kit";
 import { useRoute } from "./router";
 import { Link } from "./ui";
 
@@ -38,6 +38,7 @@ export default function Masthead({ stats, onOpenCmdK }) {
         right={
           <span style={{ display: "flex", alignItems: "center", gap: 14 }}>
             <LiveBadge>{freshness(stats?.generatedAt)}</LiveBadge>
+            <GitHubButton repo="kadoa-org/congress-trading-monitor" />
             <Button inverse onClick={onOpenCmdK} aria-label="Search (Cmd+K)">
               Search ⌘K
             </Button>
