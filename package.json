@@ -9,7 +9,7 @@
     "dev": "vite",
     "build": "vite build && node scripts/prerender.mjs",
     "preview": "vite preview",
-    "kit:sync": "for f in kit.css index.jsx README.md MIGRATION.md; do curl -fsS https://raw.githubusercontent.com/kadoa-org/congress-trading-monitor/main/src/kit/$f -o src/kit/$f; done"
+    "kit:sync": "for f in kit.css index.jsx; do curl -fsS https://raw.githubusercontent.com/kadoa-org/congress-trading-monitor/main/src/kit/$f -o src/kit/$f; done"
   },
   "dependencies": {
     "govuk-frontend": "^6.3.0",
