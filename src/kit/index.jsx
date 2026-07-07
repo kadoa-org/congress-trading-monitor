@@ -11,7 +11,11 @@ export function DataTable({ columns, rows, rowKey, sort, onSort, caption, empty 
   return (
     <div className={`dk-table-wrap${plain ? " dk-table-wrap--plain" : ""}`}>
       <table className="dk-table">
-        {caption && <caption className="dk-hint" style={{ textAlign: "left", padding: "6px 12px" }}>{caption}</caption>}
+        {caption && (
+          <caption className="dk-hint" style={{ textAlign: "left", padding: "6px 12px" }}>
+            {caption}
+          </caption>
+        )}
         <thead>
           <tr>
             {columns.map((c) => {
@@ -46,13 +50,26 @@ export function DataTable({ columns, rows, rowKey, sort, onSort, caption, empty 
         <tbody>
           {rows.length === 0 && (
             <tr>
-              <td className="dk-empty" colSpan={columns.length}>{empty}</td>
+              <td className="dk-empty" colSpan={columns.length}>
+                {empty}
+              </td>
             </tr>
           )}
           {rows.map((r) => (
             <tr key={rowKey(r)}>
               {columns.map((c) => (
-                <td key={c.key} className={[(c.align === "right" ? "dk-num" : ""), c.hideBelow ? `dk-hide-${c.hideBelow}` : "", c.clamp ? "dk-clamp" : ""].filter(Boolean).join(" ") || undefined}>
+                <td
+                  key={c.key}
+                  className={
+                    [
+                      c.align === "right" ? "dk-num" : "",
+                      c.hideBelow ? `dk-hide-${c.hideBelow}` : "",
+                      c.clamp ? "dk-clamp" : "",
+                    ]
+                      .filter(Boolean)
+                      .join(" ") || undefined
+                  }
+                >
                   {c.render ? c.render(r) : (r[c.key] ?? "—")}
                 </td>
               ))}
@@ -168,18 +185,20 @@ export function Button({ children, inverse = false, ...rest }) {
 // "Star on GitHub" header button for the open-data sites. Inverse variant
 // sits on the dark SiteHeader; the octocat inherits currentColor.
 export function GitHubButton({ repo, children = "Star on GitHub" }) {
+  const label = typeof children === "string" ? children : "Star on GitHub";
   return (
     <a
       className="dk-btn dk-btn--inverse"
       href={`https://github.com/${repo}`}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label={label}
       style={{ textDecoration: "none" }}
     >
       <svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
         <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z" />
       </svg>
-      {children}
+      <span className="dk-btn-label">{children}</span>
     </a>
   );
 }
@@ -195,9 +214,7 @@ function tickerTone(ticker) {
 }
 
 export function TickerTag({ ticker, size = "md" }) {
-  return (
-    <span className={`dk-tag dk-tag--${tickerTone(ticker)} dk-ticker dk-ticker--${size}`}>{ticker || "—"}</span>
-  );
+  return <span className={`dk-tag dk-tag--${tickerTone(ticker)} dk-ticker dk-ticker--${size}`}>{ticker || "—"}</span>;
 }
 
 // Freshness indicator (pulsing dot + label), designed for the dark header.
