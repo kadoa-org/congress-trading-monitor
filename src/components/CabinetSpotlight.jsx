@@ -77,13 +77,24 @@ export default function CabinetSpotlight({ filers, trades }) {
       />
       <DataTable
         columns={[
-          { key: "rank", header: "#", width: 36, align: "right", render: (o) => <span style={{ color: "var(--dk-muted)" }}>{o._rank}</span> },
+          {
+            key: "rank",
+            header: "#",
+            width: 36,
+            align: "right",
+            render: (o) => <span style={{ color: "var(--dk-muted)" }}>{o._rank}</span>,
+          },
           {
             key: "official",
             header: "Official",
             clamp: true,
+            width: "24%",
             render: (o) => (
-              <RowLink to={`/filer/${o.id}`} className="flex items-center gap-2.5 min-w-0 no-underline" style={{ color: "var(--dk-ink)" }}>
+              <RowLink
+                to={`/filer/${o.id}`}
+                className="flex items-center gap-2.5 min-w-0 no-underline"
+                style={{ color: "var(--dk-ink)" }}
+              >
                 <FilerAvatar filer={o} size={28} />
                 <span className="min-w-0">
                   <span style={{ display: "block", fontWeight: 500 }}>{o.name}</span>
@@ -92,7 +103,12 @@ export default function CabinetSpotlight({ filers, trades }) {
               </RowLink>
             ),
           },
-          { key: "agency", header: "Agency", hideBelow: "sm", render: (o) => <span style={{ color: "var(--dk-muted)" }}>{o.agency || "—"}</span> },
+          {
+            key: "agency",
+            header: "Agency",
+            hideBelow: "sm",
+            render: (o) => <span style={{ color: "var(--dk-muted)" }}>{o.agency || "—"}</span>,
+          },
           { key: "trades", header: "Trades", align: "right", render: (o) => fmtInt(o.trades) },
           {
             key: "mix",
@@ -106,7 +122,9 @@ export default function CabinetSpotlight({ filers, trades }) {
                   <span className="dk-pos">{o.buys}</span>
                   <span style={{ color: "var(--dk-muted)" }}>/</span>
                   <span className="dk-neg">{o.sells}</span>
-                  <span style={{ color: "var(--dk-muted)", marginLeft: 6 }}>{netBias > 20 ? "↑" : netBias < -20 ? "↓" : "•"}</span>
+                  <span style={{ color: "var(--dk-muted)", marginLeft: 6 }}>
+                    {netBias > 20 ? "↑" : netBias < -20 ? "↓" : "•"}
+                  </span>
                 </>
               );
             },

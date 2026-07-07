@@ -35,6 +35,7 @@ export default function LatestActivity({ trades, limit = 12 }) {
       key: "filer",
       header: "Filer",
       clamp: true,
+      width: "42%",
       render: (t) => {
         const fullAsset = bestNames.get(t.ticker) || cleanAssetName(t.asset_name) || "";
         return (
@@ -71,7 +72,11 @@ export default function LatestActivity({ trades, limit = 12 }) {
       key: "amount",
       header: "Amount",
       align: "right",
-      render: (t) => <span style={{ whiteSpace: "nowrap" }} title={t.amount_range_label || undefined}>{fmtAmountRange(t)}</span>,
+      render: (t) => (
+        <span style={{ whiteSpace: "nowrap" }} title={t.amount_range_label || undefined}>
+          {fmtAmountRange(t)}
+        </span>
+      ),
     },
     {
       key: "spy",
