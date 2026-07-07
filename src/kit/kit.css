@@ -159,8 +159,11 @@
 @media (max-width: 900px) { .dk-hide-md { display: none !important; } }
 
 /* ── Column clamp ── the flexible text column in a full-width table truncates
-   with ellipsis instead of forcing horizontal overflow (max-width:0 trick). */
-.dk-table td.dk-clamp { max-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+   with ellipsis instead of forcing horizontal overflow (max-width:0 trick).
+   min-width is a readability floor: a percentage width that's fine on desktop
+   shrinks to a few px on phones (avatar + one letter), so never let a clamp
+   column fall below ~140px regardless of viewport. */
+.dk-table td.dk-clamp { max-width: 0; min-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .dk-table td.dk-clamp * { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
 /* ── Page-level typography helpers ── */
