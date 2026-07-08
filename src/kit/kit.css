@@ -82,10 +82,16 @@
 /* min-width:0 + ellipsis so a long brand truncates instead of forcing the
    page wider than the viewport (mobile header-overflow bug). flex-wrap on the
    row is the belt-and-suspenders: content can never push past the screen. */
+.dk-header-brand-group { display: inline-flex; align-items: center; gap: 10px; min-width: 0; }
 .dk-header-brand { color: #fff; font: 700 17px/1.2 var(--dk-font); text-decoration: none; white-space: nowrap; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 .dk-header-brand:focus-visible { outline: 3px solid var(--dk-focus); outline-offset: 2px; }
 .dk-btn--inverse { background: none; border: 1px solid rgba(255,255,255,0.55); color: #fff; }
 .dk-btn--inverse:hover { background: rgba(255,255,255,0.12); }
+/* Header attribution link (e.g. "by Kadoa") used in the brandSuffix slot: a
+   link, not a button, since it navigates. White, underlined, yellow focus. */
+.dk-header-link { color: rgba(255,255,255,0.9); font: 400 var(--dk-fs-s)/1.2 var(--dk-font); text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; flex-shrink: 0; }
+.dk-header-link:hover { color: #fff; }
+.dk-header-link:focus-visible { outline: 3px solid var(--dk-focus); outline-offset: 2px; color: #fff; }
 .dk-nav { background: #fff; border-bottom: 1px solid var(--dk-rule-soft); }
 .dk-nav-list { display: flex; gap: 24px; margin: 0; padding: 0; list-style: none; overflow-x: auto; }
 .dk-nav a {

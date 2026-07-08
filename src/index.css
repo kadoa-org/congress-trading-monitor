@@ -87,3 +87,15 @@ html, body {
   .govuk-summary-list__value { padding-top: 0 !important; }
   .govuk-summary-list__row { padding: 4px 0 !important; }
 }
+
+/* Align the kit header + nav container with the page content
+   (.govuk-width-container: max-width 960, no horizontal padding on desktop).
+   Kit default is already 960; only the desktop 30px padding differs, so zero
+   it. Mobile keeps the kit's 15px gutter, matching the content's 15px margin. */
+@media (min-width: 40.0625em) {
+  .dk-header .dk-container,
+  .dk-nav .dk-container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

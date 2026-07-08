@@ -122,14 +122,19 @@ export function Delta({ value, children }) {
 
 // Site chrome: brand bar + tab navigation. linkComponent lets the host app
 // inject its SPA Link; falls back to plain anchors.
-export function SiteHeader({ brand, brandHref = "/", right, LinkComponent = "a" }) {
+// brandSuffix renders as a sibling next to the brand link (e.g. an attribution
+// link like "by Kadoa"); kept outside the brand <L> so it can be its own link.
+export function SiteHeader({ brand, brandHref = "/", brandSuffix, right, LinkComponent = "a" }) {
   const L = LinkComponent;
   return (
     <header className="dk-header">
       <div className="dk-container dk-header-inner">
-        <L href={brandHref} to={brandHref} className="dk-header-brand">
-          {brand}
-        </L>
+        <span className="dk-header-brand-group">
+          <L href={brandHref} to={brandHref} className="dk-header-brand">
+            {brand}
+          </L>
+          {brandSuffix}
+        </span>
         {right}
       </div>
     </header>
