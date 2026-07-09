@@ -52,15 +52,6 @@ export default function Masthead({ stats, onOpenCmdK }) {
             <Button inverse onClick={onOpenCmdK} aria-label="Search (Cmd+K)">
               Search ⌘K
             </Button>
-            <a
-              className="dk-btn dk-btn--brand"
-              href="https://www.kadoa.com/contact"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ textDecoration: "none" }}
-            >
-              Book a demo
-            </a>
           </span>
         }
       />

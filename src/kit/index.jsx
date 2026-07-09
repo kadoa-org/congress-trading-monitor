@@ -170,13 +170,6 @@ export function SiteFooter({ current }) {
         </nav>
         <div className="dk-footer-cta">
           <a href="https://www.kadoa.com">What is Kadoa?</a>
-          <a
-            className="dk-btn dk-btn--brand dk-btn--sm"
-            href="https://www.kadoa.com/contact"
-            style={{ textDecoration: "none" }}
-          >
-            Book a demo
-          </a>
         </div>
       </div>
     </footer>
