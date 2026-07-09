@@ -33,12 +33,7 @@ export default function Masthead({ stats, onOpenCmdK }) {
   return (
     <>
       <SiteHeader
-        brand={
-          <span className="dk-brand-lockup">
-            <img src={`${import.meta.env.BASE_URL}kadoa-icon.svg`} alt="Kadoa" width="18" height="18" />
-            Congress Trading Monitor
-          </span>
-        }
+        brand="🏛️ Congress Trading Monitor"
         LinkComponent={Link}
         brandSuffix={
           <a href="https://www.kadoa.com" target="_blank" rel="noreferrer" className="dk-header-link">

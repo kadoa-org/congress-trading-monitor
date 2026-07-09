@@ -134,15 +134,26 @@ function buildRoutes() {
 
 function renderRoute(template, route) {
   const url = `${BASE}${route.path}`;
+  // Use function replacements throughout: values like "$210.4M" contain `$` +
+  // digits, which String.replace reads as capture-group refs ($1/$2) in a
+  // replacement STRING — corrupting output (a stray `</div>` closed #root and
+  // spilled crawler content below the footer). A function return is emitted
+  // literally, so `$` is never special.
   let html = template
-    .replace(/<title>[^<]*<\/title>/, `<title>${esc(route.title)}</title>`)
-    .replace(/(<meta\s+name="description"\s+content=")[^"]*(")/s, `$1${esc(route.description)}$2`)
-    .replace(/(<link rel="canonical" href=")[^"]*(")/, `$1${url}$2`)
-    .replace(/(<meta property="og:url" content=")[^"]*(")/, `$1${url}$2`)
-    .replace(/(<meta property="og:title" content=")[^"]*(")/, `$1${esc(route.title)}$2`)
-    .replace(/(<meta\s+property="og:description"\s+content=")[^"]*(")/s, `$1${esc(route.description)}$2`)
-    .replace(/(<meta name="twitter:title" content=")[^"]*(")/, `$1${esc(route.title)}$2`)
-    .replace(/(<meta\s+name="twitter:description"\s+content=")[^"]*(")/s, `$1${esc(route.description)}$2`);
+    .replace(/<title>[^<]*<\/title>/, () => `<title>${esc(route.title)}</title>`)
+    .replace(/(<meta\s+name="description"\s+content=")[^"]*(")/s, (_m, a, b) => `${a}${esc(route.description)}${b}`)
+    .replace(/(<link rel="canonical" href=")[^"]*(")/, (_m, a, b) => `${a}${url}${b}`)
+    .replace(/(<meta property="og:url" content=")[^"]*(")/, (_m, a, b) => `${a}${url}${b}`)
+    .replace(/(<meta property="og:title" content=")[^"]*(")/, (_m, a, b) => `${a}${esc(route.title)}${b}`)
+    .replace(
+      /(<meta\s+property="og:description"\s+content=")[^"]*(")/s,
+      (_m, a, b) => `${a}${esc(route.description)}${b}`,
+    )
+    .replace(/(<meta name="twitter:title" content=")[^"]*(")/, (_m, a, b) => `${a}${esc(route.title)}${b}`)
+    .replace(
+      /(<meta\s+name="twitter:description"\s+content=")[^"]*(")/s,
+      (_m, a, b) => `${a}${esc(route.description)}${b}`,
+    );
 
   const schemas = [route.jsonLd, route.crumbs && crumbLd(route.crumbs)].filter(Boolean);
   if (schemas.length) {
@@ -154,7 +165,8 @@ function renderRoute(template, route) {
   if (route.h1) {
     html = html.replace(
       /(<div id="root">)(<\/div>)/,
-      `$1<main><h1>${esc(route.h1)}</h1>${route.body ?? ""}<p><a href="${PREFIX}/">Congress Trading Monitor home</a></p></main>$2`,
+      (_m, open, close) =>
+        `${open}<main><h1>${esc(route.h1)}</h1>${route.body ?? ""}<p><a href="${PREFIX}/">Congress Trading Monitor home</a></p></main>${close}`,
     );
   }
   return html;
