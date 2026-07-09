@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import CommandPalette from "./components/CommandPalette";
+import { SiteFooter } from "./kit";
 import Masthead from "./Masthead";
 import AboutPage from "./pages/AboutPage";
 import FilerPage from "./pages/FilerPage";
@@ -183,7 +184,7 @@ export default function App() {
       {route.name === "ticker" && <TickerPage symbol={route.symbol} filersById={data.filersById} />}
 
       <CommandPalette open={cmdkOpen} onClose={() => setCmdkOpen(false)} filers={data.filers} tickers={data.tickers} />
-
+      <SiteFooter current="congress" />
     </div>
   );
 }

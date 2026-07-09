@@ -141,6 +141,48 @@ export function SiteHeader({ brand, brandHref = "/", brandSuffix, right, LinkCom
   );
 }
 
+// Cross-dataset footer: links the sibling open-data sites (all under
+// www.kadoa.com/*) to each other and back to Kadoa — internal linking for SEO,
+// plus brand + a conversion CTA. `current` marks the active site (plain text,
+// not a self-link). Cross-site links are full navigations, so plain anchors.
+export function SiteFooter({ current }) {
+  const sites = [
+    ["quant", "https://www.kadoa.com/quant/", "Quant Jobs"],
+    ["layoffs", "https://www.kadoa.com/layoffs/", "Layoffs Tracker"],
+    ["congress", "https://www.kadoa.com/congress/", "Congress Trades"],
+  ];
+  return (
+    <footer className="dk-footer">
+      <div className="dk-container dk-footer-inner">
+        <nav className="dk-footer-nav" aria-label="Kadoa open datasets">
+          <span className="dk-footer-label">Open data by Kadoa</span>
+          {sites.map(([key, href, label]) =>
+            key === current ? (
+              <span key={key} className="dk-footer-here" aria-current="page">
+                {label}
+              </span>
+            ) : (
+              <a key={key} href={href}>
+                {label}
+              </a>
+            ),
+          )}
+        </nav>
+        <div className="dk-footer-cta">
+          <a href="https://www.kadoa.com">What is Kadoa?</a>
+          <a
+            className="dk-btn dk-btn--brand dk-btn--sm"
+            href="https://www.kadoa.com/contact"
+            style={{ textDecoration: "none" }}
+          >
+            Book a demo
+          </a>
+        </div>
+      </div>
+    </footer>
+  );
+}
+
 export function NavBar({ items, LinkComponent = "a" }) {
   const L = LinkComponent;
   return (

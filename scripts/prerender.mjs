@@ -34,6 +34,14 @@ const esc = (s) =>
     .replace(/>/g, "&gt;")
     .replace(/"/g, "&quot;");
 
+// BreadcrumbList JSON-LD from [label, absoluteUrl] pairs. Must mirror the
+// visible breadcrumb trail (Overview › Filers/Tickers › Name) exactly.
+const crumbLd = (crumbs) => ({
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: crumbs.map(([name, item], i) => ({ "@type": "ListItem", position: i + 1, name, item })),
+});
+
 const fmtUsd = (n) => {
   if (!n) return null;
   if (n >= 1e9) return `$${(n / 1e9).toFixed(1)}B`;
@@ -96,6 +104,11 @@ function buildRoutes() {
         mainEntity: { "@type": "Person", name: f.full_name, jobTitle: role },
         url: `${BASE}/filer/${f.id}`,
       },
+      crumbs: [
+        ["Overview", `${BASE}/`],
+        ["Filers", `${BASE}/filers`],
+        [f.full_name, `${BASE}/filer/${f.id}`],
+      ],
     });
   }
 
@@ -106,6 +119,11 @@ function buildRoutes() {
       description: `${t.ticker} has been traded ${t.trade_count} times by ${t.filer_count} members of Congress and executive officials: ${t.purchases} buys, ${t.sales} sells${t.est_volume ? `, ~${fmtUsd(t.est_volume)} est. volume` : ""}.`,
       h1: `${t.ticker}: Congressional Trading Activity`,
       body: `<p>${esc(t.ticker)} appears in ${t.trade_count} STOCK Act disclosures from ${t.filer_count} filers (${t.purchases} purchases, ${t.sales} sales).</p>`,
+      crumbs: [
+        ["Overview", `${BASE}/`],
+        ["Tickers", `${BASE}/tickers`],
+        [t.ticker, `${BASE}/ticker/${t.ticker}`],
+      ],
     });
   }
 
@@ -126,11 +144,10 @@ function renderRoute(template, route) {
     .replace(/(<meta name="twitter:title" content=")[^"]*(")/, `$1${esc(route.title)}$2`)
     .replace(/(<meta\s+name="twitter:description"\s+content=")[^"]*(")/s, `$1${esc(route.description)}$2`);
 
-  if (route.jsonLd) {
-    html = html.replace(
-      "</head>",
-      `<script type="application/ld+json">${JSON.stringify(route.jsonLd)}</script></head>`,
-    );
+  const schemas = [route.jsonLd, route.crumbs && crumbLd(route.crumbs)].filter(Boolean);
+  if (schemas.length) {
+    const tags = schemas.map((s) => `<script type="application/ld+json">${JSON.stringify(s)}</script>`).join("");
+    html = html.replace("</head>", `${tags}</head>`);
   }
 
   // Crawler-visible content; React replaces it on hydration.

@@ -24,6 +24,10 @@
   --dk-green: #0f7a52;
   --dk-red: #ca3535;
   --dk-focus: #ffdd00;
+  /* Kadoa brand — accent + header ink (see kadoa-icon.svg, www.kadoa.com) */
+  --dk-brand: #fd7412;
+  --dk-brand-hover: #e2680f;
+  --dk-brand-ink: #18181b;
   /* spacing */
   --dk-cell-y: 7px;
   --dk-cell-x: 10px;
@@ -77,7 +81,22 @@
 /* ── SiteHeader + NavBar ── */
 .dk-container { max-width: 960px; margin: 0 auto; padding: 0 15px; }
 @media (min-width: 40.0625em) { .dk-container { padding: 0 30px; } }
-.dk-header { background: var(--dk-link); color: #fff; }
+.dk-header { background: var(--dk-brand-ink); color: #fff; }
+.dk-brand-lockup { display: inline-flex; align-items: center; gap: 8px; min-width: 0; }
+.dk-brand-lockup img { flex-shrink: 0; display: block; }
+.dk-btn--brand { background: var(--dk-brand); border-color: var(--dk-brand); color: #fff; }
+.dk-btn--brand:hover { background: var(--dk-brand-hover); border-color: var(--dk-brand-hover); }
+.dk-btn--sm { padding: 5px 11px; font-size: var(--dk-fs-s); }
+/* Cross-dataset footer (brand ink + orange rule, mirrors the header) */
+.dk-footer { border-top: 3px solid var(--dk-brand); background: var(--dk-brand-ink); color: rgba(255,255,255,0.82); }
+.dk-footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 10px 20px; flex-wrap: wrap; padding: 14px 0; font-size: var(--dk-fs-s); }
+.dk-footer-nav { display: inline-flex; align-items: center; gap: 8px 16px; flex-wrap: wrap; }
+.dk-footer-label { color: rgba(255,255,255,0.55); }
+.dk-footer a { color: #fff; text-decoration: none; }
+.dk-footer a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.dk-footer-here { color: var(--dk-brand); font-weight: 600; }
+.dk-footer-cta { display: inline-flex; align-items: center; gap: 16px; }
+.dk-footer a:focus-visible, .dk-footer .dk-btn:focus-visible { outline: 3px solid var(--dk-focus); outline-offset: 2px; }
 .dk-header-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 10px; padding-bottom: 10px; flex-wrap: wrap; row-gap: 8px; }
 /* min-width:0 + ellipsis so a long brand truncates instead of forcing the
    page wider than the viewport (mobile header-overflow bug). flex-wrap on the
