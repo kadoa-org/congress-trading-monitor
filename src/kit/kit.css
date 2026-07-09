@@ -86,7 +86,6 @@
 .dk-footer a { color: var(--dk-link); text-decoration: underline; text-underline-offset: 3px; }
 .dk-footer a:hover { text-decoration: none; }
 .dk-footer-here { color: var(--dk-ink); font-weight: 600; }
-.dk-footer-cta { display: inline-flex; align-items: center; gap: 16px; }
 .dk-footer a:focus-visible { outline: 3px solid var(--dk-focus); outline-offset: 2px; }
 .dk-header-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 10px; padding-bottom: 10px; flex-wrap: wrap; row-gap: 8px; }
 /* min-width:0 + ellipsis so a long brand truncates instead of forcing the

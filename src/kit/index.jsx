@@ -142,9 +142,9 @@ export function SiteHeader({ brand, brandHref = "/", brandSuffix, right, LinkCom
 }
 
 // Cross-dataset footer: links the sibling open-data sites (all under
-// www.kadoa.com/*) to each other and back to Kadoa — internal linking for SEO,
-// plus brand + a conversion CTA. `current` marks the active site (plain text,
-// not a self-link). Cross-site links are full navigations, so plain anchors.
+// www.kadoa.com/*) to each other — internal linking for SEO. `current` marks
+// the active site (plain text, not a self-link). Cross-site links are full
+// navigations, so plain anchors.
 export function SiteFooter({ current }) {
   const sites = [
     ["quant", "https://www.kadoa.com/quant/", "Quant Jobs"],
@@ -168,9 +168,6 @@ export function SiteFooter({ current }) {
             ),
           )}
         </nav>
-        <div className="dk-footer-cta">
-          <a href="https://www.kadoa.com">What is Kadoa?</a>
-        </div>
       </div>
     </footer>
   );
