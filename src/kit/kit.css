@@ -84,8 +84,11 @@
 .dk-header { background: var(--dk-brand-ink); color: #fff; }
 .dk-brand-lockup { display: inline-flex; align-items: center; gap: 8px; min-width: 0; }
 .dk-brand-lockup img { flex-shrink: 0; display: block; }
-.dk-btn--brand { background: var(--dk-brand); border-color: var(--dk-brand); color: #fff; }
-.dk-btn--brand:hover { background: var(--dk-brand-hover); border-color: var(--dk-brand-hover); }
+/* .dk-btn.dk-btn--brand: two-class specificity so the orange background beats
+   the base .dk-btn (white bg, defined later) and .dk-footer a (white text).
+   Dark ink text on orange = 6.6:1 (WCAG AA); white-on-orange was ~2.8:1. */
+.dk-btn.dk-btn--brand { background: var(--dk-brand); border-color: var(--dk-brand); color: var(--dk-brand-ink); }
+.dk-btn.dk-btn--brand:hover { background: var(--dk-brand-hover); border-color: var(--dk-brand-hover); color: var(--dk-brand-ink); }
 .dk-btn--sm { padding: 5px 11px; font-size: var(--dk-fs-s); }
 /* Cross-dataset footer (brand ink + orange rule, mirrors the header) */
 .dk-footer { border-top: 3px solid var(--dk-brand); background: var(--dk-brand-ink); color: rgba(255,255,255,0.82); }
