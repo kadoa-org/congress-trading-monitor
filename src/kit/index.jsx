@@ -150,6 +150,7 @@ export function SiteFooter({ current }) {
     ["quant", "https://www.kadoa.com/quant/", "Quant Jobs"],
     ["layoffs", "https://www.kadoa.com/layoffs/", "Layoffs Tracker"],
     ["congress", "https://www.kadoa.com/congress/", "Congress Trades"],
+    ["potus", "https://www.kadoa.com/potus/", "POTUS Tracker"],
   ];
   return (
     <footer className="dk-footer">
