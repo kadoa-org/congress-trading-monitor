@@ -53,6 +53,110 @@ function loadJson(name) {
   return JSON.parse(fs.readFileSync(path.join(DATA, name), "utf8"));
 }
 
+const fmtDate = (iso) =>
+  iso
+    ? new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+        year: "numeric",
+        timeZone: "UTC",
+      })
+    : "";
+
+// Human company name for a ticker, derived from the asset names on its
+// trades. Asset names vary per filing ("Space Exploration Technologies
+// Corp. - Class A Common Stock", "SpaceX"), so: strip the share-class
+// suffix after " - ", then take the most frequent cleaned form. People
+// search "who traded SpaceX", not "who traded SPCX" — the company name in
+// the title/body is what makes these pages matchable.
+function companyName(trades, ticker) {
+  const counts = new Map();
+  for (const t of trades) {
+    const name = String(t.asset_name ?? "")
+      .split(" - ")[0]
+      .replace(/\s+(common|ordinary|class [a-c])\s+(stock|shares)$/i, "")
+      .trim();
+    if (!name || name.toUpperCase() === ticker) continue;
+    counts.set(name, (counts.get(name) ?? 0) + 1);
+  }
+  let best = null;
+  for (const [name, n] of counts) {
+    if (!best || n > best.n || (n === best.n && name.length < best.name.length)) best = { name, n };
+  }
+  return best?.name ?? null;
+}
+
+// Per-ticker route with the "who traded X?" answer in static HTML. The
+// aggregate row (tickers.json) only has counts; the names live in the
+// per-ticker detail file, and a page can't rank for "who traded SPCX"
+// unless the crawler-visible HTML actually names the filers.
+function tickerRoute(t) {
+  const detailPath = path.join(DATA, "ticker", `${t.ticker}.json`);
+  const trades = fs.existsSync(detailPath) ? (JSON.parse(fs.readFileSync(detailPath, "utf8")).trades ?? []) : [];
+  const company = companyName(trades, t.ticker);
+  const label = company ? `${t.ticker} (${company})` : t.ticker;
+
+  // Distinct filers, most recent trade first (trades arrive date-desc).
+  const filerOrder = [];
+  const filerById = new Map();
+  for (const tr of trades) {
+    let f = filerById.get(tr.filer_id);
+    if (!f) {
+      f = { id: tr.filer_id, name: tr.filer_name ?? tr.filer_id, count: 0, latest: tr.transaction_date };
+      filerById.set(tr.filer_id, f);
+      filerOrder.push(f);
+    }
+    f.count++;
+  }
+
+  const namePreview = filerOrder.slice(0, 3).map((f) => f.name);
+  const moreCount = filerOrder.length - namePreview.length;
+  const who =
+    namePreview.length > 0
+      ? `${namePreview.join(", ")}${moreCount > 0 ? ` and ${moreCount} more` : ""}`
+      : `${t.filer_count} members of Congress and executive officials`;
+  const latest = trades[0];
+
+  const whoList = filerOrder
+    .map(
+      (f) =>
+        `<li><a href="${PREFIX}/filer/${esc(f.id)}">${esc(f.name)}</a> — ${f.count} trade${f.count === 1 ? "" : "s"}, last on ${esc(fmtDate(f.latest))}</li>`,
+    )
+    .join("");
+
+  const MAX_ROWS = 100;
+  const rows = trades
+    .slice(0, MAX_ROWS)
+    .map(
+      (tr) =>
+        `<tr><td><a href="${PREFIX}/filer/${esc(tr.filer_id)}">${esc(tr.filer_name ?? tr.filer_id)}</a></td><td>${esc(fmtDate(tr.transaction_date))}</td><td>${esc(tr.transaction_type ?? "")}</td><td>${esc(tr.amount_range_label ?? "")}</td></tr>`,
+    )
+    .join("");
+  const tableNote =
+    trades.length > MAX_ROWS ? `<p>Showing the ${MAX_ROWS} most recent of ${trades.length} trades.</p>` : "";
+
+  return {
+    path: `/ticker/${t.ticker}`,
+    title: `Who Traded ${t.ticker}? ${company ? `${company} ` : ""}Congress Stock Trades | Congress Trading Monitor`,
+    description: `Who traded ${label}? ${who} disclosed ${t.trade_count} trade${t.trade_count === 1 ? "" : "s"} under the STOCK Act: ${t.purchases} buys, ${t.sales} sells${t.est_volume ? `, ~${fmtUsd(t.est_volume)} est. volume` : ""}.`,
+    h1: `${label}: Congressional Trading Activity`,
+    lastmod: latest?.filing_date ?? latest?.transaction_date ?? null,
+    body: [
+      `<h2>Who traded ${esc(t.ticker)}?</h2>`,
+      `<p>${esc(label)} appears in ${t.trade_count} STOCK Act disclosures from ${t.filer_count} filer${t.filer_count === 1 ? "" : "s"} (${t.purchases} purchases, ${t.sales} sales)${latest ? `, most recently ${esc(latest.filer_name ?? "")} on ${esc(fmtDate(latest.transaction_date))}` : ""}.</p>`,
+      whoList ? `<ul>${whoList}</ul>` : "",
+      rows
+        ? `<h2>Disclosed trades</h2><table><thead><tr><th>Filer</th><th>Trade date</th><th>Type</th><th>Amount</th></tr></thead><tbody>${rows}</tbody></table>${tableNote}`
+        : "",
+    ].join(""),
+    crumbs: [
+      ["Overview", `${BASE}/`],
+      ["Tickers", `${BASE}/tickers`],
+      [t.ticker, `${BASE}/ticker/${t.ticker}`],
+    ],
+  };
+}
+
 // ── route definitions ────────────────────────────────────────────────────────
 
 function buildRoutes() {
@@ -69,8 +173,18 @@ function buildRoutes() {
     {
       path: "/tickers",
       title: "Most-Traded Stocks by Congress | Congress Trading Monitor",
-      description:
-        "Which stocks Congress trades most: per-ticker trade counts, buy/sell mix, and estimated volume across 500+ tickers.",
+      description: `Which stocks Congress trades most: per-ticker trade counts, buy/sell mix, and estimated volume across ${tickers.length} tickers.`,
+      h1: "Most-Traded Stocks by Congress",
+      // Crawler-visible links so ticker pages are reachable through anchors,
+      // not only the sitemap. Top 200 by estimated volume keeps it honest
+      // ("most-traded") and the page size sane.
+      body: `<ul>${[...tickers]
+        .sort((a, b) => (b.est_volume ?? 0) - (a.est_volume ?? 0))
+        .slice(0, 200)
+        .map(
+          (t) => `<li><a href="${PREFIX}/ticker/${esc(t.ticker)}">${esc(t.ticker)}</a> — ${t.trade_count} trades</li>`,
+        )
+        .join("")}</ul>`,
     },
     {
       path: "/trades",
@@ -113,18 +227,7 @@ function buildRoutes() {
   }
 
   for (const t of tickers) {
-    routes.push({
-      path: `/ticker/${t.ticker}`,
-      title: `${t.ticker} - Congress Stock Trades & Disclosures | Congress Trading Monitor`,
-      description: `${t.ticker} has been traded ${t.trade_count} times by ${t.filer_count} members of Congress and executive officials: ${t.purchases} buys, ${t.sales} sells${t.est_volume ? `, ~${fmtUsd(t.est_volume)} est. volume` : ""}.`,
-      h1: `${t.ticker}: Congressional Trading Activity`,
-      body: `<p>${esc(t.ticker)} appears in ${t.trade_count} STOCK Act disclosures from ${t.filer_count} filers (${t.purchases} purchases, ${t.sales} sales).</p>`,
-      crumbs: [
-        ["Overview", `${BASE}/`],
-        ["Tickers", `${BASE}/tickers`],
-        [t.ticker, `${BASE}/ticker/${t.ticker}`],
-      ],
-    });
+    routes.push(tickerRoute(t));
   }
 
   return routes;
@@ -192,7 +295,7 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 ${routes
   .map(
     (r) =>
-      `<url><loc>${BASE}${r.path}</loc><lastmod>${today}</lastmod><changefreq>daily</changefreq><priority>${r.path.split("/").length > 2 ? "0.7" : "0.9"}</priority></url>`,
+      `<url><loc>${BASE}${r.path}</loc><lastmod>${r.lastmod ?? today}</lastmod><changefreq>daily</changefreq><priority>${r.path.split("/").length > 2 ? "0.7" : "0.9"}</priority></url>`,
   )
   .join("\n")}
 </urlset>
