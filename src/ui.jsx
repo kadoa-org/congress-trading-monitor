@@ -1,7 +1,7 @@
 // Small reusable primitives. Sized to Linear.app: root is 18px, body is 0.9375rem (16.875px).
 import React from "react";
+import { Section as DkSection, Tag as DkTag } from "./kit";
 import { navigate, withBase } from "./router";
-import { Tag as DkTag, Section as DkSection } from "./kit";
 
 // Canonical Tailwind class for table column headers.
 // Matches Linear's data-table convention: small, muted, regular case, no tracking —
@@ -146,7 +146,7 @@ export function fmtUSD(n, signed = false) {
   if (abs >= 1e9) return `${s}$${(abs / 1e9).toFixed(1)}B`;
   if (abs >= 1e6) return `${s}$${(abs / 1e6).toFixed(1)}M`;
   if (abs >= 1e3) return `${s}$${(abs / 1e3).toFixed(0)}K`;
-  return `${s}$${abs}`;
+  return `${s}$${abs.toFixed(0)}`;
 }
 
 // Compact USD value used inside a range — drops the dollar sign so "$15K - $50K"
@@ -202,7 +202,15 @@ export function pct(n, digits = 0) {
 // calm category label.
 export function Pill({ tone = "neutral", children }) {
   // Alias onto the kit Tag so every tag in the app shares one implementation.
-  const map = { neutral: "grey", blue: "blue", violet: "purple", amber: "orange", buy: "green", sell: "red", warn: "yellow" };
+  const map = {
+    neutral: "grey",
+    blue: "blue",
+    violet: "purple",
+    amber: "orange",
+    buy: "green",
+    sell: "red",
+    warn: "yellow",
+  };
   return <DkTag tone={map[tone] || "grey"}>{children}</DkTag>;
 }
 
