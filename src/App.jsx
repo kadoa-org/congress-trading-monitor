@@ -116,6 +116,32 @@ function LoadingScreen() {
   );
 }
 
+const SUFFIX = "Congress Trading Monitor";
+
+// Client-nav title, mirroring the prerendered <title> intent so the browser tab
+// and any JS-rendering crawler stay in sync after pushState navigation. The
+// prerendered static HTML remains the source of truth for first paint.
+function routeTitle(route, data) {
+  switch (route.name) {
+    case "ticker":
+      return `Who Traded ${route.symbol}? Congress Stock Trades | ${SUFFIX}`;
+    case "filer": {
+      const f = data.filersById.get(route.id);
+      return f ? `${f.full_name} Stock Trades | ${SUFFIX}` : `Filer not found | ${SUFFIX}`;
+    }
+    case "filers":
+      return `All Filers | ${SUFFIX}`;
+    case "tickers":
+      return `Most-Traded Stocks by Congress | ${SUFFIX}`;
+    case "trades":
+      return `Latest Congressional Stock Trades | ${SUFFIX}`;
+    case "about":
+      return `About the Data | ${SUFFIX}`;
+    default:
+      return `Congress & Executive Branch Stock Trades | ${SUFFIX}`;
+  }
+}
+
 export default function App() {
   const route = useRoute();
   const [data, setData] = useState({
@@ -141,6 +167,48 @@ export default function App() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [route.name, route.id, route.symbol]);
+
+  // Per-route <head> management. Prerendered pages ship a correct
+  // self-referencing canonical, title, and (implicitly) indexable status. But
+  // an unknown entity URL — a delisted ticker, a deduped/renamed filer, or a
+  // stale inbound link — is served the raw index.html shell via the SPA
+  // rewrite: it returns HTTP 200 while inheriting the *homepage* canonical and
+  // title, i.e. a soft-404 duplicate Google may index. Fix on the client:
+  //   - re-point canonical + title at the current route on every navigation
+  //   - noindex,follow entity pages whose key isn't in the loaded data
+  // notFound is derived from the already-loaded indexes rather than the page's
+  // async fetch state: a ticker in tickers.json always has a detail file and a
+  // filer in filers.json is always prerendered, so "key missing from index"
+  // is exactly the set of pages that fall through to the raw shell.
+  useEffect(() => {
+    if (loading) return;
+    const url = `${window.location.origin}${window.location.pathname}`;
+
+    let link = document.head.querySelector('link[rel="canonical"]');
+    if (!link) {
+      link = document.createElement("link");
+      link.rel = "canonical";
+      document.head.appendChild(link);
+    }
+    link.href = url;
+
+    document.title = routeTitle(route, data);
+
+    const notFound =
+      (route.name === "ticker" && !data.tickers.some((t) => t.ticker === route.symbol)) ||
+      (route.name === "filer" && !data.filersById.has(route.id));
+    let robots = document.head.querySelector('meta[name="robots"]');
+    if (notFound) {
+      if (!robots) {
+        robots = document.createElement("meta");
+        robots.name = "robots";
+        document.head.appendChild(robots);
+      }
+      robots.content = "noindex,follow";
+    } else if (robots) {
+      robots.remove();
+    }
+  }, [route.name, route.symbol, route.id, loading, data.tickers, data.filersById]);
 
   // Global Cmd+K / Ctrl+K
   useEffect(() => {
