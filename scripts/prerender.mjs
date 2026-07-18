@@ -169,6 +169,20 @@ function buildRoutes() {
       path: "/filers",
       title: "All Filers - Congress & Executive Branch Stock Trades | Congress Trading Monitor",
       description: `Stock-trade disclosures for ${filers.length} filers: U.S. House, Senate, and executive branch officials. Ranked by trades, volume, and returns vs SPY.`,
+      h1: "All Filers: Congress & Executive Branch Stock Trades",
+      // Crawler-visible filer links so filer pages are reachable through anchors,
+      // not only the sitemap. Top 150 by trade count keeps the page size sane;
+      // the full set stays in sitemap.xml.
+      body: `<p>Stock-trade disclosures from ${filers.length} U.S. House, Senate, and executive branch filers under the STOCK Act. Ranked below by number of disclosed trades.</p><ul>${[
+        ...filers,
+      ]
+        .sort((a, b) => (b.trade_count ?? 0) - (a.trade_count ?? 0))
+        .slice(0, 150)
+        .map(
+          (f) =>
+            `<li><a href="${PREFIX}/filer/${esc(f.id)}">${esc(f.full_name)}</a> — ${f.trade_count} trade${f.trade_count === 1 ? "" : "s"}</li>`,
+        )
+        .join("")}</ul>`,
     },
     {
       path: "/tickers",
@@ -191,6 +205,8 @@ function buildRoutes() {
       title: "Latest Congressional Stock Trades - Updated Daily | Congress Trading Monitor",
       description:
         "Every disclosed trade as it's filed: filer, ticker, amount, dates, filing lag, and performance vs SPY. Searchable and filterable.",
+      h1: "Latest Congressional Stock Trades",
+      body: `<p>Every stock trade disclosed by U.S. Congress and the executive branch under the STOCK Act, as it's filed: filer, ticker, amount, transaction and filing dates, filing lag, and performance vs SPY. Browse the full list of <a href="${PREFIX}/tickers">most-traded stocks</a> or <a href="${PREFIX}/filers">all filers</a>.</p>`,
     },
     {
       path: "/about",
@@ -287,6 +303,31 @@ for (const r of routes) {
   fs.writeFileSync(path.join(dir, "index.html"), renderRoute(template, r));
   written++;
 }
+
+// Homepage: keep its hand-written <head> (title/canonical/OG) but add the
+// site-level Dataset + WebSite JSON-LD the template lacks. Not a route object,
+// so it stays out of the sitemap loop and the URL count is unchanged.
+const stats = loadJson("stats.json");
+const homeSchemas = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    name: "U.S. Congress & Executive Branch Stock Trades",
+    description: `Every stock trade disclosed by U.S. Congress and the executive branch under the STOCK Act: ${stats.totalTrades} trades from ${stats.totalFilers} filers, updated daily. Free and open source.`,
+    url: `${BASE}/`,
+    keywords: ["STOCK Act", "congressional stock trades", "insider trading disclosure", "OGE 278-T", "PTR filings"],
+    isAccessibleForFree: true,
+    license: "https://opensource.org/licenses/MIT",
+    creator: { "@type": "Organization", name: "Kadoa", url: "https://www.kadoa.com" },
+    temporalCoverage: `${stats.dateRange?.from ?? ""}/${stats.dateRange?.to ?? ""}`,
+  },
+  { "@context": "https://schema.org", "@type": "WebSite", name: "Congress Trading Monitor", url: `${BASE}/` },
+];
+const homeHtml = template.replace(
+  "</head>",
+  `${homeSchemas.map((s) => `<script type="application/ld+json">${JSON.stringify(s)}</script>`).join("")}</head>`,
+);
+fs.writeFileSync(path.join(DIST, "index.html"), homeHtml);
 
 const today = new Date().toISOString().slice(0, 10);
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
