@@ -170,14 +170,12 @@ function buildRoutes() {
       title: "All Filers - Congress & Executive Branch Stock Trades | Congress Trading Monitor",
       description: `Stock-trade disclosures for ${filers.length} filers: U.S. House, Senate, and executive branch officials. Ranked by trades, volume, and returns vs SPY.`,
       h1: "All Filers: Congress & Executive Branch Stock Trades",
-      // Crawler-visible filer links so filer pages are reachable through anchors,
-      // not only the sitemap. Top 150 by trade count keeps the page size sane;
-      // the full set stays in sitemap.xml.
+      // Crawler-visible link to EVERY filer page (ranked by trade count) so no
+      // filer page is orphaned (sitemap-only). ~437 links keeps the page sane.
       body: `<p>Stock-trade disclosures from ${filers.length} U.S. House, Senate, and executive branch filers under the STOCK Act. Ranked below by number of disclosed trades.</p><ul>${[
         ...filers,
       ]
         .sort((a, b) => (b.trade_count ?? 0) - (a.trade_count ?? 0))
-        .slice(0, 150)
         .map(
           (f) =>
             `<li><a href="${PREFIX}/filer/${esc(f.id)}">${esc(f.full_name)}</a> — ${f.trade_count} trade${f.trade_count === 1 ? "" : "s"}</li>`,
@@ -189,12 +187,10 @@ function buildRoutes() {
       title: "Most-Traded Stocks by Congress | Congress Trading Monitor",
       description: `Which stocks Congress trades most: per-ticker trade counts, buy/sell mix, and estimated volume across ${tickers.length} tickers.`,
       h1: "Most-Traded Stocks by Congress",
-      // Crawler-visible links so ticker pages are reachable through anchors,
-      // not only the sitemap. Top 200 by estimated volume keeps it honest
-      // ("most-traded") and the page size sane.
+      // Crawler-visible link to EVERY ticker page (ranked by volume, so it still
+      // reads "most-traded" first) — the long tail was orphaned (sitemap-only).
       body: `<ul>${[...tickers]
         .sort((a, b) => (b.est_volume ?? 0) - (a.est_volume ?? 0))
-        .slice(0, 200)
         .map(
           (t) => `<li><a href="${PREFIX}/ticker/${esc(t.ticker)}">${esc(t.ticker)}</a> — ${t.trade_count} trades</li>`,
         )
