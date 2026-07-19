@@ -172,7 +172,7 @@ function buildRoutes() {
       h1: "All Filers: Congress & Executive Branch Stock Trades",
       // Crawler-visible link to EVERY filer page (ranked by trade count) so no
       // filer page is orphaned (sitemap-only). ~437 links keeps the page sane.
-      body: `<p>Stock-trade disclosures from ${filers.length} U.S. House, Senate, and executive branch filers under the STOCK Act. Ranked below by number of disclosed trades.</p><ul>${[
+      body: `<p>Stock-trade disclosures from ${filers.length} U.S. House, Senate, and executive branch filers under the STOCK Act. Ranked below by number of disclosed trades. See the <a href="${PREFIX}/trades">latest trades</a> or <a href="${PREFIX}/about">about the data</a>.</p><ul>${[
         ...filers,
       ]
         .sort((a, b) => (b.trade_count ?? 0) - (a.trade_count ?? 0))
