@@ -147,10 +147,10 @@ export function SiteHeader({ brand, brandHref = "/", brandSuffix, right, LinkCom
 // navigations, so plain anchors.
 export function SiteFooter({ current }) {
   const sites = [
-    ["quant", "https://www.kadoa.com/quant/", "Quant Jobs"],
-    ["layoffs", "https://www.kadoa.com/layoffs/", "Layoffs Tracker"],
-    ["congress", "https://www.kadoa.com/congress/", "Congress Trades"],
-    ["potus", "https://www.kadoa.com/potus/", "POTUS Tracker"],
+    ["quant", "https://www.kadoa.com/quant", "Quant Jobs"],
+    ["layoffs", "https://www.kadoa.com/layoffs", "Layoffs Tracker"],
+    ["congress", "https://www.kadoa.com/congress", "Congress Trades"],
+    ["potus", "https://www.kadoa.com/potus", "POTUS Tracker"],
   ];
   return (
     <footer className="dk-footer">
