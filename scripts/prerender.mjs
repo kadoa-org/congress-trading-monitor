@@ -137,7 +137,7 @@ function tickerRoute(t) {
 
   return {
     path: `/ticker/${t.ticker}`,
-    title: `Who Traded ${t.ticker}? ${company ? `${company} ` : ""}Congress Stock Trades | Congress Trading Monitor`,
+    title: `${t.ticker} Congress Stock Trades${company ? ` — ${company}` : ""} | Congress Trading Monitor`,
     description: `Who traded ${label}? ${who} disclosed ${t.trade_count} trade${t.trade_count === 1 ? "" : "s"} under the STOCK Act: ${t.purchases} buys, ${t.sales} sells${t.est_volume ? `, ~${fmtUsd(t.est_volume)} est. volume` : ""}.`,
     h1: `${label}: Congressional Trading Activity`,
     lastmod: latest?.filing_date ?? latest?.transaction_date ?? null,
