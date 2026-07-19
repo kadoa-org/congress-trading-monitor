@@ -156,7 +156,9 @@ export function SiteFooter({ current }) {
     <footer className="dk-footer">
       <div className="dk-container dk-footer-inner">
         <nav className="dk-footer-nav" aria-label="Kadoa open datasets">
-          <span className="dk-footer-label">Open data by Kadoa</span>
+          <span className="dk-footer-label">
+            <a href="https://www.kadoa.com/datasets">Open data</a> by <a href="https://www.kadoa.com/">Kadoa</a>
+          </span>
           {sites.map(([key, href, label]) =>
             key === current ? (
               <span key={key} className="dk-footer-here" aria-current="page">
