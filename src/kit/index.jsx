@@ -147,16 +147,18 @@ export function SiteHeader({ brand, brandHref = "/", brandSuffix, right, LinkCom
 // navigations, so plain anchors.
 export function SiteFooter({ current }) {
   const sites = [
-    ["quant", "https://www.kadoa.com/quant/", "Quant Jobs"],
-    ["layoffs", "https://www.kadoa.com/layoffs/", "Layoffs Tracker"],
-    ["congress", "https://www.kadoa.com/congress/", "Congress Trades"],
-    ["potus", "https://www.kadoa.com/potus/", "POTUS Tracker"],
+    ["quant", "https://www.kadoa.com/quant", "Quant Jobs"],
+    ["layoffs", "https://www.kadoa.com/layoffs", "Layoffs Tracker"],
+    ["congress", "https://www.kadoa.com/congress", "Congress Trades"],
+    ["potus", "https://www.kadoa.com/potus", "POTUS Tracker"],
   ];
   return (
     <footer className="dk-footer">
       <div className="dk-container dk-footer-inner">
         <nav className="dk-footer-nav" aria-label="Kadoa open datasets">
-          <span className="dk-footer-label">Open data by Kadoa</span>
+          <span className="dk-footer-label">
+            <a href="https://www.kadoa.com/datasets">Open data</a> by <a href="https://www.kadoa.com/">Kadoa</a>
+          </span>
           {sites.map(([key, href, label]) =>
             key === current ? (
               <span key={key} className="dk-footer-here" aria-current="page">
