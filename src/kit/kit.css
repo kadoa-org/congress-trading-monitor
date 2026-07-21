@@ -79,13 +79,23 @@
 @media (min-width: 40.0625em) { .dk-container { padding: 0 30px; } }
 .dk-header { background: var(--dk-link); color: #fff; }
 /* Cross-dataset footer — gov.uk style: light surface, hairline rule, blue links */
-.dk-footer { border-top: 1px solid var(--dk-rule); background: var(--dk-bg); color: var(--dk-muted); }
-.dk-footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 10px 20px; flex-wrap: wrap; padding: 20px 0; font-size: var(--dk-fs-s); }
-.dk-footer-nav { display: inline-flex; align-items: center; gap: 8px 16px; flex-wrap: wrap; }
-.dk-footer-label { color: var(--dk-muted); }
-.dk-footer a { color: var(--dk-link); text-decoration: underline; text-underline-offset: 3px; }
-.dk-footer a:hover { text-decoration: none; }
-.dk-footer-here { color: var(--dk-ink); font-weight: 600; }
+/* Cross-dataset footer: grey surface behind a hairline, a bold section
+   heading with a rule beneath it, then a stacked column of underlined ink
+   links (full line = comfortable tap target), and a muted meta line. */
+.dk-footer { border-top: 1px solid var(--dk-rule); background: var(--dk-bg-hover); color: var(--dk-muted); margin-top: 48px; }
+/* vertical padding only — sides come from .dk-container on the same element */
+.dk-footer-inner { padding-top: 28px; padding-bottom: 36px; font-size: var(--dk-fs-m); }
+@media (min-width: 40.0625em) { .dk-footer-inner { padding-top: 40px; } }
+.dk-footer-heading { margin: 0 0 15px; padding-bottom: 10px; border-bottom: 1px solid var(--dk-faint); font: 700 19px/1.25 var(--dk-font); color: var(--dk-ink); }
+.dk-footer-links { list-style: none; margin: 0; padding: 0; }
+.dk-footer-links li { margin-bottom: 15px; }
+.dk-footer-links li:last-child { margin-bottom: 0; }
+.dk-footer-links a { color: var(--dk-ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.dk-footer-links a:hover { text-decoration-thickness: 3px; }
+.dk-footer-here { color: var(--dk-ink); font-weight: 700; }
+.dk-footer-meta { margin: 25px 0 0; padding-top: 20px; border-top: 1px solid var(--dk-faint); color: var(--dk-muted); font-size: var(--dk-fs-s); line-height: 1.6; }
+.dk-footer-meta a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.dk-footer-meta a:hover { color: var(--dk-ink); text-decoration-thickness: 2px; }
 .dk-footer a:focus-visible { outline: 3px solid var(--dk-focus); outline-offset: 2px; }
 .dk-header-inner { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-top: 10px; padding-bottom: 10px; flex-wrap: wrap; row-gap: 8px; }
 /* min-width:0 + ellipsis so a long brand truncates instead of forcing the

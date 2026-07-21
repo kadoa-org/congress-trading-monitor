@@ -156,22 +156,26 @@ export function SiteFooter({ current }) {
   return (
     <footer className="dk-footer">
       <div className="dk-container dk-footer-inner">
-        <nav className="dk-footer-nav" aria-label="Kadoa open datasets">
-          <span className="dk-footer-label">
-            <a href="https://www.kadoa.com/datasets">Open data</a> by <a href="https://www.kadoa.com/">Kadoa</a>
-          </span>
-          {sites.map(([key, href, label]) =>
-            key === current ? (
-              <span key={key} className="dk-footer-here" aria-current="page">
-                {label}
-              </span>
-            ) : (
-              <a key={key} href={href}>
-                {label}
-              </a>
-            ),
-          )}
+        <h2 className="dk-footer-heading">Kadoa open datasets</h2>
+        <nav aria-label="Kadoa open datasets">
+          <ul className="dk-footer-links">
+            {sites.map(([key, href, label]) => (
+              <li key={key}>
+                {key === current ? (
+                  <span className="dk-footer-here" aria-current="page">
+                    {label}
+                  </span>
+                ) : (
+                  <a href={href}>{label}</a>
+                )}
+              </li>
+            ))}
+          </ul>
         </nav>
+        <p className="dk-footer-meta">
+          Free and open, refreshed daily{" "}· <a href="https://www.kadoa.com/datasets">All datasets</a>
+          {" "}· built by <a href="https://www.kadoa.com/">Kadoa</a>
+        </p>
       </div>
     </footer>
   );
