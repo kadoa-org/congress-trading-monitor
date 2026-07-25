@@ -26,6 +26,7 @@ const DIST = path.join(ROOT, "dist", "congress"); // vite outDir (site lives und
 const DATA = path.join(ROOT, "public", "data");
 const PREFIX = "/congress"; // public path prefix behind the www.kadoa.com reverse proxy
 const BASE = `https://www.kadoa.com${PREFIX}`;
+const YEAR = new Date().getUTCFullYear(); // recency stamp for titles (searchers append the year)
 
 const esc = (s) =>
   String(s ?? "")
@@ -137,7 +138,7 @@ function tickerRoute(t) {
 
   return {
     path: `/ticker/${t.ticker}`,
-    title: `${t.ticker} Congress Stock Trades${company ? ` — ${company}` : ""} | Congress Trading Monitor`,
+    title: `${t.ticker} Congress Stock Trades ${YEAR}${company ? ` — ${company}` : ""} | Congress Trading Monitor`,
     description: `Who traded ${label}? ${who} disclosed ${t.trade_count} trade${t.trade_count === 1 ? "" : "s"} under the STOCK Act: ${t.purchases} buys, ${t.sales} sells${t.est_volume ? `, ~${fmtUsd(t.est_volume)} est. volume` : ""}.`,
     h1: `${label}: Congressional Trading Activity`,
     lastmod: latest?.filing_date ?? latest?.transaction_date ?? null,
@@ -162,6 +163,9 @@ function tickerRoute(t) {
 function buildRoutes() {
   const filers = loadJson("filers.json");
   const tickers = loadJson("tickers.json");
+  // Per-filer performance (avg excess return vs S&P 500). Only filers with
+  // enough priced buys are scored, so this is a partial map keyed by id.
+  const returnsById = new Map(loadJson("returns.json").map((r) => [r.id, r]));
   const routes = [];
 
   routes.push(
@@ -213,17 +217,33 @@ function buildRoutes() {
   );
 
   for (const f of filers) {
+    // Prefer the feed's ready-made office label ("President", "U.S.
+    // Representative · CA-12") — it reads better than a reconstructed one and
+    // surfaces the executive-branch roles competitors (Congress-only) miss.
     const role =
-      f.branch === "executive"
+      f.office ||
+      (f.branch === "executive"
         ? `${f.level ?? ""} ${f.agency ?? ""}`.trim() || "executive branch official"
-        : `${f.chamber === "senate" ? "U.S. Senator" : "U.S. Representative"}${f.party ? ` (${f.party}${f.state ? `-${f.state}` : ""})` : ""}`;
+        : `${f.chamber === "senate" ? "U.S. Senator" : "U.S. Representative"}${f.party ? ` (${f.party}${f.state ? `-${f.state}` : ""})` : ""}`);
     const vol = fmtUsd(f.est_volume);
+    // Return vs S&P 500 (avg excess return per scored buy) is the metric this
+    // niche's incumbents lead their snippets with, and the one searchers ask
+    // for ("returns by year", "gains"). Only scored filers have it.
+    const r = returnsById.get(f.id);
+    const excess = r && Number.isFinite(r.avg_excess) ? Math.round(r.avg_excess) : null;
+    const retLabel = excess != null ? `${excess >= 0 ? "+" : "−"}${Math.abs(excess)}% avg return vs S&P 500` : null;
+    const late = f.late_filings ? `, ${f.late_filings} filed late` : "";
     routes.push({
       path: `/filer/${f.id}`,
-      title: `${f.full_name} Stock Trades - ${f.trade_count} Disclosed Trades | Congress Trading Monitor`,
-      description: `All ${f.trade_count} stock trades disclosed by ${f.full_name}, ${role}: ${f.purchases} buys, ${f.sales} sells${vol ? `, ~${vol} est. volume` : ""}. Source filings linked.`,
-      h1: `${f.full_name} Stock Trades`,
-      body: `<p>${esc(f.full_name)}, ${esc(role)}, has disclosed ${f.trade_count} stock trades under the STOCK Act: ${f.purchases} purchases and ${f.sales} sales${vol ? ` with an estimated volume of ${vol}` : ""}.</p>`,
+      // Year for recency; lead with the return when the filer is a positive
+      // standout (the strongest CTR hook), else the trade count.
+      title:
+        excess != null && excess > 0
+          ? `${f.full_name} Stock Trades ${YEAR} — ${retLabel} | Congress Trading Monitor`
+          : `${f.full_name} Stock Trades ${YEAR} — ${f.trade_count} Disclosed Trades | Congress Trading Monitor`,
+      description: `${f.full_name}, ${role}: ${f.trade_count} stock trades disclosed under the STOCK Act${vol ? `, ~${vol} est. volume` : ""}${retLabel ? `, ${retLabel}` : ""}. ${f.purchases} buys, ${f.sales} sells${late}. Updated ${YEAR}, source filings linked.`,
+      h1: `${f.full_name} Stock Trades (${YEAR})`,
+      body: `<p>${esc(f.full_name)}, ${esc(role)}, has disclosed ${f.trade_count} stock trades under the STOCK Act: ${f.purchases} purchases and ${f.sales} sales${vol ? ` with an estimated volume of ${vol}` : ""}${retLabel ? `. Their disclosed buys have averaged ${esc(retLabel)}` : ""}${f.late_filings ? `. ${f.late_filings} of these filings were submitted late (past the STOCK Act's 45-day deadline)` : ""}.</p>`,
       jsonLd: {
         "@context": "https://schema.org",
         "@type": "ProfilePage",
