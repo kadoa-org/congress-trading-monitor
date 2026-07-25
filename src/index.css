@@ -67,14 +67,20 @@ html, body {
 .govuk-heading-s { font-size: 15px !important; }
 .govuk-hint { font-size: 13px !important; margin-bottom: 8px !important; }
 .govuk-table__header, .govuk-table__cell { padding: 7px 12px 7px 0 !important; }
-/* GOV.UK flushes the first column's left padding (and last column's right) to
-   the container edge. On desktop that aligns fine with the card, but on a
-   narrow phone the outer columns hug the screen edge while the heading/footer
-   stay inset. Add a matching outer gutter for small screens ONLY, so desktop
-   column layout is untouched. */
-@media (max-width: 640px) {
-  .govuk-table__header:first-child, .govuk-table__cell:first-child { padding-left: 16px !important; }
-  .govuk-table__header:last-child, .govuk-table__cell:last-child { padding-right: 16px !important; }
+/* Rank/# column consistency. These tables have different column counts, and
+   `table-layout: auto` was handing leftover width to the short numeric first
+   column — ballooning it in sparse tables (so the rank sat far from the edge)
+   while it stayed tight in dense ones, i.e. every table aligned differently.
+   Pin the rank column to shrink-to-content, left-aligned, with the same 16px
+   gutter as the card's other content. Auto-layout then gives the slack to the
+   widest text column (Asset/Position), which is what we want. Only targets the
+   numeric first column (the rank), so text-led tables are untouched. */
+.govuk-table__header--numeric:first-child,
+.govuk-table__cell--numeric:first-child {
+  width: 1%;
+  white-space: nowrap;
+  text-align: left;
+  padding-left: 16px !important;
 }
 .govuk-table__header { font-size: 12px !important; }
 .govuk-tag {
