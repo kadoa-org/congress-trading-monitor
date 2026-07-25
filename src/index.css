@@ -67,6 +67,12 @@ html, body {
 .govuk-heading-s { font-size: 15px !important; }
 .govuk-hint { font-size: 13px !important; margin-bottom: 8px !important; }
 .govuk-table__header, .govuk-table__cell { padding: 7px 12px 7px 0 !important; }
+/* GOV.UK flushes the first column's left padding (and last column's right) to
+   the container edge, but our tables sit in bordered Cards whose footers/notes
+   use a 16px gutter — so the outer columns read as unpadded, glaringly so on a
+   narrow phone. Restore a matching 16px outer gutter for visual consistency. */
+.govuk-table__header:first-child, .govuk-table__cell:first-child { padding-left: 16px !important; }
+.govuk-table__header:last-child, .govuk-table__cell:last-child { padding-right: 16px !important; }
 .govuk-table__header { font-size: 12px !important; }
 .govuk-tag {
   font-size: 11px !important;
