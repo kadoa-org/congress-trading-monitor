@@ -232,7 +232,12 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-canvas text-ink">
+    // overflow-x-clip: keep any accidental wide element (data tables have their
+    // own overflow-x-auto scrollers) from pushing the page wider than the phone
+    // viewport, which was eating the container's left gutter on mobile.
+    // `clip` (not `hidden`) avoids creating a scroll container that would break
+    // sticky positioning.
+    <div className="min-h-screen bg-canvas text-ink overflow-x-clip">
       <Masthead stats={data.stats} onOpenCmdK={() => setCmdkOpen(true)} />
       {route.name === "overview" && <OverviewPage data={data} />}
       {/* data.trades already available */}

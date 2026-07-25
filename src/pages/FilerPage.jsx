@@ -273,11 +273,9 @@ export default function FilerPage({ filerId, filersIndex, filersById, prices: pr
       <div className="flex items-center gap-3 mb-6">
         <AvatarPrimitive filer={filer} size={44} />
         <div className="min-w-0">
-          <h1 className="govuk-heading-l" style={{ marginBottom: 2 }}>
-            {filer.full_name}{" "}
-            <span className="align-middle inline-block" style={{ verticalAlign: "middle" }}>
-              <Pill tone={meta.tone}>{meta.label}</Pill>
-            </span>
+          <h1 className="govuk-heading-l flex items-center gap-2 flex-wrap" style={{ marginBottom: 2 }}>
+            <span>{filer.full_name}</span>
+            <Pill tone={meta.tone}>{meta.label}</Pill>
           </h1>
           <p className="govuk-hint" style={{ marginBottom: 0 }}>
             {role(filer)}
