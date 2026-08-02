@@ -21,6 +21,8 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
+import { companyName } from "./companyName.mjs";
+
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DIST = path.join(ROOT, "dist", "congress"); // vite outDir (site lives under /congress/)
 const DATA = path.join(ROOT, "public", "data");
@@ -63,29 +65,6 @@ const fmtDate = (iso) =>
         timeZone: "UTC",
       })
     : "";
-
-// Human company name for a ticker, derived from the asset names on its
-// trades. Asset names vary per filing ("Space Exploration Technologies
-// Corp. - Class A Common Stock", "SpaceX"), so: strip the share-class
-// suffix after " - ", then take the most frequent cleaned form. People
-// search "who traded SpaceX", not "who traded SPCX" — the company name in
-// the title/body is what makes these pages matchable.
-function companyName(trades, ticker) {
-  const counts = new Map();
-  for (const t of trades) {
-    const name = String(t.asset_name ?? "")
-      .split(" - ")[0]
-      .replace(/\s+(common|ordinary|class [a-c])\s+(stock|shares)$/i, "")
-      .trim();
-    if (!name || name.toUpperCase() === ticker) continue;
-    counts.set(name, (counts.get(name) ?? 0) + 1);
-  }
-  let best = null;
-  for (const [name, n] of counts) {
-    if (!best || n > best.n || (n === best.n && name.length < best.name.length)) best = { name, n };
-  }
-  return best?.name ?? null;
-}
 
 // Per-ticker route with the "who traded X?" answer in static HTML. The
 // aggregate row (tickers.json) only has counts; the names live in the
@@ -151,7 +130,7 @@ function tickerRoute(t) {
         : "",
     ].join(""),
     crumbs: [
-      ["Overview", `${BASE}/`],
+      ["Overview", BASE],
       ["Tickers", `${BASE}/tickers`],
       [t.ticker, `${BASE}/ticker/${t.ticker}`],
     ],
@@ -213,6 +192,8 @@ function buildRoutes() {
       title: "About the Data - STOCK Act Disclosures Explained | Congress Trading Monitor",
       description:
         "How the STOCK Act works, the 45-day disclosure deadline, OGE 278-T executive filings, and where this open dataset comes from.",
+      h1: "About the Data",
+      body: `<p>The STOCK Act requires members of Congress and senior executive-branch officials to disclose each securities transaction within 45 days, on a Periodic Transaction Report (House and Senate) or an OGE Form 278-T (executive branch). This site collects those filings, normalizes filer names, tickers and amount ranges, and prices each disclosed purchase against the S&P 500.</p><p>Amounts are reported as ranges, not exact figures, so estimated volume is the range midpoint. Browse <a href="${PREFIX}/trades">the latest trades</a>, <a href="${PREFIX}/filers">all filers</a>, or <a href="${PREFIX}/tickers">the most-traded stocks</a>.</p>`,
     },
   );
 
@@ -251,7 +232,7 @@ function buildRoutes() {
         url: `${BASE}/filer/${f.id}`,
       },
       crumbs: [
-        ["Overview", `${BASE}/`],
+        ["Overview", BASE],
         ["Filers", `${BASE}/filers`],
         [f.full_name, `${BASE}/filer/${f.id}`],
       ],
@@ -298,13 +279,23 @@ function renderRoute(template, route) {
 
   // Crawler-visible content; React replaces it on hydration.
   if (route.h1) {
-    html = html.replace(
-      /(<div id="root">)(<\/div>)/,
-      (_m, open, close) =>
-        `${open}<main><h1>${esc(route.h1)}</h1>${route.body ?? ""}<p><a href="${PREFIX}/">Congress Trading Monitor home</a></p></main>${close}`,
+    html = injectRoot(
+      html,
+      route.h1,
+      `${route.body ?? ""}<p><a href="${PREFIX}">Congress Trading Monitor home</a></p>`,
     );
   }
   return html;
+}
+
+// Every prerendered page must ship an <h1> and crawlable links: the SPA shell
+// is an empty <div id="root">, so whatever is not injected here does not exist
+// for a crawler. Link to PREFIX, not PREFIX + "/" — the trailing slash 308s.
+function injectRoot(html, h1, body) {
+  return html.replace(
+    /(<div id="root">)(<\/div>)/,
+    (_m, open, close) => `${open}<main><h1>${esc(h1)}</h1>${body}</main>${close}`,
+  );
 }
 
 // ── main ─────────────────────────────────────────────────────────────────────
@@ -321,8 +312,12 @@ for (const r of routes) {
 }
 
 // Homepage: keep its hand-written <head> (title/canonical/OG) but add the
-// site-level Dataset + WebSite JSON-LD the template lacks. Not a route object,
-// so it stays out of the sitemap loop and the URL count is unchanged.
+// site-level Dataset + WebSite JSON-LD the template lacks, plus the same
+// crawler-visible block every other route gets. It was shipping a bare 3.5 KB
+// shell — no h1, no links — so every filer and ticker page was reachable only
+// from sitemap.xml, which is why the audit found 2,440 of them with exactly one
+// internal link. Not a route object, so it stays out of the sitemap loop and
+// the URL count is unchanged.
 const stats = loadJson("stats.json");
 const homeSchemas = [
   {
@@ -330,18 +325,47 @@ const homeSchemas = [
     "@type": "Dataset",
     name: "U.S. Congress & Executive Branch Stock Trades",
     description: `Every stock trade disclosed by U.S. Congress and the executive branch under the STOCK Act: ${stats.totalTrades} trades from ${stats.totalFilers} filers, updated daily. Free and open source.`,
-    url: `${BASE}/`,
+    url: BASE,
     keywords: ["STOCK Act", "congressional stock trades", "insider trading disclosure", "OGE 278-T", "PTR filings"],
     isAccessibleForFree: true,
     license: "https://opensource.org/licenses/MIT",
     creator: { "@type": "Organization", name: "Kadoa", url: "https://www.kadoa.com" },
     temporalCoverage: `${stats.dateRange?.from ?? ""}/${stats.dateRange?.to ?? ""}`,
   },
-  { "@context": "https://schema.org", "@type": "WebSite", name: "Congress Trading Monitor", url: `${BASE}/` },
+  { "@context": "https://schema.org", "@type": "WebSite", name: "Congress Trading Monitor", url: BASE },
 ];
-const homeHtml = template.replace(
-  "</head>",
-  `${homeSchemas.map((s) => `<script type="application/ld+json">${JSON.stringify(s)}</script>`).join("")}</head>`,
+const TOP_N = 60; // enough to pass real link equity down without a wall of text
+const topFilers = [...loadJson("filers.json")]
+  .sort((a, b) => (b.trade_count ?? 0) - (a.trade_count ?? 0))
+  .slice(0, TOP_N);
+const topTickers = [...loadJson("tickers.json")]
+  .sort((a, b) => (b.trade_count ?? 0) - (a.trade_count ?? 0))
+  .slice(0, TOP_N);
+
+const homeBody = [
+  `<p>Every stock trade disclosed by the U.S. House, Senate, and executive branch under the STOCK Act: ${stats.totalTrades} trades from ${stats.totalFilers} filers, updated daily from primary-source filings. Free and open source.</p>`,
+  `<p>Browse <a href="${PREFIX}/trades">the latest trades</a>, <a href="${PREFIX}/filers">all ${stats.totalFilers} filers</a>, <a href="${PREFIX}/tickers">the most-traded stocks</a>, or read <a href="${PREFIX}/about">about the data</a>.</p>`,
+  `<h2>Most active filers</h2><ul>${topFilers
+    .map(
+      (f) =>
+        `<li><a href="${PREFIX}/filer/${esc(f.id)}">${esc(f.full_name)}</a> — ${f.trade_count} trade${f.trade_count === 1 ? "" : "s"}</li>`,
+    )
+    .join("")}</ul><p><a href="${PREFIX}/filers">See all filers</a></p>`,
+  `<h2>Most-traded stocks</h2><ul>${topTickers
+    .map(
+      (t) =>
+        `<li><a href="${PREFIX}/ticker/${esc(t.ticker)}">${esc(t.ticker)}</a> — ${t.trade_count} trade${t.trade_count === 1 ? "" : "s"}</li>`,
+    )
+    .join("")}</ul><p><a href="${PREFIX}/tickers">See all tickers</a></p>`,
+].join("");
+
+const homeHtml = injectRoot(
+  template.replace(
+    "</head>",
+    `${homeSchemas.map((s) => `<script type="application/ld+json">${JSON.stringify(s)}</script>`).join("")}</head>`,
+  ),
+  "Congress & Executive Branch Stock Trades",
+  homeBody,
 );
 fs.writeFileSync(path.join(DIST, "index.html"), homeHtml);
 
