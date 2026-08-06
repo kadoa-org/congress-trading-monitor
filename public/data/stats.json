@@ -1,25 +1,25 @@
 {
-  "totalTrades": 65615,
+  "totalTrades": 65859,
   "totalFilers": 440,
-  "totalFilings": 55229,
-  "totalParsedFilings": 7171,
-  "lateFilings": 17926,
-  "estVolumeUsd": 7397617785,
+  "totalFilings": 55280,
+  "totalParsedFilings": 7180,
+  "lateFilings": 18168,
+  "estVolumeUsd": 7403610907,
   "dateRange": {
     "from": "2011-06-20",
     "to": "2026-07-31"
   },
   "bySource": {
-    "house_clerk": 44113,
+    "house_clerk": 44192,
     "oge_executive": 12605,
-    "senate_efd": 8897
+    "senate_efd": 9062
   },
   "disclosureLag": {
     "medianDaysToFile": 31,
-    "p90DaysToFile": 165,
+    "p90DaysToFile": 178,
     "maxDaysToFile": 4049,
-    "tradesWithLag": 62880,
-    "lateCount": 17926,
+    "tradesWithLag": 63124,
+    "lateCount": 18168,
     "buckets": [
       {
         "key": "0-15",
@@ -30,13 +30,13 @@
       {
         "key": "15-30",
         "label": "15-30d",
-        "count": 18980,
+        "count": 18981,
         "late": false
       },
       {
         "key": "30-45",
         "label": "30-45d",
-        "count": 14836,
+        "count": 14837,
         "late": false
       },
       {
@@ -48,16 +48,16 @@
       {
         "key": "90-365",
         "label": "90d-1y (late)",
-        "count": 6424,
+        "count": 6511,
         "late": true
       },
       {
         "key": "365+",
         "label": "Over 1y (late)",
-        "count": 3261,
+        "count": 3416,
         "late": true
       }
     ]
   },
-  "generatedAt": "2026-08-05T15:52:49.757Z"
+  "generatedAt": "2026-08-06T19:39:39.019Z"
 }
