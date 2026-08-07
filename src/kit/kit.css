@@ -101,7 +101,10 @@
 /* min-width:0 + ellipsis so a long brand truncates instead of forcing the
    page wider than the viewport (mobile header-overflow bug). flex-wrap on the
    row is the belt-and-suspenders: content can never push past the screen. */
-.dk-header-brand-group { display: inline-flex; align-items: center; gap: 10px; min-width: 0; }
+/* min-height matches --dk-btn (32px) so the masthead band is the same height on
+   every site, including ones with no right-side action (datacenter has no
+   GitHub button because its repo is not public). */
+.dk-header-brand-group { display: inline-flex; align-items: center; gap: 10px; min-width: 0; min-height: 32px; }
 .dk-header-brand { color: #fff; font: 700 17px/1.2 var(--dk-font); text-decoration: none; white-space: nowrap; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 .dk-header-brand:focus-visible { outline: 3px solid var(--dk-focus); outline-offset: 2px; }
 .dk-btn--inverse { background: none; border: 1px solid rgba(255,255,255,0.55); color: #fff; }
