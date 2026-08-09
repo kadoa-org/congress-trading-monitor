@@ -7,7 +7,7 @@
  * `dist/<route>/index.html` per route with:
  *   - unique <title>, meta description, canonical, og/twitter tags
  *   - JSON-LD (Person for filers, Dataset for the site)
- *   - a crawler-visible content block inside #root (replaced on hydration)
+ *   - a crawler-visible content block after #root
  * plus dist/sitemap.xml and dist/robots.txt.
  *
  * No browser involved: routes are enumerated from public/data/*.json, so the
@@ -20,6 +20,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { createServer } from "vite";
 
 import { companyName } from "./companyName.mjs";
 
@@ -248,7 +249,7 @@ function buildRoutes() {
 
 // ── templating ───────────────────────────────────────────────────────────────
 
-function renderRoute(template, route) {
+function renderRoute(template, route, shell) {
   const url = `${BASE}${route.path}`;
   // Use function replacements throughout: values like "$210.4M" contain `$` +
   // digits, which String.replace reads as capture-group refs ($1/$2) in a
@@ -277,10 +278,11 @@ function renderRoute(template, route) {
     html = html.replace("</head>", `${tags}</head>`);
   }
 
-  // Crawler-visible content; React replaces it on hydration.
+  // Crawler-visible content outside the hydratable React shell.
   if (route.h1) {
     html = injectRoot(
       html,
+      shell,
       route.h1,
       `${route.body ?? ""}<p><a href="${PREFIX}">Congress Trading Monitor home</a></p>`,
     );
@@ -288,26 +290,44 @@ function renderRoute(template, route) {
   return html;
 }
 
-// Every prerendered page must ship an <h1> and crawlable links: the SPA shell
-// is an empty <div id="root">, so whatever is not injected here does not exist
-// for a crawler. Link to PREFIX, not PREFIX + "/" — the trailing slash 308s.
-function injectRoot(html, h1, body) {
+// Ship the same loading shell React hydrates, followed by crawler-visible
+// content outside #root. The shell owns the first viewport; the client removes
+// the SEO block as soon as hydration starts.
+function injectRoot(html, shellMarkup, h1, body) {
   return html.replace(
     /(<div id="root">)(<\/div>)/,
-    (_m, open, close) => `${open}<main><h1>${esc(h1)}</h1>${body}</main>${close}`,
+    (_m, open, close) => `${open}${shellMarkup}${close}<main class="seo-shell"><h1>${esc(h1)}</h1>${body}</main>`,
   );
+}
+
+async function buildShell() {
+  const server = await createServer({
+    configFile: false,
+    root: ROOT,
+    server: { middlewareMode: true, hmr: false },
+    appType: "custom",
+    logLevel: "error",
+    optimizeDeps: { noDiscovery: true },
+  });
+  try {
+    const mod = await server.ssrLoadModule("/src/renderPrerenderShell.jsx");
+    return mod.renderPrerenderShell();
+  } finally {
+    await server.close();
+  }
 }
 
 // ── main ─────────────────────────────────────────────────────────────────────
 
 const template = fs.readFileSync(path.join(DIST, "index.html"), "utf8");
+const shell = await buildShell();
 const routes = buildRoutes();
 
 let written = 0;
 for (const r of routes) {
   const dir = path.join(DIST, r.path.slice(1));
   fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(path.join(dir, "index.html"), renderRoute(template, r));
+  fs.writeFileSync(path.join(dir, "index.html"), renderRoute(template, r, shell));
   written++;
 }
 
@@ -364,6 +384,7 @@ const homeHtml = injectRoot(
     "</head>",
     `${homeSchemas.map((s) => `<script type="application/ld+json">${JSON.stringify(s)}</script>`).join("")}</head>`,
   ),
+  shell,
   "Congress & Executive Branch Stock Trades",
   homeBody,
 );

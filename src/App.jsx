@@ -6,6 +6,7 @@ import AboutPage from "./pages/AboutPage";
 import FilerPage from "./pages/FilerPage";
 import FilersPage from "./pages/FilersPage";
 import OverviewPage from "./pages/OverviewPage";
+import PrerenderShell from "./PrerenderShell";
 import TickerPage from "./pages/TickerPage";
 import TickersPage from "./pages/TickersPage";
 import TradesPage from "./pages/TradesPage";
@@ -143,6 +144,7 @@ function routeTitle(route, data) {
 }
 
 export default function App() {
+  const [clientReady, setClientReady] = useState(false);
   const route = useRoute();
   const [data, setData] = useState({
     stats: null,
@@ -156,6 +158,10 @@ export default function App() {
   });
   const [loading, setLoading] = useState(true);
   const [cmdkOpen, setCmdkOpen] = useState(false);
+
+  useEffect(() => {
+    setClientReady(true);
+  }, []);
 
   useEffect(() => {
     loadAll().then((d) => {
@@ -221,6 +227,8 @@ export default function App() {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, []);
+
+  if (!clientReady) return <PrerenderShell />;
 
   if (loading) {
     return (
