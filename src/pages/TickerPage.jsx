@@ -13,6 +13,10 @@ export default function TickerPage({ symbol, filersById }) {
   useEffect(() => {
     setData(null);
     setError(null);
+    if (!/^[A-Za-z0-9.\-]{1,20}$/.test(symbol)) {
+      setError("invalid");
+      return;
+    }
     fetch(`${import.meta.env.BASE_URL}data/ticker/${encodeURIComponent(symbol)}.json`)
       .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
       .then(setData)
