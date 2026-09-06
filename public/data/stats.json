@@ -1,7 +1,7 @@
 {
   "totalTrades": 67631,
   "totalFilers": 446,
-  "totalFilings": 55666,
+  "totalFilings": 55673,
   "totalParsedFilings": 7201,
   "lateFilings": 19379,
   "estVolumeUsd": 7667643293,
@@ -59,5 +59,5 @@
       }
     ]
   },
-  "generatedAt": "2026-09-05T08:09:38.026Z"
+  "generatedAt": "2026-09-06T17:36:18.736Z"
 }
