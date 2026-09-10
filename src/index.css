@@ -115,3 +115,15 @@ html, body {
     padding-right: 0;
   }
 }
+
+.seo-shell { padding-top: 24px; padding-bottom: 48px; }
+.seo-shell h2 { font-size: 24px; font-weight: 700; margin: 24px 0 12px; }
+.seo-shell p, .seo-shell ul { margin-bottom: 16px; }
+.seo-shell a { color: #1d70b8; text-decoration: underline; }
+.seo-table { overflow-x: auto; }
+.seo-shell table { border-collapse: collapse; width: 100%; }
+.seo-shell th, .seo-shell td { padding: 8px; text-align: left; border-bottom: 1px solid #b1b4b6; }
+
+/* Keep the initial answer below the status, without an empty viewport or footer above it. */
+body:has(.seo-shell) #root > div { min-height: 0; }
+body:has(.seo-shell) #root footer { display: none; }

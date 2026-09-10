@@ -11,37 +11,14 @@ import TickerPage from "./pages/TickerPage";
 import TickersPage from "./pages/TickersPage";
 import TradesPage from "./pages/TradesPage";
 import { useRoute } from "./router";
+import { usePrerenderReplacement } from "./prerender";
+import { fetchData } from "./data";
 
 async function loadAll() {
-  const [stats, trades, filers, tickers, scatter, returns, prices, alphaIndex, adminStats] = await Promise.all([
-    fetch(`${import.meta.env.BASE_URL}data/stats.json`)
-      .then((r) => r.json())
-      .catch(() => null),
-    fetch(`${import.meta.env.BASE_URL}data/trades.json`)
-      .then((r) => r.json())
-      .catch(() => []),
-    fetch(`${import.meta.env.BASE_URL}data/filers.json`)
-      .then((r) => r.json())
-      .catch(() => []),
-    fetch(`${import.meta.env.BASE_URL}data/tickers.json`)
-      .then((r) => r.json())
-      .catch(() => []),
-    fetch(`${import.meta.env.BASE_URL}data/scatter.json`)
-      .then((r) => r.json())
-      .catch(() => ({ filers: [], trades: [] })),
-    fetch(`${import.meta.env.BASE_URL}data/returns.json`)
-      .then((r) => (r.ok ? r.json() : []))
-      .catch(() => []),
-    fetch(`${import.meta.env.BASE_URL}data/prices.json`)
-      .then((r) => (r.ok ? r.json() : {}))
-      .catch(() => ({})),
-    fetch(`${import.meta.env.BASE_URL}data/alpha-index.json`)
-      .then((r) => (r.ok ? r.json() : {}))
-      .catch(() => ({})),
-    fetch(`${import.meta.env.BASE_URL}data/admin-stats.json`)
-      .then((r) => (r.ok ? r.json() : {}))
-      .catch(() => ({})),
-  ]);
+  const [stats, trades, filers, tickers, scatter, returns, prices, alphaIndex, adminStats] = await Promise.all(
+    ["stats", "trades", "filers", "tickers", "scatter", "returns", "prices", "alpha-index", "admin-stats"]
+      .map((name) => fetchData(`${import.meta.env.BASE_URL}data/${name}.json`)),
+  );
 
   // Per-filer admin participation. A filer is considered "in" an administration
   // if they have at least one disclosed trade while that admin was sitting.
@@ -94,27 +71,7 @@ async function loadAll() {
 }
 
 function LoadingScreen() {
-  return (
-    <div className="min-h-screen bg-canvas">
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 pt-20">
-        <div className="h-4 w-40 bg-muted  animate-pulse mb-4" />
-        <div className="h-10 w-3/4 bg-muted  animate-pulse mb-3" />
-        <div className="h-4 w-2/3 bg-muted  animate-pulse mb-8" />
-        <div className="border border-[#b1b4b6]  bg-white overflow-hidden">
-          <div className="grid grid-cols-5">
-            {[...Array(5)].map((_, i) => (
-              <div key={i} className="px-5 py-4 border-r border-[#b1b4b6] last:border-r-0">
-                <div className="h-3 w-16 bg-muted  animate-pulse mb-3" />
-                <div className="h-6 w-20 bg-muted  animate-pulse" />
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="mt-8 h-6 w-64 bg-muted  animate-pulse" />
-        <div className="mt-4 border border-[#b1b4b6]  bg-white p-4 animate-pulse h-[520px]" />
-      </div>
-    </div>
-  );
+  return <p role="status" className="max-w-[1440px] mx-auto px-4 sm:px-6 py-8">Loading interactive trading data…</p>;
 }
 
 const SUFFIX = "Congress Trading Monitor";
@@ -157,6 +114,8 @@ export default function App() {
     filersById: new Map(),
   });
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  usePrerenderReplacement(!loading && !error && route.name !== "filer" && route.name !== "ticker");
   const [cmdkOpen, setCmdkOpen] = useState(false);
 
   useEffect(() => {
@@ -164,10 +123,18 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    let active = true;
     loadAll().then((d) => {
+      if (!active) return;
       setData(d);
       setLoading(false);
+    }).catch((cause) => {
+      if (!active) return;
+      console.error("Failed to load trading data", cause);
+      setError(cause);
+      setLoading(false);
     });
+    return () => { active = false; };
   }, []);
 
   useEffect(() => {
@@ -187,7 +154,7 @@ export default function App() {
   // filer in filers.json is always prerendered, so "key missing from index"
   // is exactly the set of pages that fall through to the raw shell.
   useEffect(() => {
-    if (loading) return;
+    if (loading || error) return;
     const url = `${window.location.origin}${window.location.pathname}`;
 
     let link = document.head.querySelector('link[rel="canonical"]');
@@ -214,7 +181,7 @@ export default function App() {
     } else if (robots) {
       robots.remove();
     }
-  }, [route.name, route.symbol, route.id, loading, data.tickers, data.filersById]);
+  }, [route.name, route.symbol, route.id, loading, error, data.tickers, data.filersById]);
 
   // Global Cmd+K / Ctrl+K
   useEffect(() => {
@@ -230,11 +197,14 @@ export default function App() {
 
   if (!clientReady) return <PrerenderShell />;
 
-  if (loading) {
+  if (loading || error) {
     return (
       <div className="min-h-screen bg-canvas text-ink">
         <Masthead stats={null} onOpenCmdK={() => setCmdkOpen(true)} />
-        <LoadingScreen />
+        {error ? <div role="alert" className="max-w-[1440px] mx-auto px-4 sm:px-6 py-8">
+          <p>Failed to load interactive trading data. Any initial page content shown below remains available.</p>
+          <button type="button" className="govuk-button" onClick={() => window.location.reload()}>Reload page</button>
+        </div> : <LoadingScreen />}
       </div>
     );
   }
@@ -255,6 +225,7 @@ export default function App() {
       {route.name === "about" && <AboutPage data={data} />}
       {route.name === "filer" && (
         <FilerPage
+          key={route.id}
           filerId={route.id}
           filersIndex={data.filers}
           filersById={data.filersById}
@@ -262,7 +233,7 @@ export default function App() {
           returns={data.returns}
         />
       )}
-      {route.name === "ticker" && <TickerPage symbol={route.symbol} filersById={data.filersById} />}
+      {route.name === "ticker" && <TickerPage key={route.symbol} symbol={route.symbol} filersById={data.filersById} />}
 
       <CommandPalette open={cmdkOpen} onClose={() => setCmdkOpen(false)} filers={data.filers} tickers={data.tickers} />
       <SiteFooter current="congress" />

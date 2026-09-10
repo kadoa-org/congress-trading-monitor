@@ -233,29 +233,9 @@ export function branchPill(filer) {
 // plain left-clicks still route through the SPA navigator. When `to` is
 // missing the component still renders (as a div) so callers can pass
 // optional destinations without branching.
-export function RowLink({ to, onClick, className = "", children, ...rest }) {
-  if (!to) {
-    return (
-      <div className={className} {...rest}>
-        {children}
-      </div>
-    );
-  }
-  return (
-    <a
-      href={withBase(to)}
-      className={className}
-      onClick={(e) => {
-        if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return;
-        e.preventDefault();
-        onClick?.(e);
-        navigate(to);
-      }}
-      {...rest}
-    >
-      {children}
-    </a>
-  );
+export function RowLink({ to, href, onClick, className = "", children, ...rest }) {
+  if (!to && !href) return <div className={className} {...rest}>{children}</div>;
+  return <Link to={to ?? href} onClick={onClick} className={className} {...rest}>{children}</Link>;
 }
 
 // External-link icon + uniform tooltip for the "Source" column on every
@@ -300,18 +280,22 @@ export function SourceLink({ url, className = "" }) {
   );
 }
 
-export function Link({ to, className = "", children, onClick, ...rest }) {
+export function Link({ to, href, className = "", children, onClick, ...rest }) {
+  const destination = withBase(to ?? href);
   return (
     <a
-      href={withBase(to)}
-      className={`govuk-link ${className}`}
-      onClick={(e) => {
-        if (e.metaKey || e.ctrlKey || e.shiftKey) return;
-        e.preventDefault();
-        onClick?.(e);
-        navigate(to);
-      }}
       {...rest}
+      href={destination}
+      className={`govuk-link ${className}`}
+      onClick={(event) => {
+        onClick?.(event);
+        if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+        if (rest.target && rest.target !== "_self" || rest.download != null) return;
+        const url = new URL(destination, window.location.href);
+        if (url.origin !== window.location.origin) return;
+        event.preventDefault();
+        navigate(destination);
+      }}
     >
       {children}
     </a>

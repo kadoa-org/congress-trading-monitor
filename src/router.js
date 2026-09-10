@@ -7,7 +7,7 @@ import { useCallback, useEffect, useState } from "react";
 const BASE_PATH = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 export function withBase(path) {
-  if (!BASE_PATH || !path.startsWith("/")) return path;
+  if (!BASE_PATH || !path.startsWith("/") || path.startsWith("//")) return path;
   if (path === BASE_PATH || path.startsWith(`${BASE_PATH}/`)) return path;
   return `${BASE_PATH}${path}`;
 }

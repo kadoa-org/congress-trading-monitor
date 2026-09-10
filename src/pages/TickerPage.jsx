@@ -1,3 +1,5 @@
+import { fetchData } from "../data";
+import { usePrerenderReplacement } from "../prerender";
 import React, { useEffect, useMemo, useState } from "react";
 import FilterBar, { applyFilters, defaultFilters } from "../components/FilterBar";
 import PersonalTimeline from "../components/PersonalTimeline";
@@ -10,13 +12,17 @@ export default function TickerPage({ symbol, filersById }) {
   const [error, setError] = useState(null);
   const [filters, setFilters] = useState(defaultFilters);
 
+  usePrerenderReplacement(data !== null);
   useEffect(() => {
-    setData(null);
-    setError(null);
-    fetch(`${import.meta.env.BASE_URL}data/ticker/${encodeURIComponent(symbol)}.json`)
-      .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+    const controller = new AbortController();
+    fetchData(`${import.meta.env.BASE_URL}data/ticker/${encodeURIComponent(symbol)}.json`, { signal: controller.signal })
       .then(setData)
-      .catch(setError);
+      .catch((cause) => {
+        if (controller.signal.aborted) return;
+        console.error("Failed to load ticker data", cause);
+        setError(cause);
+      });
+    return () => controller.abort();
   }, [symbol]);
 
   const trades = data?.trades ?? [];
@@ -80,16 +86,11 @@ export default function TickerPage({ symbol, filersById }) {
   const filtered = useMemo(() => applyFilters(trades, filters), [trades, filters]);
 
   if (error) {
-    return (
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 py-16">
-        <p className="govuk-body">
-          No trades found for <strong>{symbol}</strong>.
-        </p>
-        <Link to="/" className="govuk-body inline-block">
-          ← Back to all trades
-        </Link>
-      </div>
-    );
+    return <div role="alert" className="max-w-[1440px] mx-auto px-4 sm:px-6 py-8">
+      <p className="govuk-body">Failed to load trades for {symbol}. Any initial page content shown below remains available.</p>
+      <button type="button" className="govuk-button" onClick={() => window.location.reload()}>Reload page</button>
+      <Link to="/tickers">Browse all tickers</Link>
+    </div>;
   }
 
   if (!data) {

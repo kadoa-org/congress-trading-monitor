@@ -23,6 +23,8 @@ import { fileURLToPath } from "node:url";
 import { createServer } from "vite";
 
 import { companyName } from "./companyName.mjs";
+import { DISCLOSURE_METHOD, RETURN_METHOD } from "../src/methodology.js";
+import { filerEvidence } from "./filerEvidence.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DIST = path.join(ROOT, "dist", "congress"); // vite outDir (site lives under /congress/)
@@ -194,7 +196,9 @@ function buildRoutes() {
       description:
         "How the STOCK Act works, the 45-day disclosure deadline, OGE 278-T executive filings, and where this open dataset comes from.",
       h1: "About the Data",
-      body: `<p>The STOCK Act requires members of Congress and senior executive-branch officials to disclose each securities transaction within 45 days, on a Periodic Transaction Report (House and Senate) or an OGE Form 278-T (executive branch). This site collects those filings, normalizes filer names, tickers and amount ranges, and prices each disclosed purchase against the S&P 500.</p><p>Amounts are reported as ranges, not exact figures, so estimated volume is the range midpoint. Browse <a href="${PREFIX}/trades">the latest trades</a>, <a href="${PREFIX}/filers">all filers</a>, or <a href="${PREFIX}/tickers">the most-traded stocks</a>.</p>`,
+      body: [...DISCLOSURE_METHOD, ...RETURN_METHOD].map((section) =>
+        `<h2>${esc(section.title)}</h2><p>${esc(section.body)}</p>${(section.sources ?? []).map(([label, href]) => `<p><a href="${esc(href)}">${esc(label)}</a></p>`).join("")}`
+      ).join(""),
     },
   );
 
@@ -214,7 +218,7 @@ function buildRoutes() {
     const r = returnsById.get(f.id);
     const excess = r && Number.isFinite(r.avg_excess) ? Math.round(r.avg_excess) : null;
     const retLabel = excess != null ? `${excess >= 0 ? "+" : "−"}${Math.abs(excess)}% avg return vs S&P 500` : null;
-    const late = f.late_filings ? `, ${f.late_filings} filed late` : "";
+    const late = f.late_filings ? `, ${f.late_filings} transaction rows flagged over 45 days` : "";
     routes.push({
       path: `/filer/${f.id}`,
       // Year for recency; lead with the return when the filer is a positive
@@ -225,7 +229,8 @@ function buildRoutes() {
           : `${f.full_name} Stock Trades ${YEAR} — ${f.trade_count} Disclosed Trades | Congress Trading Monitor`,
       description: `${f.full_name}, ${role}: ${f.trade_count} stock trades disclosed under the STOCK Act${vol ? `, ~${vol} est. volume` : ""}${retLabel ? `, ${retLabel}` : ""}. ${f.purchases} buys, ${f.sales} sells${late}. Updated ${YEAR}, source filings linked.`,
       h1: `${f.full_name} Stock Trades (${YEAR})`,
-      body: `<p>${esc(f.full_name)}, ${esc(role)}, has disclosed ${f.trade_count} stock trades under the STOCK Act: ${f.purchases} purchases and ${f.sales} sales${vol ? ` with an estimated volume of ${vol}` : ""}${retLabel ? `. Their disclosed buys have averaged ${esc(retLabel)}` : ""}${f.late_filings ? `. ${f.late_filings} of these filings were submitted late (past the STOCK Act's 45-day deadline)` : ""}.</p>`,
+      body: `<p>${esc(f.full_name)}, ${esc(role)}, has disclosed ${f.trade_count} stock trades under the STOCK Act: ${f.purchases} purchases and ${f.sales} sales${vol ? ` with an estimated volume of ${vol}` : ""}.</p>${excess != null ? `<p>Priced purchases averaged ${excess >= 0 ? "+" : ""}${excess} percentage points versus SPY, assuming each purchase was held through the latest available price. This is an equal-weight average across different transaction periods, not actual portfolio performance.</p>` : ""}${f.late_filings ? `<p>${f.late_filings} transaction rows are flagged for a recorded filing lag over 45 days. See the <a href="${PREFIX}/about#law">filing flag methodology</a>.</p>` : ""}${filerEvidence(loadJson(`filer/${f.id}.json`).trades)}`,
+
       jsonLd: {
         "@context": "https://schema.org",
         "@type": "ProfilePage",
@@ -285,18 +290,17 @@ function renderRoute(template, route, shell) {
       shell,
       route.h1,
       `${route.body ?? ""}<p><a href="${PREFIX}">Congress Trading Monitor home</a></p>`,
+      route.path,
     );
   }
   return html;
 }
 
-// Ship the same loading shell React hydrates, followed by crawler-visible
-// content outside #root. The shell owns the first viewport; the client removes
-// the SEO block as soon as hydration starts.
-function injectRoot(html, shellMarkup, h1, body) {
+// The initial answer remains outside React until the matching route has loaded.
+function injectRoot(html, shellMarkup, h1, body, routePath = "") {
   return html.replace(
     /(<div id="root">)(<\/div>)/,
-    (_m, open, close) => `${open}${shellMarkup}${close}<main class="seo-shell"><h1>${esc(h1)}</h1>${body}</main>`,
+    (_m, open, close) => `${open}${shellMarkup}${close}<main class="seo-shell govuk-width-container" data-path="${esc(PREFIX + routePath)}"><h1 class="govuk-heading-l">${esc(h1)}</h1>${body}</main>`,
   );
 }
 

@@ -1,3 +1,5 @@
+import { fetchData } from "../data";
+import { usePrerenderReplacement } from "../prerender";
 import React, { useEffect, useMemo, useState } from "react";
 import FilterBar, { applyFilters, defaultFilters } from "../components/FilterBar";
 import PersonalTimeline from "../components/PersonalTimeline";
@@ -41,13 +43,17 @@ export default function FilerPage({ filerId, filersIndex, filersById, prices: pr
   const [filters, setFilters] = useState(defaultFilters);
   const prices = pricesProp ?? {};
 
+  usePrerenderReplacement(data !== null);
   useEffect(() => {
-    setData(null);
-    setError(null);
-    fetch(`${import.meta.env.BASE_URL}data/filer/${encodeURIComponent(filerId)}.json`)
-      .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+    const controller = new AbortController();
+    fetchData(`${import.meta.env.BASE_URL}data/filer/${encodeURIComponent(filerId)}.json`, { signal: controller.signal })
       .then(setData)
-      .catch(setError);
+      .catch((cause) => {
+        if (controller.signal.aborted) return;
+        console.error("Failed to load filer data", cause);
+        setError(cause);
+      });
+    return () => controller.abort();
   }, [filerId]);
 
   const filer = data?.filer ?? null;
@@ -216,29 +222,11 @@ export default function FilerPage({ filerId, filersIndex, filersById, prices: pr
   }, [trades, filters, filer]);
 
   if (error) {
-    const fallback = filersIndex?.find((f) => f.id === filerId);
-    const isMissing = !fallback;
-    return (
-      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 py-16">
-        <h1 className="govuk-heading-m">{isMissing ? "Filer not found" : "No parsed trades for this filer yet"}</h1>
-        <p className="govuk-body text-[#505a5f]">
-          {isMissing ? (
-            <>
-              No filer matches <span className="font-mono text-[#0b0c0c]">{filerId}</span>. It may have been deduped
-              into a canonical record, renamed, or the URL was mistyped.
-            </>
-          ) : (
-            <>
-              They appear in the dataset (<span className="font-bold text-[#0b0c0c]">{fallback.full_name}</span>) but
-              their PTRs are image-based PDFs that still need OCR.
-            </>
-          )}
-        </p>
-        <Link to="/filers" className="mt-3 inline-block">
-          ← Browse all filers
-        </Link>
-      </div>
-    );
+    return <div role="alert" className="max-w-[1440px] mx-auto px-4 sm:px-6 py-8">
+      <p className="govuk-body">Failed to load trades for {filersIndex?.find((f) => f.id === filerId)?.full_name ?? "this filer"}. Any initial page content shown below remains available.</p>
+      <button type="button" className="govuk-button" onClick={() => window.location.reload()}>Reload page</button>
+      <Link to="/filers">Browse all filers</Link>
+    </div>;
   }
 
   if (!data || !filer) {
@@ -684,15 +672,15 @@ function ImaginaryPortfolio({ trades }) {
   return (
     <div className="mb-10">
       <SectionHeader
-        title="Live portfolio"
-        subtitle="Real disclosed buys priced at today's close. Assumes nothing was sold."
+        title="Hypothetical buy-and-hold portfolio"
+        subtitle="Disclosed buys valued at the latest available prices using amount-range midpoints. Assumes nothing was sold."
       />
 
       <Card className="p-4 sm:p-5 mb-4">
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-4 sm:gap-x-8 gap-y-4 sm:gap-y-5">
           <PortfolioStat label="Portfolio value" value={fmtUSD(data.value)} hint={`from ${fmtUSD(data.cost)} cost`} />
           <PortfolioStat
-            label="Unrealized gain"
+            label="Hypothetical gain"
             value={`${data.gain >= 0 ? "+" : ""}${fmtUSD(data.gain)}`}
             valueTone={data.gain >= 0 ? GREEN : RED}
             hint={`${data.gainPct >= 0 ? "+" : ""}${data.gainPct.toFixed(1)}%`}
