@@ -5,3 +5,5 @@ import PrerenderShell from "./PrerenderShell";
 export function renderPrerenderShell() {
   return renderToString(<PrerenderShell />);
 }
+
+export { renderTickerPage } from "./renderTickerPage.jsx";

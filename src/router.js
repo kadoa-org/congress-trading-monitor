@@ -33,8 +33,8 @@ export function parseRoute(pathname = window.location.pathname, search = window.
   return { name: "overview", query };
 }
 
-export function useRoute() {
-  const [route, setRoute] = useState(() => parseRoute());
+export function useRoute(initialRoute) {
+  const [route, setRoute] = useState(() => initialRoute ?? parseRoute());
   useEffect(() => {
     const onPop = () => setRoute(parseRoute());
     window.addEventListener("popstate", onPop);

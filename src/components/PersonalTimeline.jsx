@@ -29,7 +29,11 @@ export default function PersonalTimeline({ trades, highlightTicker = null }) {
     }
     if (!Number.isFinite(min)) {
       min = Date.parse("2020-01-01");
-      max = Date.now();
+      max = Date.parse("2021-01-01");
+    }
+    if (min === max) {
+      min -= 86400_000;
+      max += 86400_000;
     }
     return { xMin: min, xMax: max };
   }, [trades]);
@@ -53,8 +57,8 @@ export default function PersonalTimeline({ trades, highlightTicker = null }) {
   };
 
   const years = useMemo(() => {
-    const y0 = new Date(xMin).getFullYear();
-    const y1 = new Date(xMax).getFullYear();
+    const y0 = new Date(xMin).getUTCFullYear();
+    const y1 = new Date(xMax).getUTCFullYear();
     const step = y1 - y0 > 10 ? 2 : 1;
     const out = [];
     for (let yr = y0; yr <= y1; yr += step) out.push({ year: yr, xPos: x(`${yr}-01-01`) });
@@ -63,6 +67,7 @@ export default function PersonalTimeline({ trades, highlightTicker = null }) {
 
   return (
     <div ref={ref} className="w-full relative">
+      {width === 0 && <div role="status" className="timeline-loading">Loading trade timeline…</div>}
       <svg width={width} height={HEIGHT} style={{ display: "block" }}>
         <line
           x1={MARGIN.left}

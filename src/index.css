@@ -127,3 +127,18 @@ html, body {
 /* Keep the initial answer below the status, without an empty viewport or footer above it. */
 body:has(.seo-shell) #root > div { min-height: 0; }
 body:has(.seo-shell) #root footer { display: none; }
+
+/* Static placeholders avoid motion while preserving the ticker page's layout. */
+.ticker-skeleton-bar { display: block; height: 20px; background: #e6e8e8; }
+.ticker-skeleton-title { width: 160px; height: 48px; margin-bottom: 12px; }
+.ticker-skeleton-subtitle { width: min(360px, 80%); margin-bottom: 32px; }
+.ticker-skeleton-summary { max-width: 640px; margin-bottom: 32px; }
+.ticker-skeleton-summary .ticker-skeleton-bar { max-width: 140px; }
+@media (max-width: 40.0625em) {
+  .ticker-skeleton-title { height: 32px; }
+  .ticker-skeleton-subtitle { margin-bottom: 52px; }
+}
+.timeline-loading { position: absolute; inset: 0; height: 240px; background: #f3f2f1; color: #505a5f; display: grid; place-items: center; }
+.ticker-skeleton-row { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 24px; padding: 14px 0; border-bottom: 1px solid #b1b4b6; }
+.ticker-skeleton-row .ticker-skeleton-bar { max-width: 180px; }
+.ticker-skeleton-chart { height: 274px; background: #f3f2f1; margin: 32px 0; }

@@ -307,6 +307,8 @@ function injectRoot(html, shellMarkup, h1, body, routePath = "") {
 async function buildShell() {
   const server = await createServer({
     configFile: false,
+    base: "/congress/",
+    esbuild: { jsx: "automatic" },
     root: ROOT,
     server: { middlewareMode: true, hmr: false },
     appType: "custom",
@@ -315,7 +317,7 @@ async function buildShell() {
   });
   try {
     const mod = await server.ssrLoadModule("/src/renderPrerenderShell.jsx");
-    return mod.renderPrerenderShell();
+    return { shell: mod.renderPrerenderShell(), renderTickerPage: mod.renderTickerPage };
   } finally {
     await server.close();
   }
@@ -324,14 +326,25 @@ async function buildShell() {
 // ── main ─────────────────────────────────────────────────────────────────────
 
 const template = fs.readFileSync(path.join(DIST, "index.html"), "utf8");
-const shell = await buildShell();
+const { shell, renderTickerPage } = await buildShell();
+const filersById = new Map(loadJson("filers.json").map((f) => [f.id, f]));
 const routes = buildRoutes();
 
 let written = 0;
 for (const r of routes) {
   const dir = path.join(DIST, r.path.slice(1));
   fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(path.join(dir, "index.html"), renderRoute(template, r, shell));
+  let html = renderRoute(template, r, shell);
+  if (r.path.startsWith("/ticker/")) {
+    const symbol = r.path.slice("/ticker/".length);
+    const tickerData = loadJson(`ticker/${encodeURIComponent(symbol)}.json`);
+    const filerIds = [...new Set(tickerData.trades.map((t) => t.filer_id))];
+    const initialPage = { route: { name: "ticker", symbol, query: {} }, tickerData, filers: filerIds.map((id) => filersById.get(id)).filter(Boolean) };
+    const markup = renderTickerPage(initialPage);
+    const payload = JSON.stringify(initialPage).replace(/</g, "\\u003c");
+    html = html.replace(/<div id="root">[\s\S]*?<\/main>/, () => `<div id="root">${markup}</div><script id="page-data" type="application/json">${payload}</script>`);
+  }
+  fs.writeFileSync(path.join(dir, "index.html"), html);
   written++;
 }
 

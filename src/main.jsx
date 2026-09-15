@@ -6,7 +6,9 @@ import "./govuk.scss";
 import "./index.css";
 
 const root = document.getElementById("root");
-const app = <App />;
+const initialData = document.getElementById("page-data");
+const initialPage = initialData ? JSON.parse(initialData.textContent) : null;
+const app = <App initialPage={initialPage} />;
 
 if (root.hasChildNodes()) hydrateRoot(root, app);
 else createRoot(root).render(app);

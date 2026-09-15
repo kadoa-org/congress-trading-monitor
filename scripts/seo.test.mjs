@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import fs from "node:fs";
 import { createServer } from "vite";
 import { renderToStaticMarkup } from "react-dom/server";
 import React from "react";
@@ -7,6 +8,23 @@ import { fetchData } from "../src/data.js";
 
 const server = await createServer({ server: { middlewareMode: true, hmr: false }, appType: "custom", logLevel: "error" });
 try {
+  const { renderTickerPage } = await server.ssrLoadModule("/src/renderTickerPage.jsx");
+  for (const symbol of ["ETHZ", "KRC", "MSFT"]) {
+    const tickerData = JSON.parse(fs.readFileSync(new URL(`../public/data/ticker/${symbol}.json`, import.meta.url), "utf8"));
+    const rendered = renderTickerPage({ route: { name: "ticker", symbol, query: {} }, tickerData, filers: [] });
+    assert.ok(rendered.includes(`<h1`), `${symbol} has a real heading before JavaScript`);
+    assert.ok(rendered.includes(tickerData.trades[0].filer_name), `${symbol} includes disclosure data before JavaScript`);
+    assert.ok(rendered.includes("<table"), `${symbol} renders the actual trade table`);
+    assert.ok(!rendered.includes("Loading interactive"));
+    assert.ok(!rendered.includes("seo-shell"));
+    assert.ok(!/="(?:-?Infinity|NaN)"/.test(rendered));
+  }
+  const { default: TickerSkeleton } = await server.ssrLoadModule("/src/components/TickerSkeleton.jsx");
+  const skeleton = renderToStaticMarkup(React.createElement(TickerSkeleton, { symbol: "TEST" }));
+  assert.ok(skeleton.includes('role="status"'));
+  assert.ok(skeleton.includes('aria-busy="true"'));
+  assert.ok(skeleton.includes('aria-hidden="true"'));
+  assert.ok(skeleton.includes("Loading trades for TEST"));
   const { Link, RowLink } = await server.ssrLoadModule("/src/ui.jsx");
   const { NavBar, SiteHeader } = await server.ssrLoadModule("/src/kit/index.jsx");
   const links = [{ href: "/filers", label: "Filers" }, { href: "/tickers", label: "Tickers" }, { href: "/trades", label: "Trades" }, { href: "/about", label: "About" }];

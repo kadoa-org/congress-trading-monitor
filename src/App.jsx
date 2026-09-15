@@ -100,9 +100,9 @@ function routeTitle(route, data) {
   }
 }
 
-export default function App() {
-  const [clientReady, setClientReady] = useState(false);
-  const route = useRoute();
+export default function App({ initialPage = null }) {
+  const [clientReady, setClientReady] = useState(initialPage !== null);
+  const route = useRoute(initialPage?.route);
   const [data, setData] = useState({
     stats: null,
     trades: [],
@@ -111,7 +111,7 @@ export default function App() {
     scatter: { filers: [], trades: [] },
     returns: [],
     prices: {},
-    filersById: new Map(),
+    filersById: new Map((initialPage?.filers ?? []).map((f) => [f.id, f])),
   });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -197,10 +197,10 @@ export default function App() {
 
   if (!clientReady) return <PrerenderShell />;
 
-  if (loading || error) {
+  if ((loading || error) && route.name !== "ticker") {
     return (
       <div className="min-h-screen bg-canvas text-ink">
-        <Masthead stats={null} onOpenCmdK={() => setCmdkOpen(true)} />
+        <Masthead route={route} stats={null} onOpenCmdK={() => setCmdkOpen(true)} />
         {error ? <div role="alert" className="max-w-[1440px] mx-auto px-4 sm:px-6 py-8">
           <p>Failed to load interactive trading data. Any initial page content shown below remains available.</p>
           <button type="button" className="govuk-button" onClick={() => window.location.reload()}>Reload page</button>
@@ -216,8 +216,12 @@ export default function App() {
     // `clip` (not `hidden`) avoids creating a scroll container that would break
     // sticky positioning.
     <div className="min-h-screen bg-canvas text-ink overflow-x-clip">
-      <Masthead stats={data.stats} onOpenCmdK={() => setCmdkOpen(true)} />
+      <Masthead route={route} stats={data.stats} onOpenCmdK={() => setCmdkOpen(true)} />
       {route.name === "overview" && <OverviewPage data={data} />}
+      {error && <div role="alert" className="max-w-[1440px] mx-auto px-4 sm:px-6 py-4">
+        <p>Search and dashboard data could not load.</p>
+        <button type="button" className="govuk-button" onClick={() => window.location.reload()}>Reload page</button>
+      </div>}
       {/* data.trades already available */}
       {route.name === "filers" && <FilersPage data={data} />}
       {route.name === "tickers" && <TickersPage data={data} />}
@@ -233,7 +237,7 @@ export default function App() {
           returns={data.returns}
         />
       )}
-      {route.name === "ticker" && <TickerPage key={route.symbol} symbol={route.symbol} filersById={data.filersById} />}
+      {route.name === "ticker" && <TickerPage key={route.symbol} symbol={route.symbol} filersById={data.filersById} initialData={initialPage?.route.symbol === route.symbol ? initialPage.tickerData : null} />}
 
       <CommandPalette open={cmdkOpen} onClose={() => setCmdkOpen(false)} filers={data.filers} tickers={data.tickers} />
       <SiteFooter current="congress" />

@@ -1,6 +1,5 @@
 import React from "react";
 import { Button, GitHubButton, LiveBadge, NavBar, SiteHeader } from "./kit";
-import { useRoute } from "./router";
 import { Link } from "./ui";
 
 const TABS = [
@@ -21,8 +20,7 @@ function freshness(generatedAt) {
   return `Updated ${days}d ago`;
 }
 
-export default function Masthead({ stats, onOpenCmdK }) {
-  const route = useRoute();
+export default function Masthead({ stats, onOpenCmdK, route }) {
 
   const activeTab = (() => {
     if (route.name === "filer") return "filers";

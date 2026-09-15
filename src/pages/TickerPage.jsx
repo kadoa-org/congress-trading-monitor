@@ -1,3 +1,4 @@
+import TickerSkeleton from "../components/TickerSkeleton";
 import { fetchData } from "../data";
 import { usePrerenderReplacement } from "../prerender";
 import React, { useEffect, useMemo, useState } from "react";
@@ -7,13 +8,14 @@ import { FilerAvatar } from "../components/TablePrimitives";
 import TradesTable from "../TradesTable";
 import { bestAssetNameByTicker, Card, fmtInt, fmtUSD, Link, RowLink, SectionHeader } from "../ui";
 
-export default function TickerPage({ symbol, filersById }) {
-  const [data, setData] = useState(null);
+export default function TickerPage({ symbol, filersById, initialData = null }) {
+  const [data, setData] = useState(initialData);
   const [error, setError] = useState(null);
   const [filters, setFilters] = useState(defaultFilters);
 
   usePrerenderReplacement(data !== null);
   useEffect(() => {
+    if (initialData) return;
     const controller = new AbortController();
     fetchData(`${import.meta.env.BASE_URL}data/ticker/${encodeURIComponent(symbol)}.json`, { signal: controller.signal })
       .then(setData)
@@ -23,7 +25,7 @@ export default function TickerPage({ symbol, filersById }) {
         setError(cause);
       });
     return () => controller.abort();
-  }, [symbol]);
+  }, [symbol, initialData]);
 
   const trades = data?.trades ?? [];
   const ticker = data?.ticker ?? symbol;
@@ -94,11 +96,11 @@ export default function TickerPage({ symbol, filersById }) {
   }
 
   if (!data) {
-    return <div className="max-w-[1440px] mx-auto px-4 sm:px-6 py-16 govuk-body text-[#505a5f]">Loading…</div>;
+    return <TickerSkeleton symbol={symbol} />;
   }
 
   return (
-    <div className="max-w-[1440px] mx-auto px-4 sm:px-6 pt-8 pb-16">
+    <main className="max-w-[1440px] mx-auto px-4 sm:px-6 pt-8 pb-16">
       <nav className="govuk-breadcrumbs mb-6" aria-label="Breadcrumb" style={{ marginTop: 0 }}>
         <ol className="govuk-breadcrumbs__list">
           <li className="govuk-breadcrumbs__list-item">
@@ -223,7 +225,7 @@ export default function TickerPage({ symbol, filersById }) {
         <FilterBar filters={filters} setFilters={setFilters} trades={trades} />
       </div>
       <TradesTable trades={filtered} tall filersById={filersById} />
-    </div>
+    </main>
   );
 }
 

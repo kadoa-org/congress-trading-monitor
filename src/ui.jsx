@@ -187,7 +187,7 @@ export function fmtAmountRange(t) {
 
 export function fmtInt(n) {
   if (!n && n !== 0) return "--";
-  return n.toLocaleString();
+  return n.toLocaleString("en-US");
 }
 
 export function pct(n, digits = 0) {
