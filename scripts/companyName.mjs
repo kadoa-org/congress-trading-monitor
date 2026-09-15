@@ -29,6 +29,7 @@ export function cleanAssetName(raw, ticker) {
   n = n.replace(/\b(?:gfedcb?|JT)\b\s*/g, ""); // form glyphs, standalone
   n = n.replace(/\b(?:gfedcb?|JT)(?=[A-Za-z])/g, ""); // …and glued to the next word
   n = n.replace(/\s*\[[A-Za-z]{2}\]\s*/g, " "); // [ST] / [OT] filing markers
+  n = n.replace(/\(([^)]+)\)/g, (match, value) => value.toUpperCase() === ticker.toUpperCase() ? "" : match);
   n = n.replace(/\s*\((?:[A-Za-z.]{1,6}|NYSE|NASDAQ|AMEX)\)\s*/g, " "); // trailing (TICKER)/(NYSE)
   n = n.replace(/\s+(common|ordinary|class [a-c])\s+(stock|shares)$/i, "");
   n = n.replace(/\s{2,}/g, " ").trim();

@@ -7,10 +7,10 @@
   "description": "Open dataset and dashboard of U.S. Congress and executive branch stock trades disclosed under the STOCK Act",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && node scripts/prerender.mjs",
+    "build": "bun scripts/validateTickerCoverage.mjs && vite build && node scripts/prerender.mjs",
     "preview": "vite preview",
     "kit:sync": "for f in kit.css index.jsx; do curl -fsS https://raw.githubusercontent.com/kadoa-org/congress-trading-monitor/main/src/kit/$f -o src/kit/$f; done",
-    "test": "bun scripts/companyName.test.mjs && bun scripts/seo.test.mjs"
+    "test": "bun scripts/companyName.test.mjs && bun scripts/seo.test.mjs && bun scripts/validateTickerCoverage.mjs"
   },
   "dependencies": {
     "govuk-frontend": "^6.3.0",

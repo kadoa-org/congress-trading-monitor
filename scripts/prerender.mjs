@@ -74,8 +74,8 @@ const fmtDate = (iso) =>
 // per-ticker detail file, and a page can't rank for "who traded SPCX"
 // unless the crawler-visible HTML actually names the filers.
 function tickerRoute(t) {
-  const detailPath = path.join(DATA, "ticker", `${t.ticker}.json`);
-  const trades = fs.existsSync(detailPath) ? (JSON.parse(fs.readFileSync(detailPath, "utf8")).trades ?? []) : [];
+  const detailPath = path.join(DATA, "ticker", `${encodeURIComponent(t.ticker)}.json`);
+  const trades = JSON.parse(fs.readFileSync(detailPath, "utf8")).trades;
   const company = companyName(trades, t.ticker);
   const label = company ? `${t.ticker} (${company})` : t.ticker;
 

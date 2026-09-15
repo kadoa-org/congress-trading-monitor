@@ -20,6 +20,8 @@ const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const TICKER_DIR = path.join(ROOT, "public", "data", "ticker");
 
 // Mechanical noise every variant may carry.
+assert.equal(cleanAssetName("KKR Private Equity Conglomerate LLC (K-PEC)", "K-PEC"), "KKR Private Equity Conglomerate LLC");
+assert.equal(cleanAssetName("Synovus Financial Corp. 6.3% (SNV-D)", "SNV-D"), "Synovus Financial Corp. 6.3%");
 assert.equal(cleanAssetName("Aetna Inc. (AET) [ST]", "AET"), "Aetna Inc.");
 assert.equal(cleanAssetName("Acme Corp - Class A Common Stock", "ACME"), "Acme Corp");
 assert.equal(cleanAssetName("Family Trust > U.S. Trust Holdings Alexion Pharmaceuticals, Inc.", "ALXN"), null);
