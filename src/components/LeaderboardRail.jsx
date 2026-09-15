@@ -35,7 +35,7 @@ function Metric({ label }) {
   );
 }
 
-export default function LeaderboardRail({ filers = [], returns = [], trades = [], prices = {}, stats = {} }) {
+export default function LeaderboardRail({ filers = [], returns = [], trades = [], prices = {}, stats = {}, asOf }) {
   const data = useMemo(() => {
     // Most active
     const topActive = [...filers].sort((a, b) => b.trade_count - a.trade_count)[0];
@@ -53,8 +53,8 @@ export default function LeaderboardRail({ filers = [], returns = [], trades = []
 
     // Hot stock (60d): >=5 trades in last 60 days, pick highest trade count
     let hottestStock = null;
-    const cutoff = new Date();
-    cutoff.setDate(cutoff.getDate() - 60);
+    const cutoff = new Date(asOf);
+    cutoff.setUTCDate(cutoff.getUTCDate() - 60);
     const cutoffStr = cutoff.toISOString().slice(0, 10);
     const recent = new Map();
     for (const t of trades) {
@@ -121,7 +121,7 @@ export default function LeaderboardRail({ filers = [], returns = [], trades = []
       : null;
 
     return { mostActive, highestAlpha, hottestStock, bestHitRate, biggestTrade };
-  }, [filers, returns, trades, prices]);
+  }, [filers, returns, trades, prices, asOf]);
 
   // Mobile: 2-column grid. The 5th cell (Biggest trade) spans both columns
   // on the bottom row so it has room for the larger headline number and the

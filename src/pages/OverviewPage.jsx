@@ -6,7 +6,7 @@ import ReturnsLeaderboard from "../components/ReturnsLeaderboard";
 import TickerBoard from "../TickerBoard";
 import { fmtInt, Link, SectionHeader } from "../ui";
 
-export default function OverviewPage({ data }) {
+export default function OverviewPage({ data, asOf }) {
   const { stats, filers, tickers, trades = [], returns = [], prices = {} } = data;
 
   const headline = "Monitor every stock trade Congress makes";
@@ -23,6 +23,7 @@ export default function OverviewPage({ data }) {
 
           <div className="mt-8">
             <LeaderboardRail
+              asOf={asOf}
               filers={filers}
               returns={returns}
               tickers={tickers}
@@ -51,7 +52,7 @@ export default function OverviewPage({ data }) {
         <section className="pb-20 grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div>
             <SectionHeader title="Latest activity" right={<Link to="/trades">See all</Link>} />
-            <LatestActivity trades={trades} />
+            <LatestActivity trades={trades} asOf={asOf} />
           </div>
           <div>
             <SectionHeader title="Most traded tickers" right={<Link to="/tickers">See all</Link>} />

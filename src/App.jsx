@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import TradingSkeleton from "./components/TradingSkeleton";
 import CommandPalette from "./components/CommandPalette";
 import { SiteFooter } from "./kit";
 import Masthead from "./Masthead";
@@ -6,20 +7,22 @@ import AboutPage from "./pages/AboutPage";
 import FilerPage from "./pages/FilerPage";
 import FilersPage from "./pages/FilersPage";
 import OverviewPage from "./pages/OverviewPage";
-import PrerenderShell from "./PrerenderShell";
 import TickerPage from "./pages/TickerPage";
 import TickersPage from "./pages/TickersPage";
 import TradesPage from "./pages/TradesPage";
 import { useRoute } from "./router";
-import { usePrerenderReplacement } from "./prerender";
 import { fetchData } from "./data";
 
-async function loadAll() {
+async function loadAll(seed = {}) {
   const [stats, trades, filers, tickers, scatter, returns, prices, alphaIndex, adminStats] = await Promise.all(
     ["stats", "trades", "filers", "tickers", "scatter", "returns", "prices", "alpha-index", "admin-stats"]
-      .map((name) => fetchData(`${import.meta.env.BASE_URL}data/${name}.json`)),
+      .map((name) => seed[name] ?? fetchData(`${import.meta.env.BASE_URL}data/${name}.json`)),
   );
 
+  return prepareData({ stats, trades, filers, tickers, scatter, returns, prices, "alpha-index": alphaIndex, "admin-stats": adminStats });
+}
+
+function prepareData({ stats = null, trades = [], filers = [], tickers = [], scatter = { filers: [], trades: [] }, returns = [], prices = {}, "alpha-index": alphaIndex, "admin-stats": adminStats } = {}) {
   // Per-filer admin participation. A filer is considered "in" an administration
   // if they have at least one disclosed trade while that admin was sitting.
   // Trump II cabinet members are further flagged with `cabinet: true` — executive
@@ -70,10 +73,6 @@ async function loadAll() {
   };
 }
 
-function LoadingScreen() {
-  return <p role="status" className="max-w-[1440px] mx-auto px-4 sm:px-6 py-8">Loading interactive trading data…</p>;
-}
-
 const SUFFIX = "Congress Trading Monitor";
 
 // Client-nav title, mirroring the prerendered <title> intent so the browser tab
@@ -101,30 +100,16 @@ function routeTitle(route, data) {
 }
 
 export default function App({ initialPage = null }) {
-  const [clientReady, setClientReady] = useState(initialPage !== null);
+  const [asOf] = useState(() => initialPage?.asOf ?? Date.now());
   const route = useRoute(initialPage?.route);
-  const [data, setData] = useState({
-    stats: null,
-    trades: [],
-    filers: [],
-    tickers: [],
-    scatter: { filers: [], trades: [] },
-    returns: [],
-    prices: {},
-    filersById: new Map((initialPage?.filers ?? []).map((f) => [f.id, f])),
-  });
+  const [data, setData] = useState(() => prepareData(initialPage?.datasets ?? { filers: initialPage?.filers ?? [], returns: initialPage?.returns ?? [] }));
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  usePrerenderReplacement(!loading && !error && route.name !== "filer" && route.name !== "ticker");
   const [cmdkOpen, setCmdkOpen] = useState(false);
 
   useEffect(() => {
-    setClientReady(true);
-  }, []);
-
-  useEffect(() => {
     let active = true;
-    loadAll().then((d) => {
+    loadAll(initialPage?.datasets).then((d) => {
       if (!active) return;
       setData(d);
       setLoading(false);
@@ -195,16 +180,16 @@ export default function App({ initialPage = null }) {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
-  if (!clientReady) return <PrerenderShell />;
+  const hasInitialRoute = initialPage?.datasets && initialPage.route.name === route.name;
 
-  if ((loading || error) && route.name !== "ticker") {
+  if ((loading || error) && !hasInitialRoute && route.name !== "ticker" && route.name !== "filer") {
     return (
       <div className="min-h-screen bg-canvas text-ink">
-        <Masthead route={route} stats={null} onOpenCmdK={() => setCmdkOpen(true)} />
+        <Masthead asOf={asOf} route={route} stats={null} onOpenCmdK={() => setCmdkOpen(true)} />
         {error ? <div role="alert" className="max-w-[1440px] mx-auto px-4 sm:px-6 py-8">
-          <p>Failed to load interactive trading data. Any initial page content shown below remains available.</p>
+          <p>Failed to load interactive trading data. Please try reloading the page.</p>
           <button type="button" className="govuk-button" onClick={() => window.location.reload()}>Reload page</button>
-        </div> : <LoadingScreen />}
+        </div> : <TradingSkeleton />}
       </div>
     );
   }
@@ -216,8 +201,8 @@ export default function App({ initialPage = null }) {
     // `clip` (not `hidden`) avoids creating a scroll container that would break
     // sticky positioning.
     <div className="min-h-screen bg-canvas text-ink overflow-x-clip">
-      <Masthead route={route} stats={data.stats} onOpenCmdK={() => setCmdkOpen(true)} />
-      {route.name === "overview" && <OverviewPage data={data} />}
+      <Masthead asOf={asOf} route={route} stats={data.stats} onOpenCmdK={() => setCmdkOpen(true)} />
+      {route.name === "overview" && <OverviewPage data={data} asOf={asOf} />}
       {error && <div role="alert" className="max-w-[1440px] mx-auto px-4 sm:px-6 py-4">
         <p>Search and dashboard data could not load.</p>
         <button type="button" className="govuk-button" onClick={() => window.location.reload()}>Reload page</button>
@@ -231,6 +216,8 @@ export default function App({ initialPage = null }) {
         <FilerPage
           key={route.id}
           filerId={route.id}
+          initialData={initialPage?.route.id === route.id ? initialPage.filerData : null}
+          asOf={initialPage?.asOf}
           filersIndex={data.filers}
           filersById={data.filersById}
           prices={data.prices}

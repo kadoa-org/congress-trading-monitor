@@ -1,6 +1,5 @@
-import TickerSkeleton from "../components/TickerSkeleton";
+import TradingSkeleton from "../components/TradingSkeleton";
 import { fetchData } from "../data";
-import { usePrerenderReplacement } from "../prerender";
 import React, { useEffect, useMemo, useState } from "react";
 import FilterBar, { applyFilters, defaultFilters } from "../components/FilterBar";
 import PersonalTimeline from "../components/PersonalTimeline";
@@ -13,7 +12,6 @@ export default function TickerPage({ symbol, filersById, initialData = null }) {
   const [error, setError] = useState(null);
   const [filters, setFilters] = useState(defaultFilters);
 
-  usePrerenderReplacement(data !== null);
   useEffect(() => {
     if (initialData) return;
     const controller = new AbortController();
@@ -89,14 +87,14 @@ export default function TickerPage({ symbol, filersById, initialData = null }) {
 
   if (error) {
     return <div role="alert" className="max-w-[1440px] mx-auto px-4 sm:px-6 py-8">
-      <p className="govuk-body">Failed to load trades for {symbol}. Any initial page content shown below remains available.</p>
+      <p className="govuk-body">Failed to load trades for {symbol}.</p>
       <button type="button" className="govuk-button" onClick={() => window.location.reload()}>Reload page</button>
       <Link to="/tickers">Browse all tickers</Link>
     </div>;
   }
 
   if (!data) {
-    return <TickerSkeleton symbol={symbol} />;
+    return <TradingSkeleton label={`Loading trades for ${symbol}…`} />;
   }
 
   return (

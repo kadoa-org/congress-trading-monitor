@@ -161,7 +161,7 @@ function FilersTable({ filtered, sort, setSort, onClear }) {
                     </div>
                   </td>
                   <td className="govuk-table__cell govuk-table__cell--numeric tabular-nums">
-                    {f.trade_count.toLocaleString()}
+                    {f.trade_count.toLocaleString("en-US")}
                   </td>
                   <td className="govuk-table__cell govuk-table__cell--numeric tabular-nums whitespace-nowrap">
                     <span className={GREEN}>{f.purchases || 0}</span>
@@ -204,7 +204,7 @@ function FilersTable({ filtered, sort, setSort, onClear }) {
       </div>
       {filtered.length > 500 && (
         <div className="px-4 py-2 border-t border-[#b1b4b6] text-[#505a5f] text-center" style={{ fontSize: "14px" }}>
-          Showing 500 of {filtered.length.toLocaleString()} filers. Narrow the search to see the rest.
+          Showing 500 of {filtered.length.toLocaleString("en-US")} filers. Narrow the search to see the rest.
         </div>
       )}
     </Card>

@@ -37,6 +37,7 @@ export function useRoute(initialRoute) {
   const [route, setRoute] = useState(() => initialRoute ?? parseRoute());
   useEffect(() => {
     const onPop = () => setRoute(parseRoute());
+    onPop();
     window.addEventListener("popstate", onPop);
     return () => window.removeEventListener("popstate", onPop);
   }, []);
@@ -57,15 +58,7 @@ export function navigate(pathOrUrl, { replace = false } = {}) {
 
 // Hook: synchronize arbitrary state <-> URL query string on a given route.
 export function useQueryState(keys, initial) {
-  const [state, setState] = useState(() => {
-    const p = new URLSearchParams(window.location.search);
-    const next = { ...initial };
-    for (const k of keys) {
-      const v = p.get(k);
-      if (v != null && v !== "") next[k] = v;
-    }
-    return next;
-  });
+  const [state, setState] = useState(initial);
 
   const set = useCallback(
     (updater) => {
@@ -100,9 +93,10 @@ export function useQueryState(keys, initial) {
         return next;
       });
     };
+    onPop();
     window.addEventListener("popstate", onPop);
     return () => window.removeEventListener("popstate", onPop);
-  }, [keys, initial]);
+  }, [JSON.stringify(keys), JSON.stringify(initial)]);
 
   return [state, set];
 }

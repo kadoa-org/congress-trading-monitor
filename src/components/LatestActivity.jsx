@@ -6,11 +6,11 @@ import { TickerBadge } from "./TickerBadge";
 
 // Latest activity feed — last N filings, sorted by filing_date desc.
 
-function relativeDate(iso) {
+function relativeDate(iso, asOf) {
   if (!iso) return "";
   const then = Date.parse(iso);
   if (!Number.isFinite(then)) return iso;
-  const days = Math.round((Date.now() - then) / 86400_000);
+  const days = Math.round((asOf - then) / 86400_000);
   if (days <= 0) return "today";
   if (days === 1) return "1d ago";
   if (days < 30) return `${days}d ago`;
@@ -19,7 +19,7 @@ function relativeDate(iso) {
   return iso;
 }
 
-export default function LatestActivity({ trades, limit = 12 }) {
+export default function LatestActivity({ trades, limit = 12, asOf }) {
   const rows = useMemo(() => {
     return [...trades]
       .filter((t) => t.filing_date)
@@ -99,7 +99,7 @@ export default function LatestActivity({ trades, limit = 12 }) {
       header: "Filed",
       align: "right",
       hideBelow: "sm",
-      render: (t) => <span style={{ color: "var(--dk-muted)" }}>{relativeDate(t.filing_date)}</span>,
+      render: (t) => <span style={{ color: "var(--dk-muted)" }}>{relativeDate(t.filing_date, asOf)}</span>,
     },
   ];
 

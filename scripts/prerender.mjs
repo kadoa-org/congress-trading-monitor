@@ -1,21 +1,4 @@
-/**
- * Build-time prerender for SEO.
- *
- * The app is a client-rendered SPA, so without this every route serves the
- * identical homepage HTML and deep pages (filers, tickers) are invisible to
- * search engines. This script runs after `vite build` and writes a static
- * `dist/<route>/index.html` per route with:
- *   - unique <title>, meta description, canonical, og/twitter tags
- *   - JSON-LD (Person for filers, Dataset for the site)
- *   - a crawler-visible content block after #root
- * plus dist/sitemap.xml and dist/robots.txt.
- *
- * No browser involved: routes are enumerated from public/data/*.json, so the
- * whole pass is string templating and runs in seconds. Vercel serves the
- * static file (filesystem pass precedes the SPA rewrite).
- *
- * Usage: node scripts/prerender.mjs   (wired into `npm run build`)
- */
+// Render the actual React pages and their initial data, plus route metadata and sitemap.
 
 import fs from "node:fs";
 import path from "node:path";
@@ -23,8 +6,6 @@ import { fileURLToPath } from "node:url";
 import { createServer } from "vite";
 
 import { companyName } from "./companyName.mjs";
-import { DISCLOSURE_METHOD, RETURN_METHOD } from "../src/methodology.js";
-import { filerEvidence } from "./filerEvidence.mjs";
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), "..");
 const DIST = path.join(ROOT, "dist", "congress"); // vite outDir (site lives under /congress/)
@@ -59,16 +40,6 @@ function loadJson(name) {
   return JSON.parse(fs.readFileSync(path.join(DATA, name), "utf8"));
 }
 
-const fmtDate = (iso) =>
-  iso
-    ? new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-US", {
-        month: "short",
-        day: "numeric",
-        year: "numeric",
-        timeZone: "UTC",
-      })
-    : "";
-
 // Per-ticker route with the "who traded X?" answer in static HTML. The
 // aggregate row (tickers.json) only has counts; the names live in the
 // per-ticker detail file, and a page can't rank for "who traded SPCX"
@@ -100,38 +71,11 @@ function tickerRoute(t) {
       : `${t.filer_count} members of Congress and executive officials`;
   const latest = trades[0];
 
-  const whoList = filerOrder
-    .map(
-      (f) =>
-        `<li><a href="${PREFIX}/filer/${esc(f.id)}">${esc(f.name)}</a> — ${f.count} trade${f.count === 1 ? "" : "s"}, last on ${esc(fmtDate(f.latest))}</li>`,
-    )
-    .join("");
-
-  const MAX_ROWS = 100;
-  const rows = trades
-    .slice(0, MAX_ROWS)
-    .map(
-      (tr) =>
-        `<tr><td><a href="${PREFIX}/filer/${esc(tr.filer_id)}">${esc(tr.filer_name ?? tr.filer_id)}</a></td><td>${esc(fmtDate(tr.transaction_date))}</td><td>${esc(tr.transaction_type ?? "")}</td><td>${esc(tr.amount_range_label ?? "")}</td></tr>`,
-    )
-    .join("");
-  const tableNote =
-    trades.length > MAX_ROWS ? `<p>Showing the ${MAX_ROWS} most recent of ${trades.length} trades.</p>` : "";
-
   return {
     path: `/ticker/${t.ticker}`,
     title: `${t.ticker} Congress Stock Trades ${YEAR}${company ? ` — ${company}` : ""} | Congress Trading Monitor`,
     description: `Who traded ${label}? ${who} disclosed ${t.trade_count} trade${t.trade_count === 1 ? "" : "s"} under the STOCK Act: ${t.purchases} buys, ${t.sales} sells${t.est_volume ? `, ~${fmtUsd(t.est_volume)} est. volume` : ""}.`,
-    h1: `${label}: Congressional Trading Activity`,
     lastmod: latest?.filing_date ?? latest?.transaction_date ?? null,
-    body: [
-      `<h2>Who traded ${esc(t.ticker)}?</h2>`,
-      `<p>${esc(label)} appears in ${t.trade_count} STOCK Act disclosures from ${t.filer_count} filer${t.filer_count === 1 ? "" : "s"} (${t.purchases} purchases, ${t.sales} sales)${latest ? `, most recently ${esc(latest.filer_name ?? "")} on ${esc(fmtDate(latest.transaction_date))}` : ""}.</p>`,
-      whoList ? `<ul>${whoList}</ul>` : "",
-      rows
-        ? `<h2>Disclosed trades</h2><table><thead><tr><th>Filer</th><th>Trade date</th><th>Type</th><th>Amount</th></tr></thead><tbody>${rows}</tbody></table>${tableNote}`
-        : "",
-    ].join(""),
     crumbs: [
       ["Overview", BASE],
       ["Tickers", `${BASE}/tickers`],
@@ -155,50 +99,23 @@ function buildRoutes() {
       path: "/filers",
       title: "All Filers - Congress & Executive Branch Stock Trades | Congress Trading Monitor",
       description: `Stock-trade disclosures for ${filers.length} filers: U.S. House, Senate, and executive branch officials. Ranked by trades, volume, and returns vs SPY.`,
-      h1: "All Filers: Congress & Executive Branch Stock Trades",
-      // Crawler-visible link to EVERY filer page (ranked by trade count) so no
-      // filer page is orphaned (sitemap-only). ~437 links keeps the page sane.
-      body: `<p>Stock-trade disclosures from ${filers.length} U.S. House, Senate, and executive branch filers under the STOCK Act. Ranked below by number of disclosed trades. See the <a href="${PREFIX}/trades">latest trades</a> or <a href="${PREFIX}/about">about the data</a>.</p><ul>${[
-        ...filers,
-      ]
-        .sort((a, b) => (b.trade_count ?? 0) - (a.trade_count ?? 0))
-        .map(
-          (f) =>
-            `<li><a href="${PREFIX}/filer/${esc(f.id)}">${esc(f.full_name)}</a> — ${f.trade_count} trade${f.trade_count === 1 ? "" : "s"}</li>`,
-        )
-        .join("")}</ul>`,
     },
     {
       path: "/tickers",
       title: "Most-Traded Stocks by Congress | Congress Trading Monitor",
       description: `Which stocks Congress trades most: per-ticker trade counts, buy/sell mix, and estimated volume across ${tickers.length} tickers.`,
-      h1: "Most-Traded Stocks by Congress",
-      // Crawler-visible link to EVERY ticker page (ranked by volume, so it still
-      // reads "most-traded" first) — the long tail was orphaned (sitemap-only).
-      body: `<ul>${[...tickers]
-        .sort((a, b) => (b.est_volume ?? 0) - (a.est_volume ?? 0))
-        .map(
-          (t) => `<li><a href="${PREFIX}/ticker/${esc(t.ticker)}">${esc(t.ticker)}</a> — ${t.trade_count} trades</li>`,
-        )
-        .join("")}</ul>`,
     },
     {
       path: "/trades",
       title: "Latest Congressional Stock Trades - Updated Daily | Congress Trading Monitor",
       description:
         "Every disclosed trade as it's filed: filer, ticker, amount, dates, filing lag, and performance vs SPY. Searchable and filterable.",
-      h1: "Latest Congressional Stock Trades",
-      body: `<p>Every stock trade disclosed by U.S. Congress and the executive branch under the STOCK Act, as it's filed: filer, ticker, amount, transaction and filing dates, filing lag, and performance vs SPY. Browse the full list of <a href="${PREFIX}/tickers">most-traded stocks</a> or <a href="${PREFIX}/filers">all filers</a>.</p>`,
     },
     {
       path: "/about",
       title: "About the Data - STOCK Act Disclosures Explained | Congress Trading Monitor",
       description:
         "How the STOCK Act works, the 45-day disclosure deadline, OGE 278-T executive filings, and where this open dataset comes from.",
-      h1: "About the Data",
-      body: [...DISCLOSURE_METHOD, ...RETURN_METHOD].map((section) =>
-        `<h2>${esc(section.title)}</h2><p>${esc(section.body)}</p>${(section.sources ?? []).map(([label, href]) => `<p><a href="${esc(href)}">${esc(label)}</a></p>`).join("")}`
-      ).join(""),
     },
   );
 
@@ -228,8 +145,6 @@ function buildRoutes() {
           ? `${f.full_name} Stock Trades ${YEAR} — ${retLabel} | Congress Trading Monitor`
           : `${f.full_name} Stock Trades ${YEAR} — ${f.trade_count} Disclosed Trades | Congress Trading Monitor`,
       description: `${f.full_name}, ${role}: ${f.trade_count} stock trades disclosed under the STOCK Act${vol ? `, ~${vol} est. volume` : ""}${retLabel ? `, ${retLabel}` : ""}. ${f.purchases} buys, ${f.sales} sells${late}. Updated ${YEAR}, source filings linked.`,
-      h1: `${f.full_name} Stock Trades (${YEAR})`,
-      body: `<p>${esc(f.full_name)}, ${esc(role)}, has disclosed ${f.trade_count} stock trades under the STOCK Act: ${f.purchases} purchases and ${f.sales} sales${vol ? ` with an estimated volume of ${vol}` : ""}.</p>${excess != null ? `<p>Priced purchases averaged ${excess >= 0 ? "+" : ""}${excess} percentage points versus SPY, assuming each purchase was held through the latest available price. This is an equal-weight average across different transaction periods, not actual portfolio performance.</p>` : ""}${f.late_filings ? `<p>${f.late_filings} transaction rows are flagged for a recorded filing lag over 45 days. See the <a href="${PREFIX}/about#law">filing flag methodology</a>.</p>` : ""}${filerEvidence(loadJson(`filer/${f.id}.json`).trades)}`,
 
       jsonLd: {
         "@context": "https://schema.org",
@@ -254,7 +169,7 @@ function buildRoutes() {
 
 // ── templating ───────────────────────────────────────────────────────────────
 
-function renderRoute(template, route, shell) {
+function renderRoute(template, route) {
   const url = `${BASE}${route.path}`;
   // Use function replacements throughout: values like "$210.4M" contain `$` +
   // digits, which String.replace reads as capture-group refs ($1/$2) in a
@@ -283,28 +198,15 @@ function renderRoute(template, route, shell) {
     html = html.replace("</head>", `${tags}</head>`);
   }
 
-  // Crawler-visible content outside the hydratable React shell.
-  if (route.h1) {
-    html = injectRoot(
-      html,
-      shell,
-      route.h1,
-      `${route.body ?? ""}<p><a href="${PREFIX}">Congress Trading Monitor home</a></p>`,
-      route.path,
-    );
-  }
   return html;
 }
 
-// The initial answer remains outside React until the matching route has loaded.
-function injectRoot(html, shellMarkup, h1, body, routePath = "") {
-  return html.replace(
-    /(<div id="root">)(<\/div>)/,
-    (_m, open, close) => `${open}${shellMarkup}${close}<main class="seo-shell govuk-width-container" data-path="${esc(PREFIX + routePath)}"><h1 class="govuk-heading-l">${esc(h1)}</h1>${body}</main>`,
-  );
+function injectPage(html, initialPage, renderPage) {
+  const payload = JSON.stringify(initialPage).replace(/</g, "\\u003c");
+  return html.replace('<div id="root"></div>', () => `<div id="root">${renderPage(initialPage)}</div><script id="page-data" type="application/json">${payload}</script>`);
 }
 
-async function buildShell() {
+async function buildRenderer() {
   const server = await createServer({
     configFile: false,
     base: "/congress/",
@@ -316,8 +218,8 @@ async function buildShell() {
     optimizeDeps: { noDiscovery: true },
   });
   try {
-    const mod = await server.ssrLoadModule("/src/renderPrerenderShell.jsx");
-    return { shell: mod.renderPrerenderShell(), renderTickerPage: mod.renderTickerPage };
+    const mod = await server.ssrLoadModule("/src/renderPage.jsx");
+    return { renderPage: mod.renderPage };
   } finally {
     await server.close();
   }
@@ -326,7 +228,12 @@ async function buildShell() {
 // ── main ─────────────────────────────────────────────────────────────────────
 
 const template = fs.readFileSync(path.join(DIST, "index.html"), "utf8");
-const { shell, renderTickerPage } = await buildShell();
+const { renderPage } = await buildRenderer();
+const asOf = Date.now();
+function routeDatasets(name) {
+  const names = { overview: ["stats", "filers", "tickers", "trades", "returns", "prices"], filers: ["stats", "filers", "returns"], tickers: ["stats", "tickers", "prices"], trades: ["stats", "trades", "filers"], about: ["stats"] }[name];
+  return Object.fromEntries(names.map((name) => [name, loadJson(`${name}.json`)]));
+}
 const filersById = new Map(loadJson("filers.json").map((f) => [f.id, f]));
 const routes = buildRoutes();
 
@@ -334,27 +241,29 @@ let written = 0;
 for (const r of routes) {
   const dir = path.join(DIST, r.path.slice(1));
   fs.mkdirSync(dir, { recursive: true });
-  let html = renderRoute(template, r, shell);
-  if (r.path.startsWith("/ticker/")) {
-    const symbol = r.path.slice("/ticker/".length);
-    const tickerData = loadJson(`ticker/${encodeURIComponent(symbol)}.json`);
-    const filerIds = [...new Set(tickerData.trades.map((t) => t.filer_id))];
-    const initialPage = { route: { name: "ticker", symbol, query: {} }, tickerData, filers: filerIds.map((id) => filersById.get(id)).filter(Boolean) };
-    const markup = renderTickerPage(initialPage);
-    const payload = JSON.stringify(initialPage).replace(/</g, "\\u003c");
-    html = html.replace(/<div id="root">[\s\S]*?<\/main>/, () => `<div id="root">${markup}</div><script id="page-data" type="application/json">${payload}</script>`);
+  let html = renderRoute(template, r);
+  let initialPage;
+  if (r.path.startsWith("/ticker/") || r.path.startsWith("/filer/")) {
+    if (r.path.startsWith("/filer/")) {
+      const id = r.path.slice("/filer/".length);
+      const filerData = loadJson(`filer/${id}.json`);
+      initialPage = { route: { name: "filer", id, query: {} }, filerData, filers: [filerData.filer], returns: loadJson("returns.json"), asOf };
+    } else {
+      const symbol = r.path.slice("/ticker/".length);
+      const tickerData = loadJson(`ticker/${encodeURIComponent(symbol)}.json`);
+      const filerIds = [...new Set(tickerData.trades.map((t) => t.filer_id))];
+      initialPage = { route: { name: "ticker", symbol, query: {} }, tickerData, filers: filerIds.map((id) => filersById.get(id)).filter(Boolean) };
+    }
+  } else {
+    const name = r.path.slice(1);
+    initialPage = { route: { name, query: {} }, datasets: routeDatasets(name) };
   }
+  html = injectPage(html, { ...initialPage, asOf }, renderPage);
   fs.writeFileSync(path.join(dir, "index.html"), html);
   written++;
 }
 
-// Homepage: keep its hand-written <head> (title/canonical/OG) but add the
-// site-level Dataset + WebSite JSON-LD the template lacks, plus the same
-// crawler-visible block every other route gets. It was shipping a bare 3.5 KB
-// shell — no h1, no links — so every filer and ticker page was reachable only
-// from sitemap.xml, which is why the audit found 2,440 of them with exactly one
-// internal link. Not a route object, so it stays out of the sitemap loop and
-// the URL count is unchanged.
+// Preserve the homepage metadata and add dataset structured data.
 const stats = loadJson("stats.json");
 const homeSchemas = [
   {
@@ -371,40 +280,7 @@ const homeSchemas = [
   },
   { "@context": "https://schema.org", "@type": "WebSite", name: "Congress Trading Monitor", url: BASE },
 ];
-const TOP_N = 60; // enough to pass real link equity down without a wall of text
-const topFilers = [...loadJson("filers.json")]
-  .sort((a, b) => (b.trade_count ?? 0) - (a.trade_count ?? 0))
-  .slice(0, TOP_N);
-const topTickers = [...loadJson("tickers.json")]
-  .sort((a, b) => (b.trade_count ?? 0) - (a.trade_count ?? 0))
-  .slice(0, TOP_N);
-
-const homeBody = [
-  `<p>Every stock trade disclosed by the U.S. House, Senate, and executive branch under the STOCK Act: ${stats.totalTrades} trades from ${stats.totalFilers} filers, updated daily from primary-source filings. Free and open source.</p>`,
-  `<p>Browse <a href="${PREFIX}/trades">the latest trades</a>, <a href="${PREFIX}/filers">all ${stats.totalFilers} filers</a>, <a href="${PREFIX}/tickers">the most-traded stocks</a>, or read <a href="${PREFIX}/about">about the data</a>.</p>`,
-  `<h2>Most active filers</h2><ul>${topFilers
-    .map(
-      (f) =>
-        `<li><a href="${PREFIX}/filer/${esc(f.id)}">${esc(f.full_name)}</a> — ${f.trade_count} trade${f.trade_count === 1 ? "" : "s"}</li>`,
-    )
-    .join("")}</ul><p><a href="${PREFIX}/filers">See all filers</a></p>`,
-  `<h2>Most-traded stocks</h2><ul>${topTickers
-    .map(
-      (t) =>
-        `<li><a href="${PREFIX}/ticker/${esc(t.ticker)}">${esc(t.ticker)}</a> — ${t.trade_count} trade${t.trade_count === 1 ? "" : "s"}</li>`,
-    )
-    .join("")}</ul><p><a href="${PREFIX}/tickers">See all tickers</a></p>`,
-].join("");
-
-const homeHtml = injectRoot(
-  template.replace(
-    "</head>",
-    `${homeSchemas.map((s) => `<script type="application/ld+json">${JSON.stringify(s)}</script>`).join("")}</head>`,
-  ),
-  shell,
-  "Congress & Executive Branch Stock Trades",
-  homeBody,
-);
+const homeHtml = injectPage(template.replace("</head>", `${homeSchemas.map((s) => `<script type="application/ld+json">${JSON.stringify(s)}</script>`).join("")}</head>`), { route: { name: "overview", query: {} }, datasets: routeDatasets("overview"), asOf }, renderPage);
 fs.writeFileSync(path.join(DIST, "index.html"), homeHtml);
 
 const today = new Date().toISOString().slice(0, 10);

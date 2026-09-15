@@ -35,7 +35,8 @@ export default function TickersPage({ data }) {
 
   return (
     <div className="max-w-[1440px] mx-auto px-4 sm:px-6 pt-8 pb-16">
-      <SectionHeader title="Tickers" subtitle={`${fmtInt(filtered.length)} of ${fmtInt(tickers.length)}`} />
+      <h1 className="govuk-heading-l">Tickers</h1>
+      <p className="govuk-body">{fmtInt(filtered.length)} of {fmtInt(tickers.length)}</p>
 
       {mostWidelyHeld.length > 0 && (
         <div className="mb-6 flex flex-wrap items-center gap-2">
@@ -151,7 +152,7 @@ export default function TickersPage({ data }) {
                     </RowLink>
                   </td>
                   <td className="govuk-table__cell govuk-table__cell--numeric tabular-nums">
-                    {t.trade_count.toLocaleString()}
+                    {t.trade_count.toLocaleString("en-US")}
                   </td>
                   <td className="govuk-table__cell govuk-table__cell--numeric tabular-nums">
                     {p?.latest?.close != null ? (
@@ -190,6 +191,14 @@ export default function TickersPage({ data }) {
           Showing 1,000 of {fmtInt(filtered.length)} tickers. Narrow the search to see the rest.
         </p>
       )}
+      <details className="govuk-details mt-8">
+        <summary className="govuk-details__summary"><span className="govuk-details__summary-text">Browse all ticker symbols</span></summary>
+        <div className="govuk-details__text">
+          <ul className="grid grid-cols-3 sm:grid-cols-6 gap-2">
+            {[...tickers].sort((a, b) => a.ticker < b.ticker ? -1 : a.ticker > b.ticker ? 1 : 0).map((t) => <li key={t.ticker}><RowLink to={`/ticker/${t.ticker}`}>{t.ticker}</RowLink></li>)}
+          </ul>
+        </div>
+      </details>
     </div>
   );
 }

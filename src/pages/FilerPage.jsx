@@ -1,5 +1,5 @@
+import TradingSkeleton from "../components/TradingSkeleton";
 import { fetchData } from "../data";
-import { usePrerenderReplacement } from "../prerender";
 import React, { useEffect, useMemo, useState } from "react";
 import FilterBar, { applyFilters, defaultFilters } from "../components/FilterBar";
 import PersonalTimeline from "../components/PersonalTimeline";
@@ -37,14 +37,15 @@ function role(f) {
   return `${f.chamber === "senate" ? "U.S. Senate" : "U.S. House"}${f.party ? " · " + f.party : ""}${f.state ? " · " + f.state : ""}`;
 }
 
-export default function FilerPage({ filerId, filersIndex, filersById, prices: pricesProp, returns = [] }) {
-  const [data, setData] = useState(null);
+export default function FilerPage({ filerId, filersIndex, filersById, prices: pricesProp, returns = [], initialData = null, asOf }) {
+  const [data, setData] = useState(initialData);
   const [error, setError] = useState(null);
   const [filters, setFilters] = useState(defaultFilters);
   const prices = pricesProp ?? {};
+  const [referenceTime] = useState(() => asOf ?? Date.now());
 
-  usePrerenderReplacement(data !== null);
   useEffect(() => {
+    if (initialData) return;
     const controller = new AbortController();
     fetchData(`${import.meta.env.BASE_URL}data/filer/${encodeURIComponent(filerId)}.json`, { signal: controller.signal })
       .then(setData)
@@ -54,7 +55,7 @@ export default function FilerPage({ filerId, filersIndex, filersById, prices: pr
         setError(cause);
       });
     return () => controller.abort();
-  }, [filerId]);
+  }, [filerId, initialData]);
 
   const filer = data?.filer ?? null;
   const trades = data?.trades ?? [];
@@ -223,14 +224,14 @@ export default function FilerPage({ filerId, filersIndex, filersById, prices: pr
 
   if (error) {
     return <div role="alert" className="max-w-[1440px] mx-auto px-4 sm:px-6 py-8">
-      <p className="govuk-body">Failed to load trades for {filersIndex?.find((f) => f.id === filerId)?.full_name ?? "this filer"}. Any initial page content shown below remains available.</p>
+      <p className="govuk-body">Failed to load trades for {filersIndex?.find((f) => f.id === filerId)?.full_name ?? "this filer"}.</p>
       <button type="button" className="govuk-button" onClick={() => window.location.reload()}>Reload page</button>
       <Link to="/filers">Browse all filers</Link>
     </div>;
   }
 
   if (!data || !filer) {
-    return <div className="max-w-[1440px] mx-auto px-4 sm:px-6 py-16 govuk-body text-[#505a5f]">Loading…</div>;
+    return <TradingSkeleton label={`Loading trades for ${filersById.get(filerId)?.full_name ?? "this filer"}…`} />;
   }
 
   const meta = branchPill(filer);
@@ -238,7 +239,7 @@ export default function FilerPage({ filerId, filersIndex, filersById, prices: pr
   const coverageEnd = stats.latest?.slice(0, 7);
 
   return (
-    <div className="max-w-[1440px] mx-auto px-4 sm:px-6 pt-6 pb-16">
+    <main className="max-w-[1440px] mx-auto px-4 sm:px-6 pt-6 pb-16">
       <nav className="govuk-breadcrumbs" aria-label="Breadcrumb" style={{ marginTop: 0, marginBottom: 20 }}>
         <ol className="govuk-breadcrumbs__list">
           <li className="govuk-breadcrumbs__list-item">
@@ -323,7 +324,7 @@ export default function FilerPage({ filerId, filersIndex, filersById, prices: pr
       <ImaginaryPortfolio trades={trades} />
 
       {stats.weightedExcess != null && stats.alphaDrivers && stats.alphaDrivers.length > 0 && (
-        <AlphaDriversSection drivers={stats.alphaDrivers} trades={trades} />
+        <AlphaDriversSection drivers={stats.alphaDrivers} trades={trades} asOf={referenceTime} />
       )}
 
       {stats.tickerAttribution && stats.tickerAttribution.filter((t) => t.ticker).length > 0 && (
@@ -342,7 +343,7 @@ export default function FilerPage({ filerId, filersIndex, filersById, prices: pr
         <FilterBar filters={filters} setFilters={setFilters} trades={trades} />
       </div>
       <TradesTable trades={filtered} tall filersById={filersById} />
-    </div>
+    </main>
   );
 }
 
@@ -438,10 +439,10 @@ function TickerAttributionSection({ rows }) {
   );
 }
 
-function holdingLabel(dateStr) {
+function holdingLabel(dateStr, asOf) {
   const then = Date.parse(dateStr);
   if (!Number.isFinite(then)) return "";
-  const years = (Date.now() - then) / (365.25 * 86400_000);
+  const years = (asOf - then) / (365.25 * 86400_000);
   if (years < 1) return `${(years * 12).toFixed(0)}mo`;
   return `${years.toFixed(1)}y`;
 }
@@ -456,7 +457,7 @@ function isLongHold(dateStr) {
 // "What drove this alpha" breakdown. Shows the top 8 purchases by absolute
 // contribution to the weighted-alpha numerator, plus a headline that states
 // how concentrated the excess return really is.
-function AlphaDriversSection({ drivers, trades }) {
+function AlphaDriversSection({ drivers, trades, asOf }) {
   const bestNames = useMemo(() => bestAssetNameByTicker(trades), [trades]);
   const top = drivers.slice(0, 8);
   const topShare = top.reduce((s, d) => s + d.share, 0);
@@ -549,7 +550,7 @@ function AlphaDriversSection({ drivers, trades }) {
                       {d.transaction_date}
                     </td>
                     <td className="govuk-table__cell govuk-table__cell--numeric tabular-nums text-[#505a5f]">
-                      {holdingLabel(d.transaction_date)}
+                      {holdingLabel(d.transaction_date, asOf)}
                     </td>
                     <td
                       className="govuk-table__cell govuk-table__cell--numeric tabular-nums whitespace-nowrap"

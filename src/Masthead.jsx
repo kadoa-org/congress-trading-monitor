@@ -12,15 +12,15 @@ const TABS = [
 
 // Kit-based chrome: brand bar + tab navigation. The SPA Link is injected so
 // cmd/ctrl-click and client-side routing both work.
-function freshness(generatedAt) {
+function freshness(generatedAt, asOf) {
   if (!generatedAt) return "Updated daily";
-  const days = Math.floor((Date.now() - Date.parse(generatedAt)) / 86400_000);
+  const days = Math.floor((asOf - Date.parse(generatedAt)) / 86400_000);
   if (days <= 0) return "Updated today";
   if (days === 1) return "Updated yesterday";
   return `Updated ${days}d ago`;
 }
 
-export default function Masthead({ stats, onOpenCmdK, route }) {
+export default function Masthead({ stats, onOpenCmdK, route, asOf }) {
 
   const activeTab = (() => {
     if (route.name === "filer") return "filers";
@@ -40,7 +40,7 @@ export default function Masthead({ stats, onOpenCmdK, route }) {
         }
         right={
           <span style={{ display: "flex", alignItems: "center", gap: 14 }}>
-            <LiveBadge>{freshness(stats?.generatedAt)}</LiveBadge>
+            <LiveBadge>{freshness(stats?.generatedAt, asOf)}</LiveBadge>
             <GitHubButton repo="kadoa-org/congress-trading-monitor" />
             <Button inverse onClick={onOpenCmdK} aria-label="Search (Cmd+K)">
               Search ⌘K
