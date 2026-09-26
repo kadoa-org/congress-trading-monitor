@@ -6,46 +6,83 @@ import TickerBoard from "../TickerBoard";
 import { ChangeTag, KeyFigures } from "../kit";
 import { fmtInt, fmtUSD, Link, SectionHeader } from "../ui";
 
-// Headline figures over one period, the trades disclosed in the past 30 days, counted by filing date: a count by
-// trade date would always look like a slump at the end, because most trades are disclosed weeks after they happen.
+// Headline figures for members of Congress over one period, the trades disclosed in the past 30 days, counted by
+// filing date: a count by trade date would always look like a slump at the end, because most trades are disclosed
+// weeks after they happen. Executive branch filings are left out here; two thirds of recent filings are the
+// President's, which would make every cell about one filer on a site about Congress. Officials have their own
+// Cabinet section below.
 const WINDOW_DAYS = 30;
 const dayOffset = (iso, days) => { const d = new Date(`${iso}T00:00:00Z`); d.setUTCDate(d.getUTCDate() + days); return d.toISOString().slice(0, 10); };
 const isBuy = (t) => /purchase/i.test(t.transaction_type || "");
+const isSell = (t) => /sale/i.test(t.transaction_type || "");
+const midpoint = (t) => (t.amount_range_low && t.amount_range_high ? (t.amount_range_low + t.amount_range_high) / 2 : 0);
+// Listed stock tickers only: Treasury bills ("US-TBILL") are not a stock pick.
+const isStockTicker = (ticker) => /^[A-Z]{1,5}(\.[A-Z])?$/.test(ticker || "");
 
-function Headlines({ trades, filers, asOf }) {
+function Headlines({ trades, asOf, stats }) {
   const end = new Date(asOf ?? Date.now()).toISOString().slice(0, 10);
   const start = dayOffset(end, -WINDOW_DAYS);
-  const priorStart = dayOffset(end, -2 * WINDOW_DAYS);
-  const recent = trades.filter((t) => t.filing_date > start && t.filing_date <= end);
+  const congress = trades.filter((t) => t.branch !== "executive");
+  const recent = congress.filter((t) => t.filing_date > start && t.filing_date <= end);
   if (!recent.length) return null;
-  // The feed holds the newest 5,000 trades; the change is shown only when it reaches back over the prior window.
-  const earliest = trades.reduce((min, t) => (t.filing_date && t.filing_date < min ? t.filing_date : min), end);
-  const prior = earliest <= priorStart ? trades.filter((t) => t.filing_date > priorStart && t.filing_date <= start).length : null;
-  const change = prior ? ((recent.length - prior) / prior) * 100 : null;
-  const top = (key) => {
-    const counts = new Map();
-    for (const t of recent) if (t[key]) counts.set(t[key], (counts.get(t[key]) || 0) + 1);
-    return [...counts].sort((a, b) => b[1] - a[1])[0];
-  };
-  const [filerId, filerTrades] = top("filer_id") ?? [];
-  const filer = filers.find((f) => f.id === filerId);
-  const [ticker, tickerTrades] = top("ticker") ?? [];
-  const tickerBuys = recent.filter((t) => t.ticker === ticker && isBuy(t)).length;
-  const largest = recent.reduce((best, t) => ((t.amount_range_high || 0) > (best?.amount_range_high || 0) ? t : best), null);
+  const members = new Set(recent.map((t) => t.filer_id)).size;
+
+  // Direction of money: amounts are disclosed as ranges, so both sides use the range midpoint.
+  const bought = recent.filter(isBuy).reduce((sum, t) => sum + midpoint(t), 0);
+  const sold = recent.filter(isSell).reduce((sum, t) => sum + midpoint(t), 0);
+  const direction = bought > sold * 1.1 ? "Net buying" : sold > bought * 1.1 ? "Net selling" : "Balanced";
+
+  // The stock bought by the most members, which is a broader signal than one member's heavy trading.
+  const byTicker = new Map();
+  for (const t of recent) {
+    if (!isStockTicker(t.ticker)) continue;
+    const e = byTicker.get(t.ticker) ?? { buys: 0, sells: 0, buyers: new Set() };
+    if (isBuy(t)) { e.buys++; e.buyers.add(t.filer_id); }
+    if (isSell(t)) e.sells++;
+    byTicker.set(t.ticker, e);
+  }
+  const [topTicker, top] = [...byTicker].sort((a, b) => b[1].buyers.size - a[1].buyers.size || b[1].buys - a[1].buys)[0] ?? [];
+
+  // How the members' purchases of that stock have done against SPY since each trade date, averaged over the buys.
+  const topBuys = topTicker ? recent.filter((t) => t.ticker === topTicker && isBuy(t) && t.excess_since != null) : [];
+  const topExcess = topBuys.length ? topBuys.reduce((sum, t) => sum + t.excess_since, 0) / topBuys.length : null;
+
+  const byMember = new Map();
+  for (const t of recent) byMember.set(t.filer_id, { name: t.filer_name, trades: (byMember.get(t.filer_id)?.trades ?? 0) + 1 });
+  const [activeId, active] = [...byMember].sort((a, b) => b[1].trades - a[1].trades)[0] ?? [];
+
+  const late = recent.filter((t) => t.is_late).length;
+  // Late share against the dataset's all-time rate, in percentage points, so the reader sees whether filing is
+  // getting more or less punctual. Both rounded first, so 10% against 30% reads as 20 points.
+  const lateShare = Math.round((late / recent.length) * 100);
+  const allTimeLate = stats?.totalTrades ? Math.round((stats.lateFilings / stats.totalTrades) * 100) : null;
+  const lags = recent.map((t) => t.days_to_file).filter((d) => d != null).sort((a, b) => a - b);
+  const medianLag = lags.length ? lags[Math.floor(lags.length / 2)] : null;
   const fmtDay = (iso) => new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
+
   return (
     <KeyFigures
-      title="Trades disclosed, past 30 days"
-      description="Stock trades by members of Congress and senior officials, by the date they were filed."
+      title="Headlines"
+      description={`${fmtInt(recent.length)} stock trades by ${fmtInt(members)} members of Congress disclosed in the past 30 days, by filing date.`}
       date={`Up to and including ${fmtDay(end)}`}
       items={[
-        { label: "Trades disclosed", value: fmtInt(recent.length), note: change !== null ? <><ChangeTag value={change} good="none" size="small" /> on prior 30 days</> : undefined },
-        filer && { label: "Most active", value: <Link to={`/filer/${filer.id}`}>{filer.full_name}</Link>, note: `${fmtInt(filerTrades)} trades` },
-        ticker && { label: "Most traded stock", value: <Link to={`/ticker/${ticker}`}>{ticker}</Link>, note: `${fmtInt(tickerTrades)} trades, ${fmtInt(tickerBuys)} buys` },
-        largest && {
-          label: "Largest trade",
-          value: <Link to={`/filer/${largest.filer_id}`}>{largest.filer_name}</Link>,
-          note: `${fmtUSD(largest.amount_range_low)} to ${fmtUSD(largest.amount_range_high)}${largest.ticker ? `, ${largest.ticker}` : ""}`,
+        { label: "Buying or selling", value: direction, title: "Estimated from the midpoints of the disclosed amount ranges", note: `${fmtUSD(bought)} bought, ${fmtUSD(sold)} sold` },
+        top && top.buyers.size > 0 && {
+          label: "Most bought stock",
+          value: <Link to={`/ticker/${topTicker}`}>{topTicker}</Link>,
+          title: `Bought by ${fmtInt(top.buyers.size)} ${top.buyers.size === 1 ? "member" : "members"}: ${fmtInt(top.buys)} buys and ${fmtInt(top.sells)} sells. Return against SPY since each buy, averaged.`,
+          note: topExcess !== null ? <><ChangeTag value={topExcess} good="up" size="small" /> vs SPY</> : `bought by ${fmtInt(top.buyers.size)} members`,
+        },
+        {
+          label: "Late disclosures",
+          value: `${lateShare}%`,
+          title: medianLag !== null ? `Filed after the 45-day deadline. Median ${medianLag} days from trade to filing.` : "Filed after the 45-day deadline",
+          note: allTimeLate !== null ? <><ChangeTag value={lateShare - allTimeLate} unit=" pts" size="small" /> vs {allTimeLate}% all-time</> : "after the 45-day deadline",
+        },
+        active && {
+          label: "Most active",
+          value: <Link to={`/filer/${activeId}`}>{active.name}</Link>,
+          note: `${fmtInt(active.trades)} trades`,
         },
       ]}
     />
@@ -68,7 +105,7 @@ export default function OverviewPage({ data, asOf }) {
           </div>
 
           <div className="mt-8">
-            <Headlines trades={trades} filers={filers} asOf={asOf} />
+            <Headlines trades={trades} asOf={asOf} stats={stats} />
           </div>
         </section>
 
