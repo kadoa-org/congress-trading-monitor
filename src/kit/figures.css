@@ -41,13 +41,18 @@
 .dk-card__panel { background: #fff; border: 1px solid var(--dk-gov-border); padding: 24px 16px; }
 .dk-card__footer { margin-top: -12px; font-size: 14px; color: var(--dk-gov-secondary); }
 
-.dk-tabs__list { display: flex; flex-wrap: wrap; align-items: flex-end; list-style: none; margin: 0; padding: 0; }
-.dk-tabs__item { margin: 0 4px 0 0; }
-/* Inactive tabs are plain underlined links; the active one is a white tab raised 4px that overlaps the panel by 1px. */
-.dk-tabs__tab { display: block; padding: 8px 12px; border: 1px solid transparent; border-bottom: 0; background: none; font: inherit; font-size: 19px; line-height: 1.3; color: var(--dk-gov-text); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
-.dk-tabs__item--selected .dk-tabs__tab { background: #fff; border-color: var(--dk-gov-border); padding: 14px 19px 16px; margin: -4px 0 -1px; text-decoration: none; position: relative; z-index: 1; }
+/* GOV.UK Design System tab geometry, so switching tabs never moves anything: an inactive tab is padded 20px each
+   side and the active one 19px plus a 1px border, so both are the same width; the active tab grows only upward
+   (-5px) and 1px down over the panel border, so its text stays on the same line. */
+.dk-tabs__list { display: flex; flex-wrap: wrap; align-items: flex-start; list-style: none; margin: 0; padding: 0; }
+.dk-tabs__item { margin: 0 5px 0 0; }
+.dk-tabs__tab { display: block; padding: 10px 20px; border: 0; background: none; font: inherit; font-size: 19px; line-height: 25px; color: var(--dk-gov-text); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.dk-tabs__item--selected .dk-tabs__tab { background: #fff; border: 1px solid var(--dk-gov-border); border-bottom: 0; padding: 14px 19px 16px; margin: -5px 0 -1px; text-decoration: none; position: relative; z-index: 1; }
 .dk-tabs__tab:focus-visible { outline: 3px solid #fd0; outline-offset: 0; box-shadow: inset 0 -4px #0b0c0c; }
-.dk-tabs__panel { background: #fff; border: 1px solid var(--dk-gov-border); padding: 24px 16px; }
+/* As the UKHSA chart cards: every panel keeps a minimum height, and a long table scrolls inside a fixed height
+   rather than lengthening the page, so switching from a chart to a table does not move what is below. */
+.dk-tabs__panel { background: #fff; border: 1px solid var(--dk-gov-border); padding: 24px 16px; min-height: var(--dk-tab-min-height, 440px); box-sizing: border-box; }
+.dk-tabs__panel--scroll { max-height: var(--dk-tab-scroll-height, 640px); overflow-y: auto; }
 .dk-tabs__short { display: none; }
 
 .dk-filter { margin: 0 0 20px; }
@@ -64,9 +69,9 @@
   .dk-figures__row--odd .dk-figures__item { border-left: 0; }
   .dk-figures__row--odd .dk-figures__item + .dk-figures__item { border-top: 1px solid var(--dk-gov-border); }
   .dk-card { padding: 15px; gap: 20px; }
-  .dk-tabs__tab { font-size: 16px; padding: 8px; }
+  .dk-tabs__tab { font-size: 16px; padding: 10px 8px; }
   .dk-tabs__item--selected .dk-tabs__tab { padding: 14px 7px 16px; }
   .dk-tabs__long { display: none; }
   .dk-tabs__short { display: inline; }
-  .dk-tabs__panel { padding: 12px; }
+  .dk-tabs__panel { padding: 12px; min-height: var(--dk-tab-min-height-sm, 320px); }
 }
