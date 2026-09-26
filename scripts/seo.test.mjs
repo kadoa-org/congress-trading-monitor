@@ -19,7 +19,7 @@ try {
     assert.ok(!/="(?:-?Infinity|NaN)"/.test(rendered));
   }
   const routeInputs = { overview: ["stats", "filers", "tickers", "trades", "returns", "prices"], filers: ["stats", "filers", "returns"], tickers: ["stats", "tickers", "prices"], trades: ["stats", "trades", "filers"], about: ["stats"] };
-  const headings = { overview: "Monitor every stock trade Congress makes", filers: "Filers", tickers: "Tickers", trades: "Trades", about: "About the data" };
+  const headings = { overview: "Congress Trading Monitor", filers: "Filers", tickers: "Tickers", trades: "Trades", about: "About the data" };
   for (const [name, inputs] of Object.entries(routeInputs)) {
     const datasets = Object.fromEntries(inputs.map((key) => [key, JSON.parse(fs.readFileSync(new URL(`../public/data/${key}.json`, import.meta.url), "utf8"))]));
     const markup = renderPage({ route: { name, query: {} }, datasets, asOf: 1789430400000 });

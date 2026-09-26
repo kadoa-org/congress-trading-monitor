@@ -12,10 +12,12 @@ import "./figures.css";
 // the tag never depends on colour.
 export function ChangeTag({ value, unit = "%", size, good = "down", children }) {
   if (value === null || value === undefined || !Number.isFinite(value)) return null;
-  const dir = value > 0 ? "up" : value < 0 ? "down" : "flat";
+  // A change that rounds to zero at the precision shown is no change: "↓0.0%" in red would contradict itself.
+  const abs = Math.abs(value);
+  const shown = abs < 10 ? Math.round(abs * 10) / 10 : Math.round(abs);
+  const dir = shown === 0 ? "flat" : value > 0 ? "up" : "down";
   const tone = dir === "flat" || good === "none" ? "flat" : dir === good ? "good" : "bad";
   const arrow = dir === "up" ? "↑" : dir === "down" ? "↓" : "→";
-  const abs = Math.abs(value);
   const figure = `${abs.toFixed(abs < 10 ? 1 : 0)}${unit}`;
   return (
     <strong className={`dk-change dk-change--${tone}${size === "small" ? " dk-change--small" : ""}`}>

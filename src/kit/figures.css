@@ -18,9 +18,6 @@
 .dk-change--small { padding: 1px 5px 2px; font-size: 13px; line-height: 17px; gap: 2px; }
 .dk-change--small .dk-change__arrow { font-size: 14px; }
 
-/* Page titles sit a clear step above the 24px section headings. */
-.dk-h1 { font-size: 32px; line-height: 1.2; }
-
 .dk-heading { margin: 0 0 15px; min-width: 0; }
 .dk-heading__top { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
 .dk-heading__title { font-size: 24px; font-weight: 700; line-height: 1.25; margin: 0 0 8px; color: var(--dk-gov-text); }
@@ -54,7 +51,6 @@
 .dk-filter__select:focus { outline: 3px solid #fd0; outline-offset: 0; box-shadow: inset 0 0 0 2px; }
 
 @media (max-width: 640px) {
-  .dk-h1 { font-size: 27px; }
   .dk-heading__title { font-size: 21px; }
   .dk-figures__row { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .dk-figures__item:nth-child(odd) { border-left: 0; }

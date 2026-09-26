@@ -92,15 +92,16 @@ function Headlines({ trades, asOf, stats }) {
 export default function OverviewPage({ data, asOf }) {
   const { stats, filers, tickers, trades = [], returns = [], prices = {} } = data;
 
-  const headline = "Monitor every stock trade Congress makes";
-  const subline = `${fmtInt(stats?.totalTrades)} trades by ${fmtInt(stats?.totalFilers)} members of Congress and senior officials, from House, Senate and OGE filings.`;
+  const headline = "Congress Trading Monitor";
+  // The page title carries the search terms; the intro keeps them on the page under the brand-name heading.
+  const subline = `Every stock trade by members of Congress and senior officials: ${fmtInt(stats?.totalTrades)} trades by ${fmtInt(stats?.totalFilers)} filers, from House, Senate and OGE filings.`;
 
   return (
     <div className="govuk-width-container">
       <main className="govuk-main-wrapper" id="main-content">
         <section className="pb-6">
           <div className="max-w-3xl">
-            <h1 className="govuk-heading-xl">{headline}</h1>
+            <h1 className="dk-h1">{headline}</h1>
             <p className="govuk-body-l">{subline}</p>
           </div>
 
