@@ -3,6 +3,7 @@ import { fetchData } from "../data";
 import React, { useEffect, useMemo, useState } from "react";
 import FilterBar, { applyFilters, defaultFilters } from "../components/FilterBar";
 import PersonalTimeline from "../components/PersonalTimeline";
+import { ChartCard } from "../kit";
 import { FilerAvatar } from "../components/TablePrimitives";
 import TradesTable from "../TradesTable";
 import { bestAssetNameByTicker, Card, fmtInt, fmtUSD, Link, RowLink, SectionHeader } from "../ui";
@@ -185,12 +186,9 @@ export default function TickerPage({ symbol, filersById, initialData = null }) {
         )}
       </dl>
 
-      <div className="mb-8">
-        <SectionHeader title="Trade timeline" />
-        <Card className="p-4">
-          <PersonalTimeline trades={trades} highlightTicker={ticker} />
-        </Card>
-      </div>
+      <ChartCard id="timeline-title" title="Trade timeline" description={`Every disclosed ${ticker} trade, by the date it was made.`}>
+        <PersonalTimeline trades={trades} highlightTicker={ticker} />
+      </ChartCard>
 
       <div className="mb-10">
         <SectionHeader title="Top holders" subtitle="Ranked by number of trades in this ticker" />

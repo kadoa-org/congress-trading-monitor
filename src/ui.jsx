@@ -1,6 +1,6 @@
 // Small reusable primitives. Sized to Linear.app: root is 18px, body is 0.9375rem (16.875px).
 import React from "react";
-import { Section as DkSection, Tag as DkTag } from "./kit";
+import { Section as DkSection, SectionHeading, Tag as DkTag } from "./kit";
 import { navigate, withBase } from "./router";
 
 // Canonical Tailwind class for table column headers.
@@ -318,16 +318,9 @@ export function Card({ children, className = "", to }) {
   return <div className={base}>{children}</div>;
 }
 
-export function SectionHeader({ title, subtitle, right }) {
-  return (
-    <div className="dk-section-head">
-      <div style={{ minWidth: 0 }}>
-        <h2>{title}</h2>
-        {subtitle && <p className="dk-hint">{subtitle}</p>}
-      </div>
-      {right && <div style={{ flexShrink: 0, whiteSpace: "nowrap" }}>{right}</div>}
-    </div>
-  );
+// Section headings follow the shared kit pattern: bold title, italic description, date.
+export function SectionHeader({ title, subtitle, date, right }) {
+  return <SectionHeading title={title} description={subtitle} date={date} right={right} />;
 }
 
 export function txnTone(type) {

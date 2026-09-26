@@ -3,6 +3,9 @@
 // Rule: pages never style tables/tags/sections ad hoc — variants via props only.
 import React from "react";
 import "./kit.css";
+import { SectionHeading } from "./figures.jsx";
+
+export * from "./figures.jsx";
 
 // One table to rule them all.
 // columns: [{ key, header, align?: "left"|"right", width?, render?(row), sortable?, headerHint? }]
@@ -85,31 +88,31 @@ export function Tag({ tone = "grey", children }) {
   return <strong className={`dk-tag dk-tag--${tone}`}>{children}</strong>;
 }
 
-export function Section({ title, hint, right, children }) {
+export function Section({ title, hint, description, date, right, children }) {
   return (
-    <section style={{ marginBottom: 28 }}>
-      <div className="dk-section-head">
-        <div style={{ minWidth: 0 }}>
-          <h2>{title}</h2>
-          {hint && <p className="dk-hint">{hint}</p>}
-        </div>
-        {right && <div style={{ flexShrink: 0, whiteSpace: "nowrap" }}>{right}</div>}
-      </div>
+    <section className="dk-section">
+      <SectionHeading title={title} description={description ?? hint} date={date} right={right} />
       {children}
     </section>
   );
 }
 
+// Headline figures in one grey row; the count sets the columns so a row never leaves an orphan.
 export function StatGrid({ children }) {
-  return <div className="dk-stats">{children}</div>;
+  const count = React.Children.toArray(children).filter(Boolean).length;
+  return (
+    <dl className={`dk-figures__row dk-stats${count % 2 ? " dk-figures__row--odd" : ""}`} style={{ "--dk-figures-columns": count }}>
+      {children}
+    </dl>
+  );
 }
 
 export function Stat({ label, value, sub }) {
   return (
-    <div className="dk-stat">
-      <div className="dk-stat-label">{label}</div>
-      <div className="dk-stat-value">{value}</div>
-      {sub && <div className="dk-stat-sub">{sub}</div>}
+    <div className="dk-figures__item">
+      <dt className="dk-figures__label">{label}</dt>
+      <dd className="dk-figures__value">{value}</dd>
+      {sub && <dd className="dk-figures__note">{sub}</dd>}
     </div>
   );
 }

@@ -3,6 +3,7 @@ import { fetchData } from "../data";
 import React, { useEffect, useMemo, useState } from "react";
 import FilterBar, { applyFilters, defaultFilters } from "../components/FilterBar";
 import PersonalTimeline from "../components/PersonalTimeline";
+import { ChangeTag, ChartCard, KeyFigures } from "../kit";
 import { FilerAvatar as AvatarPrimitive } from "../components/TablePrimitives";
 import { TickerBadge, TickerLabel } from "../components/TickerBadge";
 import TradesTable from "../TradesTable";
@@ -331,12 +332,9 @@ export default function FilerPage({ filerId, filersIndex, filersById, prices: pr
         <TickerAttributionSection rows={stats.tickerAttribution.filter((t) => t.ticker)} />
       )}
 
-      <div className="mb-10">
-        <SectionHeader title="Timeline" />
-        <Card className="p-4">
-          <PersonalTimeline trades={trades} />
-        </Card>
-      </div>
+      <ChartCard id="timeline-title" title="Trade timeline" description="Every disclosed trade, by the date it was made.">
+        <PersonalTimeline trades={trades} />
+      </ChartCard>
 
       <SectionHeader title="All trades" subtitle={`${fmtInt(filtered.length)} of ${fmtInt(trades.length)}`} />
       <div className="mb-4">
@@ -588,23 +586,6 @@ function AlphaDriversSection({ drivers, trades, asOf }) {
 
 // Compact stat block used in the portfolio card: small secondary label above a
 // bold tabular value, data-kit colours only.
-function PortfolioStat({ label, value, valueTone = "text-[#0b0c0c]", hint, hintTone = "text-[#505a5f]" }) {
-  return (
-    <div>
-      <div className="text-[#505a5f]" style={{ fontSize: "16px" }}>
-        {label}
-      </div>
-      <div className={`mt-1 text-large sm:text-[1.5rem] font-bold tabular-nums leading-tight ${valueTone}`}>
-        {value}
-      </div>
-      {hint && (
-        <div className={`tabular-nums mt-0.5 ${hintTone}`} style={{ fontSize: "14px" }}>
-          {hint}
-        </div>
-      )}
-    </div>
-  );
-}
 
 // Imaginary portfolio: what this filer would be sitting on today if they held
 // every disclosed buy to today's close. Reframes the hold-to-today methodology
@@ -677,29 +658,15 @@ function ImaginaryPortfolio({ trades }) {
         subtitle="Disclosed buys valued at the latest available prices using amount-range midpoints. Assumes nothing was sold."
       />
 
-      <Card className="p-4 sm:p-5 mb-4">
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-4 sm:gap-x-8 gap-y-4 sm:gap-y-5">
-          <PortfolioStat label="Portfolio value" value={fmtUSD(data.value)} hint={`from ${fmtUSD(data.cost)} cost`} />
-          <PortfolioStat
-            label="Hypothetical gain"
-            value={`${data.gain >= 0 ? "+" : ""}${fmtUSD(data.gain)}`}
-            valueTone={data.gain >= 0 ? GREEN : RED}
-            hint={`${data.gainPct >= 0 ? "+" : ""}${data.gainPct.toFixed(1)}%`}
-            hintTone={data.gain >= 0 ? GREEN : RED}
-          />
-          <PortfolioStat
-            label="vs same-$ SPY"
-            value={`${data.vsSpy >= 0 ? "+" : ""}${fmtUSD(data.vsSpy)}`}
-            valueTone={data.vsSpy >= 0 ? GREEN : RED}
-            hint={`SPY would hold ${fmtUSD(data.spyValue)}`}
-          />
-          <PortfolioStat
-            label="Positions"
-            value={data.holdings.length}
-            hint={`${fmtInt(data.scoredBuys)} buys scored`}
-          />
-        </div>
-      </Card>
+      <KeyFigures
+        label="Portfolio figures"
+        items={[
+          { label: "Portfolio value", value: fmtUSD(data.value), note: `from ${fmtUSD(data.cost)} cost` },
+          { label: "Hypothetical gain", value: `${data.gain >= 0 ? "+" : ""}${fmtUSD(data.gain)}`, note: <ChangeTag value={data.gainPct} good="up" size="small" /> },
+          { label: "Against the same dollars in SPY", value: `${data.vsSpy >= 0 ? "+" : ""}${fmtUSD(data.vsSpy)}`, note: `SPY would hold ${fmtUSD(data.spyValue)}` },
+          { label: "Positions", value: fmtInt(data.holdings.length), note: `${fmtInt(data.scoredBuys)} buys scored` },
+        ]}
+      />
 
       <Card className="overflow-hidden">
         <div className="overflow-x-auto">
