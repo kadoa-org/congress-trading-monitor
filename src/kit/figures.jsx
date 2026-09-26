@@ -42,17 +42,15 @@ export function SectionHeading({ title, description, date, right, as: H = "h2", 
   );
 }
 
-// One grey row of headline figures. Each item is { label, value, note?, title? }.
-// A page's headline row sits right under its title, so it takes no heading of its own: `context` is one short line
-// saying what is counted and up to when. `title` remains for a row further down a page that needs one. The section
-// keeps an accessible name either way.
-export function KeyFigures({ title, description, date, right, context, items, label = "Headlines" }) {
+// One grey row of headline figures under a "Headlines" heading, as every UKHSA topic page opens. Each item is
+// { label, value, note?, title? }. `context` is the short summary UKHSA prints under the panel: what is counted
+// and up to when.
+export function KeyFigures({ title = "Headlines", description, date, right, context, items }) {
   const shown = (items || []).filter(Boolean);
   if (!shown.length) return null;
   return (
-    <section className="dk-figures" aria-label={title ? undefined : label}>
-      {title && <SectionHeading title={title} description={description} date={date} right={right} />}
-      {!title && context && <p className="dk-figures__context">{context}</p>}
+    <section className="dk-figures">
+      <SectionHeading title={title} description={description} date={date} right={right} />
       <dl className={`dk-figures__row${shown.length % 2 ? " dk-figures__row--odd" : ""}`} style={{ "--dk-figures-columns": shown.length }}>
         {shown.map((f) => (
           <div className="dk-figures__item" key={typeof f.label === "string" ? f.label : f.key} title={f.title}>
@@ -62,6 +60,7 @@ export function KeyFigures({ title, description, date, right, context, items, la
           </div>
         ))}
       </dl>
+      {context && <p className="dk-figures__context">{context}</p>}
     </section>
   );
 }
@@ -91,7 +90,7 @@ export function Tabs({ tabs, initial = 0 }) {
                 if (e.key === "ArrowRight") { e.preventDefault(); move(i + 1); }
                 else if (e.key === "ArrowLeft") { e.preventDefault(); move(i - 1); }
               }}
-            >{t.label}</button>
+            >{t.short ? <><span className="dk-tabs__long">{t.label}</span><span className="dk-tabs__short" aria-hidden="true">{t.short}</span></> : t.label}</button>
           </li>
         ))}
       </ul>
