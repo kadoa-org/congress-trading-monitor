@@ -27,6 +27,7 @@
 .dk-heading > :last-child { margin-bottom: 0; }
 
 .dk-figures { margin: 0 0 36px; }
+.dk-figures__context { font-size: 16px; color: var(--dk-gov-secondary); margin: 0 0 10px; max-width: 80ch; }
 .dk-figures__row { display: grid; grid-template-columns: repeat(var(--dk-figures-columns), minmax(0, 1fr)); margin: 0; background: var(--dk-gov-grey); }
 .dk-figures__item { padding: 15px 20px; min-width: 0; }
 .dk-figures__item + .dk-figures__item { border-left: 1px solid var(--dk-gov-border); }

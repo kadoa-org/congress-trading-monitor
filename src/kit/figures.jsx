@@ -43,12 +43,16 @@ export function SectionHeading({ title, description, date, right, as: H = "h2", 
 }
 
 // One grey row of headline figures. Each item is { label, value, note?, title? }.
-export function KeyFigures({ title, description, date, right, items, label = "Headlines" }) {
+// A page's headline row sits right under its title, so it takes no heading of its own: `context` is one short line
+// saying what is counted and up to when. `title` remains for a row further down a page that needs one. The section
+// keeps an accessible name either way.
+export function KeyFigures({ title, description, date, right, context, items, label = "Headlines" }) {
   const shown = (items || []).filter(Boolean);
   if (!shown.length) return null;
   return (
     <section className="dk-figures" aria-label={title ? undefined : label}>
       {title && <SectionHeading title={title} description={description} date={date} right={right} />}
+      {!title && context && <p className="dk-figures__context">{context}</p>}
       <dl className={`dk-figures__row${shown.length % 2 ? " dk-figures__row--odd" : ""}`} style={{ "--dk-figures-columns": shown.length }}>
         {shown.map((f) => (
           <div className="dk-figures__item" key={typeof f.label === "string" ? f.label : f.key} title={f.title}>

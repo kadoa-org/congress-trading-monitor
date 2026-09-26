@@ -62,9 +62,7 @@ function Headlines({ trades, asOf, stats }) {
 
   return (
     <KeyFigures
-      title="Headlines"
-      description={`${fmtInt(recent.length)} stock trades by ${fmtInt(members)} members of Congress disclosed in the past 30 days, by filing date.`}
-      date={`Up to and including ${fmtDay(end)}`}
+      context={`${fmtInt(recent.length)} stock trades by ${fmtInt(members)} members of Congress disclosed in the past 30 days, up to ${fmtDay(end)}.`}
       items={[
         { label: "Buying or selling", value: direction, title: "Estimated from the midpoints of the disclosed amount ranges", note: `${fmtUSD(bought)} bought, ${fmtUSD(sold)} sold` },
         top && top.buyers.size > 0 && {
