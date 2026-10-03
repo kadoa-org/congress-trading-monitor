@@ -35,7 +35,7 @@ export default function TickersPage({ data }) {
 
   return (
     <div className="max-w-[1440px] mx-auto px-4 sm:px-6 pt-8 pb-16">
-      <h1 className="govuk-heading-l">Tickers</h1>
+      <h1 className="govuk-heading-l">Stocks</h1>
       <p className="govuk-body">{fmtInt(filtered.length)} of {fmtInt(tickers.length)}</p>
 
       {mostWidelyHeld.length > 0 && (
@@ -101,7 +101,7 @@ export default function TickersPage({ data }) {
               </th>
               <th scope="col" className="govuk-table__header govuk-table__header--numeric">
                 <SortHeader
-                  label="Filers"
+                  label="Politicians"
                   sortKey="filers"
                   sort={qs.sort}
                   setSort={(v) => setQs({ sort: v })}

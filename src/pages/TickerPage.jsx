@@ -109,7 +109,7 @@ export default function TickerPage({ symbol, filersById, initialData = null }) {
           </li>
           <li className="govuk-breadcrumbs__list-item">
             <Link to="/tickers" className="govuk-breadcrumbs__link">
-              Tickers
+              Stocks
             </Link>
           </li>
           <li className="govuk-breadcrumbs__list-item" aria-current="page">

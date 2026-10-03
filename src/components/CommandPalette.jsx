@@ -39,8 +39,8 @@ export default function CommandPalette({ open, onClose, filers = [], tickers = [
     // Always offer tab navigation up top
     const tabs = [
       { type: "page", id: "/", label: "Overview", hint: "Hero + KPIs + scatter" },
-      { type: "page", id: "/filers", label: "Filers", hint: "Every politician / official" },
-      { type: "page", id: "/tickers", label: "Tickers", hint: "Every stock in the corpus" },
+      { type: "page", id: "/filers", label: "Politicians", hint: "Every member of Congress and official" },
+      { type: "page", id: "/tickers", label: "Stocks", hint: "Every stock Congress traded" },
       { type: "page", id: "/trades", label: "Trades", hint: "Filterable transaction table" },
       { type: "page", id: "/about", label: "About", hint: "How the STOCK Act works" },
     ];
@@ -138,7 +138,7 @@ export default function CommandPalette({ open, onClose, filers = [], tickers = [
               return items.map((it, i) => {
                 const showHeader = it.type !== lastType;
                 lastType = it.type;
-                const label = { page: "Jump to", filer: "Filers", ticker: "Tickers" }[it.type];
+                const label = { page: "Jump to", filer: "Politicians", ticker: "Stocks" }[it.type];
                 return (
                   <React.Fragment key={`${it.type}-${it.id}`}>
                     {showHeader && <div className="px-3 pt-2 pb-1 text-[14px] font-bold text-[#505a5f]">{label}</div>}

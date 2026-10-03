@@ -24,7 +24,7 @@ const esc = (s) =>
     .replace(/"/g, "&quot;");
 
 // BreadcrumbList JSON-LD from [label, absoluteUrl] pairs. Must mirror the
-// visible breadcrumb trail (Overview › Filers/Tickers › Name) exactly.
+// visible breadcrumb trail (Overview › Politicians/Stocks › Name) exactly.
 const crumbLd = (crumbs) => ({
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
@@ -80,7 +80,7 @@ function tickerRoute(t) {
     lastmod: latest?.filing_date ?? latest?.transaction_date ?? null,
     crumbs: [
       ["Overview", BASE],
-      ["Tickers", `${BASE}/tickers`],
+      ["Stocks", `${BASE}/tickers`],
       [t.ticker, `${BASE}/ticker/${t.ticker}`],
     ],
   };
@@ -99,8 +99,8 @@ function buildRoutes() {
   routes.push(
     {
       path: "/filers",
-      title: "All Filers - Congress & Executive Branch Stock Trades | Congress Trading Monitor",
-      description: `Stock-trade disclosures for ${filers.length} filers: U.S. House, Senate, and executive branch officials. Ranked by trades, volume, and returns vs SPY.`,
+      title: "All Politicians - Congress & Executive Branch Stock Trades | Congress Trading Monitor",
+      description: `Stock-trade disclosures for ${filers.length} politicians and officials: U.S. House, Senate, and executive branch officials. Ranked by trades, volume, and returns vs SPY.`,
     },
     {
       path: "/tickers",
@@ -162,7 +162,7 @@ function buildRoutes() {
       },
       crumbs: [
         ["Overview", BASE],
-        ["Filers", `${BASE}/filers`],
+        ["Politicians", `${BASE}/filers`],
         [f.full_name, `${BASE}/filer/${f.id}`],
       ],
     });

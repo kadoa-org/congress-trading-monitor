@@ -91,7 +91,7 @@ function routeTitle(route, data) {
       return f ? `${f.full_name} Stock Trades | ${SUFFIX}` : `Filer not found | ${SUFFIX}`;
     }
     case "filers":
-      return `All Filers | ${SUFFIX}`;
+      return `All Politicians | ${SUFFIX}`;
     case "tickers":
       return `Most-Traded Stocks by Congress | ${SUFFIX}`;
     case "trades":

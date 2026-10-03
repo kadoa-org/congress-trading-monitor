@@ -4,8 +4,8 @@ import { Link } from "./ui";
 
 const TABS = [
   { to: "/", label: "Overview", match: "overview" },
-  { to: "/filers", label: "Filers", match: "filers" },
-  { to: "/tickers", label: "Tickers", match: "tickers" },
+  { to: "/filers", label: "Politicians", match: "filers" },
+  { to: "/tickers", label: "Stocks", match: "tickers" },
   { to: "/trades", label: "Trades", match: "trades" },
   { to: "/insights", label: "Insights", match: "insights" },
   { to: "/about", label: "About", match: "about" },
@@ -51,7 +51,7 @@ export default function Masthead({ stats, onOpenCmdK, route, asOf }) {
       />
       <NavBar collapse
         LinkComponent={Link}
-        items={TABS.map((t) => ({ href: t.to, label: t.label, active: activeTab === t.match }))}
+        items={TABS.map((t) => ({ href: t.to, label: t.label, end: t.match === "about", active: activeTab === t.match }))}
       />
     </>
   );

@@ -62,7 +62,7 @@ export default function FilersPage({ data }) {
 
   return (
     <div className="max-w-[1440px] mx-auto px-4 sm:px-6 pt-8 pb-16">
-      <h1 className="govuk-heading-l" style={{ marginBottom: 10 }}>Filers</h1>
+      <h1 className="govuk-heading-l" style={{ marginBottom: 10 }}>Politicians</h1>
       <p className="govuk-hint" style={{ marginTop: -6 }}>{`${fmtInt(filtered.length)} of ${fmtInt(enrichedFilers.length)}`}</p>
 
       <div className="dk-toolbar">

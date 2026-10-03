@@ -92,7 +92,7 @@ export default function OverviewPage({ data, asOf }) {
 
   const headline = "Congress Trading Monitor";
   // The page title carries the search terms; the intro keeps them on the page under the brand-name heading.
-  const subline = `Every stock trade by members of Congress and senior officials: ${fmtInt(stats?.totalTrades)} trades by ${fmtInt(stats?.totalFilers)} filers, from House, Senate and OGE filings.`;
+  const subline = `Every stock trade by members of Congress and senior officials: ${fmtInt(stats?.totalTrades)} trades by ${fmtInt(stats?.totalFilers)} politicians and officials, from House, Senate and OGE filings.`;
 
   return (
     <div className="govuk-width-container">

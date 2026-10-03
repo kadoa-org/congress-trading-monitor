@@ -19,7 +19,7 @@ try {
     assert.ok(!/="(?:-?Infinity|NaN)"/.test(rendered));
   }
   const routeInputs = { overview: ["stats", "filers", "tickers", "trades", "returns", "prices"], filers: ["stats", "filers", "returns"], tickers: ["stats", "tickers", "prices"], trades: ["stats", "trades", "filers"], about: ["stats"] };
-  const headings = { overview: "Congress Trading Monitor", filers: "Filers", tickers: "Tickers", trades: "Trades", about: "About the data" };
+  const headings = { overview: "Congress Trading Monitor", filers: "Politicians", tickers: "Stocks", trades: "Trades", about: "About the data" };
   for (const [name, inputs] of Object.entries(routeInputs)) {
     const datasets = Object.fromEntries(inputs.map((key) => [key, JSON.parse(fs.readFileSync(new URL(`../public/data/${key}.json`, import.meta.url), "utf8"))]));
     const markup = renderPage({ route: { name, query: {} }, datasets, asOf: 1789430400000 });
@@ -39,7 +39,7 @@ try {
   const filerPage = { route: { name: "filer", id: "oge_donald_trump", query: {} }, filerData, filers: [filerData.filer], asOf: 1789430400000 };
   const filerMarkup = renderPage(filerPage);
   assert.ok(filerMarkup.includes("Donald J Trump"));
-  assert.ok(filerMarkup.includes("Hypothetical buy-and-hold portfolio"));
+  assert.ok(filerMarkup.includes("Estimated portfolio"));
   assert.ok(filerMarkup.includes("All trades"));
   assert.ok(filerMarkup.includes("<main"));
   assert.ok(!filerMarkup.includes("Loading trades for"));
@@ -56,7 +56,7 @@ try {
   assert.ok(skeleton.includes("Loading trades for TEST"));
   const { Link, RowLink } = await server.ssrLoadModule("/src/ui.jsx");
   const { NavBar, SiteHeader } = await server.ssrLoadModule("/src/kit/index.jsx");
-  const links = [{ href: "/filers", label: "Filers" }, { href: "/tickers", label: "Tickers" }, { href: "/trades", label: "Trades" }, { href: "/about", label: "About" }];
+  const links = [{ href: "/filers", label: "Politicians" }, { href: "/tickers", label: "Stocks" }, { href: "/trades", label: "Trades" }, { href: "/about", label: "About" }];
   const html = renderToStaticMarkup(React.createElement(NavBar, { items: links, LinkComponent: Link }));
   for (const { href } of links) assert.ok(html.includes(`href="/congress${href}"`), href);
   assert.ok(renderToStaticMarkup(React.createElement(SiteHeader, { brand: "Congress", LinkComponent: Link })).includes('href="/congress/"'));

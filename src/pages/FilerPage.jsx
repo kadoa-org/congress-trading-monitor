@@ -250,7 +250,7 @@ export default function FilerPage({ filerId, filersIndex, filersById, prices: pr
           </li>
           <li className="govuk-breadcrumbs__list-item">
             <RowLink to="/filers" className="govuk-breadcrumbs__link">
-              Filers
+              Politicians
             </RowLink>
           </li>
           <li className="govuk-breadcrumbs__list-item" aria-current="page">
@@ -654,17 +654,17 @@ function ImaginaryPortfolio({ trades }) {
   return (
     <div className="mb-10">
       <SectionHeader
-        title="Hypothetical buy-and-hold portfolio"
-        subtitle="Disclosed buys valued at the latest available prices using amount-range midpoints. Assumes nothing was sold."
+        title="Estimated portfolio"
+        subtitle="Their disclosed buys at today's prices, assuming nothing was sold. Trades are disclosed as ranges, so we use the midpoint."
       />
 
       <KeyFigures
         label="Portfolio figures"
         items={[
           { label: "Portfolio value", value: fmtUSD(data.value), note: `from ${fmtUSD(data.cost)} cost` },
-          { label: "Hypothetical gain", value: `${data.gain >= 0 ? "+" : ""}${fmtUSD(data.gain)}`, note: <ChangeTag value={data.gainPct} good="up" size="small" /> },
-          { label: "Against the same dollars in SPY", value: `${data.vsSpy >= 0 ? "+" : ""}${fmtUSD(data.vsSpy)}`, note: `SPY would hold ${fmtUSD(data.spyValue)}` },
-          { label: "Positions", value: fmtInt(data.holdings.length), note: `${fmtInt(data.scoredBuys)} buys scored` },
+          { label: "Estimated gain", value: `${data.gain >= 0 ? "+" : ""}${fmtUSD(data.gain)}`, note: <ChangeTag value={data.gainPct} good="up" size="small" /> },
+          { label: "Versus the S&P 500", value: `${data.vsSpy >= 0 ? "+" : ""}${fmtUSD(data.vsSpy)}`, note: `SPY would hold ${fmtUSD(data.spyValue)}` },
+          { label: "Positions", value: fmtInt(data.holdings.length), note: `from ${fmtInt(data.scoredBuys)} buys` },
         ]}
       />
 
