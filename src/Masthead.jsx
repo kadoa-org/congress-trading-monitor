@@ -40,11 +40,16 @@ export default function Masthead({ stats, onOpenCmdK, route, asOf }) {
           </a>
         }
         right={
-          <span style={{ display: "flex", alignItems: "center", gap: 14 }}>
+          <span style={{ display: "flex", alignItems: "center", gap: 8 }}>
             <LiveBadge>{freshness(stats?.generatedAt, asOf)}</LiveBadge>
             <GitHubButton repo="kadoa-org/congress-trading-monitor" />
+            {/* Icon only on phones, like the GitHub button, so the header stays on one line. */}
             <Button inverse onClick={onOpenCmdK} aria-label="Search (Cmd+K)">
-              Search ⌘K
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="7" />
+                <path d="m20 20-3.5-3.5" />
+              </svg>
+              <span className="dk-btn-label">Search ⌘K</span>
             </Button>
           </span>
         }

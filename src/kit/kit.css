@@ -197,8 +197,10 @@
   /* Reclaim header width on phones: tighter gap, smaller brand, and the
      GitHub button collapses to its icon (label kept for screen readers via
      the anchor's aria-label). Keeps the header on one row without overflow. */
-  .dk-header-inner { gap: 8px; }
+  .dk-header-inner { gap: 8px; flex-wrap: nowrap; }
+  .dk-header-brand-group { flex: 1 1 auto; }
   .dk-header-brand { font-size: 15px; }
+  .dk-header .dk-btn { padding: 0 7px; }
   .dk-btn-label { display: none; }
 }
 
