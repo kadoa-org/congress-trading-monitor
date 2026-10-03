@@ -361,7 +361,7 @@ function TickerAttributionSection({ rows }) {
   const top = rows.slice(0, 15);
   return (
     <div className="mb-10">
-      <SectionHeader title="Performance by ticker" subtitle="Per-ticker contribution to weighted alpha" />
+      <SectionHeader title="Returns by stock" subtitle="How much each stock added to, or took from, their return against the S&P 500." />
       <Card className="overflow-hidden">
         <div className="overflow-x-auto">
           <table className="govuk-table" style={{ marginBottom: 0 }}>
@@ -371,16 +371,16 @@ function TickerAttributionSection({ rows }) {
                   #
                 </th>
                 <th scope="col" className="govuk-table__header">
-                  Ticker
+                  Stock
                 </th>
                 <th scope="col" className="govuk-table__header govuk-table__header--numeric">
                   Trades
                 </th>
                 <th scope="col" className="govuk-table__header govuk-table__header--numeric whitespace-nowrap">
-                  Buy / Sell mix
+                  Buys / sells
                 </th>
                 <th scope="col" className="govuk-table__header govuk-table__header--numeric whitespace-nowrap">
-                  Hit rate
+                  Beat S&amp;P 500
                 </th>
                 <th scope="col" className="govuk-table__header govuk-table__header--numeric whitespace-nowrap">
                   vs SPY
@@ -452,7 +452,7 @@ function isLongHold(dateStr) {
   return years >= 3;
 }
 
-// "What drove this alpha" breakdown. Shows the top 8 purchases by absolute
+// "Trades that mattered most" breakdown. Shows the top 8 purchases by absolute
 // contribution to the weighted-alpha numerator, plus a headline that states
 // how concentrated the excess return really is.
 function AlphaDriversSection({ drivers, trades, asOf }) {
@@ -464,12 +464,12 @@ function AlphaDriversSection({ drivers, trades, asOf }) {
 
   const subtitle =
     topTicker && topTickerShare > 50
-      ? `${topTickerShare.toFixed(0)}% from ${top.filter((d) => d.ticker === topTicker).length} ${topTicker} buys`
-      : `Top ${top.length} positions = ${topShare.toFixed(0)}% of the weighted alpha`;
+      ? `${topTickerShare.toFixed(0)}% of their result against the S&P 500 comes from ${top.filter((d) => d.ticker === topTicker).length} ${topTicker} buys.`
+      : `These ${top.length} buys explain ${topShare.toFixed(0)}% of their result against the S&P 500.`;
 
   return (
     <div className="mb-10">
-      <SectionHeader title="What drove this alpha" subtitle={subtitle} />
+      <SectionHeader title="Trades that mattered most" subtitle={subtitle} />
       <Card className="overflow-hidden">
         <div className="overflow-x-auto">
           <table className="govuk-table" style={{ marginBottom: 0 }}>
@@ -479,7 +479,7 @@ function AlphaDriversSection({ drivers, trades, asOf }) {
                   #
                 </th>
                 <th scope="col" className="govuk-table__header">
-                  Ticker
+                  Stock
                 </th>
                 <th scope="col" className="govuk-table__header">
                   Asset

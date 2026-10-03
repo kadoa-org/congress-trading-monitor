@@ -12,7 +12,7 @@ const SORTS = {
   trades: { label: "Most trades", fn: (a, b) => b.trade_count - a.trade_count },
   late: { label: "Most late filings", fn: (a, b) => b.late_filings / b.trade_count - a.late_filings / a.trade_count },
   volume: { label: "Highest volume", fn: (a, b) => (b.est_volume || 0) - (a.est_volume || 0) },
-  alpha: { label: "Highest alpha vs SPY", fn: (a, b) => (b.weighted_excess ?? -999) - (a.weighted_excess ?? -999) },
+  alpha: { label: "Best return vs S&P 500", fn: (a, b) => (b.weighted_excess ?? -999) - (a.weighted_excess ?? -999) },
 };
 
 const BRANCH_FILTERS = [

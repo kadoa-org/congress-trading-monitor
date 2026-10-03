@@ -83,7 +83,7 @@ export default function LatestActivity({ trades, limit = 12, asOf }) {
       header: "vs SPY",
       align: "right",
       hideBelow: "sm",
-      headerHint: "Stock's excess return vs SPY since the transaction date",
+      headerHint: "How the stock did against the S&P 500 since the trade",
       render: (t) =>
         t.excess_since == null ? (
           <span style={{ color: "var(--dk-faint)" }}>—</span>
