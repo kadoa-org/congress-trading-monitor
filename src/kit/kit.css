@@ -119,6 +119,32 @@
 .dk-nav a[aria-current="true"] { border-bottom-color: var(--dk-link); font-weight: 600; }
 .dk-nav a:focus-visible { outline: 3px solid var(--dk-focus); outline-offset: -1px; }
 
+.dk-nav-end { margin-left: auto; }
+.dk-nav-toggle { display: none; }
+/* GOV.UK service navigation on small screens: a blue underlined "Menu" toggle with a chevron, then the links as a
+   vertical list with a left bar on the current page. */
+@media (max-width: 640px) {
+  .dk-nav--collapse .dk-nav-toggle {
+    display: inline-flex; align-items: center; gap: 8px; margin: 0; padding: 12px 0; border: 0; background: none;
+    color: var(--dk-link); font: 700 var(--dk-fs-m)/1.2 var(--dk-font); text-decoration: underline;
+    text-decoration-thickness: max(1px, .0625rem); text-underline-offset: .15em; cursor: pointer;
+  }
+  .dk-nav--collapse .dk-nav-toggle::after {
+    content: ""; width: 7px; height: 7px; border: solid currentColor; border-width: 0 2px 2px 0;
+    transform: translateY(-2px) rotate(45deg);
+  }
+  .dk-nav--collapse.is-open .dk-nav-toggle::after { transform: translateY(2px) rotate(225deg); }
+  .dk-nav--collapse .dk-nav-toggle:focus-visible { outline: 3px solid var(--dk-focus); outline-offset: 0; background: var(--dk-focus); color: var(--dk-ink); text-decoration: none; }
+  .dk-nav--collapse .dk-nav-list { display: none; flex-direction: column; gap: 0; overflow: visible; padding: 0 0 12px; }
+  .dk-nav--collapse.is-open .dk-nav-list { display: flex; }
+  .dk-nav--collapse .dk-nav-end { margin-left: 0; }
+  .dk-nav--collapse .dk-nav-list a {
+    display: block; padding: 8px 0 8px 12px; border-bottom: 0; border-left: 4px solid transparent; white-space: normal;
+  }
+  .dk-nav--collapse .dk-nav-list a:hover { border-bottom: 0; text-decoration: underline !important; }
+  .dk-nav--collapse .dk-nav-list a[aria-current="true"] { border-left-color: var(--dk-link); }
+}
+
 /* ── Toolbar, inputs, buttons ── */
 .dk-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-bottom: 14px; }
 .dk-input {

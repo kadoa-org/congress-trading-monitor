@@ -186,15 +186,24 @@ export function SiteFooter({ current }) {
   );
 }
 
-export function NavBar({ items, LinkComponent = "a" }) {
+// `collapse` follows the GOV.UK service navigation: below 641px the links fold behind a "Menu" toggle and open as a
+// vertical list. An item with `end` sits at the far right on wider screens, for a page about the site itself.
+export function NavBar({ items, LinkComponent = "a", collapse = false }) {
   const L = LinkComponent;
+  const [open, setOpen] = React.useState(false);
+  const listId = React.useId();
   return (
-    <nav className="dk-nav" aria-label="Primary">
+    <nav className={`dk-nav${collapse ? " dk-nav--collapse" : ""}${open ? " is-open" : ""}`} aria-label="Primary">
       <div className="dk-container">
-        <ul className="dk-nav-list">
+        {collapse && (
+          <button type="button" className="dk-nav-toggle" aria-controls={listId} aria-expanded={open} onClick={() => setOpen((o) => !o)}>
+            Menu
+          </button>
+        )}
+        <ul className="dk-nav-list" id={listId}>
           {items.map((it) => (
-            <li key={it.href}>
-              <L href={it.href} to={it.href} aria-current={it.active ? "true" : undefined}>
+            <li key={it.href} className={it.end ? "dk-nav-end" : undefined}>
+              <L href={it.href} to={it.href} aria-current={it.active ? "true" : undefined} onClick={() => setOpen(false)}>
                 {it.label}
               </L>
             </li>
