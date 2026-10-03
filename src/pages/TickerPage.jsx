@@ -2,7 +2,7 @@ import TradingSkeleton from "../components/TradingSkeleton";
 import { fetchData } from "../data";
 import React, { useEffect, useMemo, useState } from "react";
 import FilterBar, { applyFilters, defaultFilters } from "../components/FilterBar";
-import PersonalTimeline from "../components/PersonalTimeline";
+import TradePriceChart from "../components/TradePriceChart";
 import { ChartCard } from "../kit";
 import { FilerAvatar } from "../components/TablePrimitives";
 import TradesTable from "../TradesTable";
@@ -186,8 +186,8 @@ export default function TickerPage({ symbol, filersById, initialData = null }) {
         )}
       </dl>
 
-      <ChartCard id="timeline-title" title="Trade timeline" description={`Every disclosed ${ticker} trade, by the date it was made.`}>
-        <PersonalTimeline trades={trades} highlightTicker={ticker} />
+      <ChartCard id="timeline-title" title="Trades and price" description={`Disclosed ${ticker} trades by members of Congress on the stock's price. Hover for names.`}>
+        <TradePriceChart trades={trades} history={data?.history ?? []} />
       </ChartCard>
 
       <div className="mb-10">
