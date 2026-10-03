@@ -186,7 +186,7 @@ export default function TickerPage({ symbol, filersById, initialData = null }) {
         )}
       </dl>
 
-      <ChartCard id="timeline-title" title="Trades and price" description={`Disclosed ${ticker} trades by members of Congress on the stock's price. Hover for names.`}>
+      <ChartCard id="timeline-title" title="Trades and price" description={`Disclosed ${ticker} trades by members of Congress on the stock's price. Tap or hover for names.`}>
         <TradePriceChart trades={trades} history={data?.history ?? []} />
       </ChartCard>
 
