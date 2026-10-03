@@ -384,7 +384,7 @@ function TickerAttributionSection({ rows }) {
                   className="govuk-table__header govuk-table__header--numeric whitespace-nowrap"
                   title="Buys where the stock beat the S&P 500 since purchase"
                 >
-                  Winning buys
+                  Beat S&amp;P 500
                 </th>
                 <th scope="col" className="govuk-table__header govuk-table__header--numeric whitespace-nowrap">
                   vs SPY
