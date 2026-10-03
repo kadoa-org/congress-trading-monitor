@@ -379,8 +379,12 @@ function TickerAttributionSection({ rows }) {
                 <th scope="col" className="govuk-table__header govuk-table__header--numeric whitespace-nowrap">
                   Buys / sells
                 </th>
-                <th scope="col" className="govuk-table__header govuk-table__header--numeric whitespace-nowrap">
-                  Beat S&amp;P 500
+                <th
+                  scope="col"
+                  className="govuk-table__header govuk-table__header--numeric whitespace-nowrap"
+                  title="Buys where the stock beat the S&P 500 since purchase"
+                >
+                  Winning buys
                 </th>
                 <th scope="col" className="govuk-table__header govuk-table__header--numeric whitespace-nowrap">
                   vs SPY
@@ -408,7 +412,8 @@ function TickerAttributionSection({ rows }) {
                     </td>
                     <td
                       className={`govuk-table__cell govuk-table__cell--numeric tabular-nums whitespace-nowrap ${
-                        r.tickerHitRate == null
+                        // Colour only from 3 buys up, so one lucky trade does not read as a strong record.
+                        r.tickerHitRate == null || r.scored < 3
                           ? "text-[#505a5f]"
                           : r.tickerHitRate >= 0.7
                             ? `${GREEN} font-bold`
@@ -417,7 +422,7 @@ function TickerAttributionSection({ rows }) {
                               : "text-[#505a5f]"
                       }`}
                     >
-                      {r.tickerHitRate == null ? "—" : `${(r.tickerHitRate * 100).toFixed(0)}% · ${r.wins}/${r.scored}`}
+                      {r.tickerHitRate == null ? "—" : `${r.wins} of ${r.scored}`}
                     </td>
                     <td
                       className={`govuk-table__cell govuk-table__cell--numeric tabular-nums font-bold whitespace-nowrap ${
