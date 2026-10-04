@@ -7,6 +7,7 @@ const TABS = [
   { to: "/filers", label: "Politicians", match: "filers" },
   { to: "/tickers", label: "Stocks", match: "tickers" },
   { to: "/trades", label: "Trades", match: "trades" },
+  { to: "/lobbying", label: "Lobbying", match: "lobbying" },
   { to: "/insights", label: "Insights", match: "insights" },
   { to: "/about", label: "About", match: "about" },
 ];

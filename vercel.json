@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/congress/insights/committees",
+      "destination": "/congress/lobbying",
+      "permanent": true
+    },
+    {
       "source": "/",
       "has": [
         {

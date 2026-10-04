@@ -1,7 +1,7 @@
 import { useLayoutEffect, useMemo, useRef, useState } from "react";
 
 // A politician's trades by month, in the same form as the bars under a stock page's price chart: buys up and sells
-// down on one time axis, the busiest months labelled, and the stocks traded that month on hover or tap. There is no
+// down on one time axis, and the stocks traded that month on hover or tap. There is no
 // price line because a politician's trades span many stocks.
 
 const GREEN = "#00703c";
@@ -84,10 +84,6 @@ export default function TradeActivityChart({ trades }) {
   const maxMonth = Math.max(1, ...view.months.map((m) => Math.max(m.buys, m.sells)));
   const mid = M.top + barsH / 2;
   const yB = (v) => (v / maxMonth) * (barsH / 2 - 2);
-  const idx = (m) => view.months.findIndex((e) => e.m === m.m);
-  const peakBuy = view.months.reduce((a, m) => (m.buys > (a?.buys ?? 0) ? m : a), null);
-  const peakSell = view.months.reduce((a, m) => (m.sells > (a?.sells ?? 0) ? m : a), null);
-  const anchor = (x) => (x > M.left + plotW * 0.8 ? "end" : x < M.left + plotW * 0.2 ? "start" : "middle");
   // Axis labels: quarters within about a year and a half, otherwise January of each year (every other year past six).
   const ticks = view.months
     .map((m, i) => ({ m, i }))
@@ -144,16 +140,6 @@ export default function TradeActivityChart({ trades }) {
           ))}
           <text x={M.left + plotW + 6} y={M.top + 12} fontSize="12" fill={GREEN}>Buys</text>
           <text x={M.left + plotW + 6} y={M.top + barsH - 3} fontSize="12" fill={RED}>Sells</text>
-          {!narrow && peakBuy && (
-            <text x={cx(idx(peakBuy))} y={mid - yB(peakBuy.buys) - 4} fontSize="12" fill={INK} textAnchor={anchor(cx(idx(peakBuy)))}>
-              <tspan fontWeight="700">{peakBuy.buys} buys</tspan> {monthName(peakBuy.m)}
-            </text>
-          )}
-          {!narrow && peakSell && (
-            <text x={cx(idx(peakSell))} y={mid + yB(peakSell.sells) + 13} fontSize="12" fill={INK} textAnchor={anchor(cx(idx(peakSell)))}>
-              <tspan fontWeight="700">{peakSell.sells} sells</tspan> {monthName(peakSell.m)}
-            </text>
-          )}
           {ticks.map(({ m, i }) => (
             <text key={m.m} x={cx(i)} y={height - 8} fontSize="12" fill={MUTED} textAnchor="middle">
               {n <= 18 ? new Date(`${m.m}-15T12:00:00Z`).toLocaleString("en-US", { month: "short", timeZone: "UTC" }) : m.m.slice(0, 4)}

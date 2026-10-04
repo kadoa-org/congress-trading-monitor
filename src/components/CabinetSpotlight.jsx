@@ -10,7 +10,7 @@ import { FilerAvatar } from "./TablePrimitives";
 //
 // Inspired by open-cabinet.org's "What is Trump's cabinet buying?" hero block.
 
-// GOV.UK buy/sell text colours.
+// Buy/sell text colours.
 const BUY = "text-[#0f7a52]";
 const SELL = "text-[#ca3535]";
 

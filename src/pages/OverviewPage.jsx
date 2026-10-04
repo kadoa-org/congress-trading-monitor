@@ -95,7 +95,7 @@ export default function OverviewPage({ data, asOf }) {
   const subline = `Every stock trade by members of Congress and senior officials: ${fmtInt(stats?.totalTrades)} trades by ${fmtInt(stats?.totalFilers)} politicians and officials, from House, Senate and OGE filings.`;
 
   return (
-    <div className="govuk-width-container">
+    <div className="dk-container">
       <main className="govuk-main-wrapper" id="main-content">
         <section className="pb-6">
           <div className="max-w-3xl">

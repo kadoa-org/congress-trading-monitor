@@ -1,11 +1,11 @@
 import { useId, useState } from "react";
 
-// GOV.UK Frontend tabs markup, driven by React state (the component's own JS is not loaded on this site).
+// Tabs markup driven by React state (the frontend library's own JS is not loaded on this site).
 export default function GovTabs({ tabs, title = "Contents" }) {
   const [active, setActive] = useState(0);
   const id = useId();
   return (
-    // GOV.UK styles tabs as tabs only under .govuk-frontend-supported (set by its JS, which this site does not load).
+    // Tabs are styled as tabs only under .govuk-frontend-supported (set by library JS, which this site does not load).
     <div className="govuk-frontend-supported"><div className="govuk-tabs" data-module="govuk-tabs">
       <h2 className="govuk-tabs__title">{title}</h2>
       <ul className="govuk-tabs__list" role="tablist">

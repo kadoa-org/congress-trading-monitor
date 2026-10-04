@@ -1,13 +1,12 @@
 import React from "react";
-import CommitteeInsight from "../components/CommitteeInsight";
 import GovTabs from "../components/GovTabs";
 import WeeklyFlows from "../components/WeeklyFlows";
 import { insightBySlug } from "../insights";
 import { DataTable } from "../kit";
 import { fmtInt, Link } from "../ui";
 
-// One insight on its own page, laid out as a UKHSA dashboard topic: breadcrumbs, title and lede, a chart card with
-// Chart / Tabular data / Download tabs and the "up to and including" date, then a short About section.
+// One insight on its own page, laid out as a dashboard topic: breadcrumbs, title and lede, a chart card with
+// Chart / Tabular data / Download tabs and the date, then a one-line note.
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const day = (s) => { const d = new Date(`${s}T00:00:00Z`); return `${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()}`; };
 const signed = (v) => (v > 0 ? `+${v}` : v < 0 ? `−${Math.abs(v)}` : "0");
@@ -31,36 +30,29 @@ function WeeklyTrading({ flows }) {
   ];
   return (
     <>
-      <section className="insight-chart-card" aria-labelledby="chart-title">
-        {/* The card title is the page heading: one heading per page, as on a UKHSA chart page. */}
-        <h1 className="govuk-heading-m" id="chart-title">Weekly buying and selling, and the S&amp;P 500</h1>
-        <p className="govuk-body-s insight-date">Up to and including the week starting {day(last.week)}</p>
+      <h1 className="dk-h1">Weekly buying and selling</h1>
+      <p className="govuk-body-l max-w-3xl">Stock purchases minus sales by members of Congress each week, with the S&amp;P 500.</p>
+      <section className="insight-chart-card" aria-label="Weekly buying and selling">
+        <p className="govuk-body-s insight-date">Up to the week starting {day(last.week)}</p>
         <GovTabs tabs={[
           { label: "Chart", content: <WeeklyFlows flows={flows} /> },
           { label: "Tabular data", content: <DataTable rows={rows} columns={columns} rowKey={(r) => r.week} /> },
           { label: "Download", content: <><p className="govuk-body">Every week since January 2025 as a CSV: purchases, sales, net, members trading and the SPY close.</p><button type="button" className="govuk-button govuk-button--secondary" onClick={() => download(flows)}>Download CSV</button></> },
         ]} />
       </section>
-      <section className="mt-8 max-w-3xl insight-about">
-        <h2 className="govuk-heading-m">About this data</h2>
-        <ul className="govuk-list govuk-list--bullet">
-          <li>Members were net buyers in every week from early March to early May, while the S&amp;P 500 fell to its low on March 30 and recovered.</li>
-          <li>From March 2 to May 3, they made 411 more purchases than sales. 36 members were net buyers and 26 net sellers.</li>
-          <li>The buying was concentrated: Michael McCaul (R-TX) and Rohit Khanna (D-CA) account for most of it. Both have large, actively managed portfolios.</li>
-          <li>From mid-May on, the weeks are mostly net selling.</li>
-          <li>Members have 45 days to disclose, so August and September will still change as filings come in.</li>
-        </ul>
-      </section>
+      <p className="govuk-body-s max-w-3xl" style={{ marginTop: 16, color: "#505a5f" }}>
+        Members have 45 days to disclose a trade, so recent weeks will still change.
+      </p>
     </>
   );
 }
 
 export default function InsightPage({ slug, data }) {
   const insight = insightBySlug(slug);
-  const { flows = [], oversight } = data;
-  if (!insight) return <div className="govuk-width-container"><main className="govuk-main-wrapper"><h1 className="dk-h1">Insight not found</h1><p className="govuk-body"><Link to="/insights">See all insights</Link></p></main></div>;
+  const { flows = [] } = data;
+  if (!insight) return <div className="dk-container"><main className="govuk-main-wrapper"><h1 className="dk-h1">Insight not found</h1><p className="govuk-body"><Link to="/insights">See all insights</Link></p></main></div>;
   return (
-    <div className="govuk-width-container">
+    <div className="dk-container">
       <nav className="govuk-breadcrumbs" aria-label="Breadcrumb">
         <ol className="govuk-breadcrumbs__list">
           <li className="govuk-breadcrumbs__list-item"><Link className="govuk-breadcrumbs__link" to="/insights">Insights</Link></li>
@@ -69,7 +61,6 @@ export default function InsightPage({ slug, data }) {
       </nav>
       <main className="govuk-main-wrapper" id="main-content">
         {insight.slug === "weekly-trading" && flows.length > 0 && <WeeklyTrading flows={flows} />}
-        {insight.slug === "committees" && oversight && <CommitteeInsight oversight={oversight} />}
       </main>
     </div>
   );

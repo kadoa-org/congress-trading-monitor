@@ -120,6 +120,11 @@ function buildRoutes() {
     },
     ...INSIGHTS.map((i) => ({ path: `/insights/${i.slug}`, title: `${i.seoTitle} | Congress Trading Monitor`, description: i.seoDescription })),
     {
+      path: "/lobbying",
+      title: "Lobbying: Stock Trades in Companies That Lobby Their Committees | Congress Trading Monitor",
+      description: "When members of Congress trade stocks of companies that lobbied on bills sent to their committees, with the bills behind each match. From Lobbying Disclosure Act filings, updated daily.",
+    },
+    {
       path: "/about",
       title: "About the Data - STOCK Act Disclosures Explained | Congress Trading Monitor",
       description:
@@ -248,7 +253,7 @@ async function buildRenderer() {
 const template = fs.readFileSync(path.join(DIST, "index.html"), "utf8");
 const { renderPage } = await buildRenderer();
 const asOf = Date.now();
-const ROUTE_DATASETS = { overview: ["stats", "filers", "tickers", "trades", "returns", "prices"], filers: ["stats", "filers", "returns"], tickers: ["stats", "tickers", "prices"], trades: ["stats", "trades", "filers"], insights: ["stats"], insight: ["stats", "flows", "oversight"], about: ["stats"] };
+const ROUTE_DATASETS = { overview: ["stats", "filers", "tickers", "trades", "returns", "prices"], filers: ["stats", "filers", "returns"], tickers: ["stats", "tickers", "prices"], trades: ["stats", "trades", "filers"], insights: ["stats"], insight: ["stats", "flows"], lobbying: ["stats", "oversight"], about: ["stats"] };
 function routeDatasets(name) {
   return Object.fromEntries(ROUTE_DATASETS[name].map((name) => [name, loadJson(`${name}.json`)]));
 }

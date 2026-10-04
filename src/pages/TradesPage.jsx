@@ -75,7 +75,7 @@ export default function TradesPage({ data }) {
   }, [trades, filters, sortCol]);
 
   return (
-    <div className="max-w-[1440px] mx-auto px-4 sm:px-6 pt-8 pb-16">
+    <div className="dk-container pt-8 pb-16">
       <h1 className="govuk-heading-l" style={{ marginBottom: 10 }}>
         All trades
       </h1>

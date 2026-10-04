@@ -12,7 +12,7 @@
   --dk-fs-l: 17px;   /* 17 — section headings */
   --dk-fs-xl: 22px;   /* 22 — page titles */
   --dk-fs-xxl: 28px;   /* 28 — hero */
-  /* palette (GOV.UK) */
+  /* palette */
   --dk-ink: #0b0c0c;
   --dk-muted: #505a5f;
   --dk-faint: #b1b4b6;
@@ -70,10 +70,11 @@
 /* ── StatPanel ── */
 
 /* ── SiteHeader + NavBar ── */
-.dk-container { max-width: 960px; margin: 0 auto; padding: 0 15px; }
+/* One page width for header, navigation, content and footer, so their edges line up: 1200px of content plus gutters. */
+.dk-container { max-width: calc(1200px + 60px); margin: 0 auto; padding: 0 15px; box-sizing: border-box; }
 @media (min-width: 40.0625em) { .dk-container { padding: 0 30px; } }
 .dk-header { background: var(--dk-link); color: #fff; }
-/* Cross-dataset footer — gov.uk style: light surface, hairline rule, blue links */
+/* Cross-dataset footer: light surface, hairline rule, blue links */
 /* Cross-dataset footer: grey surface behind a hairline, a bold section
    heading with a rule beneath it, then a stacked column of underlined ink
    links (full line = comfortable tap target), and a muted meta line. */
@@ -121,7 +122,7 @@
 
 .dk-nav-end { margin-left: auto; }
 .dk-nav-toggle { display: none; }
-/* GOV.UK service navigation on small screens: a blue underlined "Menu" toggle with a chevron, then the links as a
+/* Service navigation on small screens: a blue underlined "Menu" toggle with a chevron, then the links as a
    vertical list with a left bar on the current page. */
 @media (max-width: 640px) {
   .dk-nav--collapse .dk-nav-toggle {

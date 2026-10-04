@@ -1,4 +1,5 @@
 import React, { useMemo } from "react";
+import { InlineSearchInput } from "../components/FilterBar";
 import { useQueryState } from "../router";
 import { fmtInt, fmtUSD, RowLink, SectionHeader, SortHeader } from "../ui";
 
@@ -28,53 +29,13 @@ export default function TickersPage({ data }) {
     return [...list].sort(sorter.fn);
   }, [tickers, qs]);
 
-  const mostWidelyHeld = useMemo(
-    () => [...tickers].sort((a, b) => b.filer_count - a.filer_count).slice(0, 6),
-    [tickers],
-  );
-
   return (
-    <div className="max-w-[1440px] mx-auto px-4 sm:px-6 pt-8 pb-16">
-      <h1 className="govuk-heading-l">Stocks</h1>
-      <p className="govuk-body">{fmtInt(filtered.length)} of {fmtInt(tickers.length)}</p>
+    <div className="dk-container pt-8 pb-16">
+      <h1 className="govuk-heading-l" style={{ marginBottom: 10 }}>Stocks</h1>
+      <p className="govuk-hint" style={{ marginTop: -6 }}>{`${fmtInt(filtered.length)} of ${fmtInt(tickers.length)}`}</p>
 
-      {mostWidelyHeld.length > 0 && (
-        <div className="mb-6 flex flex-wrap items-center gap-2">
-          <span className="text-[16px] text-[#505a5f] mr-1">Most widely held</span>
-          {mostWidelyHeld.map((t) => {
-            const change = dailyChange(prices[t.ticker]);
-            return (
-              <RowLink
-                key={t.ticker}
-                to={`/ticker/${t.ticker}`}
-                className="inline-flex items-center gap-2 h-[32px] px-2 border border-[#b1b4b6] bg-white text-[#0b0c0c] no-underline hover:bg-[#f3f2f1]"
-              >
-                <span className="font-bold text-[14px]">{t.ticker}</span>
-                {change != null && (
-                  <span className="text-[14px] tabular-nums" style={{ color: change >= 0 ? "#0f7a52" : "#ca3535" }}>
-                    {change >= 0 ? "+" : ""}
-                    {change.toFixed(1)}%
-                  </span>
-                )}
-                <span className="text-[14px] text-[#505a5f] tabular-nums">· {t.filer_count}</span>
-              </RowLink>
-            );
-          })}
-        </div>
-      )}
-
-      <div className="govuk-form-group mb-6">
-        <label className="govuk-label govuk-label--s" htmlFor="ticker-filter">
-          Filter by ticker
-        </label>
-        <input
-          id="ticker-filter"
-          type="text"
-          className="dk-input"
-          style={{ maxWidth: 320 }}
-          value={qs.q}
-          onChange={(e) => setQs({ q: e.target.value })}
-        />
+      <div className="dk-toolbar">
+        <InlineSearchInput value={qs.q} onChange={(v) => setQs({ q: v })} placeholder="Search ticker…" width={240} />
       </div>
 
       <div className="overflow-x-auto">

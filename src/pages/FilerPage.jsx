@@ -225,7 +225,7 @@ export default function FilerPage({ filerId, filersIndex, filersById, prices: pr
   }, [trades, filters, filer]);
 
   if (error) {
-    return <div role="alert" className="max-w-[1440px] mx-auto px-4 sm:px-6 py-8">
+    return <div role="alert" className="dk-container py-8">
       <p className="govuk-body">Failed to load trades for {filersIndex?.find((f) => f.id === filerId)?.full_name ?? "this filer"}.</p>
       <button type="button" className="govuk-button" onClick={() => window.location.reload()}>Reload page</button>
       <Link to="/filers">Browse all filers</Link>
@@ -241,7 +241,7 @@ export default function FilerPage({ filerId, filersIndex, filersById, prices: pr
   const coverageEnd = stats.latest?.slice(0, 7);
 
   return (
-    <main className="max-w-[1440px] mx-auto px-4 sm:px-6 pt-6 pb-16">
+    <main className="dk-container pt-6 pb-16">
       <nav className="govuk-breadcrumbs" aria-label="Breadcrumb" style={{ marginTop: 0, marginBottom: 20 }}>
         <ol className="govuk-breadcrumbs__list">
           <li className="govuk-breadcrumbs__list-item">
@@ -710,7 +710,7 @@ function ImaginaryPortfolio({ trades }) {
                   <td className="govuk-table__cell govuk-table__cell--numeric tabular-nums text-[#505a5f]">{i + 1}</td>
                   <td className="govuk-table__cell">
                     <div className="flex items-center gap-2 min-w-0">
-                      <RowLink to={`/ticker/${p.ticker}`} className="inline-flex items-center shrink-0 no-underline">
+                      <RowLink to={`/ticker/${p.ticker}`} className="inline-flex items-center shrink-0 no-underline w-[52px]">
                         <TickerBadge ticker={p.ticker} size="sm" />
                       </RowLink>
                       <span

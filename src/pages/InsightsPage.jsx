@@ -2,10 +2,10 @@ import React from "react";
 import { INSIGHTS } from "../insights";
 import { Link } from "../ui";
 
-// The index of insight pages, one card each, as the UKHSA dashboard lists its topics.
+// The index of insight pages, one card each.
 export default function InsightsPage() {
   return (
-    <div className="govuk-width-container">
+    <div className="dk-container">
       <main className="govuk-main-wrapper" id="main-content">
         <div className="max-w-3xl">
           <h1 className="dk-h1">Insights</h1>

@@ -6,7 +6,6 @@ import { useLayoutEffect, useMemo, useRef, useState } from "react";
 // holds contrast over the bars. Hovering a week shows its purchases, sales, members and the SPY close.
 const BUY = "#00703c", SELL = "#d4351c", INK = "#0b0c0c", MUTED = "#505a5f", GRID = "rgba(0,0,0,0.07)", AXIS = "rgba(0,0,0,0.4)";
 const RANGES = [["2026", "2026"], ["all", "Since 2025"]];
-const MARKERS = [{ date: "2026-02-28", label: "Iran war begins" }];
 const NICE = [5, 10, 20, 25, 50, 100, 200];
 const t = (s) => Date.parse(`${s}T00:00:00Z`);
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -86,12 +85,6 @@ export default function WeeklyFlows({ flows }) {
                 <line x1={P.l} x2={W - P.r} y1={yN(v)} y2={yN(v)} stroke={v ? GRID : AXIS} />
                 <text x={P.l - 8} y={yN(v) + 4} textAnchor="end" {...tick}>{signed(v)}</text>
                 <text x={W - P.r + 8} y={yN(v) + 4} {...tick}>{Math.round(toS(v))}</text>
-              </g>
-            ))}
-            {MARKERS.filter((m) => t(m.date) >= x0 && t(m.date) <= x1).map((m) => (
-              <g key={m.date}>
-                <line x1={x(m.date)} x2={x(m.date)} y1={P.t} y2={H - P.b} stroke={MUTED} strokeDasharray="3 4" />
-                <text x={x(m.date) + 6} y={P.t + 12} fontSize="13" fill={MUTED}>{m.label}</text>
               </g>
             ))}
             {rows.map((r) => {

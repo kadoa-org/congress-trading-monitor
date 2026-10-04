@@ -3,6 +3,7 @@ import { fetchData } from "../data";
 import React, { useEffect, useMemo, useState } from "react";
 import FilterBar, { applyFilters, defaultFilters } from "../components/FilterBar";
 import TradePriceChart from "../components/TradePriceChart";
+import TickerLobbying from "../components/TickerLobbying";
 import { ChartCard } from "../kit";
 import { FilerAvatar } from "../components/TablePrimitives";
 import TradesTable from "../TradesTable";
@@ -87,7 +88,7 @@ export default function TickerPage({ symbol, filersById, initialData = null }) {
   const filtered = useMemo(() => applyFilters(trades, filters), [trades, filters]);
 
   if (error) {
-    return <div role="alert" className="max-w-[1440px] mx-auto px-4 sm:px-6 py-8">
+    return <div role="alert" className="dk-container py-8">
       <p className="govuk-body">Failed to load trades for {symbol}.</p>
       <button type="button" className="govuk-button" onClick={() => window.location.reload()}>Reload page</button>
       <Link to="/tickers">Browse all tickers</Link>
@@ -99,7 +100,7 @@ export default function TickerPage({ symbol, filersById, initialData = null }) {
   }
 
   return (
-    <main className="max-w-[1440px] mx-auto px-4 sm:px-6 pt-8 pb-16">
+    <main className="dk-container pt-8 pb-16">
       <nav className="govuk-breadcrumbs mb-6" aria-label="Breadcrumb" style={{ marginTop: 0 }}>
         <ol className="govuk-breadcrumbs__list">
           <li className="govuk-breadcrumbs__list-item">
@@ -215,6 +216,8 @@ export default function TickerPage({ symbol, filersById, initialData = null }) {
           </div>
         </div>
       </div>
+
+      <TickerLobbying ticker={ticker} lobbying={data?.lobbying} />
 
       <SectionHeader title="All trades" subtitle={`${fmtInt(filtered.length)} of ${fmtInt(trades.length)}`} />
       <div className="mb-4">

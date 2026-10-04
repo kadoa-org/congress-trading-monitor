@@ -6,6 +6,7 @@ import Masthead from "./Masthead";
 import AboutPage from "./pages/AboutPage";
 import InsightsPage from "./pages/InsightsPage";
 import InsightPage from "./pages/InsightPage";
+import LobbyingPage from "./pages/LobbyingPage";
 import { insightBySlug } from "./insights";
 import FilerPage from "./pages/FilerPage";
 import FilersPage from "./pages/FilersPage";
@@ -101,6 +102,8 @@ function routeTitle(route, data) {
       return `Insights | ${SUFFIX}`;
     case "insight":
       return `${insightBySlug(route.slug)?.seoTitle ?? "Insight not found"} | ${SUFFIX}`;
+    case "lobbying":
+      return `Lobbying: Stock Trades in Companies That Lobby Their Committees | ${SUFFIX}`;
     case "about":
       return `About the Data | ${SUFFIX}`;
     default:
@@ -195,7 +198,7 @@ export default function App({ initialPage = null }) {
     return (
       <div className="min-h-screen bg-canvas text-ink">
         <Masthead asOf={asOf} route={route} stats={null} onOpenCmdK={() => setCmdkOpen(true)} />
-        {error ? <div role="alert" className="max-w-[1440px] mx-auto px-4 sm:px-6 py-8">
+        {error ? <div role="alert" className="dk-container py-8">
           <p>Failed to load interactive trading data. Please try reloading the page.</p>
           <button type="button" className="govuk-button" onClick={() => window.location.reload()}>Reload page</button>
         </div> : <TradingSkeleton />}
@@ -212,7 +215,7 @@ export default function App({ initialPage = null }) {
     <div className="min-h-screen bg-canvas text-ink overflow-x-clip">
       <Masthead asOf={asOf} route={route} stats={data.stats} onOpenCmdK={() => setCmdkOpen(true)} />
       {route.name === "overview" && <OverviewPage data={data} asOf={asOf} />}
-      {error && <div role="alert" className="max-w-[1440px] mx-auto px-4 sm:px-6 py-4">
+      {error && <div role="alert" className="dk-container py-4">
         <p>Search and dashboard data could not load.</p>
         <button type="button" className="govuk-button" onClick={() => window.location.reload()}>Reload page</button>
       </div>}
@@ -222,6 +225,7 @@ export default function App({ initialPage = null }) {
       {route.name === "trades" && <TradesPage data={data} />}
       {route.name === "insights" && <InsightsPage data={data} />}
       {route.name === "insight" && <InsightPage slug={route.slug} data={data} />}
+      {route.name === "lobbying" && <LobbyingPage data={data} />}
       {route.name === "about" && <AboutPage data={data} />}
       {route.name === "filer" && (
         <FilerPage

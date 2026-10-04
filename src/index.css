@@ -51,7 +51,7 @@ html, body {
   outline-offset: 1px;
 }
 
-/* ── GOV.UK compact scale ─────────────────────────────────────────────
+/* ── Compact type scale ─────────────────────────────────────────────
    The stock GOV.UK type scale (19px body, 48px XL) is tuned for prose-heavy
    government content, not dense data tables. Keep the components and visual
    idioms, but at this app's original compact sizing (Inter, ~15px body). */
@@ -96,24 +96,11 @@ html, body {
 .govuk-breadcrumbs__list-item, .govuk-breadcrumbs__link { font-size: 13px !important; }
 .govuk-summary-list__key, .govuk-summary-list__value { font-size: 15px !important; padding-top: 7px !important; padding-bottom: 7px !important; }
 
-/* Mobile: compact stacked summary lists (default GOV.UK stacking wastes ~100px per fact) */
+/* Mobile: compact stacked summary lists (default stacking wastes ~100px per fact) */
 @media (max-width: 640px) {
   .govuk-summary-list__key { padding-bottom: 0 !important; margin-bottom: 1px !important; }
   .govuk-summary-list__value { padding-top: 0 !important; }
   .govuk-summary-list__row { padding: 4px 0 !important; }
-}
-
-/* Align the kit header, nav + footer containers with the page content
-   (.govuk-width-container: max-width 960, no horizontal padding on desktop).
-   Kit default is already 960; only the desktop 30px padding differs, so zero
-   it. Mobile keeps the kit's 15px gutter, matching the content's 15px margin. */
-@media (min-width: 40.0625em) {
-  .dk-header .dk-container,
-  .dk-nav .dk-container,
-  .dk-footer .dk-container {
-    padding-left: 0;
-    padding-right: 0;
-  }
 }
 
 .seo-shell { padding-top: 24px; padding-bottom: 48px; }
@@ -142,13 +129,13 @@ body:has(.seo-shell) #root footer { display: none; }
 .ticker-skeleton-row { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 24px; padding: 14px 0; border-bottom: 1px solid #b1b4b6; }
 .ticker-skeleton-row .ticker-skeleton-bar { max-width: 180px; }
 .ticker-skeleton-chart { height: 274px; background: #f3f2f1; margin: 32px 0; }
-/* Insights: topic cards on the index, and the chart card on an insight page (UKHSA dashboard pattern). */
+/* Insights: topic cards on the index, and the chart card on an insight page. */
 .insight-cards{list-style:none;margin:24px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
 .insight-card{background:#f3f2f1;padding:20px 20px 4px;border-top:4px solid #1d70b8}
 .insight-chart-card{background:#f3f2f1;padding:20px}
 .insight-chart-card .govuk-tabs__panel{background:#fff}
 .insight-date{color:#505a5f;margin-bottom:16px}
-/* GOV.UK shows tabs as a "Contents" link list below tablet width. Here the panels are React state, so phones get
+/* Tabs default to a "Contents" link list below tablet width. Here the panels are React state, so phones get
    the same tab row as desktop: compact, horizontally scrollable if the labels do not fit. */
 @media (max-width: 40.0525em) {
   .govuk-frontend-supported .govuk-tabs__title { display: none; }
@@ -163,3 +150,46 @@ body:has(.seo-shell) #root footer { display: none; }
   .insight-chart-card { padding: 16px 12px; margin: 0 -15px; }
 }
 @media (max-width: 40.0525em) { .insight-about .govuk-list { font-size: 16px; line-height: 1.4; } }
+.committee-table td{vertical-align:middle}
+.committee-table tr.is-open td{background:#f3f2f1;border-bottom:none}
+.committee-table__toggle{font:inherit;color:#1d70b8;background:none;border:0;padding:4px 0;cursor:pointer;text-decoration:underline;text-underline-offset:3px;font-variant-numeric:tabular-nums}
+.committee-table__toggle:focus-visible{outline:3px solid #fd0;background:#fd0;color:#0b0c0c}
+.committee-table__panel td{background:#f3f2f1;padding-top:0}
+.committee-table__members{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:6px 24px;font-size:14px}
+.committee-table__members li{display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid #e5e6e7;padding:4px 0}
+.committee-table__members li span{color:#505a5f;white-space:nowrap;font-variant-numeric:tabular-nums}
+.committee-table__row{cursor:pointer}
+@media (max-width:40.0525em){.committee-table__members{grid-template-columns:1fr}}
+.lobby-evidence{margin:0!important;font-size:16px}
+.lobby-evidence li{margin-bottom:10px}
+.lobby-evidence li:last-child{margin-bottom:0}
+.lobby-evidence__bills{display:block;margin-top:2px;font-size:14px;line-height:1.4;color:#505a5f}
+.lobby-steps{list-style:none;margin:0 0 24px;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:960px}
+.lobby-steps li{display:flex;gap:10px;align-items:flex-start;background:#f3f2f1;padding:12px 14px;font-size:16px;line-height:1.35}
+.lobby-steps__n{flex:none;display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#0b0c0c;color:#fff;font-weight:700;font-size:14px}
+@media (max-width:40.0525em){.lobby-steps{grid-template-columns:1fr;gap:8px}}
+.examples-table__label{display:none}
+@media (max-width:40.0525em){
+  .examples-table thead{display:none}
+  .examples-table tr{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:10px 12px;border-bottom:1px solid #e5e6e7}
+  .examples-table td{display:block;padding:0;border:0}
+  .examples-table__committee,.examples-table__bill{grid-column:1/-1;font-size:14px;color:#505a5f}
+  .examples-table__label{display:inline}
+}
+.member-name{white-space:nowrap}
+.member-committees{display:block;font-size:13px;line-height:1.35;margin-top:2px}
+.stock-chips{display:inline-flex;flex-wrap:wrap;gap:4px}
+.stock-chips{flex-wrap:nowrap}
+.compact-table{margin-bottom:24px;font-size:16px}
+.compact-table .govuk-table__header,.compact-table .govuk-table__cell{padding-top:8px;padding-bottom:8px}
+.compact-table__clamp{max-width:0;width:50%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.compact-table .govuk-table__caption{margin-bottom:6px}
+@media (max-width:40.0525em){.compact-table{font-size:14px}}
+@media (max-width:40.0525em){.dk-table th,.dk-table td{padding-left:8px;padding-right:8px}}
+@media (max-width:40.0525em){.member-name{white-space:normal}}
+.committee-panel{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:32px;padding:8px 4px 0}
+.committee-panel .compact-table{background:transparent;font-size:15px}
+@media (max-width:40.0525em){.committee-panel{grid-template-columns:1fr;gap:0}}
+.committee-panel{align-items:start}
+.compact-table .govuk-table__header--numeric{text-align:right}
+.lobby-chain{color:#505a5f;margin-bottom:24px!important}

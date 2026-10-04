@@ -1,4 +1,4 @@
-/* UKHSA / GOV.UK patterns shared by every dataset site. See figures.jsx. */
+/* Patterns shared by every dataset site. See figures.jsx. */
 :root {
   --dk-gov-grey: #f3f2f1;
   --dk-gov-border: #b1b4b6;
@@ -35,13 +35,13 @@
 .dk-figures__value { margin: 0; font-size: 22px; line-height: 1.25; font-variant-numeric: tabular-nums; color: var(--dk-gov-text); overflow-wrap: anywhere; }
 .dk-figures__note { margin: 4px 0 0; font-size: 14px; color: var(--dk-gov-secondary); }
 
-/* Measured from the UKHSA chart card: 20px padding, header and tabs 24px apart. */
+/* Chart card: 20px padding, header and tabs 24px apart. */
 .dk-card { background: var(--dk-gov-grey); padding: 20px; margin: 0 0 36px; display: flex; flex-direction: column; gap: 24px; }
 .dk-card > .dk-heading { margin: 0; }
 .dk-card__panel { background: #fff; border: 1px solid var(--dk-gov-border); padding: 24px 16px; }
 .dk-card__footer { margin-top: -12px; font-size: 14px; color: var(--dk-gov-secondary); }
 
-/* GOV.UK Design System tab geometry, so switching tabs never moves anything: an inactive tab is padded 20px each
+/* Tab geometry, so switching tabs never moves anything: an inactive tab is padded 20px each
    side and the active one 19px plus a 1px border, so both are the same width; the active tab grows only upward
    (-5px) and 1px down over the panel border, so its text stays on the same line. */
 .dk-tabs__list { display: flex; flex-wrap: wrap; align-items: flex-start; list-style: none; margin: 0; padding: 0; }
@@ -49,7 +49,7 @@
 .dk-tabs__tab { display: block; padding: 10px 20px; border: 0; background: none; font: inherit; font-size: 19px; line-height: 25px; color: var(--dk-gov-text); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
 .dk-tabs__item--selected .dk-tabs__tab { background: #fff; border: 1px solid var(--dk-gov-border); border-bottom: 0; padding: 14px 19px 16px; margin: -5px 0 -1px; text-decoration: none; position: relative; z-index: 1; }
 .dk-tabs__tab:focus-visible { outline: 3px solid #fd0; outline-offset: 0; box-shadow: inset 0 -4px #0b0c0c; }
-/* As the UKHSA chart cards: every panel keeps a minimum height, and a long table scrolls inside a fixed height
+/* Every panel keeps a minimum height, and a long table scrolls inside a fixed height
    rather than lengthening the page, so switching from a chart to a table does not move what is below. */
 .dk-tabs__panel { background: #fff; border: 1px solid var(--dk-gov-border); padding: 24px 16px; min-height: var(--dk-tab-min-height, 440px); box-sizing: border-box; }
 .dk-tabs__panel--scroll { max-height: var(--dk-tab-scroll-height, 640px); overflow-y: auto; }

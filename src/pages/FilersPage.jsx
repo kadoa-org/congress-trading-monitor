@@ -4,7 +4,7 @@ import { FilerAvatar, SampleChip } from "../components/TablePrimitives";
 import { useQueryState } from "../router";
 import { Card, fmtInt, fmtUSD, RowLink, SectionHeader, SortHeader } from "../ui";
 
-// GOV.UK palette for data colouring (green = buy/positive, red = sell/negative).
+// Palette for data colouring (green = buy/positive, red = sell/negative).
 const GREEN = "text-[#0f7a52]";
 const RED = "text-[#ca3535]";
 
@@ -61,7 +61,7 @@ export default function FilersPage({ data }) {
   }, [enrichedFilers, qs]);
 
   return (
-    <div className="max-w-[1440px] mx-auto px-4 sm:px-6 pt-8 pb-16">
+    <div className="dk-container pt-8 pb-16">
       <h1 className="govuk-heading-l" style={{ marginBottom: 10 }}>Politicians</h1>
       <p className="govuk-hint" style={{ marginTop: -6 }}>{`${fmtInt(filtered.length)} of ${fmtInt(enrichedFilers.length)}`}</p>
 
