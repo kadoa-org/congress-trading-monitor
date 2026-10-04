@@ -8,7 +8,7 @@ export default function AboutPage() {
   return (
     <div className="dk-container">
       <KitAboutPage
-        lede="Every stock trade that members of Congress and senior officials must disclose under the STOCK Act, in one place. Free to search, download and reuse."
+        lede="Every stock trade that members of Congress and senior officials must disclose under the STOCK Act, in one place."
         sources={[
           { name: "House Clerk", href: "https://disclosures-clerk.house.gov/", what: "Trade reports filed by representatives" },
           { name: "Senate eFD", href: "https://efdsearch.senate.gov/", what: "Trade reports filed by senators" },
