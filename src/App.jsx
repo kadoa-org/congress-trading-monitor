@@ -17,15 +17,15 @@ import { useRoute } from "./router";
 import { fetchData } from "./data";
 
 async function loadAll(seed = {}) {
-  const [stats, trades, filers, tickers, scatter, returns, prices, alphaIndex, adminStats, flows] = await Promise.all(
-    ["stats", "trades", "filers", "tickers", "scatter", "returns", "prices", "alpha-index", "admin-stats", "flows"]
+  const [stats, trades, filers, tickers, scatter, returns, prices, alphaIndex, adminStats, flows, oversight] = await Promise.all(
+    ["stats", "trades", "filers", "tickers", "scatter", "returns", "prices", "alpha-index", "admin-stats", "flows", "oversight"]
       .map((name) => seed[name] ?? fetchData(`${import.meta.env.BASE_URL}data/${name}.json`)),
   );
 
-  return prepareData({ stats, trades, filers, tickers, scatter, returns, prices, "alpha-index": alphaIndex, "admin-stats": adminStats, flows });
+  return prepareData({ stats, trades, filers, tickers, scatter, returns, prices, "alpha-index": alphaIndex, "admin-stats": adminStats, flows, oversight });
 }
 
-function prepareData({ stats = null, trades = [], filers = [], tickers = [], scatter = { filers: [], trades: [] }, returns = [], prices = {}, "alpha-index": alphaIndex, "admin-stats": adminStats, flows = [] } = {}) {
+function prepareData({ stats = null, trades = [], filers = [], tickers = [], scatter = { filers: [], trades: [] }, returns = [], prices = {}, "alpha-index": alphaIndex, "admin-stats": adminStats, flows = [], oversight = null } = {}) {
   // Per-filer admin participation. A filer is considered "in" an administration
   // if they have at least one disclosed trade while that admin was sitting.
   // Trump II cabinet members are further flagged with `cabinet: true` — executive
@@ -73,6 +73,7 @@ function prepareData({ stats = null, trades = [], filers = [], tickers = [], sca
     alphaIndex,
     adminStats,
     flows,
+    oversight,
     filersById,
   };
 }

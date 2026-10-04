@@ -1,4 +1,5 @@
 import React from "react";
+import CommitteeInsight from "../components/CommitteeInsight";
 import GovTabs from "../components/GovTabs";
 import WeeklyFlows from "../components/WeeklyFlows";
 import { insightBySlug } from "../insights";
@@ -56,7 +57,7 @@ function WeeklyTrading({ flows }) {
 
 export default function InsightPage({ slug, data }) {
   const insight = insightBySlug(slug);
-  const { flows = [] } = data;
+  const { flows = [], oversight } = data;
   if (!insight) return <div className="govuk-width-container"><main className="govuk-main-wrapper"><h1 className="dk-h1">Insight not found</h1><p className="govuk-body"><Link to="/insights">See all insights</Link></p></main></div>;
   return (
     <div className="govuk-width-container">
@@ -68,6 +69,7 @@ export default function InsightPage({ slug, data }) {
       </nav>
       <main className="govuk-main-wrapper" id="main-content">
         {insight.slug === "weekly-trading" && flows.length > 0 && <WeeklyTrading flows={flows} />}
+        {insight.slug === "committees" && oversight && <CommitteeInsight oversight={oversight} />}
       </main>
     </div>
   );

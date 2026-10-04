@@ -3,6 +3,7 @@ import { fetchData } from "../data";
 import React, { useEffect, useMemo, useState } from "react";
 import FilterBar, { applyFilters, defaultFilters } from "../components/FilterBar";
 import PersonalTimeline from "../components/PersonalTimeline";
+import CommitteeOverlap from "../components/CommitteeOverlap";
 import { ChangeTag, ChartCard, KeyFigures } from "../kit";
 import { FilerAvatar as AvatarPrimitive } from "../components/TablePrimitives";
 import { TickerBadge, TickerLabel } from "../components/TickerBadge";
@@ -331,6 +332,8 @@ export default function FilerPage({ filerId, filersIndex, filersById, prices: pr
       {stats.tickerAttribution && stats.tickerAttribution.filter((t) => t.ticker).length > 0 && (
         <TickerAttributionSection rows={stats.tickerAttribution.filter((t) => t.ticker)} />
       )}
+
+      <CommitteeOverlap oversight={data.oversight} />
 
       <ChartCard id="timeline-title" title="Trade timeline" description="Every disclosed trade, by the date it was made.">
         <PersonalTimeline trades={trades} />
