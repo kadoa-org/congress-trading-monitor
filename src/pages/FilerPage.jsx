@@ -2,7 +2,7 @@ import TradingSkeleton from "../components/TradingSkeleton";
 import { fetchData } from "../data";
 import React, { useEffect, useMemo, useState } from "react";
 import FilterBar, { applyFilters, defaultFilters } from "../components/FilterBar";
-import PersonalTimeline from "../components/PersonalTimeline";
+import TradeActivityChart from "../components/TradeActivityChart";
 import CommitteeOverlap from "../components/CommitteeOverlap";
 import { ChangeTag, ChartCard, KeyFigures } from "../kit";
 import { FilerAvatar as AvatarPrimitive } from "../components/TablePrimitives";
@@ -335,8 +335,8 @@ export default function FilerPage({ filerId, filersIndex, filersById, prices: pr
 
       <CommitteeOverlap oversight={data.oversight} />
 
-      <ChartCard id="timeline-title" title="Trade timeline" description="Every disclosed trade, by the date it was made.">
-        <PersonalTimeline trades={trades} />
+      <ChartCard id="timeline-title" title="Trades by month" description="Disclosed buys and sells, by the month they were made. Tap or hover for the stocks.">
+        <TradeActivityChart trades={trades} />
       </ChartCard>
 
       <SectionHeader title="All trades" subtitle={`${fmtInt(filtered.length)} of ${fmtInt(trades.length)}`} />
