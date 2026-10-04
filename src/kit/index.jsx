@@ -11,9 +11,11 @@ export * from "./about.jsx";
 // One table to rule them all.
 // columns: [{ key, header, align?: "left"|"right", width?, render?(row), sortable?, headerHint?, group? }]
 // Consecutive columns with the same `group` share a header cell above their own; the others span both header rows.
+// `expand(row)` makes rows open a full-width panel below them.
 // rowHref(row) makes the first-column link; onRowClick for SPA nav is handled by callers via render.
-export function DataTable({ columns, rows, rowKey, sort, onSort, caption, empty = "No rows.", plain = false }) {
+export function DataTable({ columns, rows, rowKey, sort, onSort, caption, empty = "No rows.", plain = false, expand }) {
   const grouped = columns.some((c) => c.group);
+  const [open, setOpen] = React.useState(null);
   const headerCell = (c, rowSpan) => {
     const active = sort && sort.key === c.key;
     const label = (
@@ -65,41 +67,67 @@ export function DataTable({ columns, rows, rowKey, sort, onSort, caption, empty 
                     </th>
                   );
                 })}
+                {expand && <th rowSpan={2} aria-label="Details" className="dk-row__toggle" />}
               </tr>
               <tr>{columns.filter((c) => c.group).map((c) => headerCell(c))}</tr>
             </>
           ) : (
-            <tr>{columns.map((c) => headerCell(c))}</tr>
+            <tr>
+              {columns.map((c) => headerCell(c))}
+              {expand && <th aria-label="Details" className="dk-row__toggle" />}
+            </tr>
           )}
         </thead>
         <tbody>
           {rows.length === 0 && (
             <tr>
-              <td className="dk-empty" colSpan={columns.length}>
+              <td className="dk-empty" colSpan={columns.length + (expand ? 1 : 0)}>
                 {empty}
               </td>
             </tr>
           )}
-          {rows.map((r) => (
-            <tr key={rowKey(r)}>
-              {columns.map((c) => (
-                <td
-                  key={c.key}
-                  className={
-                    [
-                      c.align === "right" ? "dk-num" : "",
-                      c.hideBelow ? `dk-hide-${c.hideBelow}` : "",
-                      c.clamp ? "dk-clamp" : "",
-                    ]
-                      .filter(Boolean)
-                      .join(" ") || undefined
-                  }
+          {rows.map((r) => {
+            const key = rowKey(r);
+            const isOpen = expand && open === key;
+            const toggle = () => setOpen(isOpen ? null : key);
+            return (
+              <React.Fragment key={key}>
+                <tr
+                  className={expand ? `dk-row--expandable${isOpen ? " is-open" : ""}` : undefined}
+                  onClick={expand ? (e) => { if (!e.target.closest("a, button")) toggle(); } : undefined}
                 >
-                  {c.render ? c.render(r) : (r[c.key] ?? "—")}
-                </td>
-              ))}
-            </tr>
-          ))}
+                  {columns.map((c) => (
+                    <td
+                      key={c.key}
+                      className={
+                        [
+                          c.align === "right" ? "dk-num" : "",
+                          c.hideBelow ? `dk-hide-${c.hideBelow}` : "",
+                          c.clamp ? "dk-clamp" : "",
+                        ]
+                          .filter(Boolean)
+                          .join(" ") || undefined
+                      }
+                    >
+                      {c.render ? c.render(r) : (r[c.key] ?? "—")}
+                    </td>
+                  ))}
+                  {expand && (
+                    <td className="dk-num dk-row__toggle">
+                      <button type="button" className="dk-row__toggle-btn" aria-expanded={isOpen} aria-label={isOpen ? "Hide details" : "Show details"} onClick={toggle}>
+                        <span aria-hidden="true">{isOpen ? "▴" : "▾"}</span>
+                      </button>
+                    </td>
+                  )}
+                </tr>
+                {isOpen && (
+                  <tr className="dk-row__panel">
+                    <td colSpan={columns.length + 1}>{expand(r)}</td>
+                  </tr>
+                )}
+              </React.Fragment>
+            );
+          })}
         </tbody>
       </table>
     </div>

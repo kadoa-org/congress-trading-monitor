@@ -190,3 +190,5 @@ body:has(.seo-shell) #root footer { display: none; }
 .chamber-tag--senate{background:#f4ebf6;color:#3d2375}
 .chamber-tag--joint{background:#f3f2f1;color:#383f43}
 .compact-table__hint{display:block;margin-top:2px;font-weight:400;font-size:14px;color:#505a5f}
+.committee-seats{margin-bottom:24px!important}
+.committee-seats__label{font-weight:700;margin-right:10px}

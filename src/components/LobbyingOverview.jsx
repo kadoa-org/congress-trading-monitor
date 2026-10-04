@@ -1,6 +1,7 @@
 import React, { Fragment, useMemo, useState } from "react";
 import { billText, CommitteeName, committeeParts, pct, shortTitle } from "../committees";
 import CompactTable from "./CompactTable";
+import LobbyEvidenceTable from "./LobbyEvidenceTable";
 import { DataTable } from "../kit";
 import { fmtInt, Link } from "../ui";
 import GovTabs from "./GovTabs";
@@ -161,7 +162,7 @@ export default function LobbyingOverview({ oversight }) {
       <p className="govuk-body-l max-w-3xl">When members of Congress trade stocks of companies that lobby their own committees.</p>
       <section className="insight-chart-card" aria-label="Stocks of companies that lobby them">
         <GovTabs tabs={[
-          { label: "Members", content: <DataTable rows={bm.sorted} columns={memberColumns} rowKey={(r) => r.filerId} sort={bm.sort} onSort={bm.onSort} /> },
+          { label: "Members", content: <DataTable rows={bm.sorted} columns={memberColumns} rowKey={(r) => r.filerId} sort={bm.sort} onSort={bm.onSort} expand={(r) => <LobbyEvidenceTable topLinked={r.topLinked} trades={r.trades} linked={r.linked} />} /> },
           { label: "Committees", content: <CommitteeTable rows={committeeRows} /> },
           { label: "Download", content: <><p className="govuk-body">Every member as a CSV.</p><button type="button" className="govuk-button govuk-button--secondary" onClick={() => download(members)}>Download CSV</button></> },
         ]} />

@@ -230,3 +230,15 @@
 .dk-section { margin-bottom: 36px; }
 .dk-table .dk-table__group { text-align: center; border-bottom: 1px solid var(--dk-rule-soft); padding-bottom: 4px; }
 .dk-table thead th[rowspan] { vertical-align: bottom; }
+.dk-row--expandable { cursor: pointer; }
+.dk-row--expandable.is-open td { background: var(--dk-bg-hover, #f3f2f1); border-bottom: none; }
+.dk-row__toggle { width: 32px; }
+.dk-row__toggle-btn { background: none; border: 0; padding: 4px; color: var(--dk-link); font-size: 14px; cursor: pointer; }
+.dk-row__toggle-btn:focus-visible { outline: 3px solid var(--dk-focus); }
+.dk-row__panel td { background: var(--dk-bg-hover, #f3f2f1); padding-top: 0; }
+.dk-row__panel .compact-table { margin-bottom: 8px; background: transparent; }
+.dk-row__panel .compact-table { table-layout: fixed; width: 100%; }
+@media (max-width: 640px) { .dk-row__panel td { padding-left: 8px; padding-right: 8px; } .dk-row__panel .compact-table th:first-child { width: 64px !important; } .dk-row__panel .compact-table th:last-child { width: 56px; } }
+.dk-row__panel > td { max-width: 0; }
+@media (max-width: 640px) { .dk-table .dk-row__toggle { width: 22px; padding-left: 0; padding-right: 2px; } .dk-row__toggle-btn { padding: 2px; } }
+@media (max-width: 640px) { .dk-table th, .dk-table .dk-th-btn { white-space: normal; text-align: inherit; } }
