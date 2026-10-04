@@ -26,7 +26,7 @@ export default function CommitteeOverlap({ oversight }) {
         <div className="govuk-summary-list__row">
           <dt className="govuk-summary-list__key">Trades in lobbying companies</dt>
           <dd className="govuk-summary-list__value tabular-nums">
-            {fmtInt(linked)} of {fmtInt(trades)} {trades === 1 ? "trade" : "trades"} since January 2025 ({pct(linkedPct)})
+            {fmtInt(linked)} of {fmtInt(trades)} {trades === 1 ? "stock trade" : "stock trades"} since January 2025 ({pct(linkedPct)})
           </dd>
         </div>
         <div className="govuk-summary-list__row">

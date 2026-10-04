@@ -150,7 +150,7 @@ export default function LobbyingOverview({ oversight }) {
         </span>
       ),
     },
-    { key: "linked", header: "Trades", align: "right", sortable: true, hideBelow: "sm", render: (r) => <span className="whitespace-nowrap">{fmtInt(r.linked)} <span className="dk-hint">of {fmtInt(r.trades)}</span></span> },
+    { key: "linked", header: "Stock trades", align: "right", sortable: true, hideBelow: "sm", render: (r) => <span className="whitespace-nowrap">{fmtInt(r.linked)} <span className="dk-hint">of {fmtInt(r.trades)}</span></span> },
     { key: "linkedPct", header: "This member", group: "Trades in lobbying companies", align: "right", sortable: true, render: (r) => pct(r.linkedPct) },
     { key: "expectedPct", header: "All of Congress", group: "Trades in lobbying companies", align: "right", sortable: true, render: (r) => pct(r.expectedPct) },
   ];
