@@ -30,8 +30,8 @@ export default function CommitteeOverlap({ oversight }) {
           </dd>
         </div>
         <div className="govuk-summary-list__row">
-          <dt className="govuk-summary-list__key">Congress average</dt>
-          <dd className="govuk-summary-list__value tabular-nums">{pct(expectedPct)}</dd>
+          <dt className="govuk-summary-list__key">All of Congress</dt>
+          <dd className="govuk-summary-list__value tabular-nums">{pct(expectedPct)} of trades in the same companies</dd>
         </div>
       </dl>
       {topLinked.length > 0 && (

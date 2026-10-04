@@ -168,14 +168,6 @@ body:has(.seo-shell) #root footer { display: none; }
 .lobby-steps li{display:flex;gap:10px;align-items:flex-start;background:#f3f2f1;padding:12px 14px;font-size:16px;line-height:1.35}
 .lobby-steps__n{flex:none;display:inline-grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#0b0c0c;color:#fff;font-weight:700;font-size:14px}
 @media (max-width:40.0525em){.lobby-steps{grid-template-columns:1fr;gap:8px}}
-.examples-table__label{display:none}
-@media (max-width:40.0525em){
-  .examples-table thead{display:none}
-  .examples-table tr{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:10px 12px;border-bottom:1px solid #e5e6e7}
-  .examples-table td{display:block;padding:0;border:0}
-  .examples-table__committee,.examples-table__bill{grid-column:1/-1;font-size:14px;color:#505a5f}
-  .examples-table__label{display:inline}
-}
 .member-name{white-space:nowrap}
 .member-committees{display:block;font-size:13px;line-height:1.35;margin-top:2px}
 .stock-chips{display:inline-flex;flex-wrap:wrap;gap:4px}
@@ -193,3 +185,7 @@ body:has(.seo-shell) #root footer { display: none; }
 .committee-panel{align-items:start}
 .compact-table .govuk-table__header--numeric{text-align:right}
 .lobby-chain{color:#505a5f;margin-bottom:24px!important}
+.chamber-tag{display:inline-block;vertical-align:1px;margin-left:4px;padding:1px 6px;font-size:12px;font-weight:600;line-height:1.4;letter-spacing:.02em;white-space:nowrap}
+.chamber-tag--house{background:#e8f1f8;color:#0c2d4a}
+.chamber-tag--senate{background:#f4ebf6;color:#3d2375}
+.chamber-tag--joint{background:#f3f2f1;color:#383f43}

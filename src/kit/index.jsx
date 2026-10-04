@@ -9,9 +9,39 @@ export * from "./figures.jsx";
 export * from "./about.jsx";
 
 // One table to rule them all.
-// columns: [{ key, header, align?: "left"|"right", width?, render?(row), sortable?, headerHint? }]
+// columns: [{ key, header, align?: "left"|"right", width?, render?(row), sortable?, headerHint?, group? }]
+// Consecutive columns with the same `group` share a header cell above their own; the others span both header rows.
 // rowHref(row) makes the first-column link; onRowClick for SPA nav is handled by callers via render.
 export function DataTable({ columns, rows, rowKey, sort, onSort, caption, empty = "No rows.", plain = false }) {
+  const grouped = columns.some((c) => c.group);
+  const headerCell = (c, rowSpan) => {
+    const active = sort && sort.key === c.key;
+    const label = (
+      <>
+        <span>{c.header}</span>
+        {c.sortable && <span aria-hidden="true">{active ? (sort.dir === "asc" ? "▲" : "▼") : "↕"}</span>}
+      </>
+    );
+    const hideCls = c.hideBelow ? ` dk-hide-${c.hideBelow}` : "";
+    return (
+      <th
+        key={c.key}
+        rowSpan={rowSpan}
+        className={(c.align === "right" ? "dk-num" : "") + hideCls || undefined}
+        style={c.width ? { width: c.width } : undefined}
+        aria-sort={active ? (sort.dir === "asc" ? "ascending" : "descending") : undefined}
+        title={c.headerHint}
+      >
+        {c.sortable && onSort ? (
+          <button type="button" className="dk-th-btn" onClick={() => onSort(c.key)}>
+            {label}
+          </button>
+        ) : (
+          label
+        )}
+      </th>
+    );
+  };
   return (
     <div className={`dk-table-wrap${plain ? " dk-table-wrap--plain" : ""}`}>
       <table className="dk-table">
@@ -21,35 +51,26 @@ export function DataTable({ columns, rows, rowKey, sort, onSort, caption, empty 
           </caption>
         )}
         <thead>
-          <tr>
-            {columns.map((c) => {
-              const active = sort && sort.key === c.key;
-              const label = (
-                <>
-                  <span>{c.header}</span>
-                  {c.sortable && <span aria-hidden="true">{active ? (sort.dir === "asc" ? "▲" : "▼") : "↕"}</span>}
-                </>
-              );
-              const hideCls = c.hideBelow ? ` dk-hide-${c.hideBelow}` : "";
-              return (
-                <th
-                  key={c.key}
-                  className={(c.align === "right" ? "dk-num" : "") + hideCls || undefined}
-                  style={c.width ? { width: c.width } : undefined}
-                  aria-sort={active ? (sort.dir === "asc" ? "ascending" : "descending") : undefined}
-                  title={c.headerHint}
-                >
-                  {c.sortable && onSort ? (
-                    <button type="button" className="dk-th-btn" onClick={() => onSort(c.key)}>
-                      {label}
-                    </button>
-                  ) : (
-                    label
-                  )}
-                </th>
-              );
-            })}
-          </tr>
+          {grouped ? (
+            <>
+              <tr>
+                {columns.map((c, i) => {
+                  if (!c.group) return headerCell(c, 2);
+                  if (i > 0 && columns[i - 1].group === c.group) return null;
+                  let span = 1;
+                  while (columns[i + span]?.group === c.group) span++;
+                  return (
+                    <th key={`group-${c.key}`} colSpan={span} scope="colgroup" className={`dk-table__group${c.hideBelow ? ` dk-hide-${c.hideBelow}` : ""}`}>
+                      {c.group}
+                    </th>
+                  );
+                })}
+              </tr>
+              <tr>{columns.filter((c) => c.group).map((c) => headerCell(c))}</tr>
+            </>
+          ) : (
+            <tr>{columns.map((c) => headerCell(c))}</tr>
+          )}
         </thead>
         <tbody>
           {rows.length === 0 && (

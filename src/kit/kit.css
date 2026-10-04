@@ -228,3 +228,5 @@
 .dk-link:focus-visible { outline: 3px solid var(--dk-focus); outline-offset: 0; }
 
 .dk-section { margin-bottom: 36px; }
+.dk-table .dk-table__group { text-align: center; border-bottom: 1px solid var(--dk-rule-soft); padding-bottom: 4px; }
+.dk-table thead th[rowspan] { vertical-align: bottom; }

@@ -42,10 +42,13 @@ function CommitteeTable({ rows }) {
       <table className="dk-table committee-table">
         <thead>
           <tr>
-            <th>Committee</th>
-            <th className="dk-num">Share</th>
-            <th className="dk-num dk-hide-sm">Congress average</th>
-            <th className="dk-num">Members</th>
+            <th rowSpan={2}>Committee</th>
+            <th colSpan={2} scope="colgroup" className="dk-table__group">Trades in lobbying companies</th>
+            <th rowSpan={2} className="dk-num">Members</th>
+          </tr>
+          <tr>
+            <th className="dk-num">Its members</th>
+            <th className="dk-num">All of Congress</th>
           </tr>
         </thead>
         <tbody>
@@ -56,7 +59,7 @@ function CommitteeTable({ rows }) {
                 <tr className={`committee-table__row${isOpen ? " is-open" : ""}`} onClick={() => setOpen(isOpen ? null : r.code)}>
                   <td><CommitteeName full={r.full} /></td>
                   <td className="dk-num">{pct(r.linkedPct)}</td>
-                  <td className="dk-num dk-hide-sm">{pct(r.expectedPct)}</td>
+                  <td className="dk-num">{pct(r.expectedPct)}</td>
                   <td className="dk-num">
                     <button type="button" className="committee-table__toggle" aria-expanded={isOpen} onClick={(e) => { e.stopPropagation(); setOpen(isOpen ? null : r.code); }}>
                       {r.members} <span aria-hidden="true">{isOpen ? "▴" : "▾"}</span>
@@ -87,7 +90,7 @@ function CommitteeTable({ rows }) {
                             columns={[
                               { key: "name", header: "Member", clamp: true, render: (m) => <><Link to={`/filer/${m.filerId}`}>{m.name}</Link> <span className="dk-hint">{m.party && m.state ? `${m.party}-${m.state}` : ""}</span></> },
                               { key: "linked", header: "Trades", numeric: true, render: (m) => fmtInt(m.linked) },
-                              { key: "share", header: "Share", numeric: true, render: (m) => pct((100 * m.linked) / Math.max(1, m.trades)) },
+                              { key: "share", header: "% of trades", numeric: true, render: (m) => pct((100 * m.linked) / Math.max(1, m.trades)) },
                             ]}
                           />
                           {(r.seats ?? []).filter((m) => m.linked > 0).length > 8 && (
@@ -148,8 +151,8 @@ export default function LobbyingOverview({ oversight }) {
       ),
     },
     { key: "linked", header: "Trades", align: "right", sortable: true, hideBelow: "sm", render: (r) => <span className="whitespace-nowrap">{fmtInt(r.linked)} <span className="dk-hint">of {fmtInt(r.trades)}</span></span> },
-    { key: "linkedPct", header: "Share", align: "right", sortable: true, render: (r) => pct(r.linkedPct) },
-    { key: "expectedPct", header: "Congress average", align: "right", sortable: true, render: (r) => pct(r.expectedPct) },
+    { key: "linkedPct", header: "This member", group: "Trades in lobbying companies", align: "right", sortable: true, render: (r) => pct(r.linkedPct) },
+    { key: "expectedPct", header: "All of Congress", group: "Trades in lobbying companies", align: "right", sortable: true, render: (r) => pct(r.expectedPct) },
   ];
 
   return (

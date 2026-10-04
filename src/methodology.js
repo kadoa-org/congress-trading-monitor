@@ -37,7 +37,7 @@ export const METHODS = [
     title: "Lobbying",
     body: [
       "A company lobbies on a bill. The bill goes to a committee. A member of that committee trades the stock within a year. That trade counts. Funds are not counted.",
-      "Share is a member's matching trades out of all their stock trades. Congress average is the same share across all members. A match is not evidence of wrongdoing.",
+      "This member: the share of their stock trades in companies lobbying their committees. All of Congress: the share of every member's trades in those same companies, for comparison. A match is not evidence of wrongdoing.",
       "Lobbying filings come from LDA.gov and bill referrals from govinfo.gov. Senate Office of Public Records cannot vouch for the data or analyses derived from these data after the data have been retrieved from LDA.gov.",
     ],
   },
