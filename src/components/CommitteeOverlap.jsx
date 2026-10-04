@@ -1,5 +1,5 @@
 import React from "react";
-import { billText, CommitteeName, pct, shortTitle } from "../committees";
+import { billText, CommitteeName, shortTitle } from "../committees";
 import CompactTable from "./CompactTable";
 import { fmtInt, Link, RowLink, SectionHeader } from "../ui";
 import { TickerBadge } from "./TickerBadge";
@@ -8,7 +8,7 @@ import { TickerBadge } from "./TickerBadge";
 // as a whole, with the bills behind each match. Laid out as a summary list at reading width.
 export default function CommitteeOverlap({ oversight }) {
   if (!oversight?.trades) return null;
-  const { committees, trades, linked, linkedPct, expectedPct, topLinked } = oversight;
+  const { committees, trades, linked, topLinked } = oversight;
   return (
     <section className="mb-10 max-w-3xl" aria-labelledby="committee-overlap">
       <SectionHeader title={<span id="committee-overlap">Committees</span>} />
@@ -23,20 +23,22 @@ export default function CommitteeOverlap({ oversight }) {
             ))}
           </dd>
         </div>
-        <div className="govuk-summary-list__row">
-          <dt className="govuk-summary-list__key">Trades in lobbying companies</dt>
-          <dd className="govuk-summary-list__value tabular-nums">
-            {fmtInt(linked)} of {fmtInt(trades)} {trades === 1 ? "stock trade" : "stock trades"} since January 2025 ({pct(linkedPct)})
-          </dd>
-        </div>
-        <div className="govuk-summary-list__row">
-          <dt className="govuk-summary-list__key">All of Congress</dt>
-          <dd className="govuk-summary-list__value tabular-nums">{pct(expectedPct)}</dd>
-        </div>
       </dl>
+      {topLinked.length === 0 && (
+        <p className="govuk-body" style={{ color: "#505a5f" }}>
+          None of their {fmtInt(trades)} {trades === 1 ? "stock trade" : "stock trades"} since January 2025 was in a company lobbying their committees.
+        </p>
+      )}
       {topLinked.length > 0 && (
         <CompactTable
-          caption="Companies"
+          caption={
+            <>
+              Trades in lobbying companies
+              <span className="compact-table__hint">
+                {fmtInt(linked)} of {fmtInt(trades)} {trades === 1 ? "stock trade" : "stock trades"} since January 2025
+              </span>
+            </>
+          }
           rowKey={(t) => t.ticker}
           rows={topLinked}
           columns={[

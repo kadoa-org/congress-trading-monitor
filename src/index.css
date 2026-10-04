@@ -189,3 +189,4 @@ body:has(.seo-shell) #root footer { display: none; }
 .chamber-tag--house{background:#e8f1f8;color:#0c2d4a}
 .chamber-tag--senate{background:#f4ebf6;color:#3d2375}
 .chamber-tag--joint{background:#f3f2f1;color:#383f43}
+.compact-table__hint{display:block;margin-top:2px;font-weight:400;font-size:14px;color:#505a5f}
