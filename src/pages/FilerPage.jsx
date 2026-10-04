@@ -94,6 +94,7 @@ export default function FilerPage({ filerId, filersIndex, filersById, prices: pr
             total: 0,
             volume: 0,
             excessSum: 0,
+            retSum: 0,
             excessWeight: 0,
             contribSum: 0,
             wins: 0,
@@ -104,8 +105,9 @@ export default function FilerPage({ filerId, filersIndex, filersById, prices: pr
         if (isBuy) e.buys++;
         else if (isSell) e.sells++;
         if (mid) e.volume += mid;
-        if (isBuy && t.excess_since != null && mid) {
+        if (isBuy && t.excess_since != null && t.ret_since != null && mid) {
           e.excessSum += t.excess_since * mid;
+          e.retSum += t.ret_since * mid;
           e.excessWeight += mid;
           e.contribSum += t.excess_since * mid;
           e.scored++;
@@ -129,6 +131,10 @@ export default function FilerPage({ filerId, filersIndex, filersById, prices: pr
     const tickerAttribution = [...byTicker.values()].map((e) => ({
       ...e,
       tickerAlpha: e.excessWeight > 0 ? e.excessSum / e.excessWeight : null,
+      // The stock's and the S&P 500's return since the buys, weighted by amount. Shown side by side because their gap
+      // is in percentage points and runs past -100 over long holds, which reads as an impossible loss.
+      tickerReturn: e.excessWeight > 0 ? e.retSum / e.excessWeight : null,
+      spyReturn: e.excessWeight > 0 ? (e.retSum - e.excessSum) / e.excessWeight : null,
       tickerHitRate: e.scored > 0 ? e.wins / e.scored : null,
     }));
     const totalContribAbs = tickerAttribution.reduce((s, e) => s + Math.abs(e.contribSum), 0);
@@ -360,11 +366,13 @@ function FactRow({ label, children }) {
 
 // Performance by ticker: net contribution to weighted alpha per symbol.
 // Quant desks want to see: 'is alpha from one lucky name or broad-based?'
+const signedPct = (v) => (v == null ? "—" : `${v >= 0 ? "+" : ""}${v.toFixed(0)}%`);
+
 function TickerAttributionSection({ rows }) {
   const top = rows.slice(0, 15);
   return (
     <div className="mb-10">
-      <SectionHeader title="Returns by stock" subtitle="How much each stock added to, or took from, their return against the S&P 500." />
+      <SectionHeader title="Returns by stock" subtitle="Each stock's return since they bought it, next to the S&P 500 over the same days." />
       <Card className="overflow-hidden">
         <div className="overflow-x-auto">
           <table className="govuk-table" style={{ marginBottom: 0 }}>
@@ -390,7 +398,10 @@ function TickerAttributionSection({ rows }) {
                   Beat S&amp;P 500
                 </th>
                 <th scope="col" className="govuk-table__header govuk-table__header--numeric whitespace-nowrap">
-                  vs SPY
+                  Stock return
+                </th>
+                <th scope="col" className="govuk-table__header govuk-table__header--numeric whitespace-nowrap">
+                  S&amp;P 500
                 </th>
               </tr>
             </thead>
@@ -432,8 +443,9 @@ function TickerAttributionSection({ rows }) {
                         alpha == null ? "text-[#505a5f]" : alpha >= 0 ? GREEN : RED
                       }`}
                     >
-                      {alpha == null ? "—" : `${alpha >= 0 ? "+" : ""}${alpha.toFixed(0)}%`}
+                      {signedPct(r.tickerReturn)}
                     </td>
+                    <td className="govuk-table__cell govuk-table__cell--numeric tabular-nums whitespace-nowrap text-[#505a5f]">{signedPct(r.spyReturn)}</td>
                   </tr>
                 );
               })}

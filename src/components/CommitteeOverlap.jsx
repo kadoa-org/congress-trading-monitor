@@ -24,19 +24,19 @@ export default function CommitteeOverlap({ oversight }) {
           </dd>
         </div>
         <div className="govuk-summary-list__row">
-          <dt className="govuk-summary-list__key">Trades in companies lobbying them</dt>
+          <dt className="govuk-summary-list__key">Trades in lobbying companies</dt>
           <dd className="govuk-summary-list__value tabular-nums">
-            {fmtInt(linked)} of {fmtInt(trades)} since January 2025 ({pct(linkedPct)})
+            {fmtInt(linked)} of {fmtInt(trades)} {trades === 1 ? "trade" : "trades"} since January 2025 ({pct(linkedPct)})
           </dd>
         </div>
         <div className="govuk-summary-list__row">
           <dt className="govuk-summary-list__key">All of Congress</dt>
-          <dd className="govuk-summary-list__value tabular-nums">{pct(expectedPct)} of trades in the same companies</dd>
+          <dd className="govuk-summary-list__value tabular-nums">{pct(expectedPct)}</dd>
         </div>
       </dl>
       {topLinked.length > 0 && (
         <CompactTable
-          caption="Companies lobbying their committees"
+          caption="Companies"
           rowKey={(t) => t.ticker}
           rows={topLinked}
           columns={[
