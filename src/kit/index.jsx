@@ -6,6 +6,7 @@ import "./kit.css";
 import { SectionHeading } from "./figures.jsx";
 
 export * from "./figures.jsx";
+export * from "./about.jsx";
 
 // One table to rule them all.
 // columns: [{ key, header, align?: "left"|"right", width?, render?(row), sortable?, headerHint? }]

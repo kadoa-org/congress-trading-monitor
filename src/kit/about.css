@@ -1,0 +1,43 @@
+/* About page shared by every dataset site (about.jsx). One reading column. */
+.dk-about { max-width: 760px; padding: 32px 0 64px; }
+.dk-about a { color: var(--dk-link); text-decoration: underline; text-underline-offset: 3px; }
+.dk-about a:hover { text-decoration-thickness: 2px; }
+.dk-about a:focus-visible { outline: 3px solid var(--dk-focus); background: var(--dk-focus); color: var(--dk-ink); text-decoration: none; }
+.dk-about__lede { font-size: 21px; line-height: 1.45; color: var(--dk-ink); margin: 0; }
+.dk-about__section { margin-top: 40px; }
+.dk-about__h2 { font: 700 24px/1.25 var(--dk-font); margin: 0 0 16px; color: var(--dk-ink); }
+.dk-about__h3 { font: 700 19px/1.3 var(--dk-font); margin: 0 0 8px; color: var(--dk-ink); }
+.dk-about__text { font-size: 16px; line-height: 1.5; margin: 0 0 12px; }
+.dk-about__links { display: flex; flex-wrap: wrap; gap: 8px 24px; margin: 12px 0 0; font-size: 16px; }
+
+/* Steps: a blue rule with a tick per item and a closing tick (DWP timeline geometry). */
+.dk-timeline { margin-top: 24px; }
+.dk-timeline__items { margin: 0; padding: 0; list-style: none; border-left: 3px solid var(--dk-link); }
+.dk-timeline__item { position: relative; top: -8px; margin: 15px 0; padding: 0 0 12px 18px; }
+.dk-timeline__item::before { content: ""; position: absolute; top: 8px; left: -1px; width: 11px; border-top: 3px solid var(--dk-link); }
+.dk-timeline__item:last-of-type::after { content: ""; position: absolute; bottom: -10px; left: -7px; width: 11px; border-top: 3px solid var(--dk-link); }
+.dk-timeline__heading { font: 700 19px/1.3 var(--dk-font); margin: 0 0 4px; color: var(--dk-ink); }
+.dk-timeline__by-line { font-size: 17px; line-height: 1.4; margin: 0; color: var(--dk-ink); }
+
+/* Collapsible sources and method notes. */
+.dk-about__methods { border-top: 1px solid var(--dk-rule); }
+.dk-about__method { border-bottom: 1px solid var(--dk-rule); }
+.dk-about__method summary { cursor: pointer; padding: 12px 0; font-weight: 700; color: var(--dk-link); list-style: none; display: flex; justify-content: space-between; gap: 12px; }
+.dk-about__method summary::-webkit-details-marker { display: none; }
+.dk-about__method summary::after { content: "+"; font-weight: 400; color: var(--dk-muted); }
+.dk-about__method[open] summary::after { content: "\2212"; }
+.dk-about__method summary:focus-visible { outline: 3px solid var(--dk-focus); outline-offset: 0; }
+.dk-about__method > div { padding: 0 0 14px; }
+.dk-about__method p { margin: 0 0 8px; font-size: 16px; line-height: 1.5; }
+.dk-about__source-list { list-style: none; margin: 0; padding: 0; }
+.dk-about__source-list li { display: flex; flex-direction: column; margin: 0 0 10px; font-size: 16px; line-height: 1.4; }
+.dk-about__source-list span { color: var(--dk-muted); font-size: 15px; }
+
+/* Who builds it. */
+.dk-about__kadoa { box-sizing: border-box; margin-top: 48px; padding: 20px 24px; background: #f3f2f1; border-top: 4px solid var(--dk-link); }
+.dk-about__corrections { margin-top: 24px; font-size: 14px; color: var(--dk-muted); }
+
+@media (max-width: 640px) {
+  .dk-about__lede { font-size: 18px; }
+  .dk-about__kadoa { padding: 16px; }
+}
