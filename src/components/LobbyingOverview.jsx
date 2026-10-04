@@ -1,14 +1,13 @@
 import React, { Fragment, useMemo, useState } from "react";
 import { billText, CommitteeName, committeeParts, pct, shortTitle } from "../committees";
 import CompactTable from "./CompactTable";
-import { DataTable, KeyFigures } from "../kit";
+import { DataTable } from "../kit";
 import { fmtInt, Link } from "../ui";
 import GovTabs from "./GovTabs";
 import { TickerBadge } from "./TickerBadge";
 
 const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const day = (s) => { const d = new Date(`${s}T00:00:00Z`); return `${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()}`; };
-const MIN_TRADES = 10; // below this a member's share swings on one or two trades
 const MIN_MEMBERS = 3; // committees with fewer trading members (a defunct select panel) say little
 const who = (m) => `${m.name}${m.party && m.state ? ` (${m.party}-${m.state})` : ""}`;
 
@@ -122,12 +121,6 @@ export default function LobbyingOverview({ oversight }) {
   );
   const memberRows = useMemo(() => members.filter((m) => m.linked > 0).map((m) => ({ ...m, sortName: m.name })), [members]);
   const bm = useSort(memberRows, { key: "linked", dir: "desc" });
-  // Headline figures: how many members, how many trades against the Congress average, and how many members with
-  // enough trades to judge are above it.
-  const figures = useMemo(() => {
-    const judged = members.filter((m) => m.trades >= MIN_TRADES);
-    return { trading: members.length, withAny: memberRows.length, above: judged.filter((m) => m.linkedPct > m.expectedPct).length, judged: judged.length };
-  }, [members, memberRows]);
   const shortName = (code) => committeeParts(committeeNames[code] ?? code).name;
 
   const memberColumns = [
@@ -163,14 +156,6 @@ export default function LobbyingOverview({ oversight }) {
     <>
       <h1 className="dk-h1">Lobbying</h1>
       <p className="govuk-body-l max-w-3xl">When members of Congress trade stocks of companies that lobby their own committees.</p>
-      <KeyFigures
-        title={null}
-        items={[
-          { label: "Members", value: fmtInt(figures.withAny), note: `of ${fmtInt(figures.trading)} who traded stocks` },
-          { label: "Matching trades", value: fmtInt(oversight.overall.linked), note: `${pct(oversight.overall.linkedPct)} of their trades` },
-          { label: "Above Congress average", value: fmtInt(figures.above), note: `of ${fmtInt(figures.judged)} members with ${MIN_TRADES}+ trades` },
-        ]}
-      />
       <section className="insight-chart-card" aria-label="Stocks of companies that lobby them">
         <GovTabs tabs={[
           { label: "Members", content: <DataTable rows={bm.sorted} columns={memberColumns} rowKey={(r) => r.filerId} sort={bm.sort} onSort={bm.onSort} /> },
