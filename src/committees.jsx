@@ -20,9 +20,16 @@ export function ChamberTag({ chamber }) {
 // A committee name followed by its chamber tag.
 export function CommitteeName({ full }) {
   const { name, chamber } = committeeParts(full);
+  // The last word and the tag wrap as one, so a line break never leaves the tag alone on the next line.
+  const cut = name.lastIndexOf(" ");
   return (
     <span className="committee-name">
-      {name} <ChamberTag chamber={chamber} />
+      {cut > 0 ? `${name.slice(0, cut)} ` : ""}
+      <span className="committee-name__tail">
+        {cut > 0 ? name.slice(cut + 1) : name}
+        {chamber && "\u00a0"}
+        <ChamberTag chamber={chamber} />
+      </span>
     </span>
   );
 }

@@ -192,6 +192,8 @@ body:has(.seo-shell) #root footer { display: none; }
 .compact-table__hint{display:block;margin-top:2px;font-weight:400;font-size:14px;color:#505a5f}
 .committee-seats{margin-bottom:24px!important}
 .committee-seats__label{font-weight:700;margin-right:10px}
+.committee-name__tail{white-space:nowrap}
+@media (max-width:640px){.committee-seats__label{display:block;margin-bottom:6px}.committee-seats__item{display:block;margin-bottom:4px}.committee-seats__sep{display:none}}
 .company-cell{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
 .dk-linkbutton{font:inherit;color:#1d70b8;background:none;border:0;padding:0;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 .dk-linkbutton:hover{text-decoration-thickness:2px}

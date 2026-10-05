@@ -14,10 +14,10 @@ export default function CommitteeOverlap({ oversight }) {
       <p className="govuk-body committee-seats">
         <span className="committee-seats__label">Sits on</span>
         {committees.map((c, i) => (
-          <React.Fragment key={c.code}>
-            {i > 0 && <span aria-hidden="true"> · </span>}
+          <span key={c.code} className="committee-seats__item">
+            {i > 0 && <span className="committee-seats__sep" aria-hidden="true"> · </span>}
             <CommitteeName full={c.name} />
-          </React.Fragment>
+          </span>
         ))}
       </p>
       {topLinked.length === 0 ? (
