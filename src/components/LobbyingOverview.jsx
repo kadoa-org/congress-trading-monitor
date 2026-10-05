@@ -1,10 +1,11 @@
 import React, { Fragment, useMemo, useState } from "react";
-import { billText, CommitteeName, committeeParts, pct, shortTitle } from "../committees";
+import { billText, CommitteeName, committeeParts, fmtMoney, pct, shortCompany, shortTitle } from "../committees";
 import CompactTable from "./CompactTable";
 import LobbyEvidenceTable from "./LobbyEvidenceTable";
 import { DataTable } from "../kit";
 import { fmtInt, Link } from "../ui";
 import GovTabs from "./GovTabs";
+import { useQueryState } from "../router";
 import { TickerBadge } from "./TickerBadge";
 
 const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -25,14 +26,11 @@ function useSort(rows, initial) {
   return { sorted, sort, onSort };
 }
 
-function download(members) {
-  const esc = (v) => (/[",\n]/.test(String(v)) ? `"${String(v).replace(/"/g, '""')}"` : v);
-  const csv = [
-    "member,party,state,chamber,committees,trades,trades_in_lobbying_companies,share_pct,all_congress_pct",
-    ...members.map((m) => [m.name, m.party ?? "", m.state ?? "", m.chamber ?? "", m.committees.join(" "), m.trades, m.linked, m.linkedPct, m.expectedPct].map(esc).join(",")),
-  ].join("\n");
+function downloadCsv(filename, header, rows) {
+  const esc = (v) => (/[",\n]/.test(String(v ?? "")) ? `"${String(v).replace(/"/g, '""')}"` : (v ?? ""));
+  const csv = [header.join(","), ...rows.map((r) => r.map(esc).join(","))].join("\n");
   const url = URL.createObjectURL(new Blob([csv + "\n"], { type: "text/csv" }));
-  const a = document.createElement("a"); a.href = url; a.download = "congress-committee-lobbying.csv"; a.click(); URL.revokeObjectURL(url);
+  const a = document.createElement("a"); a.href = url; a.download = filename; a.click(); URL.revokeObjectURL(url);
 }
 
 // Committees with their figures; a row opens a full-width panel listing the members who trade.
@@ -79,6 +77,7 @@ function CommitteeTable({ rows }) {
                             columns={[
                               { key: "ticker", header: "Stock", width: 72, render: (t) => <Link to={`/ticker/${t.ticker}`} className="no-underline"><TickerBadge ticker={t.ticker} /></Link> },
                               { key: "bill", header: "Lobbied on", clamp: true, render: (t) => <span title={t.bills.map(billText).join("; ")}>{t.bills[0] ? `${t.bills[0].label} ${shortTitle(t.bills[0].title, 34)}` : ""}</span> },
+                              { key: "spend", header: `Lobbying ${r.topLinked[0]?.spendYear ?? ""}`.trim(), numeric: true, render: (t) => fmtMoney(t.spend) },
                               { key: "trades", header: "Trades", numeric: true, render: (t) => fmtInt(t.trades) },
                             ]}
                           />
@@ -127,6 +126,38 @@ export default function LobbyingOverview({ oversight }) {
   const bm = useSort(memberRows, { key: "linked", dir: "desc" });
   const shortName = (code) => committeeParts(committeeNames[code] ?? code).name;
 
+  const companyRows = useMemo(() => (oversight.companies ?? []).map((c) => ({ ...c, sortName: shortCompany(c.name), spendSort: c.spend ?? -1 })), [oversight.companies]);
+  const bc = useSort(companyRows, { key: "trades", dir: "desc" });
+  const spendYear = oversight.companies?.[0]?.spendYear;
+  const companyColumns = [
+    {
+      key: "sortName",
+      header: "Company",
+      sortable: true,
+      render: (c) => (
+        <span className="company-cell">
+          <Link to={`/ticker/${c.ticker}`} className="no-underline"><TickerBadge ticker={c.ticker} size="sm" /></Link>
+          <span>{shortCompany(c.name)}</span>
+        </span>
+      ),
+    },
+    { key: "spendSort", header: `Lobbying ${spendYear ?? ""}`.trim(), align: "right", sortable: true, render: (c) => fmtMoney(c.spend) },
+    { key: "members", header: "Members", align: "right", sortable: true, hideBelow: "sm", render: (c) => fmtInt(c.members) },
+    { key: "trades", header: "Trades", align: "right", sortable: true, render: (c) => fmtInt(c.trades) },
+  ];
+  const companyPanel = (c) => (
+    <CompactTable
+      caption={<>Members who traded it<span className="compact-table__hint">While it lobbied their committees</span></>}
+      rowKey={(m) => m.filerId}
+      rows={c.traders.slice(0, 10)}
+      columns={[
+        { key: "name", header: "Member", render: (m) => <><Link to={`/filer/${m.filerId}`}>{m.name}</Link> <span className="dk-hint">{m.party && m.state ? `${m.party}-${m.state}` : ""}</span></> },
+        { key: "committee", header: "Committee", clamp: true, hideBelow: "sm", render: (m) => m.committees.map((x) => committeeParts(x).name).join(", ") },
+        { key: "trades", header: "Trades", numeric: true, render: (m) => fmtInt(m.trades) },
+      ]}
+    />
+  );
+
   const memberColumns = [
     {
       key: "sortName",
@@ -156,16 +187,34 @@ export default function LobbyingOverview({ oversight }) {
     { key: "expectedPct", header: "All of Congress", group: "Trades in lobbying companies", align: "right", sortable: true, render: (r) => pct(r.expectedPct) },
   ];
 
+  // The selected tab lives in the address (?view=companies), so a link or search result can open it directly.
+  const VIEWS = ["members", "companies", "committees"];
+  const [qs, setQs] = useQueryState(["view"], { view: "members" });
+  const active = Math.max(0, VIEWS.indexOf(qs.view));
+  const downloads = [
+    () => downloadCsv("congress-lobbying-members.csv", ["member", "party", "state", "chamber", "committees", "stock_trades", "trades_in_lobbying_companies", "this_member_pct", "all_of_congress_pct"],
+      members.map((m) => [m.name, m.party, m.state, m.chamber, m.committees.join(" "), m.trades, m.linked, m.linkedPct, m.expectedPct])),
+    () => downloadCsv("congress-lobbying-companies.csv", ["ticker", "company", `lobbying_${spendYear ?? ""}`, "members", "trades"],
+      companyRows.map((c) => [c.ticker, c.name, c.spend, c.members, c.trades])),
+    () => downloadCsv("congress-lobbying-committees.csv", ["committee", "members", "stock_trades", "trades_in_lobbying_companies", "its_members_pct", "all_of_congress_pct"],
+      committeeRows.map((c) => [c.full, c.members, c.trades, c.linked, c.linkedPct, c.expectedPct])),
+  ];
+
   return (
     <>
       <h1 className="dk-h1">Lobbying</h1>
       <p className="govuk-body-l max-w-3xl">When members of Congress trade stocks of companies that lobby their own committees.</p>
       <section className="insight-chart-card" aria-label="Stocks of companies that lobby them">
-        <GovTabs tabs={[
+        <GovTabs active={active} onChange={(i) => setQs({ view: VIEWS[i] })} tabs={[
           { label: "Members", content: <DataTable rows={bm.sorted} columns={memberColumns} rowKey={(r) => r.filerId} sort={bm.sort} onSort={bm.onSort} expand={(r) => <LobbyEvidenceTable topLinked={r.topLinked} trades={r.trades} linked={r.linked} />} /> },
+          { label: "Companies", content: <DataTable rows={bc.sorted} columns={companyColumns} rowKey={(c) => c.ticker} sort={bc.sort} onSort={bc.onSort} expand={companyPanel} /> },
           { label: "Committees", content: <CommitteeTable rows={committeeRows} /> },
-          { label: "Download", content: <><p className="govuk-body">Every member as a CSV.</p><button type="button" className="govuk-button govuk-button--secondary" onClick={() => download(members)}>Download CSV</button></> },
         ]} />
+        <p className="govuk-body-s" style={{ margin: "16px 0 0" }}>
+          <button type="button" className="dk-linkbutton" onClick={downloads[active]}>
+            Download this table as CSV
+          </button>
+        </p>
       </section>
       <p className="govuk-body-s max-w-3xl" style={{ marginTop: 16, color: "#505a5f" }}>
         Source: LDA.gov lobbying filings{lobbying?.retrieved ? `, retrieved ${day(lobbying.retrieved)}` : ""}. Not evidence of wrongdoing. <Link to="/about#lobbying">How this is counted</Link>

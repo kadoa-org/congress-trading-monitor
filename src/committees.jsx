@@ -39,3 +39,9 @@ export function shortTitle(title, max = 60) {
 export function billText(b) {
   return b.title ? `${b.label} (${shortTitle(b.title)})` : b.label;
 }
+
+// "$10.4M", "$640K": lobbying amounts, which are filed rounded to $10,000.
+export const fmtMoney = (v) => (v == null ? "—" : v >= 1e6 ? `$${(v / 1e6).toFixed(v >= 1e7 ? 0 : 1)}M` : `$${Math.round(v / 1e3)}K`);
+
+// "Microsoft Corporation" -> "Microsoft", "Amazon.com, Inc." -> "Amazon.com".
+export const shortCompany = (name) => (name ?? "").replace(/,?\s+(Inc\.?|Corporation|Corp\.?|Co\.?|Company|Ltd\.?|plc|N\.?V\.?|S\.?A\.?)$/i, "").trim();

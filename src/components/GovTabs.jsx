@@ -1,8 +1,11 @@
 import { useId, useState } from "react";
 
 // Tabs markup driven by React state (the frontend library's own JS is not loaded on this site).
-export default function GovTabs({ tabs, title = "Contents" }) {
-  const [active, setActive] = useState(0);
+// Pass `active` and `onChange` to keep the selected tab in the page address; otherwise the tabs hold it themselves.
+export default function GovTabs({ tabs, title = "Contents", active: controlled, onChange }) {
+  const [own, setOwn] = useState(0);
+  const active = controlled ?? own;
+  const setActive = (i) => (onChange ? onChange(i) : setOwn(i));
   const id = useId();
   return (
     // Tabs are styled as tabs only under .govuk-frontend-supported (set by library JS, which this site does not load).

@@ -1,11 +1,11 @@
 import React from "react";
-import { billText, shortTitle } from "../committees";
+import { billText, fmtMoney, shortTitle } from "../committees";
 import CompactTable from "./CompactTable";
 import { fmtInt, RowLink } from "../ui";
 import { TickerBadge } from "./TickerBadge";
 
-// A member's trades in companies that lobbied their committees: each stock, the bill behind the match, and how many
-// trades. Used on the politician page and in the Lobbying tab's member rows.
+// A member's trades in companies that lobbied their committees: each stock, the bill behind the match, what the
+// company spent on lobbying last year, and how many trades. Used on the politician page and in the Lobbying tab's member rows.
 export default function LobbyEvidenceTable({ topLinked, trades, linked }) {
   return (
     <CompactTable
@@ -32,6 +32,7 @@ export default function LobbyEvidenceTable({ topLinked, trades, linked }) {
             </span>
           ),
         },
+        { key: "spend", header: `Lobbying ${topLinked[0]?.spendYear ?? ""}`.trim(), numeric: true, render: (t) => fmtMoney(t.spend) },
         { key: "trades", header: "Trades", numeric: true, render: (t) => fmtInt(t.trades) },
       ]}
     />

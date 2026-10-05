@@ -1,7 +1,7 @@
 import React from "react";
 
 // A table for short repeating facts: one line per row, a caption as its heading, numbers right-aligned.
-// columns: [{ key, header, numeric?, clamp?, width?, render(row) }]
+// columns: [{ key, header, numeric?, clamp?, width?, hideBelow?: "sm", render(row) }]
 export default function CompactTable({ caption, columns, rows, rowKey }) {
   return (
     <table className="govuk-table compact-table">
@@ -9,7 +9,7 @@ export default function CompactTable({ caption, columns, rows, rowKey }) {
       <thead className="govuk-table__head">
         <tr className="govuk-table__row">
           {columns.map((c) => (
-            <th key={c.key} scope="col" className={`govuk-table__header${c.numeric ? " govuk-table__header--numeric" : ""}`} style={c.width ? { width: c.width } : undefined}>
+            <th key={c.key} scope="col" className={`govuk-table__header${c.numeric ? " govuk-table__header--numeric" : ""}${c.hideBelow ? ` dk-hide-${c.hideBelow}` : ""}`} style={c.width ? { width: c.width } : undefined}>
               {c.header}
             </th>
           ))}
@@ -19,7 +19,7 @@ export default function CompactTable({ caption, columns, rows, rowKey }) {
         {rows.map((r) => (
           <tr key={rowKey(r)} className="govuk-table__row">
             {columns.map((c) => (
-              <td key={c.key} className={`govuk-table__cell${c.numeric ? " govuk-table__cell--numeric" : ""}${c.clamp ? " compact-table__clamp" : ""}`}>
+              <td key={c.key} className={`govuk-table__cell${c.numeric ? " govuk-table__cell--numeric" : ""}${c.clamp ? " compact-table__clamp" : ""}${c.hideBelow ? ` dk-hide-${c.hideBelow}` : ""}`}>
                 {c.render(r)}
               </td>
             ))}

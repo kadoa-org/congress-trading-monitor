@@ -192,3 +192,7 @@ body:has(.seo-shell) #root footer { display: none; }
 .compact-table__hint{display:block;margin-top:2px;font-weight:400;font-size:14px;color:#505a5f}
 .committee-seats{margin-bottom:24px!important}
 .committee-seats__label{font-weight:700;margin-right:10px}
+.company-cell{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.dk-linkbutton{font:inherit;color:#1d70b8;background:none;border:0;padding:0;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.dk-linkbutton:hover{text-decoration-thickness:2px}
+.dk-linkbutton:focus-visible{outline:3px solid #fd0;background:#fd0;color:#0b0c0c;text-decoration:none}
