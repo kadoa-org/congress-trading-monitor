@@ -35,6 +35,16 @@
 
 /* Who builds it. */
 .dk-about__kadoa { box-sizing: border-box; margin-top: 48px; padding: 20px 24px; background: #f3f2f1; border-top: 4px solid var(--dk-link); }
+.dk-about__actions { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0 0; }
+.dk-cta {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 0 16px; box-sizing: border-box;
+  border: 2px solid var(--dk-link); background: #fff; color: var(--dk-link) !important; text-decoration: none !important;
+  font: 600 16px/1 var(--dk-font);
+}
+.dk-cta:hover { background: #f3f8fc; }
+.dk-cta--primary { background: var(--dk-link); color: #fff !important; }
+.dk-cta--primary:hover { background: #144e81; border-color: #144e81; }
+.dk-cta:focus-visible { outline: 3px solid var(--dk-focus); outline-offset: 0; }
 .dk-about__corrections { margin-top: 24px; font-size: 14px; color: var(--dk-muted); }
 
 @media (max-width: 640px) {

@@ -14,7 +14,12 @@ function useOpenHash() {
   }, []);
 }
 
-export function AboutPage({ title = "About the data", lede, sources, steps, methods, corrections }) {
+// Where the dataset CTAs point: the kadoa.com contact form, which opens as "Get this dataset" (ref=live-dataset) or as
+// a sample request (ref=sample), and records which dataset and which button the request came from.
+export const datasetContactHref = (ref, cta, dataset) =>
+  `https://www.kadoa.com/contact/sales?${new URLSearchParams({ ref, cta, ...(dataset ? { dataset } : {}) })}`;
+
+export function AboutPage({ title = "About the data", lede, sources, steps, methods, corrections, dataset }) {
   useOpenHash();
   const sections = [
     ...(sources?.length
@@ -87,16 +92,20 @@ export function AboutPage({ title = "About the data", lede, sources, steps, meth
         </section>
       )}
 
+      {/* Who builds it, and the way to work with them: license this dataset with delivery, or get one built. */}
       <section className="dk-about__kadoa" aria-labelledby="about-kadoa">
-        <h2 className="dk-about__h3" id="about-kadoa">Built by Kadoa</h2>
+        <h2 className="dk-about__h3" id="about-kadoa">Use Kadoa for your research</h2>
         <p className="dk-about__text">
           <a href="https://www.kadoa.com/">Kadoa</a> is the web data layer for finance, building the most reliable public
-          datasets for investors. We publish a few datasets like this one for free, because public records should be easy
-          to use.
+          datasets for investors. License this dataset with daily delivery, or get a custom one built for your questions.
         </p>
-        <p className="dk-about__links">
-          <a href="https://www.kadoa.com/">How Kadoa works</a>
-          <a href="https://www.kadoa.com/datasets">All datasets</a>
+        <p className="dk-about__actions">
+          <a className="dk-cta dk-cta--primary" href={datasetContactHref("live-dataset", "microsite-about", dataset)}>
+            Get this dataset <span aria-hidden="true">→</span>
+          </a>
+          <a className="dk-cta" href={datasetContactHref("sample", "microsite-about", dataset)}>
+            Get a custom dataset
+          </a>
         </p>
       </section>
 

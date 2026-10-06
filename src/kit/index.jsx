@@ -199,7 +199,8 @@ export function SiteHeader({ brand, brandHref = "/", brandSuffix, right, LinkCom
 // every site, so the footer never shifts between them; `current` marks the site
 // being read, shown as plain text rather than a link to itself. Cross-site links
 // are full navigations, so plain anchors.
-export function SiteFooter({ current }) {
+// `dataset` names the site the footer's "Get a custom dataset" request came from; it defaults to the site's key.
+export function SiteFooter({ current, dataset = current }) {
   // Alphabetical, so a reader finds a site without scanning. Eight entries fill four columns of two on desktop and
   // two columns of four on a phone; keep the count even when adding a site.
   const sites = [
@@ -227,9 +228,11 @@ export function SiteFooter({ current }) {
             ))}
           </ul>
         </nav>
+        {/* Kadoa leads the line: the data here is already free, so the offer is everything else, built to order. */}
         <p className="dk-footer-meta">
-          Free and open, refreshed daily{" "}· <a href="https://www.kadoa.com/datasets">All datasets</a>
-          {" "}· built by <a href="https://www.kadoa.com/">Kadoa</a>
+          Built by <a href="https://www.kadoa.com/">Kadoa</a>, the web data layer for finance{"\u00a0"}·{" "}
+          <a href={`https://www.kadoa.com/contact/sales?${new URLSearchParams({ ref: "sample", cta: "microsite-footer", ...(dataset ? { dataset } : {}) })}`}>Get a custom web dataset</a>
+          {"\u00a0"}· <a href="https://www.kadoa.com/datasets">All open datasets</a>
         </p>
       </div>
     </footer>
