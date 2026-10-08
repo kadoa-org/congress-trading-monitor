@@ -18,15 +18,15 @@ import { useRoute } from "./router";
 import { fetchData } from "./data";
 
 async function loadAll(seed = {}) {
-  const [stats, trades, filers, tickers, scatter, returns, prices, alphaIndex, adminStats, flows, oversight] = await Promise.all(
-    ["stats", "trades", "filers", "tickers", "scatter", "returns", "prices", "alpha-index", "admin-stats", "flows", "oversight"]
+  const [stats, trades, filers, tickers, scatter, returns, prices, alphaIndex, adminStats, flows, oversight, lobbyingMcap] = await Promise.all(
+    ["stats", "trades", "filers", "tickers", "scatter", "returns", "prices", "alpha-index", "admin-stats", "flows", "oversight", "lobbying-mcap"]
       .map((name) => seed[name] ?? fetchData(`${import.meta.env.BASE_URL}data/${name}.json`)),
   );
 
-  return prepareData({ stats, trades, filers, tickers, scatter, returns, prices, "alpha-index": alphaIndex, "admin-stats": adminStats, flows, oversight });
+  return prepareData({ stats, trades, filers, tickers, scatter, returns, prices, "alpha-index": alphaIndex, "admin-stats": adminStats, flows, oversight, "lobbying-mcap": lobbyingMcap });
 }
 
-function prepareData({ stats = null, trades = [], filers = [], tickers = [], scatter = { filers: [], trades: [] }, returns = [], prices = {}, "alpha-index": alphaIndex, "admin-stats": adminStats, flows = [], oversight = null } = {}) {
+function prepareData({ stats = null, trades = [], filers = [], tickers = [], scatter = { filers: [], trades: [] }, returns = [], prices = {}, "alpha-index": alphaIndex, "admin-stats": adminStats, flows = [], oversight = null, "lobbying-mcap": lobbyingMcap = null } = {}) {
   // Per-filer admin participation. A filer is considered "in" an administration
   // if they have at least one disclosed trade while that admin was sitting.
   // Trump II cabinet members are further flagged with `cabinet: true` — executive
@@ -75,6 +75,7 @@ function prepareData({ stats = null, trades = [], filers = [], tickers = [], sca
     adminStats,
     flows,
     oversight,
+    lobbyingMcap,
     filersById,
   };
 }

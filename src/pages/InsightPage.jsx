@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
 import GovTabs from "../components/GovTabs";
+import LobbyingScatter, { GROUPS, money, perMillion } from "../components/LobbyingScatter";
 import WeeklyFlows from "../components/WeeklyFlows";
 import { insightBySlug } from "../insights";
 import { DataTable } from "../kit";
@@ -47,9 +48,56 @@ function WeeklyTrading({ flows }) {
   );
 }
 
+function downloadLobbying(rows) {
+  const csv = ["ticker,company,sector,lobbying_2025_usd,market_cap_usd,lobbying_per_1m_market_cap", ...rows.map((r) => [r.t, `"${r.n.replace(/"/g, '""')}"`, r.g, r.spend, r.mcap, perMillion(r).toFixed(2)].join(","))].join("\n");
+  const url = URL.createObjectURL(new Blob([csv + "\n"], { type: "text/csv" }));
+  const a = document.createElement("a"); a.href = url; a.download = "company-lobbying-vs-market-cap-2025.csv"; a.click(); URL.revokeObjectURL(url);
+}
+
+const SECTOR = { ...Object.fromEntries(Object.entries(GROUPS).map(([k, g]) => [k, g.label])), other: "Other" };
+
+function LobbyingVsMarketCap({ data }) {
+  const { rows, medians } = data;
+  const [sort, setSort] = useState({ key: "spend", dir: "desc" });
+  const sorted = useMemo(() => {
+    const val = { name: (r) => r.n, sector: (r) => SECTOR[r.g], spend: (r) => r.spend, mcap: (r) => r.mcap, per: perMillion }[sort.key];
+    return [...rows].sort((a, b) => { const p = val(a), q = val(b); return (p < q ? -1 : p > q ? 1 : 0) * (sort.dir === "asc" ? 1 : -1); });
+  }, [rows, sort]);
+  const onSort = (key) => setSort((s) => ({ key, dir: s.key === key && s.dir === "desc" ? "asc" : "desc" }));
+  const columns = [
+    { key: "name", header: "Company", sortable: true, render: (r) => <><Link to={`/ticker/${encodeURIComponent(r.t)}`}>{r.n}</Link> <span style={{ color: "#505a5f" }}>{r.t}</span></> },
+    { key: "sector", header: "Sector", sortable: true, hideBelow: "sm", render: (r) => SECTOR[r.g] },
+    { key: "spend", header: "Lobbying in 2025", align: "right", sortable: true, render: (r) => money(r.spend) },
+    { key: "mcap", header: "Market cap", align: "right", sortable: true, hideBelow: "sm", render: (r) => money(r.mcap) },
+    { key: "per", header: "Per $1M of market cap", align: "right", sortable: true, render: (r) => `$${Math.round(perMillion(r)).toLocaleString("en-US")}` },
+  ];
+  const order = Object.keys(GROUPS).sort((a, b) => medians[a] - medians[b]);
+  return (
+    <>
+      <h1 className="dk-h1">Lobbying spend vs market cap</h1>
+      <p className="govuk-body-l max-w-3xl">What {rows.length} US companies traded by members of Congress spent on federal lobbying in 2025, against their size.</p>
+      <p className="govuk-body max-w-3xl">
+        Median lobbying per $1M of market cap:{" "}
+        {order.map((k, i) => <React.Fragment key={k}>{i ? ", " : ""}<strong style={{ color: GROUPS[k].text }}>{GROUPS[k].label.toLowerCase()}</strong> ${medians[k]}</React.Fragment>)}.
+      </p>
+      <section className="insight-chart-card" aria-label="Lobbying spend vs market cap">
+        <p className="govuk-body-s insight-date">Lobbying in 2025, market cap in October 2026</p>
+        <GovTabs tabs={[
+          { label: "Chart", content: <LobbyingScatter rows={rows} /> },
+          { label: "Tabular data", content: <DataTable rows={sorted} columns={columns} rowKey={(r) => r.t} sort={sort} onSort={onSort} /> },
+          { label: "Download", content: <><p className="govuk-body">All {rows.length} companies as a CSV: lobbying in 2025, market cap, sector and lobbying per $1M of market cap.</p><button type="button" className="govuk-button govuk-button--secondary" onClick={() => downloadLobbying(rows)}>Download CSV</button></> },
+        ]} />
+      </section>
+      <p className="govuk-body-s max-w-3xl" style={{ marginTop: 16, color: "#505a5f" }}>
+        Lobbying is from Lobbying Disclosure Act filings on LDA.gov: what a company reports spending when it files itself, otherwise what outside firms report earning from it. Market cap is the latest SEC share count times a recent close. US-listed companies with a market cap of at least $2B and $100K of lobbying.
+      </p>
+    </>
+  );
+}
+
 export default function InsightPage({ slug, data }) {
   const insight = insightBySlug(slug);
-  const { flows = [] } = data;
+  const { flows = [], lobbyingMcap } = data;
   if (!insight) return <div className="dk-container"><main className="govuk-main-wrapper"><h1 className="dk-h1">Insight not found</h1><p className="govuk-body"><Link to="/insights">See all insights</Link></p></main></div>;
   return (
     <div className="dk-container">
@@ -61,6 +109,7 @@ export default function InsightPage({ slug, data }) {
       </nav>
       <main className="govuk-main-wrapper" id="main-content">
         {insight.slug === "weekly-trading" && flows.length > 0 && <WeeklyTrading flows={flows} />}
+        {insight.slug === "lobbying-vs-market-cap" && lobbyingMcap && <LobbyingVsMarketCap data={lobbyingMcap} />}
       </main>
     </div>
   );
