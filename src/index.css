@@ -140,6 +140,9 @@ body:has(.seo-shell) #root footer { display: none; }
 @media (max-width: 40.0525em) {
   .govuk-frontend-supported .govuk-tabs__title { display: none; }
   .govuk-frontend-supported .govuk-tabs__list { display: flex; margin: 0; padding: 0; border-bottom: 1px solid #b1b4b6; overflow-x: auto; }
+  /* The tabs sit 1px over the list's bottom border to join the panel; that overflow drew a stray scrollbar in browsers that show scrollbars (macOS with a mouse, devtools device mode). The row still scrolls on narrow screens. */
+  .govuk-frontend-supported .govuk-tabs__list { scrollbar-width: none; }
+  .govuk-frontend-supported .govuk-tabs__list::-webkit-scrollbar { display: none; }
   .govuk-frontend-supported .govuk-tabs__list-item { margin: 0 4px -1px 0; padding: 8px 12px; background: #f3f2f1; list-style: none; white-space: nowrap; border: 1px solid transparent; border-bottom: 0; }
   .govuk-frontend-supported .govuk-tabs__list-item::before { content: none; }
   .govuk-frontend-supported .govuk-tabs__list-item--selected { background: #fff; border-color: #b1b4b6; }
