@@ -151,6 +151,13 @@ body:has(.seo-shell) #root footer { display: none; }
   .govuk-frontend-supported .govuk-tabs__panel { margin: 0; padding: 16px 12px; border: 1px solid #b1b4b6; border-top: 0; background: #fff; }
   .govuk-frontend-supported .govuk-tabs__panel--hidden { display: none; }
   .insight-chart-card { padding: 16px 12px; margin: 0 -15px; }
+  /* Phones: the chart gets the full width. The card's side padding and the panel's padding and side borders took
+     about 60px of a 390px screen; the gray card edge already frames the panel. */
+  .insight-chart-card { padding: 12px 0 0; }
+  .insight-chart-card .insight-date { padding: 0 15px; }
+  .insight-chart-card .govuk-tabs__list { padding: 0 15px; }
+  .insight-chart-card .govuk-frontend-supported .govuk-tabs__panel,
+  .govuk-frontend-supported .insight-chart-card .govuk-tabs__panel { padding: 12px 15px 16px; border-left: 0; border-right: 0; }
 }
 @media (max-width: 40.0525em) { .insight-about .govuk-list { font-size: 16px; line-height: 1.4; } }
 .committee-table td{vertical-align:middle}

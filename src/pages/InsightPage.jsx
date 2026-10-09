@@ -88,7 +88,7 @@ function LobbyingVsMarketCap({ data }) {
         ]} />
       </section>
       <p className="govuk-body-s max-w-3xl" style={{ marginTop: 16, color: "#505a5f" }}>
-        Lobbying is from Lobbying Disclosure Act filings on LDA.gov: what a company reports spending when it files itself, otherwise what outside firms report earning from it. Market cap is the latest SEC share count times a recent close. US-listed companies with a market cap of at least $2B and $100K of lobbying.
+        Sources: LDA.gov filings (2025), SEC share counts and recent prices. US-listed companies with at least $2B market cap and $100K of lobbying.
       </p>
     </>
   );

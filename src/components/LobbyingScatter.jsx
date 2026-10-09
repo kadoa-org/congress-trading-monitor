@@ -11,7 +11,8 @@ export const GROUPS = {
 };
 const GREY = "#c9cdd0", INK = "#0b0c0c", MUTED = "#505a5f", GRID = "rgba(0,0,0,0.07)";
 const LABELLED = ["META", "LMT", "GM", "AMZN", "GOOGL", "GD", "RTX", "AAPL", "MSFT", "NVDA", "AVGO", "LLY", "PFE", "CMCSA", "CHTR", "PSKY", "TMUS", "PM"];
-const NARROW_LABELLED = new Set(["META", "GM", "AMZN", "LMT", "AAPL", "NVDA", "CHTR"]);
+// Phones show only the story points: the biggest spenders and the extremes on each side of the lines.
+const NARROW_LABELLED = new Set(["META", "AMZN", "LMT", "NVDA", "CHTR"]);
 const X0 = 2e9, X1 = 6e12, Y0 = 1e5, Y1 = 3e7;
 
 export const money = (v) => (v >= 1e12 ? `$${+(v / 1e12).toFixed(2)}T` : v >= 1e9 ? `$${+(v / 1e9).toFixed(v >= 1e10 ? 0 : 1)}B` : v >= 1e6 ? `$${+(v / 1e6).toFixed(1)}M` : `$${Math.round(v / 1e3)}K`);
@@ -30,7 +31,7 @@ export default function LobbyingScatter({ rows }) {
     return () => ro.disconnect();
   }, []);
   const narrow = width < 640;
-  const W = Math.max(320, width), H = narrow ? 420 : 560;
+  const W = Math.max(320, width), H = narrow ? Math.round(W * 1.2) : 560;
   const P = { l: narrow ? 44 : 56, r: narrow ? 10 : 24, t: 30, b: 40 };
   const x = (v) => P.l + ((Math.log10(v) - Math.log10(X0)) / (Math.log10(X1) - Math.log10(X0))) * (W - P.l - P.r);
   const y = (v) => H - P.b - ((Math.log10(v) - Math.log10(Y0)) / (Math.log10(Y1) - Math.log10(Y0))) * (H - P.t - P.b);
@@ -88,7 +89,7 @@ export default function LobbyingScatter({ rows }) {
   // room from coloured dots and company labels.
   const isoLabels = (() => {
     if (!width) return [];
-    const fs = narrow ? 11 : 13;
+    const fs = narrow ? 12 : 13;
     const geo = iso.map((L) => {
       const len = Math.hypot(L.x2 - L.x1, L.y2 - L.y1), ux = (L.x2 - L.x1) / len, uy = (L.y2 - L.y1) / len;
       const text = `$${L.k} per $1M`;
@@ -150,7 +151,7 @@ export default function LobbyingScatter({ rows }) {
           ))}
           {pts.map((p) => {
             const story = p.g !== "other";
-            return <circle key={p.t} cx={x(p.mcap)} cy={y(p.spend)} r={story ? (narrow ? 4 : 5) : (narrow ? 3 : 4)} fill={story ? GROUPS[p.g].color : GREY} fillOpacity={story ? 0.9 : 0.6} stroke="#fff" strokeWidth="1" />;
+            return <circle key={p.t} cx={x(p.mcap)} cy={y(p.spend)} r={story ? (narrow ? 3.5 : 5) : (narrow ? 2.2 : 4)} fill={story ? GROUPS[p.g].color : GREY} fillOpacity={story ? 0.9 : narrow ? 0.5 : 0.6} stroke="#fff" strokeWidth="1" />;
           })}
           {labels.map((l) => (
             <g key={l.p.t}>
