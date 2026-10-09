@@ -81,8 +81,46 @@ export default function LobbyingScatter({ rows }) {
     let a = X0, b = X1;
     if (f(a) < Y0) a = (Y0 * 1e6) / k;
     if (f(b) > Y1) b = (Y1 * 1e6) / k;
-    return { k, x1: x(a), y1: y(f(a)), x2: x(b), y2: y(f(b)), top: f(b) >= Y1 * 0.999 };
+    return { k, x1: x(a), y1: y(f(a)), x2: x(b), y2: y(f(b)) };
   });
+  // Line labels as on the Reddit chart: each rides its line, rotated to the slope and just below it, and all three
+  // start at one shared height so they read as a set. The height is the one where the tightest label keeps the most
+  // room from coloured dots and company labels.
+  const isoLabels = (() => {
+    if (!width) return [];
+    const fs = narrow ? 11 : 13;
+    const geo = iso.map((L) => {
+      const len = Math.hypot(L.x2 - L.x1, L.y2 - L.y1), ux = (L.x2 - L.x1) / len, uy = (L.y2 - L.y1) / len;
+      const text = `$${L.k} per $1M`;
+      return { L, len, ux, uy, text, w: text.length * fs * 0.56 };
+    });
+    const dots = pts.filter((p) => p.g !== "other").map((p) => [x(p.mcap), y(p.spend)]);
+    const boxes = labels.map((l) => ({ x0: l.anchor === "start" ? l.tx : l.anchor === "end" ? l.tx - l.p.n.length * l.fs * 0.58 : l.tx - (l.p.n.length * l.fs * 0.58) / 2, y0: l.ty - l.fs, y1: l.ty + 4 }));
+    const off = fs + 3; // baseline offset below the line, in the rotated frame
+    const clearance = (G, s) => {
+      let c = Infinity;
+      for (let a = 0; a <= G.w; a += 5) for (const o of [3, off / 2, off]) {
+        const px = G.L.x1 + G.ux * (s + a) - G.uy * o, py = G.L.y1 + G.uy * (s + a) + G.ux * o;
+        if (px < P.l + 4 || px > W - P.r - 2 || py < P.t + 4 || py > H - P.b - 4) return -99;
+        for (const [dx, dy] of dots) c = Math.min(c, Math.hypot(px - dx, py - dy) - 5);
+        for (const b of boxes) c = Math.min(c, Math.max(b.x0 - px, px - b.x0 - 200, b.y0 - py, py - b.y1));
+      }
+      return c;
+    };
+    let best = null;
+    for (let yc = P.t + 10; yc <= H - P.b - 10; yc += 3) {
+      const spots = [];
+      for (const G of geo) {
+        const s = (yc - G.ux * off - G.L.y1) / G.uy;
+        if (!(s > 4 && s < G.len - G.w - 4)) break;
+        spots.push({ G, s, c: clearance(G, s) });
+      }
+      if (spots.length < geo.length) continue;
+      const worst = Math.min(...spots.map((q) => q.c));
+      if (!best || worst > best.worst) best = { worst, spots };
+    }
+    return (best?.spots ?? []).map(({ G, s }) => ({ text: G.text, x: G.L.x1 + G.ux * s, y: G.L.y1 + G.uy * s, deg: (Math.atan2(G.uy, G.ux) * 180) / Math.PI, fs, off }));
+  })();
   const tipLeft = hover ? Math.min(Math.max(x(hover.mcap), 110), W - 110) : 0;
   const tipTop = hover ? (y(hover.spend) > H / 2 ? y(hover.spend) - 96 : y(hover.spend) + 14) : 0;
   return (
@@ -107,7 +145,7 @@ export default function LobbyingScatter({ rows }) {
           {iso.map((L) => (
             <g key={L.k}>
               <line x1={L.x1} y1={L.y1} x2={L.x2} y2={L.y2} stroke={MUTED} strokeDasharray="4 5" opacity="0.55" />
-              {(!narrow || L.k !== 1) && <text x={L.top ? L.x2 - 4 : W - P.r - 4} y={L.top ? P.t - 6 : L.y2 - 6} textAnchor="end" fontSize={narrow ? 11 : 13} fill={MUTED}>{`$${L.k} per $1M`}</text>}
+
             </g>
           ))}
           {pts.map((p) => {
@@ -119,6 +157,12 @@ export default function LobbyingScatter({ rows }) {
               <circle cx={l.cx} cy={l.cy} r={narrow ? 4.5 : 5.5} fill={l.p.g === "other" ? "#8a9196" : GROUPS[l.p.g].color} stroke={INK} strokeWidth="1.5" />
               <text x={l.tx} y={l.ty} textAnchor={l.anchor} fontSize={l.fs} fontWeight="600" stroke="#fff" strokeWidth="4" strokeLinejoin="round" fill="#fff">{l.p.n}</text>
               <text x={l.tx} y={l.ty} textAnchor={l.anchor} fontSize={l.fs} fontWeight="600" fill={INK}>{l.p.n}</text>
+            </g>
+          ))}
+          {isoLabels.map((l) => (
+            <g key={l.text} transform={`translate(${l.x.toFixed(1)} ${l.y.toFixed(1)}) rotate(${l.deg.toFixed(2)})`}>
+              <text y={l.off} fontSize={l.fs} stroke="#fff" strokeWidth="4" strokeLinejoin="round" fill="#fff">{l.text}</text>
+              <text y={l.off} fontSize={l.fs} fill={MUTED}>{l.text}</text>
             </g>
           ))}
           {hover && <circle cx={x(hover.mcap)} cy={y(hover.spend)} r={narrow ? 6 : 7} fill="none" stroke={INK} strokeWidth="2" />}
