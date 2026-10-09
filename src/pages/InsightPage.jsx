@@ -76,11 +76,10 @@ function LobbyingVsMarketCap({ data }) {
     <>
       <h1 className="dk-h1">Lobbying spend vs market cap</h1>
       <p className="govuk-body-l max-w-3xl">
-        Federal lobbying in 2025 per $1M of market cap, median across {rows.length} US companies traded by members of Congress:{" "}
+        Median federal lobbying in 2025 per $1M of market cap (October 2026), across {rows.length} US companies traded by members of Congress:{" "}
         {order.map((k, i) => <React.Fragment key={k}>{i ? ", " : ""}<strong style={{ color: GROUPS[k].text }}>{GROUPS[k].label.toLowerCase()}</strong> ${medians[k]}</React.Fragment>)}.
       </p>
       <section className="insight-chart-card" aria-label="Lobbying spend vs market cap">
-        <p className="govuk-body-s insight-date">Lobbying in 2025, market cap in October 2026</p>
         <GovTabs tabs={[
           { label: "Chart", content: <LobbyingScatter rows={rows} /> },
           { label: "Tabular data", content: <DataTable rows={sorted} columns={columns} rowKey={(r) => r.t} sort={sort} onSort={onSort} /> },
