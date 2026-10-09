@@ -129,7 +129,7 @@ export default function LobbyingScatter({ rows }) {
       {width > 0 && (
         <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} onMouseMove={onMove} onMouseLeave={() => setHover(null)} role="img"
           aria-label="Lobbying spend in 2025 against market cap for US companies traded by members of Congress, on log scales, coloured by sector.">
-          <text x={0} y={14} fontSize={narrow ? 13 : 15} fontWeight="700" fill={INK}>Lobbying in 2025</text>
+          <text x={0} y={14} fontSize={narrow ? 13 : 15} fontWeight="700" fill={INK}>Spent on lobbying in 2025</text>
           {yTicks.map((v) => (
             <g key={v}>
               <line x1={P.l} x2={W - P.r} y1={y(v)} y2={y(v)} stroke={GRID} />
