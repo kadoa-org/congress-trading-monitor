@@ -6,7 +6,7 @@ import { insightBySlug } from "../insights";
 import { DataTable } from "../kit";
 import { fmtInt, Link } from "../ui";
 
-// One insight on its own page, laid out as a dashboard topic: breadcrumbs, title and lede, a chart card with
+// One insight on its own page, laid out as a dashboard topic: title and lede, a chart card with
 // Chart / Tabular data / Download tabs and the date, then a one-line note.
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const day = (s) => { const d = new Date(`${s}T00:00:00Z`); return `${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()}`; };
@@ -99,12 +99,6 @@ export default function InsightPage({ slug, data }) {
   if (!insight) return <div className="dk-container"><main className="govuk-main-wrapper"><h1 className="dk-h1">Insight not found</h1><p className="govuk-body"><Link to="/insights">See all insights</Link></p></main></div>;
   return (
     <div className="dk-container">
-      <nav className="govuk-breadcrumbs" aria-label="Breadcrumb">
-        <ol className="govuk-breadcrumbs__list">
-          <li className="govuk-breadcrumbs__list-item"><Link className="govuk-breadcrumbs__link" to="/insights">Insights</Link></li>
-          <li className="govuk-breadcrumbs__list-item" aria-current="page">{insight.title}</li>
-        </ol>
-      </nav>
       <main className="govuk-main-wrapper" id="main-content">
         {insight.slug === "weekly-trading" && flows.length > 0 && <WeeklyTrading flows={flows} />}
         {insight.slug === "lobbying-vs-market-cap" && lobbyingMcap && <LobbyingVsMarketCap data={lobbyingMcap} />}
