@@ -188,7 +188,7 @@ body:has(.seo-shell) #root footer { display: none; }
 a.ct-chip,.ct-chip{font-size:16px;padding:2px 8px 3px;text-decoration:none}
 a.ct-chip:hover{text-decoration:underline}
 .ct-more{font-size:16px;color:#505a5f;padding:2px 4px;margin:0}
-.ct-about{margin-top:20px}
+.ct-about{margin:40px 0 0;max-width:760px}.ct-about ul{margin:0;padding-left:20px;list-style:disc}.ct-about li{margin:0 0 10px;line-height:1.5}
 .ct-note{font-size:14px;color:#505a5f;margin:10px 0 0}
 @media (max-width: 48.0525em){
   .ct-chambers{grid-template-columns:1fr;gap:20px}

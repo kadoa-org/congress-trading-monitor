@@ -116,7 +116,7 @@ const LEGEND = "#2a78d6";
 
 export default function CommitteeTrades() {
   const [from, to] = data.period;
-  const { median, low, high } = data.baseline;
+  const { median, runs, atLeastActual } = data.baseline;
   return (
     <>
       <h1 className="dk-h1">{data.membersMatched} members of Congress traded stocks in companies their committees oversee</h1>
@@ -143,18 +143,19 @@ export default function CommitteeTrades() {
         {data.cards.map((c) => <MemberCard key={c.filerId} card={c} />)}
       </div>
 
-      <div className="insight-about ct-about max-w-3xl">
-        <h2 className="govuk-heading-m">How we counted</h2>
-        <ul className="govuk-list govuk-list--bullet govuk-body-s">
-          <li>Company stocks only: no funds, ETFs or municipal bonds. Duplicate filings removed.</li>
-          <li>A trade counts when the member sits on a committee or subcommittee whose remit covers the company's core business, that oversees an agency paying a defence or government contractor $100M or more, or that called the company's CEO or president to testify.</li>
-          <li>Committee seats are matched to the date of each trade.</li>
-          <li>Random baseline: dealing the same committee seats at random within each chamber, 200 times, gives a median of {median} members ({low} to {high}). The real seats give {data.membersMatched}, from {fmtInt(data.matchedTrades)} of {fmtInt(data.companyTrades)} company stock trades.</li>
+      {/* Background for readers who ask what is being counted. The figures are fixed to the period they name. */}
+      <section className="ct-about">
+        <h2 className="govuk-heading-m">About the data</h2>
+        <ul>
+          <li>These are stock trades that members of Congress reported for themselves, their spouses and their children from {day(from)} to {day(to)}, taken from <a className="govuk-link" href="https://disclosures-clerk.house.gov/FinancialDisclosure" target="_blank" rel="noreferrer">House</a> and <a className="govuk-link" href="https://efdsearch.senate.gov/" target="_blank" rel="noreferrer">Senate</a> disclosure filings.</li>
+          <li>Only company stocks count. Funds, ETFs and bonds are left out, and so are filings reported twice.</li>
+          <li>A trade is linked to a committee when the member sat on it that day and the committee oversees the company's main business. We also link contractors paid $100M or more by an agency the committee oversees, per <a className="govuk-link" href="https://www.usaspending.gov/" target="_blank" rel="noreferrer">USAspending</a>, and companies whose CEO testified before it.</li>
+          <li>We sorted companies into committees using SEC industry codes and each committee's written remit, with an AI model doing the first pass.</li>
+          <li>Filings give value ranges, not exact amounts, so we count trades rather than dollars.</li>
+          <li>Is {data.membersMatched} a lot? We handed out the same committee seats at random {runs} times. A typical run gives {median} members, and {atLeastActual} of the {runs} runs gave {data.membersMatched} or more.</li>
+          <li>The asterisks mark trades made within a year of a House Oversight letter to the company, for <a className="govuk-link" href="https://oversight.house.gov/release/comer-and-higgins-investigate-cvs-healths-use-of-confidential-patient-information-to-lobby-louisiana-state-legislature/" target="_blank" rel="noreferrer">CVS</a> and <a className="govuk-link" href="https://oversight.house.gov/release/mace-seeks-information-from-uber-on-safety-protocols-to-prevent-sexual-assault-and-misconduct/" target="_blank" rel="noreferrer">Uber</a>.</li>
         </ul>
-        <p className="govuk-body-s" style={{ color: "#505a5f" }}>
-          Sources: House Clerk and Senate eFD trade disclosures, SEC company data, USAspending contracts, House committee hearings and press releases.
-        </p>
-      </div>
+      </section>
     </>
   );
 }
