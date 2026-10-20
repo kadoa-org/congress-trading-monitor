@@ -175,8 +175,7 @@ function Members({ focus }) {
         <SingleSelectChip label="Sort" options={SORTS} value={qs.sort} onChange={(v) => setQs({ sort: v })} />
       </div>
       <p className="govuk-body-s ct-count" aria-live="polite">
-        {filtered ? <>Showing {cards.length} of {data.cards.length} members. <button type="button" className="ct-toggle" onClick={() => setQs(QUERY_DEFAULTS)}>Clear filters</button></>
-          : showAll ? <>All {data.cards.length} members</> : <>The {TOP} members with the most trades, of {data.cards.length}</>}
+        {filtered && <>Showing {cards.length} of {data.cards.length} members. <button type="button" className="ct-toggle" onClick={() => setQs(QUERY_DEFAULTS)}>Clear filters</button></>}
       </p>
       <p className="govuk-body-s ct-legend">
         Trades per company, darker means more:
