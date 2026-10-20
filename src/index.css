@@ -174,8 +174,19 @@ body:has(.seo-shell) #root footer { display: none; }
 .ct-section,.ct-about h2{font-size:24px;font-weight:700;line-height:1.25;margin-bottom:15px}
 @media (max-width:640px){.ct-section,.ct-about h2{font-size:21px}}
 .ct-legend{display:flex;flex-wrap:wrap;align-items:center;gap:6px;color:#505a5f}
-.ct-cards{columns:2;column-gap:30px}
-.ct-card{break-inside:avoid;border:1px solid #b1b4b6;margin-bottom:30px;background:#fff}
+.ct-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start}
+.ct-card{border:1px solid #b1b4b6;background:#fff;scroll-margin-top:16px}
+.ct-card--flash{animation:ct-flash 1.6s ease-out}
+@keyframes ct-flash{0%,40%{box-shadow:0 0 0 4px #ffdd00}100%{box-shadow:0 0 0 4px rgba(255,221,0,0)}}
+.ct-cell{display:block;aspect-ratio:1;border:0;padding:0;cursor:pointer}
+.ct-cell:hover{outline:2px solid #0b0c0c;outline-offset:0}
+.ct-cell:focus-visible{outline:3px solid #ffdd00;box-shadow:0 0 0 5px #0b0c0c}
+.ct-filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}
+.ct-count{color:#505a5f;margin-bottom:8px}
+.ct-toggle{font:inherit;font-size:16px;color:#1d70b8;background:none;border:0;padding:0;margin-top:12px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;display:inline-block}
+.ct-count .ct-toggle,.govuk-body .ct-toggle{margin-top:0;font-size:inherit}
+.ct-toggle + .ct-toggle{margin-left:16px}
+.ct-chip--hit{outline:2px solid #0b0c0c;outline-offset:1px}
 .ct-card__header{display:flex;gap:15px;align-items:center;background:#f3f2f1;padding:15px 20px;border-bottom:1px solid #b1b4b6}
 .ct-card__header img{width:56px;height:68px;object-fit:cover;background:#e8e9e9}
 .ct-card__name{margin:0}
@@ -197,7 +208,7 @@ a.ct-chip:hover{text-decoration:underline}
   .ct-chambers{grid-template-columns:1fr;gap:20px}
   .ct-grid{grid-template-columns:repeat(26,minmax(0,1fr))}
   .ct-chamber--14 .ct-grid{grid-template-columns:repeat(14,minmax(0,1fr));max-width:50%}
-  .ct-cards{columns:1}
+  .ct-cards{grid-template-columns:1fr}
 }
 @media (max-width: 40.0525em) { .insight-about .govuk-list { font-size: 16px; line-height: 1.4; } }
 .committee-table td{vertical-align:middle}
