@@ -6,7 +6,7 @@ export const INSIGHTS = [
     title: "Trading the companies their committees oversee",
     summary: "55 members of Congress traded stocks in companies their committees oversee since January 2025.",
     seoTitle: "55 Members of Congress Traded Stocks Their Committees Oversee",
-    seoDescription: "Which members of Congress traded stocks in companies their committees oversee, January 2025 to October 2026, with the committees and companies for each. About as many as random committee seats would give.",
+    seoDescription: "Which members of Congress traded stocks in companies their committees oversee, January 2025 to October 2026, with the committees and companies for each. Random committee seats would give about 50.",
   },
   {
     slug: "weekly-trading",

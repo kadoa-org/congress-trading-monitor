@@ -121,7 +121,7 @@ export default function CommitteeTrades() {
     <>
       <h1 className="dk-h1">{data.membersMatched} members of Congress traded stocks in companies their committees oversee</h1>
       <p className="govuk-body-l max-w-3xl">
-        Stock trades by members and their families, January 2025 to October 2026. Random committee seats give about as many: {median} in a typical run.
+        Stock trades by members and their families, January 2025 to October 2026. Random committee seats give {median} in a typical run.
       </p>
       <section className="insight-chart-card" aria-label="Members who traded companies their committees oversee">
         <p className="govuk-body-s insight-date">Trades from {day(from)} to {day(to)}</p>
@@ -149,7 +149,7 @@ export default function CommitteeTrades() {
         <ul>
           <li>These are stock trades that members of Congress reported for themselves, their spouses and their children from {day(from)} to {day(to)}, taken from <a className="govuk-link" href="https://disclosures-clerk.house.gov/FinancialDisclosure" target="_blank" rel="noreferrer">House</a> and <a className="govuk-link" href="https://efdsearch.senate.gov/" target="_blank" rel="noreferrer">Senate</a> disclosure filings.</li>
           <li>Only trades in individual companies count. Funds, ETFs and municipal bonds are left out, and so are filings reported twice.</li>
-          <li>A trade is linked to a committee when the member sat on it that day and the committee oversees the company's main business. Tax committees only count through their health panels, which oversee Medicare. We also link defence and government contractors paid $100M or more by an agency the committee oversees, per <a className="govuk-link" href="https://www.usaspending.gov/" target="_blank" rel="noreferrer">USAspending</a>, and companies whose CEO testified before it.</li>
+          <li>A trade is linked to a committee when the member sat on it that day and the committee oversees the company's main business. Tax committees only count through their health panels, which oversee Medicare, and only for drug, device, insurance and care companies. We also link defence and government contractors paid $100M or more by an agency the committee oversees, per <a className="govuk-link" href="https://www.usaspending.gov/" target="_blank" rel="noreferrer">USAspending</a>, and companies whose CEO testified before it.</li>
           <li>We sorted companies into committees using SEC industry codes and each committee's written remit, with an AI model doing the first pass.</li>
           <li>Filings give value ranges, not exact amounts, so we count trades rather than dollars.</li>
           <li>Is {data.membersMatched} a lot? We handed out the same committee seats at random {runs} times. A typical run gives {median} members, and {atLeastActual} of the {runs} runs gave {data.membersMatched} or more.</li>
