@@ -132,7 +132,7 @@ export default function CommitteeTrades() {
         ]} />
       </section>
 
-      <h2 className="govuk-heading-l ct-section">Six of the {data.membersMatched}</h2>
+      <h2 className="ct-section">Six of the {data.membersMatched}</h2>
       <p className="govuk-body-s ct-legend">
         Trades per company, darker means more:
         <span className="ct-chip" style={shade(LEGEND, 1)}>1 to 5</span>
@@ -145,7 +145,7 @@ export default function CommitteeTrades() {
 
       {/* Background for readers who ask what is being counted. The figures are fixed to the period they name. */}
       <section className="ct-about">
-        <h2 className="govuk-heading-m">About the data</h2>
+        <h2>About the data</h2>
         <ul>
           <li>These are stock trades that members of Congress reported for themselves, their spouses and their children from {day(from)} to {day(to)}, taken from <a className="govuk-link" href="https://disclosures-clerk.house.gov/FinancialDisclosure" target="_blank" rel="noreferrer">House</a> and <a className="govuk-link" href="https://efdsearch.senate.gov/" target="_blank" rel="noreferrer">Senate</a> disclosure filings.</li>
           <li>Only company stocks count. Funds, ETFs and bonds are left out, and so are filings reported twice.</li>

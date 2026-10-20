@@ -170,6 +170,9 @@ body:has(.seo-shell) #root footer { display: none; }
 .ct-key span{display:inline-flex;align-items:center;gap:5px}
 .ct-key i{display:inline-block;width:12px;height:12px}
 .ct-section{margin-top:48px}
+/* Section headings match the energy tracker's insight pages: 24px, 21px on phones. */
+.ct-section,.ct-about h2{font-size:24px;font-weight:700;line-height:1.25;margin-bottom:15px}
+@media (max-width:640px){.ct-section,.ct-about h2{font-size:21px}}
 .ct-legend{display:flex;flex-wrap:wrap;align-items:center;gap:6px;color:#505a5f}
 .ct-cards{columns:2;column-gap:30px}
 .ct-card{break-inside:avoid;border:1px solid #b1b4b6;margin-bottom:30px;background:#fff}
