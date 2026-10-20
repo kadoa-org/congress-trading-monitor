@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from "react";
+import CommitteeTrades from "../components/CommitteeTrades";
 import GovTabs from "../components/GovTabs";
 import LobbyingScatter, { GROUPS, money, perMillion } from "../components/LobbyingScatter";
 import WeeklyFlows from "../components/WeeklyFlows";
@@ -101,6 +102,7 @@ export default function InsightPage({ slug, data }) {
     <div className="dk-container">
       <main className="govuk-main-wrapper" id="main-content">
         {insight.slug === "weekly-trading" && flows.length > 0 && <WeeklyTrading flows={flows} />}
+        {insight.slug === "committee-trades" && <CommitteeTrades />}
         {insight.slug === "lobbying-vs-market-cap" && lobbyingMcap && <LobbyingVsMarketCap data={lobbyingMcap} />}
       </main>
     </div>
