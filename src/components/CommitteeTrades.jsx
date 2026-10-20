@@ -139,6 +139,9 @@ const COMMITTEES = (() => {
 })();
 const QUERY_KEYS = ["q", "chamber", "party", "committee", "sort"];
 const QUERY_DEFAULTS = { q: "", chamber: "all", party: "all", committee: "all", sort: "trades" };
+// The page opens on the members with the most matched trades (the same six as the shared image); the rest are a click,
+// a filter or a grid square away.
+const TOP = 6;
 
 function Members({ focus }) {
   const [qs, setQs] = useQueryState(QUERY_KEYS, QUERY_DEFAULTS);
@@ -150,13 +153,17 @@ function Members({ focus }) {
         || c.rows.some((r) => r.companies.some((x) => x.name.toLowerCase().includes(query) || x.ticker.toLowerCase() === query))))
     .sort((SORTS.find((x) => x.k === qs.sort) ?? SORTS[0]).fn), [qs.chamber, qs.party, qs.committee, qs.sort, query]);
   const filtered = cards.length !== data.cards.length;
+  const [more, setMore] = useState(false);
+  const showAll = more || filtered || qs.sort === "name";
+  const visible = showAll ? cards : cards.slice(0, TOP);
 
   // A click on the grid clears the filters, then scrolls to the member's card and flashes it.
   useEffect(() => {
     if (!focus) return;
     if (filtered) { setQs(QUERY_DEFAULTS); return; }
+    if (!more) { setMore(true); return; }
     document.getElementById(`m-${focus.id}`)?.scrollIntoView({ behavior: "smooth", block: "start" });
-  }, [focus, filtered]);
+  }, [focus, filtered, more]);
 
   return (
     <>
@@ -168,7 +175,8 @@ function Members({ focus }) {
         <SingleSelectChip label="Sort" options={SORTS} value={qs.sort} onChange={(v) => setQs({ sort: v })} />
       </div>
       <p className="govuk-body-s ct-count" aria-live="polite">
-        {filtered ? <>Showing {cards.length} of {data.cards.length} members. <button type="button" className="ct-toggle" onClick={() => setQs(QUERY_DEFAULTS)}>Clear filters</button></> : <>All {data.cards.length} members</>}
+        {filtered ? <>Showing {cards.length} of {data.cards.length} members. <button type="button" className="ct-toggle" onClick={() => setQs(QUERY_DEFAULTS)}>Clear filters</button></>
+          : showAll ? <>All {data.cards.length} members</> : <>The {TOP} members with the most trades, of {data.cards.length}</>}
       </p>
       <p className="govuk-body-s ct-legend">
         Trades per company, darker means more:
@@ -177,8 +185,9 @@ function Members({ focus }) {
         <span className="ct-chip" style={shade(LEGEND, 16)}>16 or more</span>
       </p>
       {cards.length
-        ? <div className="ct-cards">{cards.map((c) => <MemberCard key={c.filerId} card={c} query={query} flash={focus?.id === c.filerId ? focus.n : 0} />)}</div>
+        ? <div className="ct-cards">{visible.map((c) => <MemberCard key={c.filerId} card={c} query={query} flash={focus?.id === c.filerId ? focus.n : 0} />)}</div>
         : <p className="govuk-body">No members match. <button type="button" className="ct-toggle" onClick={() => setQs(QUERY_DEFAULTS)}>Clear filters</button></p>}
+      {!showAll && <button type="button" className="govuk-button govuk-button--secondary ct-all" onClick={() => setMore(true)}>Show all {data.cards.length} members</button>}
     </>
   );
 }
@@ -206,7 +215,7 @@ export default function CommitteeTrades() {
         ]} />
       </section>
 
-      <h2 className="ct-section" id="members">All {data.membersMatched} members</h2>
+      <h2 className="ct-section" id="members">The {data.membersMatched} members</h2>
       <Members focus={focus} />
 
       {/* Background for readers who ask what is being counted. The figures are fixed to the period they name. */}

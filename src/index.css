@@ -183,6 +183,7 @@ body:has(.seo-shell) #root footer { display: none; }
 .ct-cell:focus-visible{outline:3px solid #ffdd00;box-shadow:0 0 0 5px #0b0c0c}
 .ct-filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:10px}
 .ct-count{color:#505a5f;margin-bottom:8px}
+.ct-all{margin:24px 0 0}
 .ct-toggle{font:inherit;font-size:16px;color:#1d70b8;background:none;border:0;padding:0;margin-top:12px;cursor:pointer;text-decoration:underline;text-underline-offset:3px;display:inline-block}
 .ct-count .ct-toggle,.govuk-body .ct-toggle{margin-top:0;font-size:inherit}
 .ct-toggle + .ct-toggle{margin-left:16px}
