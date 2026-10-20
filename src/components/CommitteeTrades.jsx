@@ -214,7 +214,7 @@ export default function CommitteeTrades() {
         ]} />
       </section>
 
-      <h2 className="ct-section" id="members">Who traded what</h2>
+      <h2 className="ct-section" id="members">By member</h2>
       <Members focus={focus} />
 
       {/* Background for readers who ask what is being counted. The figures are fixed to the period they name. */}
