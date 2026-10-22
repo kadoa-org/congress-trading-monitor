@@ -240,8 +240,7 @@ export default function CommitteeTrades() {
           <li>A trade is linked to a committee when the member sat on it that day and the committee oversees the company's main business. Tax committees only count through their health panels, which oversee Medicare, and only for drug, device, insurance and care companies. We also link defence and government contractors paid $100M or more by an agency the committee oversees, per <a className="govuk-link" href="https://www.usaspending.gov/" target="_blank" rel="noreferrer">USAspending</a>, and companies whose CEO testified before it.</li>
           <li>We sorted companies into committees using SEC industry codes and each committee's written remit, with an AI model doing the first pass.</li>
           <li>Filings give value ranges, not exact amounts, so we count trades rather than dollars.</li>
-          <li>Is {data.membersMatched} a lot? We handed out the same committee seats at random {runs} times. A typical run gives {median} members, and {atLeastActual} of the {runs} runs gave {data.membersMatched} or more.</li>
-          <li>The asterisks mark trades made within a year of a House Oversight letter to the company, for <a className="govuk-link" href="https://oversight.house.gov/release/comer-and-higgins-investigate-cvs-healths-use-of-confidential-patient-information-to-lobby-louisiana-state-legislature/" target="_blank" rel="noreferrer">CVS</a> and <a className="govuk-link" href="https://oversight.house.gov/release/mace-seeks-information-from-uber-on-safety-protocols-to-prevent-sexual-assault-and-misconduct/" target="_blank" rel="noreferrer">Uber</a>.</li>
+          <li>Handing out the same committee seats at random gives about {median} members, so {data.membersMatched} is only a little above chance. {atLeastActual} of our {runs} random shuffles reached {data.membersMatched} or more.</li>
         </ul>
       </section>
     </>
