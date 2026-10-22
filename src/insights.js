@@ -5,7 +5,7 @@ export const INSIGHTS = [
     slug: "committee-trades",
     title: "Trading the companies their committees oversee",
     summary: "55 members of Congress traded stocks in companies their committees oversee since January 2025.",
-    seoTitle: "55 Members of Congress Traded Stocks Their Committees Oversee",
+    seoTitle: "1 in 10 Members of Congress Traded Stocks Their Committees Oversee",
     seoDescription: "A Kadoa analysis found that 55 lawmakers or their family members bought or sold shares over 21 months in companies overseen by a committee they sit on.",
     ogImage: "og/committee-trades.png",
     ogImageAlt: "House and Senate seating diagrams with one dot per member: 41 House members and 14 senators traded stocks in companies their committees oversee.",
