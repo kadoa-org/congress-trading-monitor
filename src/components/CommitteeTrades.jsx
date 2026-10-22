@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import data from "../static/committee-trades.json";
 import { DataTable } from "../kit";
 import { useQueryState } from "../router";
@@ -118,7 +118,7 @@ function MemberCard({ card, query, flash }) {
         ))}
         {total > shown && <button type="button" className="ct-toggle" onClick={() => setOpen(true)}>Show all {total} companies</button>}
         {open && total > MAX_CHIPS && <button type="button" className="ct-toggle" onClick={() => setOpen(false)}>Show fewer</button>}
-        {probe && <p className="ct-note">* Traded while the committee was investigating the company</p>}
+        {probe && <p className="ct-note">* Traded within a year of a House Oversight letter to the company</p>}
         <p className="ct-note">{card.owners}</p>
       </div>
     </article>
@@ -156,6 +156,14 @@ function Members({ focus }) {
   const [more, setMore] = useState(false);
   const showAll = more || filtered || qs.sort === "name";
   const visible = showAll ? cards : cards.slice(0, TOP);
+  // The button disappears once clicked, so keyboard focus moves to the first newly shown member instead of the page top.
+  const revealed = useRef(false);
+  const reveal = () => { revealed.current = true; setMore(true); };
+  useEffect(() => {
+    if (!more || !revealed.current) return;
+    revealed.current = false;
+    document.querySelector(`#m-${cards[TOP]?.filerId} .ct-card__name a`)?.focus();
+  }, [more]);
 
   // A click on the grid clears the filters, then scrolls to the member's card and flashes it.
   useEffect(() => {
@@ -186,7 +194,12 @@ function Members({ focus }) {
       {cards.length
         ? <div className="ct-cards">{visible.map((c) => <MemberCard key={c.filerId} card={c} query={query} flash={focus?.id === c.filerId ? focus.n : 0} />)}</div>
         : <p className="govuk-body">No members match. <button type="button" className="ct-toggle" onClick={() => setQs(QUERY_DEFAULTS)}>Clear filters</button></p>}
-      {!showAll && <button type="button" className="govuk-button govuk-button--secondary ct-all" onClick={() => setMore(true)}>Show all {data.cards.length} members</button>}
+      {!showAll && (
+        <div className="ct-reveal">
+          <p className="govuk-body-s ct-reveal__count">Showing {TOP} of {data.cards.length} members</p>
+          <button type="button" className="govuk-button govuk-button--secondary ct-reveal__button" onClick={reveal}>Show all {data.cards.length} members</button>
+        </div>
+      )}
     </>
   );
 }
@@ -203,7 +216,7 @@ export default function CommitteeTrades() {
     <>
       <h1 className="dk-h1">{data.membersMatched} members of Congress traded stocks in companies their committees oversee</h1>
       <p className="govuk-body-l max-w-3xl">
-        Stock trades by members and their families, January 2025 to October 2026. Random committee seats give {median} in a typical run.
+        Members of Congress are allowed to trade individual stocks, as long as they report each trade. This covers members and their families, January 2025 to October 2026.
       </p>
       <section className="insight-chart-card" aria-label="Members who traded companies their committees oversee">
         <p className="govuk-body-s insight-date">Trades from {day(from)} to {day(to)}</p>
