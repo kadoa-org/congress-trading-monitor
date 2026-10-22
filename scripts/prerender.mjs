@@ -118,7 +118,12 @@ function buildRoutes() {
       title: "Insights - Trends in Congressional Stock Trading | Congress Trading Monitor",
       description: "Charts of trends across every stock trade disclosed by members of Congress, each on its own page.",
     },
-    ...INSIGHTS.map((i) => ({ path: `/insights/${i.slug}`, title: `${i.seoTitle} | Congress Trading Monitor`, description: i.seoDescription })),
+    ...INSIGHTS.map((i) => ({
+      path: `/insights/${i.slug}`,
+      title: `${i.seoTitle} | Congress Trading Monitor`,
+      description: i.seoDescription,
+      ...(i.ogImage && { ogImage: { url: `${BASE}/${i.ogImage}`, alt: i.ogImageAlt, width: 2400, height: 1260 } }),
+    })),
     {
       path: "/lobbying",
       title: "Lobbying: Stock Trades in Companies That Lobby Their Committees | Congress Trading Monitor",
@@ -204,6 +209,18 @@ function renderRoute(template, route) {
       /(<meta\s+name="twitter:description"\s+content=")[^"]*(")/s,
       (_m, a, b) => `${a}${esc(route.description)}${b}`,
     );
+
+  // A route with its own share image replaces the site-wide one in every og:image and twitter:image tag.
+  if (route.ogImage) {
+    const { url: img, alt, width, height } = route.ogImage;
+    html = html
+      .replace(/(<meta property="og:image" content=")[^"]*(")/, (_m, a, b) => `${a}${img}${b}`)
+      .replace(/(<meta property="og:image:width" content=")[^"]*(")/, (_m, a, b) => `${a}${width}${b}`)
+      .replace(/(<meta property="og:image:height" content=")[^"]*(")/, (_m, a, b) => `${a}${height}${b}`)
+      .replace(/(<meta property="og:image:alt" content=")[^"]*(")/, (_m, a, b) => `${a}${esc(alt)}${b}`)
+      .replace(/(<meta name="twitter:image" content=")[^"]*(")/, (_m, a, b) => `${a}${img}${b}`)
+      .replace(/(<meta name="twitter:image:alt" content=")[^"]*(")/, (_m, a, b) => `${a}${esc(alt)}${b}`);
+  }
 
   const schemas = [route.jsonLd, route.crumbs && crumbLd(route.crumbs)].filter(Boolean);
   if (schemas.length) {
