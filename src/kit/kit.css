@@ -105,6 +105,11 @@
    GitHub button because its repo is not public). */
 .dk-header-brand-group { display: inline-flex; align-items: center; gap: 10px; min-width: 0; min-height: 32px; }
 .dk-header-brand { color: #fff; font: 700 17px/1.2 var(--dk-font); text-decoration: none; white-space: nowrap; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+/* The brand is icon plus name: the icon in a 24px slot, so on phones "by Kadoa" starts under the name, not the icon. */
+.dk-header-brand { display: inline-flex; align-items: center; gap: 8px; }
+.dk-brand-icon { flex: none; width: 24px; text-align: left; }
+.dk-brand-logo { flex: none; margin-right: 2px; }
+.dk-brand-name { min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .dk-header-brand:focus-visible { outline: 3px solid var(--dk-focus); outline-offset: 2px; }
 .dk-btn--inverse { background: none; border: 1px solid rgba(255,255,255,0.55); color: #fff; }
 .dk-btn--inverse:hover { background: rgba(255,255,255,0.12); }
@@ -216,7 +221,9 @@
      the anchor's aria-label). Keeps the header on one row without overflow. */
   .dk-header-inner { gap: 8px; flex-wrap: nowrap; }
   .dk-header-brand-group { flex: 1 1 auto; }
-  .dk-header-brand { font-size: 15px; }
+  .dk-header-brand { font-size: 16px; max-width: 100%; }
+  .dk-header-brand-group { flex-direction: column; align-items: flex-start; gap: 0; }
+  .dk-header-brand-group > .dk-header-link { margin-left: 32px; }
   .dk-header .dk-btn { padding: 0 7px; }
   .dk-btn-label { display: none; }
 }

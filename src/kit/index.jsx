@@ -177,6 +177,13 @@ export function Delta({ value, children }) {
 // inject its SPA Link; falls back to plain anchors.
 // brandSuffix renders as a sibling next to the brand link (e.g. an attribution
 // link like "by Kadoa"); kept outside the brand <L> so it can be its own link.
+// A brand given as "⚡ Site name" is split into the icon and the name, so the icon sits in a fixed slot and
+// "by Kadoa" can line up with the name when it drops to its own line on phones.
+function brandParts(brand) {
+  const m = typeof brand === "string" ? /^(\p{Extended_Pictographic}️?)\s+(.+)$/u.exec(brand) : null;
+  return m ? <><span className="dk-brand-icon" aria-hidden="true">{m[1]}</span><span className="dk-brand-name">{m[2]}</span></> : brand;
+}
+
 export function SiteHeader({ brand, brandHref = "/", brandSuffix, right, LinkComponent = "a" }) {
   const L = LinkComponent;
   return (
@@ -184,7 +191,7 @@ export function SiteHeader({ brand, brandHref = "/", brandSuffix, right, LinkCom
       <div className="dk-container dk-header-inner">
         <span className="dk-header-brand-group">
           <L href={brandHref} to={brandHref} className="dk-header-brand">
-            {brand}
+            {brandParts(brand)}
           </L>
           {brandSuffix}
         </span>
