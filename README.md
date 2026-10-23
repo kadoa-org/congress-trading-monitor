@@ -2,6 +2,8 @@
 
 **Live demo: [kadoa.com/congress](https://www.kadoa.com/congress/)**
 
+[![Overview page: congressional stock trades in the last 30 days, headline figures and the most active traders](docs/screenshot.png)](https://www.kadoa.com/congress)
+
 Interactive dashboard and open dataset of every stock trade disclosed by U.S. Senators, Representatives, and senior executive branch officials under the STOCK Act.
 
 Three official public sources are aggregated into one unified, searchable dataset: the House Clerk's Financial Disclosure portal, the Senate eFD system, and the Office of Government Ethics (OGE) for the executive branch.
