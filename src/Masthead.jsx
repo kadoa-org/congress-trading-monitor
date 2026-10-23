@@ -1,5 +1,6 @@
 import React from "react";
-import { Button, GitHubButton, LiveBadge, NavBar, SiteHeader } from "./kit";
+import { Button, GitHubButton, LiveBadge, NavBar, PhaseBanner, SiteHeader } from "./kit";
+import { ANNOUNCED } from "./insights";
 import { Link } from "./ui";
 
 const TABS = [
@@ -59,6 +60,11 @@ export default function Masthead({ stats, onOpenCmdK, route, asOf }) {
         LinkComponent={Link}
         items={TABS.map((t) => ({ href: t.to, label: t.label, end: t.match === "about", active: activeTab === t.match }))}
       />
+      {ANNOUNCED && !(route.name === "insight" && route.slug === ANNOUNCED.slug) && (
+        <PhaseBanner tag="New" label="Insight:" href={`/insights/${ANNOUNCED.slug}`} LinkComponent={Link}>
+          {ANNOUNCED.text}
+        </PhaseBanner>
+      )}
     </>
   );
 }

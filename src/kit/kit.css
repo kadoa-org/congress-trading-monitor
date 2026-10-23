@@ -110,6 +110,19 @@
 .dk-header-link { color: rgba(255,255,255,0.9); font: 400 var(--dk-fs-s)/1.2 var(--dk-font); text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; flex-shrink: 0; }
 .dk-header-link:hover { color: #fff; }
 .dk-header-link:focus-visible { outline: 3px solid var(--dk-focus); outline-offset: 2px; color: #fff; }
+/* ── Phase banner ── GOV.UK's, under the nav: tag box, then a line with a link, ruled off from the page. The tag sits
+   in the text, so a wrapped line starts at the left edge rather than under a column, and each line fills the width
+   (no balance or pretty wrapping, which leave the first line short). ── */
+.dk-phase { margin: 0; padding: 10px 0; border-bottom: 1px solid var(--dk-rule); font: 400 16px/1.4 var(--dk-font); color: var(--dk-ink); }
+.dk-phase__tag { display: inline-block; margin-right: 10px; padding: 2px 8px; background: #d2e2f1; color: #0c2d4a; font-weight: 400; }
+.dk-phase__text a { color: var(--dk-link); }
+/* Phones: tighter, and the label goes; the message still wraps, since a cut-off link no longer says where it leads.
+   Keep the message short (about 50 characters) so it fits on one or two lines. */
+@media (max-width: 640px) {
+  .dk-phase { padding: 8px 0; font-size: 14px; line-height: 1.45; }
+  .dk-phase__tag { margin-right: 8px; padding: 0 6px; font-size: 13px; }
+  .dk-phase__label { display: none; }
+}
 .dk-nav { background: #fff; border-bottom: 1px solid var(--dk-rule-soft); }
 .dk-nav-list { display: flex; gap: 24px; margin: 0; padding: 0; list-style: none; overflow-x: auto; }
 .dk-nav a {

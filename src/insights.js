@@ -26,3 +26,10 @@ export const INSIGHTS = [
   },
 ];
 export const insightBySlug = (slug) => INSIGHTS.find((i) => i.slug === slug);
+// The newest insight, announced in a banner under the navigation on every page but its own. Point it at the next
+// insight when one ships, or set it to null to take the banner down. The text is written for the banner: about 50
+// characters with the number first, so it fits a phone in one or two lines.
+export const ANNOUNCED = {
+  slug: "committee-trades",
+  text: "1 in 10 lawmakers traded stocks their committees oversee",
+};

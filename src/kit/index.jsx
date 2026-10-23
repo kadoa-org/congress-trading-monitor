@@ -239,6 +239,25 @@ export function SiteFooter({ current, dataset = current }) {
   );
 }
 
+// GOV.UK's phase banner, under the navigation: a short tag, a label and a link, used to point every page at something
+// new (the latest insight). The message is written for the banner, about 50 characters with its number up front, so
+// it fits a phone in one or two lines; it wraps rather than being cut off. Renders nothing without a message.
+export function PhaseBanner({ tag = "New", label, href, LinkComponent = "a", children }) {
+  if (!children) return null;
+  const L = LinkComponent;
+  return (
+    <div className="dk-container">
+      <p className="dk-phase">
+        <strong className="dk-phase__tag">{tag}</strong>
+        <span className="dk-phase__text">
+          {label && <span className="dk-phase__label">{label} </span>}
+          {href ? <L href={href} to={href}>{children}</L> : children}
+        </span>
+      </p>
+    </div>
+  );
+}
+
 // `collapse`: below 641px the links fold behind a "Menu" toggle and open as a
 // vertical list. An item with `end` sits at the far right on wider screens, for a page about the site itself.
 export function NavBar({ items, LinkComponent = "a", collapse = false }) {
