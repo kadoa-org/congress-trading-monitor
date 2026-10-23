@@ -4,7 +4,7 @@
    Everything in the kit derives from these variables — components never
    hard-code sizes or colours. */
 :root {
-  --dk-font: "Inter", arial, sans-serif;
+  --dk-font: "Atkinson Hyperlegible", arial, sans-serif;
   /* type scale */
   --dk-fs-xs: 12px;    /* 12 — table headers, hints-in-cells */
   --dk-fs-s: 13px;   /* 13 — secondary text, breadcrumbs */
