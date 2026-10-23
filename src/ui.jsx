@@ -8,7 +8,7 @@ import { navigate, withBase } from "./router";
 // the row content is the hero, headers should barely register.
 // (Uppercase + tracking is Linear's *sidebar-label* style, too shouty for tables
 // and causes narrower columns to wrap on two-word headers like "Buy / Sell mix".)
-export const TABLE_HEADER_CLS = "text-mini font-medium text-ink_muted";
+export const TABLE_HEADER_CLS = "text-small font-bold text-ink_muted";
 
 // Clickable table-column header with ascending/descending sort indicator.
 // `sort` is a string key (matches sortKey when active). `setSort(newKey)` is
@@ -171,10 +171,10 @@ export function fmtAmountRange(t) {
     return `$${fmtShort(lo)}-${fmtShort(hi)}`;
   }
   if (t?.amount_range_label) {
-    // Compact verbatim labels: "$15,001 - $50,000" → "$15-50K", "Over $50,000,000" → "$50M+"
+    // Compact verbatim labels: "$15,001 - $50,000" → "$15-50K", "Over $50,000,000" → "$50M+". Some filings drop the dash.
     const overMatch = t.amount_range_label.match(/Over \$([\d,]+)/i);
     if (overMatch) return `${fmtShort(parseInt(overMatch[1].replace(/,/g, ""), 10))}+`;
-    const m = t.amount_range_label.match(/\$([\d,]+)\s*-\s*\$([\d,]+)/);
+    const m = t.amount_range_label.match(/\$([\d,]+)\s*-?\s*\$([\d,]+)/);
     if (m) {
       const a = parseInt(m[1].replace(/,/g, ""), 10);
       const b = parseInt(m[2].replace(/,/g, ""), 10);
@@ -348,7 +348,7 @@ export function txnColor(type) {
   return "text-ink_muted";
 }
 
-// Linear-style property row label - 14.625px, weight 500, tertiary grey, sentence case.
+// Property row label: 16px, weight 500, tertiary grey, sentence case.
 export function PropertyLabel({ children, className = "" }) {
   return <div className={`text-small font-medium text-ink_muted ${className}`}>{children}</div>;
 }
@@ -378,7 +378,7 @@ export function dateInAdmin(d, admin) {
 
 // Linear-style segmented control used for admin + scope toggles.
 export function Segmented({ value, onChange, options, size = "default" }) {
-  const h = size === "sm" ? "h-[26px] text-mini px-2" : "h-[32px] text-[15px] px-2.5";
+  const h = size === "sm" ? "h-[32px] text-small px-2" : "h-[36px] text-[16px] px-3";
   return (
     <div className="inline-flex items-center border border-[#0b0c0c] bg-white overflow-hidden">
       {options.map((o, i) => (

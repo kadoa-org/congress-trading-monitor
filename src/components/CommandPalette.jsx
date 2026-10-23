@@ -153,7 +153,7 @@ export default function CommandPalette({ open, onClose, filers = [], tickers = [
                         idx === i ? "bg-[#f3f2f1]" : "hover:bg-[#f3f2f1]"
                       }`}
                     >
-                      <span className="w-5 h-5 flex items-center justify-center border border-[#b1b4b6] bg-[#f3f2f1] text-[12px] text-[#505a5f] font-mono">
+                      <span className="w-5 h-5 flex items-center justify-center border border-[#b1b4b6] bg-[#f3f2f1] text-[14px] text-[#505a5f] font-mono">
                         {it.type === "filer" ? "P" : it.type === "ticker" ? "$" : "→"}
                       </span>
                       <span

@@ -108,7 +108,7 @@ export default function TickerPage({ symbol, filersById, initialData = null }) {
   }
 
   return (
-    <main className="dk-container pt-8 pb-16">
+    <main className="dk-container page-main">
       <nav className="govuk-breadcrumbs mb-6" aria-label="Breadcrumb" style={{ marginTop: 0 }}>
         <ol className="govuk-breadcrumbs__list">
           <li className="govuk-breadcrumbs__list-item">
@@ -127,9 +127,9 @@ export default function TickerPage({ symbol, filersById, initialData = null }) {
         </ol>
       </nav>
 
-      <div className="flex items-start justify-between flex-wrap gap-4 mb-8">
+      <div className="flex items-start justify-between flex-wrap gap-4 mb-10">
         <div className="min-w-0">
-          <h1 className="govuk-heading-xl" style={{ marginBottom: 5 }}>
+          <h1 className="dk-h1" style={{ marginBottom: 5 }}>
             {ticker}
           </h1>
           {fullName && (
@@ -236,7 +236,7 @@ export default function TickerPage({ symbol, filersById, initialData = null }) {
       <div className="mb-10">
         <SectionHeader title="Top holders" subtitle="Ranked by number of trades in this ticker" />
         <div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6" style={{ gap: 10 }}>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4" style={{ gap: 10 }}>
             {stats.topFilers.map((f) => {
               const lookup = filersById?.get?.(f.id) ?? { full_name: f.name, chamber: f.chamber, branch: f.branch };
               return (
@@ -247,8 +247,8 @@ export default function TickerPage({ symbol, filersById, initialData = null }) {
                 >
                   <FilerAvatar filer={lookup} size={28} />
                   <div className="flex-1 min-w-0">
-                    <div className="text-[15px] font-medium text-[#0b0c0c] truncate">{f.name}</div>
-                    <div className="text-[14px] text-[#505a5f] tabular-nums whitespace-nowrap mt-[1px]">
+                    <div className="text-[16px] font-medium text-[#0b0c0c] truncate">{f.name}</div>
+                    <div className="text-[16px] text-[#505a5f] tabular-nums whitespace-nowrap mt-[1px]">
                       {f.count} · {fmtUSD(f.vol)}
                     </div>
                   </div>
@@ -281,7 +281,7 @@ function PriceTicker({ price }) {
         Last close <span className="tabular-nums">{price.latest?.date ?? "—"}</span>
       </div>
       <div className="flex items-baseline gap-2 justify-end">
-        <span className="text-[1.25rem] font-bold tabular-nums text-[#0b0c0c]">
+        <span className="text-[24px] font-bold tabular-nums text-[#0b0c0c]">
           ${last != null ? last.toFixed(2) : "—"}
         </span>
         <span className="text-[16px] font-bold tabular-nums" style={{ color: tone }}>

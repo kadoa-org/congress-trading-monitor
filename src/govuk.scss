@@ -6,5 +6,5 @@
 $govuk-font-family: "Atkinson Hyperlegible", arial, sans-serif;
 $govuk-include-default-font-face: false;
 
-$govuk-page-width: 1200px; // matches .dk-container in kit.css
+$govuk-page-width: 960px; // matches .dk-container in kit.css
 @import "govuk-frontend/dist/govuk/index";

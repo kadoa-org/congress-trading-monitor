@@ -48,7 +48,7 @@ export default function LateLeaderboard({ filers }) {
                 <FilerAvatar filer={f} size={28} />
                 <div className="min-w-0">
                   <div className="text-small text-ink font-medium truncate">{f.full_name}</div>
-                  <div className="text-mini text-ink_muted truncate mt-[1px]">{role(f)}</div>
+                  <div className="text-small text-ink_muted truncate mt-[1px]">{role(f)}</div>
                 </div>
               </div>
               <span className="text-small text-warn font-semibold tabular-nums text-right">{sharePct.toFixed(0)}%</span>

@@ -34,13 +34,13 @@ export default {
         mono: ["JetBrains Mono", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
       },
       fontSize: {
-        // Linear's scale, based on 18px html root
-        mini: ["0.75rem", { lineHeight: "1.4" }], // 13.5px
-        small: ["0.8125rem", { lineHeight: "1.4" }], // 14.625px
-        regular: ["0.9375rem", { lineHeight: "1.5" }], // 16.875px
-        large: ["1.125rem", { lineHeight: "1.5" }], // 20.25px
-        title: ["1.5rem", { lineHeight: "1.15", letterSpacing: "-0.012em" }], // 27px
-        display: ["2.125rem", { lineHeight: "1.1", letterSpacing: "-0.016em" }], // 38.25px
+        // The GOV.UK points (design-system.service.gov.uk/styles/type-scale). mini is for chart labels and small tags only.
+        mini: ["14px", { lineHeight: "1.4" }],
+        small: ["16px", { lineHeight: "1.4" }],
+        regular: ["19px", { lineHeight: "1.4" }],
+        large: ["24px", { lineHeight: "1.25" }],
+        title: ["36px", { lineHeight: "1.12" }],
+        display: ["48px", { lineHeight: "1.1" }],
       },
       fontWeight: {
         body: "450",

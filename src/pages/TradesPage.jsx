@@ -75,8 +75,8 @@ export default function TradesPage({ data }) {
   }, [trades, filters, sortCol]);
 
   return (
-    <div className="dk-container pt-8 pb-16">
-      <h1 className="govuk-heading-l" style={{ marginBottom: 10 }}>
+    <div className="dk-container page-main">
+      <h1 className="dk-h1">
         All trades
       </h1>
       <p className="govuk-hint">

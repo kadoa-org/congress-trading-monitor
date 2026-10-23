@@ -197,7 +197,7 @@ export default function App({ initialPage = null }) {
 
   if ((loading || error) && !hasInitialRoute && route.name !== "ticker" && route.name !== "filer") {
     return (
-      <div className="min-h-screen bg-canvas text-ink">
+      <div className="min-h-screen bg-white text-ink">
         <Masthead asOf={asOf} route={route} stats={null} onOpenCmdK={() => setCmdkOpen(true)} />
         {error ? <div role="alert" className="dk-container py-8">
           <p>Failed to load interactive trading data. Please try reloading the page.</p>
@@ -213,7 +213,7 @@ export default function App({ initialPage = null }) {
     // viewport, which was eating the container's left gutter on mobile.
     // `clip` (not `hidden`) avoids creating a scroll container that would break
     // sticky positioning.
-    <div className="min-h-screen bg-canvas text-ink overflow-x-clip">
+    <div className="min-h-screen bg-white text-ink overflow-x-clip">
       <Masthead asOf={asOf} route={route} stats={data.stats} onOpenCmdK={() => setCmdkOpen(true)} />
       {route.name === "overview" && <OverviewPage data={data} asOf={asOf} />}
       {error && <div role="alert" className="dk-container py-4">

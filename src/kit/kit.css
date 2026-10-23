@@ -5,13 +5,16 @@
    hard-code sizes or colours. */
 :root {
   --dk-font: "Atkinson Hyperlegible", arial, sans-serif;
-  /* type scale */
-  --dk-fs-xs: 12px;    /* 12 — table headers, hints-in-cells */
-  --dk-fs-s: 13px;   /* 13 — secondary text, breadcrumbs */
-  --dk-fs-m: 15px;   /* 15 — body, cells */
-  --dk-fs-l: 17px;   /* 17 — section headings */
-  --dk-fs-xl: 22px;   /* 22 — page titles */
-  --dk-fs-xxl: 28px;   /* 28 — hero */
+  /* type scale: the GOV.UK points (design-system.service.gov.uk/styles/type-scale). 14 is for chart labels only. */
+  --dk-fs-xs: 14px;  /* chart labels, tags */
+  --dk-fs-s: 16px;   /* body-s: hints, tables, navigation */
+  --dk-fs-m: 19px;   /* body, heading-s */
+  --dk-fs-l: 24px;   /* heading-m, lead */
+  --dk-fs-xl: 36px;  /* heading-l, page titles */
+  --dk-fs-xxl: 48px; /* heading-xl */
+  /* spacing: the GOV.UK static scale (design-system.service.gov.uk/styles/spacing) */
+  --dk-space-1: 5px; --dk-space-2: 10px; --dk-space-3: 15px; --dk-space-4: 20px; --dk-space-5: 25px;
+  --dk-space-6: 30px; --dk-space-7: 40px; --dk-space-8: 50px; --dk-space-9: 60px;
   /* palette */
   --dk-ink: #0b0c0c;
   --dk-muted: #505a5f;
@@ -25,16 +28,16 @@
   --dk-red: #ca3535;
   --dk-focus: #ffdd00;
   /* spacing */
-  --dk-cell-y: 7px;
+  --dk-cell-y: 10px;
   --dk-cell-x: 10px;
 }
 
 /* ── DataTable ── one table look, everywhere ── */
 .dk-table-wrap { overflow-x: auto; border: 1px solid var(--dk-rule); background: var(--dk-bg); }
 .dk-table-wrap--plain { border: none; }
-.dk-table { width: 100%; border-collapse: collapse; font: 400 var(--dk-fs-m)/1.45 var(--dk-font); color: var(--dk-ink); }
+.dk-table { width: 100%; border-collapse: collapse; font: 400 var(--dk-fs-s)/1.4 var(--dk-font); color: var(--dk-ink); }
 .dk-table th {
-  font-size: var(--dk-fs-xs); font-weight: 600; color: var(--dk-muted);
+  font-size: var(--dk-fs-s); font-weight: 700; color: var(--dk-muted);
   text-align: left; padding: var(--dk-cell-y) var(--dk-cell-x);
   border-bottom: 1px solid var(--dk-rule); white-space: nowrap;
 }
@@ -71,14 +74,14 @@
 
 /* ── SiteHeader + NavBar ── */
 /* One page width for header, navigation, content and footer, so their edges line up: 1200px of content plus gutters. */
-.dk-container { max-width: calc(1200px + 60px); margin: 0 auto; padding: 0 15px; box-sizing: border-box; }
+.dk-container { max-width: calc(960px + 60px); margin: 0 auto; padding: 0 15px; box-sizing: border-box; }
 @media (min-width: 40.0625em) { .dk-container { padding: 0 30px; } }
 .dk-header { background: var(--dk-link); color: #fff; }
 /* Cross-dataset footer: light surface, hairline rule, blue links */
 /* Cross-dataset footer: grey surface behind a hairline, a bold section
    heading with a rule beneath it, then a stacked column of underlined ink
    links (full line = comfortable tap target), and a muted meta line. */
-.dk-footer { border-top: 1px solid var(--dk-rule); background: var(--dk-bg-hover); color: var(--dk-muted); margin-top: 48px; }
+.dk-footer { border-top: 1px solid var(--dk-rule); background: var(--dk-bg-hover); color: var(--dk-muted); margin-top: 60px; }
 /* vertical padding only — sides come from .dk-container on the same element */
 .dk-footer-inner { padding-top: 28px; padding-bottom: 36px; font-size: var(--dk-fs-m); }
 @media (min-width: 40.0625em) { .dk-footer-inner { padding-top: 40px; } }
@@ -233,7 +236,7 @@
 
 /* ── Page-level typography helpers ── */
 /* Page titles: a clear step above the 24px section headings, the same on every dataset site. */
-.dk-h1 { font: 700 32px/1.2 var(--dk-font); color: var(--dk-ink); margin: 0 0 10px; }
+.dk-h1 { font: 700 36px/1.12 var(--dk-font); color: var(--dk-ink); margin: 0 0 20px; }
 @media (max-width: 640px) { .dk-h1 { font-size: 27px; } }
 .dk-lede { font: 400 var(--dk-fs-l)/1.5 var(--dk-font); color: var(--dk-muted); margin: 0 0 16px; max-width: 72ch; }
 .dk-link { color: var(--dk-link); text-decoration: underline; text-underline-offset: 2px; }

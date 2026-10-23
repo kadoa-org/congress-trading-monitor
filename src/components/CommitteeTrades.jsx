@@ -175,7 +175,7 @@ function Members({ focus }) {
   return (
     <>
       <div className="ct-filters">
-        <InlineSearchInput value={qs.q} onChange={(v) => setQs({ q: v })} placeholder="Search member, state or company" width={260} />
+        <InlineSearchInput value={qs.q} onChange={(v) => setQs({ q: v })} placeholder="Search member, state or company" width={300} />
         <SingleSelectChip label="Chamber" options={CHAMBERS} value={qs.chamber} onChange={(v) => setQs({ chamber: v })} />
         <SingleSelectChip label="Party" options={PARTIES} value={qs.party} onChange={(v) => setQs({ party: v })} />
         <SingleSelectChip label="Committee" options={COMMITTEES} value={qs.committee} onChange={(v) => setQs({ committee: v })} />

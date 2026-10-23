@@ -13,36 +13,36 @@
 .dk-change--bad { background: var(--dk-gov-bad-bg); color: var(--dk-gov-bad); }
 .dk-change--good { background: var(--dk-gov-good-bg); color: var(--dk-gov-good); }
 .dk-change--flat { background: #e8f1f8; color: #0c2d4a; }
-.dk-change__arrow { font-size: 18px; line-height: 1; }
+.dk-change__arrow { font-size: 19px; line-height: 1; }
 .dk-change--bad .dk-change__arrow { color: var(--dk-gov-bad-arrow); }
-.dk-change--small { padding: 1px 5px 2px; font-size: 13px; line-height: 17px; gap: 2px; }
+.dk-change--small { padding: 1px 5px 2px; font-size: 14px; line-height: 17px; gap: 2px; }
 .dk-change--small .dk-change__arrow { font-size: 14px; }
 
 .dk-heading { margin: 0 0 15px; min-width: 0; }
 .dk-heading__top { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
 .dk-heading__title { font-size: 24px; font-weight: 700; line-height: 1.25; margin: 0 0 8px; color: var(--dk-gov-text); }
 .dk-heading__right { flex-shrink: 0; white-space: nowrap; }
-.dk-heading__desc { font-size: 16px; font-style: italic; color: var(--dk-gov-secondary); margin: 0 0 10px; max-width: 70ch; }
+.dk-heading__desc { font-size: 16px; font-style: italic; color: var(--dk-gov-secondary); margin: 0 0 10px; max-width: 640px; }
 .dk-heading__date { font-size: 16px; color: var(--dk-gov-secondary); margin: 0; }
 .dk-heading > :last-child { margin-bottom: 0; }
 
-.dk-figures { margin: 0 0 36px; }
-.dk-figures__context { font-size: 16px; color: var(--dk-gov-text); margin: 15px 0 0; max-width: 80ch; }
+.dk-figures { margin: 0 0 50px; }
+.dk-figures__context { font-size: 16px; color: var(--dk-gov-text); margin: 15px 0 0; max-width: 640px; }
 .dk-figures__row { display: grid; grid-template-columns: repeat(var(--dk-figures-columns), minmax(0, 1fr)); margin: 0; background: var(--dk-gov-grey); }
 .dk-figures__item { padding: 15px 20px; min-width: 0; }
 /* Each figure spans three rows shared with its neighbours (label, value, note), so a label that wraps to two lines
    moves the whole row down and values stay level across a row. */
 .dk-figures__item { display: grid; grid-row: span 3; grid-template-rows: subgrid; align-content: start; }
 .dk-figures__item + .dk-figures__item { border-left: 1px solid var(--dk-gov-border); }
-.dk-figures__label { margin: 0 0 6px; font-size: 14px; color: var(--dk-gov-secondary); }
-.dk-figures__value { margin: 0; font-size: 22px; line-height: 1.25; font-variant-numeric: tabular-nums; color: var(--dk-gov-text); overflow-wrap: anywhere; }
-.dk-figures__note { margin: 4px 0 0; font-size: 14px; color: var(--dk-gov-secondary); }
+.dk-figures__label { margin: 0 0 4px; font-size: 16px; color: var(--dk-gov-secondary); }
+.dk-figures__value { margin: 0; font-size: 24px; line-height: 1.2; font-variant-numeric: tabular-nums; color: var(--dk-gov-text); overflow-wrap: anywhere; }
+.dk-figures__note { margin: 4px 0 0; font-size: 16px; color: var(--dk-gov-secondary); }
 
-/* Chart card: 20px padding, header and tabs 24px apart. */
-.dk-card { background: var(--dk-gov-grey); padding: 20px; margin: 0 0 36px; display: flex; flex-direction: column; gap: 24px; }
+/* Chart card: 25px padding, header and tabs 30px apart, 60px between cards. */
+.dk-card { background: var(--dk-gov-grey); padding: 25px; margin: 0 0 60px; display: flex; flex-direction: column; gap: 30px; }
 .dk-card > .dk-heading { margin: 0; }
 .dk-card__panel { background: #fff; border: 1px solid var(--dk-gov-border); padding: 24px 16px; }
-.dk-card__footer { margin-top: -12px; font-size: 14px; color: var(--dk-gov-secondary); }
+.dk-card__footer { margin-top: -18px; font-size: 14px; color: var(--dk-gov-secondary); }
 
 /* Tab geometry, so switching tabs never moves anything: an inactive tab is padded 20px each
    side and the active one 19px plus a 1px border, so both are the same width; the active tab grows only upward
@@ -71,7 +71,9 @@
   .dk-figures__row--odd { grid-template-columns: 1fr; }
   .dk-figures__row--odd .dk-figures__item { border-left: 0; }
   .dk-figures__row--odd .dk-figures__item + .dk-figures__item { border-top: 1px solid var(--dk-gov-border); }
-  .dk-card { padding: 15px; gap: 20px; }
+  .dk-card { padding: 15px; gap: 20px; margin-bottom: 40px; }
+  .dk-card__footer { margin-top: -8px; }
+  .dk-figures__item { padding: 15px; }
   .dk-tabs__tab { font-size: 16px; padding: 10px 8px; }
   .dk-tabs__item--selected .dk-tabs__tab { padding: 14px 7px 16px; }
   .dk-tabs__long { display: none; }

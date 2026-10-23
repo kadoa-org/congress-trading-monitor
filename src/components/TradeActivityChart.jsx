@@ -134,7 +134,7 @@ export default function TradeActivityChart({ trades }) {
                 picked.current = true;
                 setRange(r.key);
               }}
-              className={`px-3 h-[30px] text-[14px] ${range === r.key ? "bg-[#0b0c0c] text-white" : "bg-white text-[#0b0c0c] hover:bg-[#f3f2f1]"}`}
+              className={`px-3 h-[36px] text-[16px] ${range === r.key ? "bg-[#0b0c0c] text-white" : "bg-white text-[#0b0c0c] hover:bg-[#f3f2f1]"}`}
             >
               {r.label}
             </button>
@@ -153,10 +153,10 @@ export default function TradeActivityChart({ trades }) {
               {m.sells > 0 && <rect x={cx(i) - barW / 2} y={mid} width={barW} height={yB(m.sells)} fill={RED} />}
             </g>
           ))}
-          <text x={M.left + plotW + 6} y={M.top + 12} fontSize="12" fill={GREEN}>Buys</text>
-          <text x={M.left + plotW + 6} y={M.top + barsH - 3} fontSize="12" fill={RED}>Sells</text>
+          <text x={M.left + plotW + 6} y={M.top + 12} fontSize="14" fill={GREEN}>Buys</text>
+          <text x={M.left + plotW + 6} y={M.top + barsH - 3} fontSize="14" fill={RED}>Sells</text>
           {ticks.map(({ m, i }) => (
-            <text key={m.m} x={cx(i)} y={height - 8} fontSize="12" fill={MUTED} textAnchor="middle">
+            <text key={m.m} x={cx(i)} y={height - 8} fontSize="14" fill={MUTED} textAnchor="middle">
               {n <= 18 ? new Date(`${m.m}-15T12:00:00Z`).toLocaleString("en-US", { month: "short", timeZone: "UTC" }) : m.m.slice(0, 4)}
             </text>
           ))}
@@ -166,8 +166,8 @@ export default function TradeActivityChart({ trades }) {
         <div
           className={
             narrow
-              ? "mt-2 border border-[#b1b4b6] bg-white p-2 text-[13px] leading-[1.4]"
-              : "pointer-events-none absolute z-10 w-[260px] border border-[#b1b4b6] bg-white p-2 text-[13px] leading-[1.4] shadow-[0_2px_6px_rgba(0,0,0,0.12)]"
+              ? "mt-2 border border-[#b1b4b6] bg-white p-2 text-[16px] leading-[1.4]"
+              : "pointer-events-none absolute z-10 w-[280px] border border-[#b1b4b6] bg-white p-2 text-[16px] leading-[1.4] shadow-[0_2px_6px_rgba(0,0,0,0.12)]"
           }
           style={narrow ? undefined : { left: Math.max(0, Math.min(hover.x + 12, width - 270)), top: 44 }}
         >

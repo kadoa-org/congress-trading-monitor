@@ -97,23 +97,23 @@ export default function OverviewPage({ data, asOf }) {
   return (
     <div className="dk-container">
       <main className="govuk-main-wrapper" id="main-content">
-        <section className="pb-6">
+        <section className="pb-[10px]">
           <div className="max-w-3xl">
             <h1 className="dk-h1">{headline}</h1>
             <p className="govuk-body-l">{subline}</p>
           </div>
 
-          <div className="mt-8">
+          <div className="mt-10">
             <Headlines trades={trades} asOf={asOf} stats={stats} />
           </div>
         </section>
 
-        <section className="pb-8">
+        <section className="pb-[60px]">
           <CabinetSpotlight filers={filers} trades={trades} />
         </section>
 
         {returns && returns.length > 0 && (
-          <section className="pb-8">
+          <section className="pb-[60px]">
             <SectionHeader
               title="Biggest outperformers"
               subtitle="Dollar-weighted return against SPY since each buy. Long holds on big winners score highest."
@@ -123,7 +123,7 @@ export default function OverviewPage({ data, asOf }) {
           </section>
         )}
 
-        <section className="pb-20 grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <section className="grid grid-cols-1 gap-[60px]">
           <div>
             <SectionHeader title="Latest activity" subtitle="The newest disclosed trades." right={<Link to="/trades">See all</Link>} />
             <LatestActivity trades={trades} asOf={asOf} />

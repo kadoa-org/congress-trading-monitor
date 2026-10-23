@@ -44,7 +44,7 @@ export default function LobbyingScatter({ rows }) {
   const labels = useMemo(() => {
     if (!width) return [];
     const want = LABELLED.filter((t) => !narrow || NARROW_LABELLED.has(t));
-    const boxes = [], out = [], fs = narrow ? 12 : 14;
+    const boxes = [], out = [], fs = 14;
     const dots = pts.filter((p) => p.g !== "other").map((p) => ({ cx: x(p.mcap), cy: y(p.spend) }));
     const hits = (b) => b.x < P.l || b.x + b.w > W - 2 || b.y < 2 || b.y + b.h > H - P.b
       || boxes.some((o) => b.x < o.x + o.w && b.x + b.w > o.x && b.y < o.y + o.h && b.y + b.h > o.y)
@@ -75,7 +75,7 @@ export default function LobbyingScatter({ rows }) {
   };
   const xTicks = narrow ? [1e10, 1e11, 1e12] : [3e9, 1e10, 3e10, 1e11, 3e11, 1e12, 3e12];
   const yTicks = narrow ? [1e5, 1e6, 1e7] : [1e5, 3e5, 1e6, 3e6, 1e7, 3e7];
-  const tick = { fontSize: narrow ? 12 : 14, fill: MUTED, style: { fontVariantNumeric: "tabular-nums" } };
+  const tick = { fontSize: 14, fill: MUTED, style: { fontVariantNumeric: "tabular-nums" } };
   // Dashed lines of constant lobbying per $1M of market cap, clipped to the plot and labelled where they leave it.
   const iso = [1, 10, 100].map((k) => {
     const f = (m) => (k * m) / 1e6;
@@ -89,7 +89,7 @@ export default function LobbyingScatter({ rows }) {
   // room from coloured dots and company labels.
   const isoLabels = (() => {
     if (!width) return [];
-    const fs = narrow ? 12 : 13;
+    const fs = 14;
     const geo = iso.map((L) => {
       const len = Math.hypot(L.x2 - L.x1, L.y2 - L.y1), ux = (L.x2 - L.x1) / len, uy = (L.y2 - L.y1) / len;
       const text = `$${L.k} per $1M`;
@@ -134,7 +134,7 @@ export default function LobbyingScatter({ rows }) {
       {width > 0 && (
         <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} onMouseMove={onMove} onMouseLeave={() => setHover(null)} role="img"
           aria-label="Lobbying spend in 2025 against market cap for US companies traded by members of Congress, on log scales, coloured by sector.">
-          <text x={0} y={14} fontSize={narrow ? 13 : 15} fontWeight="700" fill={INK}>Spent on lobbying in 2025</text>
+          <text x={0} y={14} fontSize={narrow ? 14 : 16} fontWeight="700" fill={INK}>Spent on lobbying in 2025</text>
           {yTicks.map((v) => (
             <g key={v}>
               <line x1={P.l} x2={W - P.r} y1={y(v)} y2={y(v)} stroke={GRID} />
@@ -147,7 +147,7 @@ export default function LobbyingScatter({ rows }) {
               <text x={x(v)} y={H - P.b + 18} textAnchor="middle" {...tick}>{tickMoney(v)}</text>
             </g>
           ))}
-          <text x={W - P.r} y={H - 4} textAnchor="end" fontSize={narrow ? 13 : 15} fontWeight="700" fill={INK}>Market cap</text>
+          <text x={W - P.r} y={H - 4} textAnchor="end" fontSize={narrow ? 14 : 16} fontWeight="700" fill={INK}>Market cap</text>
           {iso.map((L) => (
             <g key={L.k}>
               <line x1={L.x1} y1={L.y1} x2={L.x2} y2={L.y2} stroke={MUTED} strokeDasharray="4 5" opacity="0.55" />
@@ -175,7 +175,7 @@ export default function LobbyingScatter({ rows }) {
         </svg>
       )}
       {hover && (
-        <div style={{ position: "absolute", top: tipTop, left: tipLeft, transform: "translateX(-50%)", background: "#fff", border: "1px solid #b1b4b6", padding: "6px 10px", fontSize: 14, lineHeight: "20px", pointerEvents: "none", whiteSpace: "nowrap" }}>
+        <div style={{ position: "absolute", top: tipTop, left: tipLeft, transform: "translateX(-50%)", background: "#fff", border: "1px solid #b1b4b6", padding: "6px 10px", fontSize: 16, lineHeight: "22px", pointerEvents: "none", whiteSpace: "nowrap" }}>
           <strong>{hover.n}</strong> ({hover.t})<br />
           Lobbying {money(hover.spend)}, market cap {money(hover.mcap)}<br />
           ${Math.round(perMillion(hover)).toLocaleString("en-US")} per $1M of market cap

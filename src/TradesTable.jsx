@@ -10,10 +10,10 @@ const COLUMNS = [
   { key: "transaction_type", label: "Side", numeric: false, sortable: true },
   { key: "amount", label: "Amount", numeric: true, sortable: true },
   { key: "transaction_date", label: "Traded", numeric: true, sortable: true },
-  { key: "filing_date", label: "Filed", numeric: true, sortable: true },
-  { key: "days_to_file", label: "Lag", numeric: true, sortable: true },
+  // The filing lag sits under the filing date, with its own sort button, so the table fits the 960px page.
+  { key: "filing_date", label: "Filed", numeric: true, sortable: true, sub: { key: "days_to_file", label: "Lag" } },
   { key: "excess_since", label: "vs SPY", numeric: true, sortable: true },
-  { key: "doc_url", label: "Source", numeric: true, sortable: false },
+  { key: "doc_url", label: "Source", numeric: true, sortable: false, hiddenLabel: true },
 ];
 
 const DEFAULT_PAGE_SIZE = 200;
@@ -158,7 +158,7 @@ export default function TradesTable({ trades, tall = false, sortCol, onSort, fil
       {/* Mobile: stacked cards. Desktop (lg+): a data-kit table. */}
       <div className="lg:hidden border border-[#b1b4b6] bg-white divide-y divide-[#b1b4b6]">
         {displayed.length === 0 && (
-          <div className="px-4 py-10 text-[14px] text-[#505a5f] text-center">No trades match the current filters.</div>
+          <div className="px-4 py-10 text-[16px] text-[#505a5f] text-center">No trades match the current filters.</div>
         )}
         {displayed.map((t) => (
           <MobileTradeCard key={t.id} t={t} filersById={filersById} />
@@ -166,30 +166,40 @@ export default function TradesTable({ trades, tall = false, sortCol, onSort, fil
       </div>
 
       <div className="hidden lg:block overflow-x-auto">
-        <table className="govuk-table govuk-table--small-text-until-tablet" style={{ minWidth: 1100, marginBottom: 0 }}>
+        <table className="govuk-table govuk-table--small-text-until-tablet" style={{ marginBottom: 0 }}>
           <thead className="govuk-table__head">
             <tr className="govuk-table__row">
               {COLUMNS.map((c) => {
-                const isActive = c.sortable && col.key === c.key;
+                const sortButton = (key, label) => (
+                  <button
+                    type="button"
+                    onClick={() => toggleSort(key)}
+                    className="inline-flex items-center gap-1 bg-transparent cursor-pointer whitespace-nowrap"
+                    style={{ font: "inherit", color: "inherit", border: 0, padding: 0 }}
+                  >
+                    <span>{label}</span>
+                    <SortIndicator active={col.key === key} dir={col.dir} />
+                  </button>
+                );
+                const activeKey = [c.key, c.sub?.key].find((k) => c.sortable && col.key === k);
                 return (
                   <th
                     key={c.key}
                     scope="col"
                     className={`govuk-table__header${c.numeric ? " govuk-table__header--numeric" : ""}`}
                     aria-sort={
-                      c.sortable ? (isActive ? (col.dir === "asc" ? "ascending" : "descending") : "none") : undefined
+                      c.sortable ? (activeKey ? (col.dir === "asc" ? "ascending" : "descending") : "none") : undefined
                     }
                   >
-                    {c.sortable ? (
-                      <button
-                        type="button"
-                        onClick={() => toggleSort(c.key)}
-                        className="inline-flex items-center gap-1 bg-transparent cursor-pointer"
-                        style={{ font: "inherit", color: "inherit", border: 0, padding: 0 }}
-                      >
-                        <span>{c.label}</span>
-                        <SortIndicator active={isActive} dir={col.dir} />
-                      </button>
+                    {c.sub ? (
+                      <span className="inline-flex flex-col items-end">
+                        {sortButton(c.key, c.label)}
+                        {sortButton(c.sub.key, c.sub.label)}
+                      </span>
+                    ) : c.sortable ? (
+                      sortButton(c.key, c.label)
+                    ) : c.hiddenLabel ? (
+                      <span className="govuk-visually-hidden">{c.label}</span>
                     ) : (
                       c.label
                     )}
@@ -212,7 +222,7 @@ export default function TradesTable({ trades, tall = false, sortCol, onSort, fil
               const filerPhoto = filersById?.get?.(t.filer_id);
               return (
                 <tr key={t.id} className="govuk-table__row hover:bg-[#f3f2f1]">
-                  <td className="govuk-table__cell" style={{ maxWidth: 260 }}>
+                  <td className="govuk-table__cell" style={{ maxWidth: 220 }}>
                     <RowLink
                       to={t.filer_id ? `/filer/${t.filer_id}` : undefined}
                       className="flex items-center gap-2 min-w-0 text-left no-underline"
@@ -232,7 +242,7 @@ export default function TradesTable({ trades, tall = false, sortCol, onSort, fil
                           </span>
                           <OwnerChip owner={t.owner} />
                         </div>
-                        <div className="text-[13px] text-[#505a5f] truncate mt-[1px]">
+                        <div className="text-[16px] text-[#505a5f] truncate mt-[1px]">
                           {t.chamber
                             ? `${t.chamber === "senate" ? "Senate" : "House"} · ${t.party ?? "-"}${t.state ? ` · ${t.state}` : ""}`
                             : `${t.level ?? ""} ${t.agency ?? ""}`.trim()}
@@ -257,12 +267,13 @@ export default function TradesTable({ trades, tall = false, sortCol, onSort, fil
                     </div>
                   </td>
 
-                  <td className="govuk-table__cell" style={{ maxWidth: 240 }}>
+                  {/* The asset name takes the width the other columns leave, cut short with an ellipsis. */}
+                  <td className="govuk-table__cell" style={{ maxWidth: 0, minWidth: 120, width: "100%" }}>
                     <div className="text-[#505a5f] truncate" title={t.asset_name}>
                       {cleanAssetName(t.asset_name)}
                     </div>
                     {t.comment && (
-                      <div className="text-[13px] text-[#b1b4b6] truncate mt-[1px] italic" title={t.comment}>
+                      <div className="text-[16px] text-[#b1b4b6] truncate mt-[1px] italic" title={t.comment}>
                         {t.comment}
                       </div>
                     )}
@@ -287,15 +298,6 @@ export default function TradesTable({ trades, tall = false, sortCol, onSort, fil
                     {t.transaction_date ?? "--"}
                   </td>
 
-                  <td className="govuk-table__cell govuk-table__cell--numeric tabular-nums whitespace-nowrap">
-                    <span
-                      className={t.is_late ? "font-medium" : ""}
-                      style={t.is_late ? { color: RED } : { color: "#505a5f" }}
-                    >
-                      {t.filing_date ?? "--"}
-                    </span>
-                  </td>
-
                   <td
                     className="govuk-table__cell govuk-table__cell--numeric tabular-nums whitespace-nowrap"
                     title={
@@ -304,15 +306,16 @@ export default function TradesTable({ trades, tall = false, sortCol, onSort, fil
                         : undefined
                     }
                   >
-                    {t.days_to_file == null ? (
-                      <span className="text-[#b1b4b6]">—</span>
-                    ) : (
-                      <span
-                        className={t.is_late ? "font-medium" : ""}
-                        style={t.is_late ? { color: RED } : { color: "#505a5f" }}
-                      >
+                    <span
+                      className={t.is_late ? "font-medium" : ""}
+                      style={t.is_late ? { color: RED } : { color: "#505a5f" }}
+                    >
+                      {t.filing_date ?? "--"}
+                    </span>
+                    {t.days_to_file != null && (
+                      <div className={t.is_late ? "font-medium" : ""} style={{ color: t.is_late ? RED : "#505a5f" }}>
                         {t.days_to_file}d
-                      </span>
+                      </div>
                     )}
                   </td>
 
@@ -374,7 +377,7 @@ function MobileTradeCard({ t, filersById }) {
       : t.transaction_date || t.filing_date || "";
 
   return (
-    <div className="px-3 py-3 text-[14px] leading-[1.4] text-[#0b0c0c]">
+    <div className="px-3 py-3 text-[16px] leading-[1.4] text-[#0b0c0c]">
       <div className="flex items-start justify-between gap-3">
         <RowLink
           to={t.filer_id ? `/filer/${t.filer_id}` : undefined}
@@ -391,7 +394,7 @@ function MobileTradeCard({ t, filersById }) {
               </span>
               <OwnerChip owner={t.owner} />
             </div>
-            {officeLine && <div className="text-[13px] text-[#505a5f] truncate mt-[1px]">{officeLine}</div>}
+            {officeLine && <div className="text-[16px] text-[#505a5f] truncate mt-[1px]">{officeLine}</div>}
           </div>
         </RowLink>
         <div className="text-right shrink-0 leading-tight">
@@ -404,7 +407,7 @@ function MobileTradeCard({ t, filersById }) {
             </span>
           </div>
           {t.excess_since != null && (
-            <div className="text-[13px] tabular-nums mt-[2px]" style={{ color: t.excess_since >= 0 ? GREEN : RED }}>
+            <div className="text-[16px] tabular-nums mt-[2px]" style={{ color: t.excess_since >= 0 ? GREEN : RED }}>
               {t.excess_since >= 0 ? "+" : ""}
               {t.excess_since.toFixed(1)}% vs SPY
             </div>
@@ -422,19 +425,19 @@ function MobileTradeCard({ t, filersById }) {
         )}
         <AssetTypeChip tag={assetTag} />
         {cleanAsset && (
-          <span className="text-[13px] text-[#505a5f] truncate min-w-0" title={t.asset_name}>
+          <span className="text-[16px] text-[#505a5f] truncate min-w-0" title={t.asset_name}>
             {cleanAsset}
           </span>
         )}
       </div>
       {t.comment && (
-        <div className="ml-9 text-[13px] text-[#b1b4b6] italic truncate mt-[1px]" title={t.comment}>
+        <div className="ml-9 text-[16px] text-[#b1b4b6] italic truncate mt-[1px]" title={t.comment}>
           {t.comment}
         </div>
       )}
 
       {(dateLine || t.doc_url) && (
-        <div className="mt-1.5 ml-9 flex items-center justify-between gap-2 text-[13px] tabular-nums">
+        <div className="mt-1.5 ml-9 flex items-center justify-between gap-2 text-[16px] tabular-nums">
           <span className={`truncate ${t.is_late ? "font-medium" : ""}`} style={{ color: t.is_late ? RED : "#505a5f" }}>
             {dateLine}
           </span>

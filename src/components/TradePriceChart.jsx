@@ -167,7 +167,7 @@ export default function TradePriceChart({ trades, history = [] }) {
                 picked.current = true;
                 setRange(r.key);
               }}
-              className={`px-3 h-[30px] text-[14px] ${range === r.key ? "bg-[#0b0c0c] text-white" : "bg-white text-[#0b0c0c] hover:bg-[#f3f2f1]"}`}
+              className={`px-3 h-[36px] text-[16px] ${range === r.key ? "bg-[#0b0c0c] text-white" : "bg-white text-[#0b0c0c] hover:bg-[#f3f2f1]"}`}
             >
               {r.label}
             </button>
@@ -179,7 +179,7 @@ export default function TradePriceChart({ trades, history = [] }) {
           {priceTicks.map((v) => (
             <g key={v}>
               <line x1={M.left} x2={M.left + plotW} y1={yP(v)} y2={yP(v)} stroke={RULE} />
-              {Math.abs(yP(v) - yP(last[1])) > 14 && <text x={M.left + plotW + 6} y={yP(v) + 4} fontSize="12" fill={MUTED}>{fmtPrice(v)}</text>}
+              {Math.abs(yP(v) - yP(last[1])) > 14 && <text x={M.left + plotW + 6} y={yP(v) + 4} fontSize="14" fill={MUTED}>{fmtPrice(v)}</text>}
             </g>
           ))}
           <path d={area} fill="#f3f2f1" />
@@ -204,24 +204,24 @@ export default function TradePriceChart({ trades, history = [] }) {
               </g>
             );
           })}
-          <text x={M.left + plotW + 6} y={barsTop + 12} fontSize="12" fill={GREEN}>Buys</text>
-          <text x={M.left + plotW + 6} y={barsTop + barsH - 3} fontSize="12" fill={RED}>Sells</text>
+          <text x={M.left + plotW + 6} y={barsTop + 12} fontSize="14" fill={GREEN}>Buys</text>
+          <text x={M.left + plotW + 6} y={barsTop + barsH - 3} fontSize="14" fill={RED}>Sells</text>
           {!narrow && peakBuy && (
-            <text x={x(`${peakBuy.m}-15`)} y={mid - yB(peakBuy.buys) - 4} fontSize="12" fill={INK} textAnchor={x(`${peakBuy.m}-15`) > M.left + plotW * 0.8 ? "end" : "middle"}>
+            <text x={x(`${peakBuy.m}-15`)} y={mid - yB(peakBuy.buys) - 4} fontSize="14" fill={INK} textAnchor={x(`${peakBuy.m}-15`) > M.left + plotW * 0.8 ? "end" : "middle"}>
               <tspan fontWeight="700">{peakBuy.buys} buys</tspan> {monthName(peakBuy.m)}
             </text>
           )}
           {!narrow && peakSell && (
-            <text x={x(`${peakSell.m}-15`)} y={mid + yB(peakSell.sells) + 13} fontSize="12" fill={INK} textAnchor={x(`${peakSell.m}-15`) > M.left + plotW * 0.8 ? "end" : "middle"}>
+            <text x={x(`${peakSell.m}-15`)} y={mid + yB(peakSell.sells) + 13} fontSize="14" fill={INK} textAnchor={x(`${peakSell.m}-15`) > M.left + plotW * 0.8 ? "end" : "middle"}>
               <tspan fontWeight="700">{peakSell.sells} sells</tspan> {monthName(peakSell.m)}
             </text>
           )}
           {axisTicks.map((d) => (
-            <text key={d} x={x(d)} y={height - 8} fontSize="12" fill={MUTED} textAnchor="middle">
+            <text key={d} x={x(d)} y={height - 8} fontSize="14" fill={MUTED} textAnchor="middle">
               {yearSpan <= 1.5 ? new Date(`${d}T12:00:00Z`).toLocaleString("en-US", { month: "short", timeZone: "UTC" }) : d.slice(0, 4)}
             </text>
           ))}
-          <text x={M.left + plotW + 6} y={yP(last[1]) + 4} fontSize="12" fontWeight="700" fill={INK}>{fmtPrice(last[1])}</text>
+          <text x={M.left + plotW + 6} y={yP(last[1]) + 4} fontSize="14" fontWeight="700" fill={INK}>{fmtPrice(last[1])}</text>
           {hover && <circle cx={x(hover.d)} cy={yP(hover.close)} r="3.5" fill="#fff" stroke={INK} strokeWidth="1.5" />}
           {hover && <line x1={hover.x} x2={hover.x} y1={M.top} y2={barsTop + barsH} stroke={MUTED} strokeDasharray="3 3" />}
         </svg>
@@ -231,8 +231,8 @@ export default function TradePriceChart({ trades, history = [] }) {
         <div
           className={
             narrow
-              ? "mt-2 border border-[#b1b4b6] bg-white p-2 text-[13px] leading-[1.4]"
-              : "pointer-events-none absolute z-10 w-[240px] border border-[#b1b4b6] bg-white p-2 text-[13px] leading-[1.4] shadow-[0_2px_6px_rgba(0,0,0,0.12)]"
+              ? "mt-2 border border-[#b1b4b6] bg-white p-2 text-[16px] leading-[1.4]"
+              : "pointer-events-none absolute z-10 w-[280px] border border-[#b1b4b6] bg-white p-2 text-[16px] leading-[1.4] shadow-[0_2px_6px_rgba(0,0,0,0.12)]"
           }
           style={narrow ? undefined : { left: Math.max(0, Math.min(hover.x + 12, width - 250)), top: 44 }}
         >

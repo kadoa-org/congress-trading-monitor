@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function TradingSkeleton({ label = "Loading trading data…" }) {
-  return <div className="dk-container pt-8 pb-16">
+  return <div className="dk-container page-main">
     <p role="status" className="govuk-body-s">{label}</p>
     <div aria-busy="true"><div aria-hidden="true" className="ticker-skeleton">
       <div className="ticker-skeleton-bar ticker-skeleton-title" />

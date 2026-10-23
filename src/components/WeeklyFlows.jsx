@@ -62,7 +62,7 @@ export default function WeeklyFlows({ flows }) {
     setHover(rows[Math.max(0, Math.min(rows.length - 1, Math.floor((px - P.l) / weekW)))]);
   };
   const tipLeft = hover ? Math.min(Math.max(cx(hover), 100), W - 100) : 0;
-  const tick = { fontSize: narrow ? 12 : 14, fill: MUTED, style: { fontVariantNumeric: "tabular-nums" } };
+  const tick = { fontSize: 14, fill: MUTED, style: { fontVariantNumeric: "tabular-nums" } };
   return (
     <div>
       <div className="govuk-form-group" style={{ marginBottom: 12 }}>
@@ -75,11 +75,11 @@ export default function WeeklyFlows({ flows }) {
         {width > 0 && (
           <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} onMouseMove={onMove} onMouseLeave={() => setHover(null)} role="img"
             aria-label="Weekly stock purchases minus sales by members of Congress, as bars, with the S&P 500 as a line on its own scale.">
-            <text x={0} y={18} fontSize="15" fontWeight="700" fill={INK}>{narrow ? "Net purchases" : "Net stock purchases a week"}</text>
-            <rect x={0} y={30} width={12} height={12} fill={BUY} /><text x={18} y={41} fontSize="13" fill={MUTED}>Buying</text>
-            <rect x={78} y={30} width={12} height={12} fill={SELL} /><text x={96} y={41} fontSize="13" fill={MUTED}>Selling</text>
-            <text x={W} y={18} textAnchor="end" fontSize="15" fontWeight="700" fill={INK}>S&amp;P 500</text>
-            <line x1={W - 96} x2={W - 74} y1={36} y2={36} stroke={INK} strokeWidth="2.5" /><text x={W} y={41} textAnchor="end" fontSize="13" fill={MUTED}>Index level</text>
+            <text x={0} y={18} fontSize="16" fontWeight="700" fill={INK}>{narrow ? "Net purchases" : "Net stock purchases a week"}</text>
+            <rect x={0} y={30} width={12} height={12} fill={BUY} /><text x={18} y={41} fontSize="14" fill={MUTED}>Buying</text>
+            <rect x={78} y={30} width={12} height={12} fill={SELL} /><text x={96} y={41} fontSize="14" fill={MUTED}>Selling</text>
+            <text x={W} y={18} textAnchor="end" fontSize="16" fontWeight="700" fill={INK}>S&amp;P 500</text>
+            <line x1={W - 96} x2={W - 74} y1={36} y2={36} stroke={INK} strokeWidth="2.5" /><text x={W} y={41} textAnchor="end" fontSize="14" fill={MUTED}>Index level</text>
             {ticks.map((v) => (
               <g key={v}>
                 <line x1={P.l} x2={W - P.r} y1={yN(v)} y2={yN(v)} stroke={v ? GRID : AXIS} />
@@ -98,7 +98,7 @@ export default function WeeklyFlows({ flows }) {
               return (
                 <g key={iso}>
                   <line x1={x(iso)} x2={x(iso)} y1={H - P.b} y2={H - P.b + 5} stroke={AXIS} />
-                  <text x={x(iso)} y={H - P.b + 20} textAnchor="middle" fontSize={narrow ? 12 : 13} fill={MUTED}>{MONTHS[d.getUTCMonth()]}{range === "all" && d.getUTCMonth() === 0 ? ` ${d.getUTCFullYear()}` : ""}</text>
+                  <text x={x(iso)} y={H - P.b + 20} textAnchor="middle" fontSize={14} fill={MUTED}>{MONTHS[d.getUTCMonth()]}{range === "all" && d.getUTCMonth() === 0 ? ` ${d.getUTCFullYear()}` : ""}</text>
                 </g>
               );
             })}
@@ -106,7 +106,7 @@ export default function WeeklyFlows({ flows }) {
           </svg>
         )}
         {hover && (
-          <div style={{ position: "absolute", top: P.t, left: tipLeft, transform: "translateX(-50%)", background: "#fff", border: "1px solid #b1b4b6", padding: "6px 10px", fontSize: 14, lineHeight: "20px", pointerEvents: "none", whiteSpace: "nowrap" }}>
+          <div style={{ position: "absolute", top: P.t, left: tipLeft, transform: "translateX(-50%)", background: "#fff", border: "1px solid #b1b4b6", padding: "6px 10px", fontSize: 16, lineHeight: "22px", pointerEvents: "none", whiteSpace: "nowrap" }}>
             <strong>Week of {dayLabel(hover.week)}</strong><br />
             <span style={{ color: BUY }}>{hover.buys} purchases</span>, <span style={{ color: SELL }}>{hover.sells} sales</span><br />
             Net {signed(hover.net)}, {hover.members} members{hover.spy != null ? `, S&P ${Math.round(hover.spy)}` : ""}

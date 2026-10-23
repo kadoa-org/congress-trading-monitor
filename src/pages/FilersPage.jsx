@@ -61,8 +61,8 @@ export default function FilersPage({ data }) {
   }, [enrichedFilers, qs]);
 
   return (
-    <div className="dk-container pt-8 pb-16">
-      <h1 className="govuk-heading-l" style={{ marginBottom: 10 }}>Politicians</h1>
+    <div className="dk-container page-main">
+      <h1 className="dk-h1">Politicians</h1>
       <p className="govuk-hint" style={{ marginTop: -6 }}>{`${fmtInt(filtered.length)} of ${fmtInt(enrichedFilers.length)}`}</p>
 
       <div className="dk-toolbar">
@@ -147,14 +147,15 @@ function FilersTable({ filtered, sort, setSort, onClear }) {
               return (
                 <tr key={f.id} className="govuk-table__row hover:bg-[#f3f2f1]">
                   <td className="govuk-table__cell govuk-table__cell--numeric tabular-nums text-[#505a5f]">{i + 1}</td>
-                  <td className="govuk-table__cell">
+                  {/* The filer column takes the width the figures leave; a long agency name is cut short. */}
+                  <td className="govuk-table__cell" style={{ maxWidth: 0, minWidth: 200, width: "100%" }}>
                     <div className="flex items-center gap-2.5 min-w-0">
                       <FilerAvatar filer={f} size={32} />
                       <div className="min-w-0">
                         <RowLink to={`/filer/${f.id}`} className="govuk-link">
                           {f.full_name}
                         </RowLink>
-                        <div className="text-[#505a5f] truncate" style={{ fontSize: "14px" }}>
+                        <div className="text-[#505a5f] truncate">
                           {officeLine}
                         </div>
                       </div>
@@ -203,7 +204,7 @@ function FilersTable({ filtered, sort, setSort, onClear }) {
         </table>
       </div>
       {filtered.length > 500 && (
-        <div className="px-4 py-2 border-t border-[#b1b4b6] text-[#505a5f] text-center" style={{ fontSize: "14px" }}>
+        <div className="px-4 py-2 border-t border-[#b1b4b6] text-[#505a5f] text-center" style={{ fontSize: "16px" }}>
           Showing 500 of {filtered.length.toLocaleString("en-US")} filers. Narrow the search to see the rest.
         </div>
       )}

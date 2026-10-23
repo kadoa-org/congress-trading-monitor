@@ -254,7 +254,7 @@ export default function FilerPage({ filerId, filersIndex, filersById, prices: pr
   const coverageEnd = stats.latest?.slice(0, 7);
 
   return (
-    <main className="dk-container pt-6 pb-16">
+    <main className="dk-container page-main">
       <nav className="govuk-breadcrumbs" aria-label="Breadcrumb" style={{ marginTop: 0, marginBottom: 20 }}>
         <ol className="govuk-breadcrumbs__list">
           <li className="govuk-breadcrumbs__list-item">
@@ -277,7 +277,7 @@ export default function FilerPage({ filerId, filersIndex, filersById, prices: pr
       <div className="flex items-center gap-3 mb-6">
         <AvatarPrimitive filer={filer} size={44} />
         <div className="min-w-0">
-          <h1 className="govuk-heading-l flex items-center gap-2 flex-wrap" style={{ marginBottom: 2 }}>
+          <h1 className="dk-h1 flex items-center gap-2 flex-wrap" style={{ marginBottom: 5 }}>
             <span>{filer.full_name}</span>
             <Pill tone={meta.tone}>{meta.label}</Pill>
           </h1>
@@ -600,7 +600,6 @@ function AlphaDriversSection({ drivers, trades, asOf }) {
                         {d.comment && (
                           <div
                             className="text-[#505a5f] truncate italic"
-                            style={{ fontSize: "14px" }}
                             title={d.comment}
                           >
                             {d.comment}
@@ -771,7 +770,6 @@ function ImaginaryPortfolio({ trades }) {
                       </RowLink>
                       <span
                         className="text-[#505a5f] truncate max-w-[280px]"
-                        style={{ fontSize: "14px" }}
                         title={bestNames.get(p.ticker) || p.asset_name || p.ticker}
                       >
                         {bestNames.get(p.ticker) || cleanAssetName(p.asset_name) || p.ticker}
@@ -804,7 +802,7 @@ function ImaginaryPortfolio({ trades }) {
           </table>
         </div>
         {data.holdings.length > 15 && (
-          <div className="px-4 py-2 border-t border-[#b1b4b6] text-[#505a5f] text-center" style={{ fontSize: "14px" }}>
+          <div className="px-4 py-2 border-t border-[#b1b4b6] text-[#505a5f] text-center" style={{ fontSize: "16px" }}>
             Showing top 15 of {data.holdings.length} positions by value
           </div>
         )}

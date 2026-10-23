@@ -107,5 +107,5 @@ export function RankBadge({ rank }) {
 // <10 → low (faint), 10-29 → medium, 30+ → high.
 export function SampleChip({ n }) {
   const tone = n >= 30 ? "text-ink_muted" : n >= 10 ? "text-ink_faint" : "text-ink_faint italic";
-  return <span className={`text-mini tabular-nums ml-1.5 ${tone}`}>n={n}</span>;
+  return <span className={`text-small tabular-nums ml-1.5 ${tone}`}>n={n}</span>;
 }

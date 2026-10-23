@@ -30,8 +30,8 @@ export default function TickersPage({ data }) {
   }, [tickers, qs]);
 
   return (
-    <div className="dk-container pt-8 pb-16">
-      <h1 className="govuk-heading-l" style={{ marginBottom: 10 }}>Stocks</h1>
+    <div className="dk-container page-main">
+      <h1 className="dk-h1">Stocks</h1>
       <p className="govuk-hint" style={{ marginTop: -6 }}>{`${fmtInt(filtered.length)} of ${fmtInt(tickers.length)}`}</p>
 
       <div className="dk-toolbar">

@@ -406,7 +406,7 @@ export function SingleSelectChip({ label, icon: chipIcon, options, value, onChan
   const btnRef = useRef(null);
   const current = options.find((o) => o.k === value) ?? options[0];
   return (
-    <div className="relative inline-flex items-stretch border border-[#0b0c0c] bg-white overflow-hidden h-[32px] text-[15px]">
+    <div className="relative inline-flex items-stretch border border-[#0b0c0c] bg-white overflow-hidden h-[36px] text-[16px]">
       <span className="inline-flex items-center gap-1.5 pl-2.5 pr-2 text-[#505a5f] border-r border-[#b1b4b6]">
         {chipIcon && <span className="text-[#505a5f]">{chipIcon}</span>}
         <span className="font-medium text-[#0b0c0c]">{label}</span>
@@ -440,7 +440,7 @@ export function SingleSelectChip({ label, icon: chipIcon, options, value, onChan
                   onChange(o.k);
                   setOpen(false);
                 }}
-                className="w-full flex items-center gap-2 px-3 py-1.5 text-[14px] text-left text-[#0b0c0c] hover:bg-[#f3f2f1]"
+                className="w-full flex items-center gap-2 px-3 py-1.5 text-[16px] text-left text-[#0b0c0c] hover:bg-[#f3f2f1]"
               >
                 <span className="w-3 text-[#1d70b8]">{value === o.k ? icon.check : null}</span>
                 <span className="flex-1">{o.label}</span>
@@ -486,7 +486,7 @@ function FilterChip({ cat, value, onChange, onRemove, open, setOpen }) {
   const btnRef = useRef(null);
 
   return (
-    <div className="relative inline-flex items-stretch border border-[#0b0c0c] bg-white overflow-hidden h-[32px] text-[15px]">
+    <div className="relative inline-flex items-stretch border border-[#0b0c0c] bg-white overflow-hidden h-[36px] text-[16px]">
       <span className="inline-flex items-center gap-1.5 pl-2.5 pr-2 text-[#505a5f] border-r border-[#b1b4b6]">
         <span className="text-[#505a5f]">{cat.icon}</span>
         <span className="font-medium text-[#0b0c0c]">{cat.label}</span>
@@ -558,7 +558,7 @@ function AddFilterButton({ categories, onAdd, open, setOpen }) {
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
                 placeholder="Filter…"
-                className="w-full h-7 px-2 text-[14px] bg-transparent border-none outline-none placeholder:text-[#505a5f]"
+                className="w-full h-7 px-2 text-[16px] bg-transparent border-none outline-none placeholder:text-[#505a5f]"
               />
             </div>
             <div className="py-1 max-h-[300px] overflow-y-auto">
@@ -574,7 +574,7 @@ function AddFilterButton({ categories, onAdd, open, setOpen }) {
                   }}
                 />
               ))}
-              {filtered.length === 0 && <div className="px-3 py-2 text-[14px] text-[#505a5f]">No filters match.</div>}
+              {filtered.length === 0 && <div className="px-3 py-2 text-[16px] text-[#505a5f]">No filters match.</div>}
             </div>
           </div>
         </Popover>
@@ -614,7 +614,7 @@ function CategoryRow({ cat, active, onHover, onSelect }) {
     >
       <button
         onClick={handleClick}
-        className={`w-full flex items-center gap-2 px-3 py-1.5 text-[14px] text-left hover:bg-[#f3f2f1] ${
+        className={`w-full flex items-center gap-2 px-3 py-1.5 text-[16px] text-left hover:bg-[#f3f2f1] ${
           active ? "bg-[#f3f2f1]" : ""
         }`}
       >
@@ -684,7 +684,7 @@ function ValuePicker({ cat, value, onPick }) {
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="Search…"
-            className="w-full h-7 px-2 text-[14px] bg-transparent border-none outline-none placeholder:text-[#505a5f]"
+            className="w-full h-7 px-2 text-[16px] bg-transparent border-none outline-none placeholder:text-[#505a5f]"
           />
         </div>
       )}
@@ -693,13 +693,13 @@ function ValuePicker({ cat, value, onPick }) {
           <button
             key={o.k}
             onClick={() => onPick(o.k)}
-            className="w-full flex items-center gap-2 px-3 py-1.5 text-[14px] text-left text-[#0b0c0c] hover:bg-[#f3f2f1]"
+            className="w-full flex items-center gap-2 px-3 py-1.5 text-[16px] text-left text-[#0b0c0c] hover:bg-[#f3f2f1]"
           >
             <span className="w-3 text-[#1d70b8]">{value === o.k ? icon.check : null}</span>
             <span className="flex-1">{o.label}</span>
           </button>
         ))}
-        {filtered.length === 0 && <div className="px-3 py-2 text-[14px] text-[#505a5f]">No matches.</div>}
+        {filtered.length === 0 && <div className="px-3 py-2 text-[16px] text-[#505a5f]">No matches.</div>}
       </div>
     </div>
   );
