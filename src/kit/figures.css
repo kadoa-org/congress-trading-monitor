@@ -30,6 +30,9 @@
 .dk-figures__context { font-size: 16px; color: var(--dk-gov-text); margin: 15px 0 0; max-width: 80ch; }
 .dk-figures__row { display: grid; grid-template-columns: repeat(var(--dk-figures-columns), minmax(0, 1fr)); margin: 0; background: var(--dk-gov-grey); }
 .dk-figures__item { padding: 15px 20px; min-width: 0; }
+/* Each figure spans three rows shared with its neighbours (label, value, note), so a label that wraps to two lines
+   moves the whole row down and values stay level across a row. */
+.dk-figures__item { display: grid; grid-row: span 3; grid-template-rows: subgrid; align-content: start; }
 .dk-figures__item + .dk-figures__item { border-left: 1px solid var(--dk-gov-border); }
 .dk-figures__label { margin: 0 0 6px; font-size: 14px; color: var(--dk-gov-secondary); }
 .dk-figures__value { margin: 0; font-size: 22px; line-height: 1.25; font-variant-numeric: tabular-nums; color: var(--dk-gov-text); overflow-wrap: anywhere; }
