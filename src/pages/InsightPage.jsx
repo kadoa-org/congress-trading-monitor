@@ -1,14 +1,13 @@
 import React, { useMemo, useState } from "react";
 import CommitteeTrades from "../components/CommitteeTrades";
-import GovTabs from "../components/GovTabs";
 import LobbyingScatter, { GROUPS, money, perMillion } from "../components/LobbyingScatter";
 import WeeklyFlows from "../components/WeeklyFlows";
 import { insightBySlug } from "../insights";
-import { DataTable } from "../kit";
-import { fmtInt, Link } from "../ui";
+import { ChartCard, DataTable } from "../kit";
+import { ExtLink, fmtInt, HOUSE_FILINGS, Link, SENATE_FILINGS } from "../ui";
 
-// One insight on its own page, laid out as a dashboard topic: title and lede, a chart card with
-// Chart / Tabular data / Download tabs and the date, then a one-line note.
+// One insight on its own page, laid out as a dashboard topic: the finding and a short lede, a chart card with
+// Chart / Tabular data / Download tabs and a source line, then "About the data" for method and caveats.
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const day = (s) => { const d = new Date(`${s}T00:00:00Z`); return `${d.getUTCDate()} ${MONTHS[d.getUTCMonth()]} ${d.getUTCFullYear()}`; };
 const signed = (v) => (v > 0 ? `+${v}` : v < 0 ? `−${Math.abs(v)}` : "0");
@@ -34,17 +33,27 @@ function WeeklyTrading({ flows }) {
     <>
       <h1 className="dk-h1">Weekly buying and selling</h1>
       <p className="govuk-body-l max-w-3xl">Stock purchases minus sales by members of Congress each week, with the S&amp;P 500.</p>
-      <section className="insight-chart-card" aria-label="Weekly buying and selling">
-        <p className="govuk-body-s insight-date">Up to the week starting {day(last.week)}</p>
-        <GovTabs tabs={[
+      <ChartCard
+        id="weekly-title"
+        title="Net stock purchases each week, with the S&P 500"
+        date={`Up to the week starting ${day(last.week)}`}
+        tabs={[
           { label: "Chart", content: <WeeklyFlows flows={flows} /> },
-          { label: "Tabular data", content: <DataTable rows={rows} columns={columns} rowKey={(r) => r.week} /> },
+          { label: "Tabular data", short: "Tabular", scroll: true, content: <DataTable rows={rows} columns={columns} rowKey={(r) => r.week} /> },
           { label: "Download", content: <><p className="govuk-body">Every week since January 2025 as a CSV: purchases, sales, net, members trading and the SPY close.</p><button type="button" className="govuk-button govuk-button--secondary" onClick={() => download(flows)}>Download CSV</button></> },
-        ]} />
+        ]}
+        footer={<p>Source: <ExtLink href={HOUSE_FILINGS}>House</ExtLink> and <ExtLink href={SENATE_FILINGS}>Senate</ExtLink> periodic transaction reports; SPY closing prices.</p>}
+      />
+      <section className="insight-about">
+        <h2>About the data</h2>
+        <ul>
+          <li>Each week counts the purchases and sales that members of Congress reported, by the date of the trade, in weeks starting on Monday, since January 2025.</li>
+          <li>Filings give value ranges, not exact amounts, so we count trades rather than dollars.</li>
+          <li>Members have 45 days to disclose a trade, so recent weeks will still change.</li>
+          <li>Trades by executive branch officials, including the President, are left out.</li>
+          <li>The S&amp;P 500 line is the closing price of SPY, an S&amp;P 500 fund, on the last trading day of each week.</li>
+        </ul>
       </section>
-      <p className="govuk-body-s max-w-3xl" style={{ marginTop: 16, color: "#505a5f" }}>
-        Members have 45 days to disclose a trade, so recent weeks will still change.
-      </p>
     </>
   );
 }
@@ -75,21 +84,29 @@ function LobbyingVsMarketCap({ data }) {
   const order = Object.keys(GROUPS).sort((a, b) => medians[a] - medians[b]);
   return (
     <>
-      <h1 className="dk-h1">Lobbying spend vs market cap</h1>
+      <h1 className="dk-h1">Tech companies spend the least on lobbying for their size, defense the most</h1>
       <p className="govuk-body-l max-w-3xl">
         Median federal lobbying in 2025 per $1M of market cap (October 2026), across {rows.length} US companies traded by members of Congress:{" "}
         {order.map((k, i) => <React.Fragment key={k}>{i ? ", " : ""}<strong style={{ color: GROUPS[k].text }}>{GROUPS[k].label.toLowerCase()}</strong> ${medians[k]}</React.Fragment>)}.
       </p>
-      <section className="insight-chart-card" aria-label="Lobbying spend vs market cap">
-        <GovTabs tabs={[
+      <ChartCard
+        id="lobbying-mcap-title"
+        title="Lobbying spend in 2025 against market cap, by company"
+        tabs={[
           { label: "Chart", content: <LobbyingScatter rows={rows} /> },
-          { label: "Tabular data", content: <DataTable rows={sorted} columns={columns} rowKey={(r) => r.t} sort={sort} onSort={onSort} /> },
+          { label: "Tabular data", short: "Tabular", scroll: true, content: <DataTable rows={sorted} columns={columns} rowKey={(r) => r.t} sort={sort} onSort={onSort} /> },
           { label: "Download", content: <><p className="govuk-body">All {rows.length} companies as a CSV: lobbying in 2025, market cap, sector and lobbying per $1M of market cap.</p><button type="button" className="govuk-button govuk-button--secondary" onClick={() => downloadLobbying(rows)}>Download CSV</button></> },
-        ]} />
+        ]}
+        footer={<p>Source: <ExtLink href="https://lda.gov/">LDA.gov</ExtLink> filings (2025), SEC share counts and recent prices.</p>}
+      />
+      <section className="insight-about">
+        <h2>About the data</h2>
+        <ul>
+          <li>The companies are US-listed, traded by members of Congress, with at least $2B market cap and $100K of lobbying.</li>
+          <li>Lobbying is what each company reported spending on federal lobbying in 2025. Market cap is from SEC share counts and recent prices, as of October 2026.</li>
+          <li>Lobbying per $1M of market cap is the lobbying spend divided by market cap in millions. The sector figures above are medians across each sector&apos;s companies.</li>
+        </ul>
       </section>
-      <p className="govuk-body-s max-w-3xl" style={{ marginTop: 16, color: "#505a5f" }}>
-        Sources: LDA.gov filings (2025), SEC share counts and recent prices. US-listed companies with at least $2B market cap and $100K of lobbying.
-      </p>
     </>
   );
 }

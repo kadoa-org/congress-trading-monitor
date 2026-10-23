@@ -129,12 +129,13 @@ body:has(.seo-shell) #root footer { display: none; }
 .ticker-skeleton-row { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 24px; padding: 14px 0; border-bottom: 1px solid #b1b4b6; }
 .ticker-skeleton-row .ticker-skeleton-bar { max-width: 180px; }
 .ticker-skeleton-chart { height: 274px; background: #f3f2f1; margin: 32px 0; }
-/* Insights: topic cards on the index, and the chart card on an insight page. */
+/* Insights: topic cards on the index. */
 .insight-cards{list-style:none;margin:24px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
 .insight-card{background:#f3f2f1;padding:20px 20px 4px;border-top:4px solid #1d70b8}
-.insight-chart-card{background:#f3f2f1;padding:20px}
-.insight-chart-card .govuk-tabs__panel{background:#fff}
-.insight-date{color:#505a5f;margin-bottom:16px}
+/* The Lobbying page's table card: the kit card around GOV.UK tabs, whose panels are white and whose bottom margin
+   the card's own spacing replaces. */
+.dk-card .govuk-tabs{margin-bottom:0}
+.dk-card .govuk-tabs__panel{background:#fff}
 /* Tabs default to a "Contents" link list below tablet width. Here the panels are React state, so phones get
    the same tab row as desktop: compact, horizontally scrollable if the labels do not fit. */
 @media (max-width: 40.0525em) {
@@ -150,15 +151,15 @@ body:has(.seo-shell) #root footer { display: none; }
   .govuk-frontend-supported .govuk-tabs__tab { font-size: 16px; }
   .govuk-frontend-supported .govuk-tabs__panel { margin: 0; padding: 16px 12px; border: 1px solid #b1b4b6; border-top: 0; background: #fff; }
   .govuk-frontend-supported .govuk-tabs__panel--hidden { display: none; }
-  .insight-chart-card { padding: 16px 12px; margin: 0 -15px; }
-  /* Phones: the chart gets the full width. The card's side padding and the panel's padding and side borders took
-     about 60px of a 390px screen; the gray card edge already frames the panel. */
-  .insight-chart-card { padding: 12px 0 0; }
-  .insight-chart-card .insight-date { padding: 0 15px; }
-  .insight-chart-card .govuk-tabs__list { padding: 0 15px; }
-  .insight-chart-card .govuk-frontend-supported .govuk-tabs__panel,
-  .govuk-frontend-supported .insight-chart-card .govuk-tabs__panel { padding: 12px 15px 16px; border-left: 0; border-right: 0; }
 }
+/* Short charts: the panel takes the chart's own height instead of the kit's 440px minimum, so no blank band sits
+   under the plot; the other tabs still match that height. */
+.chart-fit{--dk-tab-min-height:0px;--dk-tab-min-height-sm:0px}
+/* A chart's key, inside the chart panel above the plot. */
+.chart-key{display:flex;flex-wrap:wrap;gap:6px 20px;margin:0 0 16px;font-size:16px;color:#505a5f}
+.chart-key span{display:inline-flex;align-items:center;gap:6px}
+.chart-key i{display:inline-block;width:12px;height:12px;flex:none}
+.chart-key i + i{margin-left:-4px}
 /* Committee trades insight: a seat grid per chamber, then member cards with company chips coloured by committee. */
 .ct-chambers{display:grid;grid-template-columns:52fr 14fr;gap:32px;align-items:start}
 .ct-chamber__title{margin-bottom:10px}
@@ -166,13 +167,10 @@ body:has(.seo-shell) #root footer { display: none; }
 .ct-grid{display:grid;grid-template-columns:repeat(52,minmax(0,1fr));gap:2px}
 .ct-chamber--14 .ct-grid{grid-template-columns:repeat(14,minmax(0,1fr))}
 .ct-grid i{display:block;aspect-ratio:1}
-.ct-key{display:flex;flex-wrap:wrap;gap:8px 24px;margin:16px 0 0;color:#505a5f}
-.ct-key span{display:inline-flex;align-items:center;gap:5px}
-.ct-key i{display:inline-block;width:12px;height:12px}
 .ct-section{margin-top:48px}
 /* Section headings match the energy tracker's insight pages: 24px, 21px on phones. */
-.ct-section,.ct-about h2{font-size:24px;font-weight:700;line-height:1.25;margin-bottom:15px}
-@media (max-width:640px){.ct-section,.ct-about h2{font-size:21px}}
+.ct-section,.insight-about h2{font-size:24px;font-weight:700;line-height:1.25;margin-bottom:15px}
+@media (max-width:640px){.ct-section,.insight-about h2{font-size:21px}}
 .ct-legend{display:flex;flex-wrap:wrap;align-items:center;gap:6px;color:#505a5f}
 .ct-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:start}
 .ct-card{border:1px solid #b1b4b6;background:#fff;scroll-margin-top:16px}
@@ -207,7 +205,8 @@ body:has(.seo-shell) #root footer { display: none; }
 a.ct-chip,.ct-chip{font-size:16px;padding:2px 8px 3px;text-decoration:none}
 a.ct-chip:hover{text-decoration:underline}
 .ct-more{font-size:16px;color:#505a5f;padding:2px 4px;margin:0}
-.ct-about{margin:40px 0 0;max-width:760px}.ct-about ul{margin:0;padding-left:20px;list-style:disc}.ct-about li{margin:0 0 10px;line-height:1.5}
+/* "About the data" at the foot of every insight page. */
+.insight-about{margin:40px 0 0;max-width:48rem}.insight-about ul{margin:0;padding-left:20px;list-style:disc}.insight-about li{margin:0 0 10px;line-height:1.5}
 .ct-note{font-size:14px;color:#505a5f;margin:10px 0 0}
 @media (max-width: 48.0525em){
   .ct-chambers{grid-template-columns:1fr;gap:20px}
@@ -215,7 +214,6 @@ a.ct-chip:hover{text-decoration:underline}
   .ct-chamber--14 .ct-grid{grid-template-columns:repeat(14,minmax(0,1fr));max-width:50%}
   .ct-cards{grid-template-columns:1fr}
 }
-@media (max-width: 40.0525em) { .insight-about .govuk-list { font-size: 16px; line-height: 1.4; } }
 .committee-table td{vertical-align:middle}
 .committee-table tr.is-open td{background:#f3f2f1;border-bottom:none}
 .committee-table__toggle{font:inherit;color:#1d70b8;background:none;border:0;padding:4px 0;cursor:pointer;text-decoration:underline;text-underline-offset:3px;font-variant-numeric:tabular-nums}

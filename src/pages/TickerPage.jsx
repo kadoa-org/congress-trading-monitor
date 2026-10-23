@@ -2,12 +2,14 @@ import TradingSkeleton from "../components/TradingSkeleton";
 import { fetchData } from "../data";
 import React, { useEffect, useMemo, useState } from "react";
 import FilterBar, { applyFilters, defaultFilters } from "../components/FilterBar";
+import { monthName, tradesByMonth } from "../components/TradeActivityChart";
 import TradePriceChart from "../components/TradePriceChart";
 import TickerLobbying from "../components/TickerLobbying";
-import { ChartCard } from "../kit";
+import { downloadCsv } from "../csv";
+import { ChartCard, DataTable } from "../kit";
 import { FilerAvatar } from "../components/TablePrimitives";
 import TradesTable from "../TradesTable";
-import { bestAssetNameByTicker, Card, fmtInt, fmtUSD, Link, RowLink, SectionHeader } from "../ui";
+import { bestAssetNameByTicker, Card, ExtLink, fmtInt, fmtUSD, HOUSE_FILINGS, Link, OGE_FILINGS, RowLink, SectionHeader, SENATE_FILINGS } from "../ui";
 
 export default function TickerPage({ symbol, filersById, initialData = null }) {
   const [data, setData] = useState(initialData);
@@ -31,6 +33,12 @@ export default function TickerPage({ symbol, filersById, initialData = null }) {
   const ticker = data?.ticker ?? symbol;
   const price = data?.price ?? null;
   const fullName = useMemo(() => bestAssetNameByTicker(trades).get(ticker) ?? null, [trades, ticker]);
+  // The chart's table: buys and sells per month, with the last weekly close of that month.
+  const byMonth = useMemo(() => {
+    const close = new Map();
+    for (const [d, c] of data?.history ?? []) close.set(d.slice(0, 7), c);
+    return tradesByMonth(trades).map((m) => ({ ...m, close: close.get(m.month) ?? null }));
+  }, [trades, data?.history]);
 
   const stats = useMemo(() => {
     let buys = 0,
@@ -187,9 +195,43 @@ export default function TickerPage({ symbol, filersById, initialData = null }) {
         )}
       </dl>
 
-      <ChartCard id="timeline-title" title="Trades and price" description={`Disclosed ${ticker} trades by members of Congress on the stock's price. Tap or hover for names.`}>
-        <TradePriceChart trades={trades} history={data?.history ?? []} />
-      </ChartCard>
+      <ChartCard
+        id="timeline-title"
+        title="Trades and price"
+        description={`Disclosed ${ticker} trades by members of Congress on the stock's price. Tap or hover for names.`}
+        tabs={[
+          { label: "Chart", content: <TradePriceChart trades={trades} history={data?.history ?? []} /> },
+          {
+            label: "Tabular data",
+            short: "Tabular",
+            scroll: true,
+            content: (
+              <DataTable
+                rows={byMonth}
+                rowKey={(m) => m.month}
+                columns={[
+                  { key: "month", header: "Month", render: (m) => monthName(m.month) },
+                  { key: "buys", header: "Buys", align: "right", render: (m) => fmtInt(m.buys) },
+                  { key: "sells", header: "Sells", align: "right", render: (m) => fmtInt(m.sells) },
+                  { key: "close", header: "Close", align: "right", render: (m) => (m.close != null ? `$${m.close.toFixed(2)}` : "–") },
+                ]}
+              />
+            ),
+          },
+          {
+            label: "Download",
+            content: (
+              <>
+                <p className="govuk-body">Buys and sells of {ticker} per month as a CSV, with the month&apos;s last weekly close.</p>
+                <button type="button" className="govuk-button govuk-button--secondary" onClick={() => downloadCsv(`${ticker}-trades-by-month.csv`, ["month", "buys", "sells", "close"], byMonth.map((m) => [m.month, m.buys, m.sells, m.close ?? ""]))}>
+                  Download CSV
+                </button>
+              </>
+            ),
+          },
+        ]}
+        footer={<p>Source: <ExtLink href={HOUSE_FILINGS}>House</ExtLink>, <ExtLink href={SENATE_FILINGS}>Senate</ExtLink> and <ExtLink href={OGE_FILINGS}>OGE</ExtLink> disclosure filings; prices from <ExtLink href={`https://finance.yahoo.com/quote/${encodeURIComponent(ticker)}`}>Yahoo Finance</ExtLink>.</p>}
+      />
 
       <div className="mb-10">
         <SectionHeader title="Top holders" subtitle="Ranked by number of trades in this ticker" />

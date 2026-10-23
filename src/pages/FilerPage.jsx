@@ -2,9 +2,10 @@ import TradingSkeleton from "../components/TradingSkeleton";
 import { fetchData } from "../data";
 import React, { useEffect, useMemo, useState } from "react";
 import FilterBar, { applyFilters, defaultFilters } from "../components/FilterBar";
-import TradeActivityChart from "../components/TradeActivityChart";
+import TradeActivityChart, { monthName, tradesByMonth } from "../components/TradeActivityChart";
 import CommitteeOverlap from "../components/CommitteeOverlap";
-import { ChangeTag, ChartCard, KeyFigures } from "../kit";
+import { downloadCsv } from "../csv";
+import { ChangeTag, ChartCard, DataTable, KeyFigures } from "../kit";
 import { FilerAvatar as AvatarPrimitive } from "../components/TablePrimitives";
 import { TickerBadge, TickerLabel } from "../components/TickerBadge";
 import TradesTable from "../TradesTable";
@@ -13,13 +14,17 @@ import {
   branchPill,
   Card,
   cleanAssetName,
+  ExtLink,
   fmtAmountRange,
   fmtInt,
   fmtUSD,
+  HOUSE_FILINGS,
   Link,
+  OGE_FILINGS,
   Pill,
   RowLink,
   SectionHeader,
+  SENATE_FILINGS,
   SourceLink,
 } from "../ui";
 
@@ -216,6 +221,8 @@ export default function FilerPage({ filerId, filersIndex, filersById, prices: pr
     return { total: sorted.length, rank: idx + 1 };
   }, [returns, filerId, stats.weightedExcess]);
 
+  const byMonth = useMemo(() => tradesByMonth(trades), [trades]);
+
   const filtered = useMemo(() => {
     if (!filer) return [];
     const enriched = trades.map((t) => ({
@@ -341,9 +348,46 @@ export default function FilerPage({ filerId, filersIndex, filersById, prices: pr
 
       <CommitteeOverlap oversight={data.oversight} />
 
-      <ChartCard id="timeline-title" title="Trades by month" description="Disclosed buys and sells, by the month they were made. Tap or hover for the stocks.">
-        <TradeActivityChart trades={trades} />
-      </ChartCard>
+      <div className="chart-fit">
+        <ChartCard
+          id="timeline-title"
+          title="Trades by month"
+          description="Disclosed buys and sells, by the month they were made. Tap or hover for the stocks."
+          tabs={[
+            { label: "Chart", content: <TradeActivityChart trades={trades} /> },
+            {
+              label: "Tabular data",
+              short: "Tabular",
+              scroll: true,
+              content: (
+                <DataTable
+                  rows={byMonth}
+                  rowKey={(m) => m.month}
+                  columns={[
+                    { key: "month", header: "Month", render: (m) => monthName(m.month) },
+                    { key: "buys", header: "Buys", align: "right", render: (m) => fmtInt(m.buys) },
+                    { key: "sells", header: "Sells", align: "right", render: (m) => fmtInt(m.sells) },
+                  ]}
+                />
+              ),
+            },
+            {
+              label: "Download",
+              content: (
+                <>
+                  <p className="govuk-body">Buys and sells per month as a CSV, by the month they were made.</p>
+                  <button type="button" className="govuk-button govuk-button--secondary" onClick={() => downloadCsv(`${filerId}-trades-by-month.csv`, ["month", "buys", "sells"], byMonth.map((m) => [m.month, m.buys, m.sells]))}>
+                    Download CSV
+                  </button>
+                </>
+              ),
+            },
+          ]}
+          footer={<p>Source: {filer.branch === "executive"
+            ? <><ExtLink href={OGE_FILINGS}>OGE</ExtLink> financial disclosure reports</>
+            : <><ExtLink href={filer.chamber === "senate" ? SENATE_FILINGS : HOUSE_FILINGS}>{filer.chamber === "senate" ? "Senate" : "House"}</ExtLink> periodic transaction reports</>}.</p>}
+        />
+      </div>
 
       <SectionHeader title="All trades" subtitle={`${fmtInt(filtered.length)} of ${fmtInt(trades.length)}`} />
       <div className="mb-4">

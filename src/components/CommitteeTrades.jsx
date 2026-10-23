@@ -1,10 +1,9 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import data from "../static/committee-trades.json";
-import { DataTable } from "../kit";
+import { ChartCard, DataTable } from "../kit";
 import { useQueryState } from "../router";
-import { fmtInt, Link } from "../ui";
+import { ExtLink, fmtInt, HOUSE_FILINGS, Link, SENATE_FILINGS } from "../ui";
 import { InlineSearchInput, SingleSelectChip } from "./FilterBar";
-import GovTabs from "./GovTabs";
 
 // Members who traded stocks in companies their committees oversee, January 2025 to October 2026. A frozen analysis,
 // bundled with the site rather than refreshed daily: committee jurisdiction and company links were classified once.
@@ -41,15 +40,15 @@ function SeatGrid({ seats, label, cols, onPick }) {
 function Grid({ onPick }) {
   return (
     <>
-      <div className="ct-chambers">
-        <SeatGrid seats={data.grid.house} label="House" cols={52} onPick={onPick} />
-        <SeatGrid seats={data.grid.senate} label="Senate" cols={14} onPick={onPick} />
-      </div>
-      <div className="ct-key govuk-body-s">
+      <div className="chart-key">
         <span><i style={{ background: PARTY.D }} /><i style={{ background: PARTY.R }} />Traded companies their committees oversee</span>
         <span><i style={{ background: TINT.D }} /><i style={{ background: TINT.R }} />Traded other stocks</span>
         <span><i style={{ background: NONE }} />No stock trades</span>
         <span>Click a dark square to see that member's card</span>
+      </div>
+      <div className="ct-chambers">
+        <SeatGrid seats={data.grid.house} label="House" cols={52} onPick={onPick} />
+        <SeatGrid seats={data.grid.senate} label="Senate" cols={14} onPick={onPick} />
       </div>
     </>
   );
@@ -218,20 +217,25 @@ export default function CommitteeTrades() {
       <p className="govuk-body-l max-w-3xl">
         A Kadoa analysis found that {data.membersMatched} lawmakers or their family members bought or sold shares over 21 months in companies overseen by a committee they sit on.
       </p>
-      <section className="insight-chart-card" aria-label="Members who traded companies their committees oversee">
-        <p className="govuk-body-s insight-date">Trades from {day(from)} to {day(to)}</p>
-        <GovTabs tabs={[
-          { label: "Chart", content: <Grid onPick={pick} /> },
-          { label: "Tabular data", content: <MembersTable /> },
-          { label: "Download", content: <><p className="govuk-body">All {data.cards.length} members as a CSV: companies traded, companies linked to a committee seat, matched trades and committees.</p><button type="button" className="govuk-button govuk-button--secondary" onClick={download}>Download CSV</button></> },
-        ]} />
-      </section>
+      <div className="chart-fit">
+        <ChartCard
+          id="committee-trades-title"
+          title="Members who traded companies their committees oversee"
+          date={`Trades from ${day(from)} to ${day(to)}`}
+          tabs={[
+            { label: "Chart", content: <Grid onPick={pick} /> },
+            { label: "Tabular data", short: "Tabular", scroll: true, content: <MembersTable /> },
+            { label: "Download", content: <><p className="govuk-body">All {data.cards.length} members as a CSV: companies traded, companies linked to a committee seat, matched trades and committees.</p><button type="button" className="govuk-button govuk-button--secondary" onClick={download}>Download CSV</button></> },
+          ]}
+          footer={<p>Source: <ExtLink href={HOUSE_FILINGS}>House</ExtLink> and <ExtLink href={SENATE_FILINGS}>Senate</ExtLink> disclosure filings, <ExtLink href="https://www.usaspending.gov/">USAspending</ExtLink>.</p>}
+        />
+      </div>
 
       <h2 className="ct-section" id="members">By member</h2>
       <Members focus={focus} />
 
       {/* Background for readers who ask what is being counted. The figures are fixed to the period they name. */}
-      <section className="ct-about">
+      <section className="insight-about">
         <h2>About the data</h2>
         <ul>
           <li>Members of Congress are allowed to trade individual stocks, as long as they report each trade.</li>

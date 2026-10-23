@@ -2,7 +2,7 @@ import { useLayoutEffect, useMemo, useRef, useState } from "react";
 
 // Each company's lobbying spend against its market cap, both on log scales, with dashed lines for $1, $10 and $100 of
 // lobbying per $1M of market cap. Four sectors are coloured (Okabe-Ito, checked for colour blindness); the rest stay
-// grey. The biggest names are labelled where there is room, and hovering a dot names it.
+// grey, with a key above the plot. The biggest names are labelled where there is room, and hovering a dot names it.
 export const GROUPS = {
   tech: { label: "Tech", color: "#0072B2", text: "#0072B2" },
   pharma: { label: "Pharma", color: "#009E73", text: "#007a5a" },
@@ -125,6 +125,11 @@ export default function LobbyingScatter({ rows }) {
   const tipLeft = hover ? Math.min(Math.max(x(hover.mcap), 110), W - 110) : 0;
   const tipTop = hover ? (y(hover.spend) > H / 2 ? y(hover.spend) - 96 : y(hover.spend) + 14) : 0;
   return (
+    <>
+    <div className="chart-key">
+      {Object.values(GROUPS).map((g) => <span key={g.label}><i style={{ background: g.color }} />{g.label}</span>)}
+      <span><i style={{ background: GREY }} />Other</span>
+    </div>
     <div ref={ref} style={{ position: "relative" }}>
       {width > 0 && (
         <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} onMouseMove={onMove} onMouseLeave={() => setHover(null)} role="img"
@@ -177,5 +182,6 @@ export default function LobbyingScatter({ rows }) {
         </div>
       )}
     </div>
+    </>
   );
 }

@@ -318,6 +318,15 @@ export function Card({ children, className = "", to }) {
   return <div className={base}>{children}</div>;
 }
 
+// Where the filings come from, for the "Source:" line under a chart.
+export const HOUSE_FILINGS = "https://disclosures-clerk.house.gov/FinancialDisclosure";
+export const SENATE_FILINGS = "https://efdsearch.senate.gov/";
+export const OGE_FILINGS = "https://www.oge.gov/";
+
+export function ExtLink({ href, children }) {
+  return <a className="govuk-link" href={href} target="_blank" rel="noreferrer">{children}</a>;
+}
+
 // Section headings follow the shared kit pattern: bold title, italic description, date.
 export function SectionHeader({ title, subtitle, date, right }) {
   return <SectionHeading title={title} description={subtitle} date={date} right={right} />;

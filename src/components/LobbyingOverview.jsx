@@ -2,7 +2,8 @@ import React, { Fragment, useMemo, useState } from "react";
 import { billText, CommitteeName, committeeParts, fmtMoney, pct, shortCompany, shortTitle } from "../committees";
 import CompactTable from "./CompactTable";
 import LobbyEvidenceTable from "./LobbyEvidenceTable";
-import { DataTable } from "../kit";
+import { downloadCsv } from "../csv";
+import { DataTable, SectionHeading } from "../kit";
 import { fmtInt, Link } from "../ui";
 import GovTabs from "./GovTabs";
 import { useQueryState } from "../router";
@@ -24,13 +25,6 @@ function useSort(rows, initial) {
   }, [rows, sort]);
   const onSort = (key) => setSort((s) => ({ key, dir: s.key === key && s.dir === "desc" ? "asc" : "desc" }));
   return { sorted, sort, onSort };
-}
-
-function downloadCsv(filename, header, rows) {
-  const esc = (v) => (/[",\n]/.test(String(v ?? "")) ? `"${String(v).replace(/"/g, '""')}"` : (v ?? ""));
-  const csv = [header.join(","), ...rows.map((r) => r.map(esc).join(","))].join("\n");
-  const url = URL.createObjectURL(new Blob([csv + "\n"], { type: "text/csv" }));
-  const a = document.createElement("a"); a.href = url; a.download = filename; a.click(); URL.revokeObjectURL(url);
 }
 
 // Committees with their figures; a row opens a full-width panel listing the members who trade.
@@ -200,25 +194,31 @@ export default function LobbyingOverview({ oversight }) {
       committeeRows.map((c) => [c.full, c.members, c.trades, c.linked, c.linkedPct, c.expectedPct])),
   ];
 
+  // The download sits with its table, so each tab offers the CSV of what it shows.
+  const withDownload = (table, i) => (
+    <>
+      {table}
+      <p className="govuk-body-s" style={{ margin: "16px 0 0" }}>
+        <button type="button" className="dk-linkbutton" onClick={downloads[i]}>Download this table as CSV</button>
+      </p>
+    </>
+  );
+
   return (
     <>
       <h1 className="dk-h1">Lobbying</h1>
-      <p className="govuk-body-l max-w-3xl">When members of Congress trade stocks of companies that lobby their own committees.</p>
-      <section className="insight-chart-card" aria-label="Stocks of companies that lobby them">
+      <p className="govuk-body-l max-w-3xl">When members of Congress trade stocks of companies that lobby their own committees. A match is not evidence of wrongdoing.</p>
+      <section className="dk-card" aria-labelledby="lobbying-title">
+        <SectionHeading id="lobbying-title" title="Trades in companies that lobby their committees" />
         <GovTabs active={active} onChange={(i) => setQs({ view: VIEWS[i] })} tabs={[
-          { label: "Members", content: <DataTable rows={bm.sorted} columns={memberColumns} rowKey={(r) => r.filerId} sort={bm.sort} onSort={bm.onSort} expand={(r) => <LobbyEvidenceTable topLinked={r.topLinked} trades={r.trades} linked={r.linked} />} /> },
-          { label: "Companies", content: <DataTable rows={bc.sorted} columns={companyColumns} rowKey={(c) => c.ticker} sort={bc.sort} onSort={bc.onSort} expand={companyPanel} /> },
-          { label: "Committees", content: <CommitteeTable rows={committeeRows} /> },
+          { label: "Members", content: withDownload(<DataTable rows={bm.sorted} columns={memberColumns} rowKey={(r) => r.filerId} sort={bm.sort} onSort={bm.onSort} expand={(r) => <LobbyEvidenceTable topLinked={r.topLinked} trades={r.trades} linked={r.linked} />} />, 0) },
+          { label: "Companies", content: withDownload(<DataTable rows={bc.sorted} columns={companyColumns} rowKey={(c) => c.ticker} sort={bc.sort} onSort={bc.onSort} expand={companyPanel} />, 1) },
+          { label: "Committees", content: withDownload(<CommitteeTable rows={committeeRows} />, 2) },
         ]} />
-        <p className="govuk-body-s" style={{ margin: "16px 0 0" }}>
-          <button type="button" className="dk-linkbutton" onClick={downloads[active]}>
-            Download this table as CSV
-          </button>
-        </p>
+        <div className="dk-card__footer">
+          Source: <a className="govuk-link" href="https://lda.gov/" target="_blank" rel="noreferrer">LDA.gov</a> lobbying filings{lobbying?.retrieved ? `, retrieved ${day(lobbying.retrieved)}` : ""}. <Link to="/about#lobbying">How this is counted</Link>
+        </div>
       </section>
-      <p className="govuk-body-s max-w-3xl" style={{ marginTop: 16, color: "#505a5f" }}>
-        Source: LDA.gov lobbying filings{lobbying?.retrieved ? `, retrieved ${day(lobbying.retrieved)}` : ""}. Not evidence of wrongdoing. <Link to="/about#lobbying">How this is counted</Link>
-      </p>
     </>
   );
 }

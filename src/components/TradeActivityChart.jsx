@@ -25,12 +25,27 @@ const isSell = (t) => {
   const tt = (t.transaction_type || "").toLowerCase();
   return tt.includes("ale") || tt === "s";
 };
-const monthName = (m) => new Date(`${m}-15T12:00:00Z`).toLocaleString("en-US", { month: "short", year: "numeric", timeZone: "UTC" });
+export const monthName = (m) => new Date(`${m}-15T12:00:00Z`).toLocaleString("en-US", { month: "short", year: "numeric", timeZone: "UTC" });
 const addMonths = (m, n) => {
   const d = new Date(`${m}-01T00:00:00Z`);
   d.setUTCMonth(d.getUTCMonth() + n);
   return d.toISOString().slice(0, 7);
 };
+
+// Buys and sells per month by trade date, newest first, for the chart's table and download. Months without trades
+// are left out.
+export function tradesByMonth(trades) {
+  const months = new Map();
+  for (const t of trades) {
+    const buy = isBuy(t);
+    if (!t.transaction_date || (!buy && !isSell(t))) continue;
+    const m = t.transaction_date.slice(0, 7);
+    const e = months.get(m) ?? { month: m, buys: 0, sells: 0 };
+    if (buy) e.buys++; else e.sells++;
+    months.set(m, e);
+  }
+  return [...months.values()].sort((a, b) => b.month.localeCompare(a.month));
+}
 
 export default function TradeActivityChart({ trades }) {
   const ref = useRef(null);
