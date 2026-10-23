@@ -122,7 +122,10 @@ function buildRoutes() {
       path: `/insights/${i.slug}`,
       title: `${i.seoTitle} | Congress Trading Monitor`,
       description: i.seoDescription,
-      ...(i.ogImage && { ogImage: { url: `${BASE}/${i.ogImage}`, alt: i.ogImageAlt, width: 2400, height: 1260 } }),
+      // A custom image when the insight sets one, else the template image from scripts/og-insights.mjs.
+      ogImage: i.ogImage
+        ? { url: `${BASE}/${i.ogImage}`, alt: i.ogImageAlt, width: 2400, height: 1260 }
+        : { url: `${BASE}/og/${i.slug}.png`, alt: `${i.title}: ${i.summary}`, width: 1200, height: 630 },
     })),
     {
       path: "/lobbying",

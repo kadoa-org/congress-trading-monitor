@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "vite",
     "build": "bun scripts/validateTickerCoverage.mjs && vite build && node scripts/prerender.mjs && node scripts/dataShell.test.mjs",
+    "og": "bun scripts/og-insights.mjs",
     "preview": "vite preview",
     "kit:sync": "for f in kit.css index.jsx about.jsx about.css; do curl -fsS https://raw.githubusercontent.com/kadoa-org/congress-trading-monitor/main/src/kit/$f -o src/kit/$f; done",
     "test": "bun scripts/companyName.test.mjs && bun scripts/seo.test.mjs && bun scripts/validateTickerCoverage.mjs"
