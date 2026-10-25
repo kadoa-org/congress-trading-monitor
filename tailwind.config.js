@@ -34,7 +34,7 @@ export default {
         mono: ["JetBrains Mono", "ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
       },
       fontSize: {
-        // The GOV.UK points (design-system.service.gov.uk/styles/type-scale). mini is for chart labels and small tags only.
+        // The type scale: 19px body, 16px small, 24px and 36px headings. mini is for chart labels and small tags only.
         mini: ["14px", { lineHeight: "1.4" }],
         small: ["16px", { lineHeight: "1.4" }],
         regular: ["19px", { lineHeight: "1.4" }],

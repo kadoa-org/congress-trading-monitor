@@ -32,7 +32,7 @@ function WeeklyTrading({ flows }) {
   return (
     <>
       <h1 className="dk-h1">Weekly buying and selling</h1>
-      <p className="govuk-body-l max-w-3xl">Stock purchases minus sales by members of Congress each week, with the S&amp;P 500.</p>
+      <p className="govuk-body-l">Stock purchases minus sales by members of Congress each week, with the S&amp;P 500.</p>
       <ChartCard
         id="weekly-title"
         title="Net stock purchases each week, with the S&P 500"
@@ -85,7 +85,7 @@ function LobbyingVsMarketCap({ data }) {
   return (
     <>
       <h1 className="dk-h1">Tech companies spend the least on lobbying for their size, defense the most</h1>
-      <p className="govuk-body-l max-w-3xl">
+      <p className="govuk-body-l">
         Median federal lobbying in 2025 per $1M of market cap (October 2026), across {rows.length} US companies traded by members of Congress:{" "}
         {order.map((k, i) => <React.Fragment key={k}>{i ? ", " : ""}<strong style={{ color: GROUPS[k].text }}>{GROUPS[k].label.toLowerCase()}</strong> ${medians[k]}</React.Fragment>)}.
       </p>

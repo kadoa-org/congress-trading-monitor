@@ -207,7 +207,7 @@ export default function LobbyingOverview({ oversight }) {
   return (
     <>
       <h1 className="dk-h1">Lobbying</h1>
-      <p className="govuk-body-l max-w-3xl">When members of Congress trade stocks of companies that lobby their own committees. A match is not evidence of wrongdoing.</p>
+      <p className="govuk-body-l">When members of Congress trade stocks of companies that lobby their own committees. A match is not evidence of wrongdoing.</p>
       <section className="dk-card" aria-labelledby="lobbying-title">
         <SectionHeading id="lobbying-title" title="Trades in companies that lobby their committees" />
         <GovTabs active={active} onChange={(i) => setQs({ view: VIEWS[i] })} tabs={[

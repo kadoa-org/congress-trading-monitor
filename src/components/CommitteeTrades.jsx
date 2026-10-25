@@ -214,7 +214,7 @@ export default function CommitteeTrades() {
   return (
     <>
       <h1 className="dk-h1">1 in 10 members of Congress traded stocks in companies their committees oversee</h1>
-      <p className="govuk-body-l max-w-3xl">
+      <p className="govuk-body-l">
         A Kadoa analysis found that {data.membersMatched} lawmakers or their family members bought or sold shares over 21 months in companies overseen by a committee they sit on.
       </p>
       <div className="chart-fit">

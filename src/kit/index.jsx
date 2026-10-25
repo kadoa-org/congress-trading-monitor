@@ -246,7 +246,7 @@ export function SiteFooter({ current, dataset = current }) {
   );
 }
 
-// GOV.UK's phase banner, under the navigation: a short tag, a label and a link, used to point every page at something
+// The phase banner, under the navigation: a short tag, a label and a link, used to point every page at something
 // new (the latest insight). The message is written for the banner, about 50 characters with its number up front, so
 // it fits a phone in one or two lines; it wraps rather than being cut off. Renders nothing without a message.
 export function PhaseBanner({ tag = "New", label, href, LinkComponent = "a", children }) {

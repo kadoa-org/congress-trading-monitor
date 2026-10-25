@@ -3,7 +3,7 @@
 .dk-about a { color: var(--dk-link); text-decoration: underline; text-underline-offset: 3px; }
 .dk-about a:hover { text-decoration-thickness: 2px; }
 .dk-about a:focus-visible { outline: 3px solid var(--dk-focus); background: var(--dk-focus); color: var(--dk-ink); text-decoration: none; }
-.dk-about__lede { font-size: 19px; line-height: 1.5; color: var(--dk-muted); margin: 0; }
+.dk-about__lede { font-size: 24px; line-height: 30px; color: var(--dk-ink); margin: 0; max-width: var(--dk-text-column, 720px); text-wrap: pretty; }
 .dk-about__section { margin-top: 40px; }
 .dk-about__h2 { font: 700 20px/1.3 var(--dk-font); margin: 0 0 14px; color: var(--dk-ink); }
 .dk-about__h3 { font: 700 17px/1.3 var(--dk-font); margin: 0 0 8px; color: var(--dk-ink); }
@@ -48,6 +48,6 @@
 .dk-about__corrections { margin-top: 24px; font-size: 16px; color: var(--dk-muted); }
 
 @media (max-width: 640px) {
-  .dk-about__lede { font-size: 19px; }
+  .dk-about__lede { font-size: 21px; line-height: 25px; }
   .dk-about__kadoa { padding: 16px; }
 }

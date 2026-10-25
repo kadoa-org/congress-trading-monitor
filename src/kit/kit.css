@@ -1,18 +1,18 @@
 /* ── Kadoa data-kit tokens ────────────────────────────────────────────────
-   Single source of truth for the dataset micropages. GOV.UK-derived palette
-   and idioms (square, 1px rules, yellow focus) at data-app density.
+   Single source of truth for the dataset micropages. A plain palette and
+   idioms (square, 1px rules, yellow focus) at data-app density.
    Everything in the kit derives from these variables — components never
    hard-code sizes or colours. */
 :root {
   --dk-font: "Atkinson Hyperlegible", arial, sans-serif;
-  /* type scale: the GOV.UK points (design-system.service.gov.uk/styles/type-scale). 14 is for chart labels only. */
+  /* type scale: 14 is for chart labels only. */
   --dk-fs-xs: 14px;  /* chart labels, tags */
   --dk-fs-s: 16px;   /* body-s: hints, tables, navigation */
   --dk-fs-m: 19px;   /* body, heading-s */
   --dk-fs-l: 24px;   /* heading-m, lead */
   --dk-fs-xl: 36px;  /* heading-l, page titles */
   --dk-fs-xxl: 48px; /* heading-xl */
-  /* spacing: the GOV.UK static scale (design-system.service.gov.uk/styles/spacing) */
+  /* spacing scale */
   --dk-space-1: 5px; --dk-space-2: 10px; --dk-space-3: 15px; --dk-space-4: 20px; --dk-space-5: 25px;
   --dk-space-6: 30px; --dk-space-7: 40px; --dk-space-8: 50px; --dk-space-9: 60px;
   /* palette */
@@ -118,7 +118,7 @@
 .dk-header-link { color: rgba(255,255,255,0.9); font: 400 var(--dk-fs-s)/1.2 var(--dk-font); text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; flex-shrink: 0; }
 .dk-header-link:hover { color: #fff; }
 .dk-header-link:focus-visible { outline: 3px solid var(--dk-focus); outline-offset: 2px; color: #fff; }
-/* ── Phase banner ── GOV.UK's, under the nav: tag box, then a line with a link, ruled off from the page. The tag sits
+/* ── Phase banner ── under the nav: tag box, then a line with a link, ruled off from the page. The tag sits
    in the text, so a wrapped line starts at the left edge rather than under a column, and each line fills the width
    (no balance or pretty wrapping, which leave the first line short). ── */
 .dk-phase { margin: 0; padding: 10px 0; border-bottom: 1px solid var(--dk-rule); font: 400 16px/1.4 var(--dk-font); color: var(--dk-ink); }
@@ -243,9 +243,14 @@
 
 /* ── Page-level typography helpers ── */
 /* Page titles: a clear step above the 24px section headings, the same on every dataset site. */
-.dk-h1 { font: 700 36px/1.12 var(--dk-font); color: var(--dk-ink); margin: 0 0 20px; }
+/* The page heading and the lede share one text column, 720px: about 63 characters a line for the 24px lede, under
+   75. The heading balances its lines and the lede avoids a lone last word. Charts and cards keep the full width. */
+:root { --dk-text-column: 720px; }
+.dk-h1 { font: 700 36px/1.12 var(--dk-font); color: var(--dk-ink); margin: 0 0 20px; max-width: var(--dk-text-column); text-wrap: balance; }
 @media (max-width: 640px) { .dk-h1 { font-size: 27px; } }
-.dk-lede { font: 400 var(--dk-fs-l)/1.5 var(--dk-font); color: var(--dk-muted); margin: 0 0 16px; max-width: 72ch; }
+/* The lead paragraph: 24px, 21px on phones, in the text colour, once per page. */
+.dk-lede { font: 400 var(--dk-fs-l)/30px var(--dk-font); color: var(--dk-ink); margin: 0 0 16px; max-width: var(--dk-text-column); text-wrap: pretty; }
+@media (max-width: 640px) { .dk-lede { font-size: 21px; line-height: 25px; } }
 .dk-link { color: var(--dk-link); text-decoration: underline; text-underline-offset: 2px; }
 .dk-link:hover { text-decoration-thickness: 2px; }
 .dk-link:focus-visible { outline: 3px solid var(--dk-focus); outline-offset: 0; }
