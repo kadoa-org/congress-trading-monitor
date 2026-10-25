@@ -62,6 +62,20 @@
 .dk-filter__label { display: block; font-size: 19px; margin: 0 0 5px; color: var(--dk-gov-text); }
 .dk-filter__select { min-width: 11.5em; height: 40px; padding: 5px; border: 2px solid var(--dk-gov-text); border-radius: 0; background: #fff; font: inherit; font-size: 19px; color: var(--dk-gov-text); }
 .dk-filter__select:focus { outline: 3px solid #fd0; outline-offset: 0; box-shadow: inset 0 0 0 2px; }
+.dk-filter__input { width: 100%; height: 40px; padding: 5px 8px; border: 2px solid var(--dk-gov-text); border-radius: 0; background: #fff; font: inherit; font-size: 19px; color: var(--dk-gov-text); box-sizing: border-box; -webkit-appearance: none; appearance: none; }
+.dk-filter__input::placeholder { color: var(--dk-gov-secondary); opacity: 1; }
+.dk-filter__input:focus { outline: 3px solid #fd0; outline-offset: 0; box-shadow: inset 0 0 0 2px; }
+/* Several filters for one list or chart: equal columns in a grey panel as wide as what they filter, each control
+   filling its column, stacked on phones. --wide spans the container for a full-width list. */
+.dk-filter-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px 20px; max-width: 720px; margin: 0 0 40px; padding: 20px 25px; background: var(--dk-gov-grey); box-sizing: border-box; }
+.dk-filter-bar--wide { max-width: none; }
+.dk-filter-bar .dk-filter { margin: 0; min-width: 0; }
+.dk-filter-bar .dk-filter__label { font-weight: 700; }
+.dk-filter-bar .dk-filter__select { width: 100%; min-width: 0; }
+@media (max-width: 640px) { .dk-filter-bar { grid-template-columns: 1fr; padding: 15px; margin-bottom: 25px; } }
+/* A select with its label on the same line, such as "Sort by" beside a result count. */
+.dk-filter--inline { display: flex; align-items: center; gap: 10px; margin: 0; }
+.dk-filter--inline .dk-filter__label { margin: 0; white-space: nowrap; }
 
 @media (max-width: 640px) {
   .dk-heading__title { font-size: 21px; }

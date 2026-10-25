@@ -392,7 +392,7 @@ export function InlineSearchInput({ value, onChange, placeholder = "Search…", 
       onChange={(e) => onChange(e.target.value)}
       placeholder={placeholder}
       aria-label={placeholder}
-      style={{ width }}
+      style={{ width, height: 36 }}
       className="dk-input"
     />
   );

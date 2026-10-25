@@ -129,14 +129,26 @@ export function ChartCard({ title, description, date, right, tabs, footer, child
 }
 
 // "Filter data by" and a select, used in place of segmented buttons for a time window.
-export function FilterSelect({ label = "Filter data by", value, options, onChange }) {
+export function FilterSelect({ label = "Filter data by", value, options, onChange, className = "" }) {
   const id = useId();
   return (
-    <div className="dk-filter">
+    <div className={`dk-filter ${className}`.trim()}>
       <label className="dk-filter__label" htmlFor={id}>{label}</label>
       <select className="dk-filter__select" id={id} value={value} onChange={(e) => onChange(e.target.value)}>
         {options.map(([v, l]) => <option key={v} value={v}>{l}</option>)}
       </select>
+    </div>
+  );
+}
+
+// A labelled search box with the select's height and border, for a filter bar. The placeholder is an example of
+// what to type, never the label.
+export function FilterSearch({ label = "Search", value, onChange, placeholder = "", className = "" }) {
+  const id = useId();
+  return (
+    <div className={`dk-filter ${className}`.trim()}>
+      <label className="dk-filter__label" htmlFor={id}>{label}</label>
+      <input className="dk-filter__input" id={id} type="search" value={value} placeholder={placeholder} autoComplete="off" onChange={(e) => onChange(e.target.value)} />
     </div>
   );
 }

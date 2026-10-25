@@ -194,7 +194,10 @@ body:has(.seo-shell) #root footer { display: none; }
 .ct-cell{display:block;aspect-ratio:1;border:0;padding:0;cursor:pointer}
 .ct-cell:hover{outline:2px solid #0b0c0c;outline-offset:0}
 .ct-cell:focus-visible{outline:3px solid #ffdd00;box-shadow:0 0 0 5px #0b0c0c}
-.ct-filters{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:15px}
+.dk-filter-bar.ct-filter-bar{grid-template-columns:2fr 1fr 1fr 2fr;margin-bottom:20px}
+@media (max-width:640px){.dk-filter-bar.ct-filter-bar{grid-template-columns:1fr 1fr}.ct-filter-bar .ct-filter--full{grid-column:1/-1}}
+.ct-results{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 20px;margin-bottom:15px}
+.ct-results .ct-count{margin:0}
 .ct-count{color:#505a5f;margin-bottom:8px}
 .ct-count:empty{display:none}
 /* "Show all" sits with the list, centred under both columns; the rule below it closes the members section. */

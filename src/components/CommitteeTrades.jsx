@@ -1,9 +1,8 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import data from "../static/committee-trades.json";
-import { ChartCard, DataTable } from "../kit";
+import { ChartCard, DataTable, FilterSearch, FilterSelect } from "../kit";
 import { useQueryState } from "../router";
 import { ExtLink, fmtInt, HOUSE_FILINGS, Link, SENATE_FILINGS } from "../ui";
-import { InlineSearchInput, SingleSelectChip } from "./FilterBar";
 
 // Members who traded stocks in companies their committees oversee, January 2025 to October 2026. A frozen analysis,
 // bundled with the site rather than refreshed daily: committee jurisdiction and company links were classified once.
@@ -137,6 +136,7 @@ const COMMITTEES = (() => {
   return [{ k: "all", label: "All" }, ...[...n].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).map(([k, v]) => ({ k, label: `${k} (${v})` }))];
 })();
 const QUERY_KEYS = ["q", "chamber", "party", "committee", "sort"];
+const pairs = (options) => options.map((o) => [o.k, o.label]);
 const QUERY_DEFAULTS = { q: "", chamber: "all", party: "all", committee: "all", sort: "trades" };
 // The page opens on the members with the most matched trades (the same six as the shared image); the rest are a click,
 // a filter or a grid square away.
@@ -174,16 +174,21 @@ function Members({ focus }) {
 
   return (
     <>
-      <div className="ct-filters">
-        <InlineSearchInput value={qs.q} onChange={(v) => setQs({ q: v })} placeholder="Search member, state or company" width={300} />
-        <SingleSelectChip label="Chamber" options={CHAMBERS} value={qs.chamber} onChange={(v) => setQs({ chamber: v })} />
-        <SingleSelectChip label="Party" options={PARTIES} value={qs.party} onChange={(v) => setQs({ party: v })} />
-        <SingleSelectChip label="Committee" options={COMMITTEES} value={qs.committee} onChange={(v) => setQs({ committee: v })} />
-        <SingleSelectChip label="Sort" options={SORTS} value={qs.sort} onChange={(v) => setQs({ sort: v })} />
+      {/* Filters narrow the list; sorting only orders it, so it sits with the result count instead. */}
+      <div className="dk-filter-bar dk-filter-bar--wide ct-filter-bar">
+        <FilterSearch className="ct-filter--full" label="Search" placeholder="Member, state or company" value={qs.q} onChange={(v) => setQs({ q: v })} />
+        <FilterSelect label="Chamber" options={pairs(CHAMBERS)} value={qs.chamber} onChange={(v) => setQs({ chamber: v })} />
+        <FilterSelect label="Party" options={pairs(PARTIES)} value={qs.party} onChange={(v) => setQs({ party: v })} />
+        <FilterSelect className="ct-filter--full" label="Committee" options={pairs(COMMITTEES)} value={qs.committee} onChange={(v) => setQs({ committee: v })} />
       </div>
-      <p className="govuk-body-s ct-count" aria-live="polite">
-        {filtered && <>Showing {cards.length} of {data.cards.length} members. <button type="button" className="ct-toggle" onClick={() => setQs(QUERY_DEFAULTS)}>Clear filters</button></>}
-      </p>
+      <div className="ct-results">
+        <p className="govuk-body-s ct-count" aria-live="polite">
+          {filtered
+            ? <>Showing {cards.length} of {data.cards.length} members. <button type="button" className="ct-toggle" onClick={() => setQs(QUERY_DEFAULTS)}>Clear filters</button></>
+            : <>{data.cards.length} members</>}
+        </p>
+        <FilterSelect className="dk-filter--inline" label="Sort by" options={pairs(SORTS)} value={qs.sort} onChange={(v) => setQs({ sort: v })} />
+      </div>
       <p className="govuk-body-s ct-legend">
         Trades per company, darker means more:
         <span className="ct-chip" style={shade(LEGEND, 1)}>1 to 5</span>
