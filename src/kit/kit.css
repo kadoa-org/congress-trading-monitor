@@ -243,10 +243,10 @@
 
 /* ── Page-level typography helpers ── */
 /* Page titles: a clear step above the 24px section headings, the same on every dataset site. */
-/* The page heading and the lede share one text column, 720px: about 63 characters a line for the 24px lede, under
-   75. The heading balances its lines and the lede avoids a lone last word. Charts and cards keep the full width. */
+/* The lede sits in a 720px text column, about 63 characters a line at 24px, under 75. The page heading uses the full
+   width and balances its lines, so a long finding takes two even lines; the lede avoids a lone last word. */
 :root { --dk-text-column: 720px; }
-.dk-h1 { font: 700 36px/1.12 var(--dk-font); color: var(--dk-ink); margin: 0 0 20px; max-width: var(--dk-text-column); text-wrap: balance; }
+.dk-h1 { font: 700 36px/1.12 var(--dk-font); color: var(--dk-ink); margin: 0 0 20px; text-wrap: balance; }
 @media (max-width: 640px) { .dk-h1 { font-size: 27px; } }
 /* The lead paragraph: 24px, 21px on phones, in the text colour, once per page. */
 .dk-lede { font: 400 var(--dk-fs-l)/30px var(--dk-font); color: var(--dk-ink); margin: 0 0 16px; max-width: var(--dk-text-column); text-wrap: pretty; }

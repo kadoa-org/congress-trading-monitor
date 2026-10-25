@@ -61,7 +61,7 @@ html, body {
   line-height: 1.4 !important;
 }
 /* The page intro under the h1 is the lead paragraph (the kit's .dk-lede): 24px, 21px on phones, in the text colour,
-   in the heading's 720px column. */
+   in the 720px text column. */
 .govuk-body-l { font-size: 24px !important; line-height: 30px !important; color: var(--dk-ink, #0b0c0c); max-width: var(--dk-text-column, 720px); text-wrap: pretty; }
 .govuk-heading-xl { font-size: 36px !important; line-height: 1.12 !important; margin-bottom: 20px !important; }
 .govuk-heading-l { font-size: 24px !important; line-height: 1.25 !important; margin-bottom: 20px !important; }
