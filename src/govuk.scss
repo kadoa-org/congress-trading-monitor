@@ -1,8 +1,5 @@
-// Design system styles for the congress-trading-monitor.
-//
-// The system font is licence-restricted, so we keep the
-// system's metrics but substitute an open font stack. The crown logo is
-// likewise omitted (govuk-header used without logotype).
+// Component styles for the congress-trading-monitor, set in Atkinson Hyperlegible.
+// The header is used without a logo.
 $govuk-font-family: "Atkinson Hyperlegible", arial, sans-serif;
 $govuk-include-default-font-face: false;
 
