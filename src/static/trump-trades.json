@@ -1,0 +1,7239 @@
+{
+  "to": "2026-08",
+  "totals": {
+    "trump": 31877,
+    "congress": 20973,
+    "members": 175,
+    "accounts": 8,
+    "trumpLo": 1619550877,
+    "trumpHi": 5241110000,
+    "congressLo": 614347969,
+    "congressHi": 1830530000,
+    "monthsAhead": 16
+  },
+  "months": [
+    {
+      "month": "2025-01",
+      "trump": 1201,
+      "congress": 1278
+    },
+    {
+      "month": "2025-02",
+      "trump": 2563,
+      "congress": 1093
+    },
+    {
+      "month": "2025-03",
+      "trump": 2021,
+      "congress": 1375
+    },
+    {
+      "month": "2025-04",
+      "trump": 2361,
+      "congress": 2012
+    },
+    {
+      "month": "2025-05",
+      "trump": 2644,
+      "congress": 1140
+    },
+    {
+      "month": "2025-06",
+      "trump": 960,
+      "congress": 1254
+    },
+    {
+      "month": "2025-07",
+      "trump": 1367,
+      "congress": 939
+    },
+    {
+      "month": "2025-08",
+      "trump": 1658,
+      "congress": 1097
+    },
+    {
+      "month": "2025-09",
+      "trump": 2078,
+      "congress": 982
+    },
+    {
+      "month": "2025-10",
+      "trump": 2236,
+      "congress": 1444
+    },
+    {
+      "month": "2025-11",
+      "trump": 1877,
+      "congress": 835
+    },
+    {
+      "month": "2025-12",
+      "trump": 1693,
+      "congress": 910
+    },
+    {
+      "month": "2026-01",
+      "trump": 773,
+      "congress": 1411
+    },
+    {
+      "month": "2026-02",
+      "trump": 847,
+      "congress": 765
+    },
+    {
+      "month": "2026-03",
+      "trump": 2349,
+      "congress": 1243
+    },
+    {
+      "month": "2026-04",
+      "trump": 1375,
+      "congress": 718
+    },
+    {
+      "month": "2026-05",
+      "trump": 1150,
+      "congress": 588
+    },
+    {
+      "month": "2026-06",
+      "trump": 1051,
+      "congress": 542
+    },
+    {
+      "month": "2026-07",
+      "trump": 1156,
+      "congress": 623
+    },
+    {
+      "month": "2026-08",
+      "trump": 517,
+      "congress": 724
+    }
+  ],
+  "chance": {
+    "praise": {
+      "n": 162,
+      "real": 64,
+      "lo": 53,
+      "hi": 73,
+      "median": 63,
+      "after": 74
+    },
+    "attack": {
+      "n": 40,
+      "real": 5,
+      "lo": 3,
+      "hi": 10,
+      "median": 7,
+      "after": 10
+    }
+  },
+  "examples": [
+    {
+      "company": "Intel",
+      "date": "2025-08-22",
+      "quote": "now fully owns and controls 10% of INTEL",
+      "bold": "INTEL",
+      "buys": [
+        -7,
+        -4
+      ],
+      "sales": [],
+      "url": "https://truthsocial.com/@realDonaldTrump/115074444617901812"
+    },
+    {
+      "company": "Nvidia",
+      "date": "2025-04-15",
+      "quote": "NVIDIA COMMITS 500 BILLION DOLLARS",
+      "bold": "NVIDIA",
+      "buys": [
+        -7,
+        -5
+      ],
+      "sales": [
+        -4
+      ],
+      "url": "https://truthsocial.com/@realDonaldTrump/114341773968885783"
+    },
+    {
+      "company": "Micron",
+      "date": "2026-07-14",
+      "quote": "Micron is accelerating its U.S. spending",
+      "bold": "Micron",
+      "buys": [
+        -6
+      ],
+      "sales": [],
+      "url": "https://www.trumpstruth.org/statuses/39931"
+    },
+    {
+      "company": "Lockheed Martin",
+      "date": "2026-03-13",
+      "quote": "They have agreed to quadruple Production",
+      "bold": null,
+      "buys": [
+        -1
+      ],
+      "sales": [],
+      "url": "https://www.trumpstruth.org/statuses/37186"
+    },
+    {
+      "company": "Coca-Cola",
+      "date": "2025-07-16",
+      "quote": "using REAL Cane Sugar in Coke",
+      "bold": "Coke",
+      "buys": [
+        -1
+      ],
+      "sales": [
+        -2
+      ],
+      "url": "https://truthsocial.com/@realDonaldTrump/114864763487869986"
+    },
+    {
+      "company": "Netflix",
+      "date": "2026-02-27",
+      "quote": "Netflix should fire ... Susan Rice, IMMEDIATELY, or pay the consequences",
+      "bold": "Netflix",
+      "buys": [],
+      "sales": [
+        -4
+      ],
+      "url": "https://www.trumpstruth.org/statuses/36854"
+    }
+  ],
+  "events": [
+    {
+      "date": "2026-08-21",
+      "company": "S&P Global",
+      "ticker": "SPGI",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "\"US BUSINESS IS BOOMING.\" My great friend & financial advisor Kip Herriage of VRAinsider called this first. I took ball & ran with it. Trump economy is BOOMING. Yet no one knows it because commie medi",
+      "url": "https://www.trumpstruth.org/statuses/41205"
+    },
+    {
+      "date": "2026-08-14",
+      "company": "Google",
+      "ticker": "GOOGL",
+      "stance": "attack",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Chandler Hall, representing, on Television, the foolish Center for American Lack of Progress, stated that adding the National Guard to Cities, including our now Great Again, Washington, D.C., had “NO ",
+      "url": "https://www.trumpstruth.org/statuses/40727"
+    },
+    {
+      "date": "2026-08-14",
+      "company": "Apple",
+      "ticker": "AAPL",
+      "stance": "attack",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Chandler Hall, representing, on Television, the foolish Center for American Lack of Progress, stated that adding the National Guard to Cities, including our now Great Again, Washington, D.C., had “NO ",
+      "url": "https://www.trumpstruth.org/statuses/40727"
+    },
+    {
+      "date": "2026-08-14",
+      "company": "Visa",
+      "ticker": "V",
+      "stance": "attack",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Chandler Hall, representing, on Television, the foolish Center for American Lack of Progress, stated that adding the National Guard to Cities, including our now Great Again, Washington, D.C., had “NO ",
+      "url": "https://www.trumpstruth.org/statuses/40727"
+    },
+    {
+      "date": "2026-08-14",
+      "company": "Goldman Sachs",
+      "ticker": "GS",
+      "stance": "attack",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Chandler Hall, representing, on Television, the foolish Center for American Lack of Progress, stated that adding the National Guard to Cities, including our now Great Again, Washington, D.C., had “NO ",
+      "url": "https://www.trumpstruth.org/statuses/40727"
+    },
+    {
+      "date": "2026-08-14",
+      "company": "Citigroup",
+      "ticker": "C",
+      "stance": "attack",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Chandler Hall, representing, on Television, the foolish Center for American Lack of Progress, stated that adding the National Guard to Cities, including our now Great Again, Washington, D.C., had “NO ",
+      "url": "https://www.trumpstruth.org/statuses/40727"
+    },
+    {
+      "date": "2026-08-14",
+      "company": "Wells Fargo",
+      "ticker": "WFC",
+      "stance": "attack",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Chandler Hall, representing, on Television, the foolish Center for American Lack of Progress, stated that adding the National Guard to Cities, including our now Great Again, Washington, D.C., had “NO ",
+      "url": "https://www.trumpstruth.org/statuses/40727"
+    },
+    {
+      "date": "2026-08-14",
+      "company": "Bank of America",
+      "ticker": "BAC",
+      "stance": "attack",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Chandler Hall, representing, on Television, the foolish Center for American Lack of Progress, stated that adding the National Guard to Cities, including our now Great Again, Washington, D.C., had “NO ",
+      "url": "https://www.trumpstruth.org/statuses/40727"
+    },
+    {
+      "date": "2026-08-14",
+      "company": "Walmart",
+      "ticker": "WMT",
+      "stance": "attack",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Chandler Hall, representing, on Television, the foolish Center for American Lack of Progress, stated that adding the National Guard to Cities, including our now Great Again, Washington, D.C., had “NO ",
+      "url": "https://www.trumpstruth.org/statuses/40727"
+    },
+    {
+      "date": "2026-08-14",
+      "company": "T-Mobile",
+      "ticker": "TMUS",
+      "stance": "attack",
+      "buyDays": [],
+      "saleDays": [
+        -4
+      ],
+      "match": true,
+      "text": "Chandler Hall, representing, on Television, the foolish Center for American Lack of Progress, stated that adding the National Guard to Cities, including our now Great Again, Washington, D.C., had “NO ",
+      "url": "https://www.trumpstruth.org/statuses/40727"
+    },
+    {
+      "date": "2026-08-01",
+      "company": "NVIDIA",
+      "ticker": "NVDA",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "NVIDIA: Building in America, for America: https://www.nvidia.com/en-us/made-in-usa/",
+      "url": "https://www.trumpstruth.org/statuses/40333"
+    },
+    {
+      "date": "2026-07-27",
+      "company": "Apple",
+      "ticker": "AAPL",
+      "stance": "praise",
+      "buyDays": [
+        -4,
+        -3
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "The European Union is at it again and, as usual, taking direct aim at GREAT American Companies! After having fined Apple, for no reason at all, 15 Billion Dollars, Meta, 3 Billion Dollars, Amazon 2.5 ",
+      "url": "https://www.trumpstruth.org/statuses/40235"
+    },
+    {
+      "date": "2026-07-27",
+      "company": "Meta",
+      "ticker": "META",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [
+        -4,
+        -3
+      ],
+      "match": false,
+      "text": "The European Union is at it again and, as usual, taking direct aim at GREAT American Companies! After having fined Apple, for no reason at all, 15 Billion Dollars, Meta, 3 Billion Dollars, Amazon 2.5 ",
+      "url": "https://www.trumpstruth.org/statuses/40235"
+    },
+    {
+      "date": "2026-07-27",
+      "company": "Amazon",
+      "ticker": "AMZN",
+      "stance": "praise",
+      "buyDays": [
+        -4
+      ],
+      "saleDays": [
+        -7
+      ],
+      "match": true,
+      "text": "The European Union is at it again and, as usual, taking direct aim at GREAT American Companies! After having fined Apple, for no reason at all, 15 Billion Dollars, Meta, 3 Billion Dollars, Amazon 2.5 ",
+      "url": "https://www.trumpstruth.org/statuses/40235"
+    },
+    {
+      "date": "2026-07-27",
+      "company": "Google",
+      "ticker": "GOOGL",
+      "stance": "praise",
+      "buyDays": [
+        -4
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "The European Union is at it again and, as usual, taking direct aim at GREAT American Companies! After having fined Apple, for no reason at all, 15 Billion Dollars, Meta, 3 Billion Dollars, Amazon 2.5 ",
+      "url": "https://www.trumpstruth.org/statuses/40235"
+    },
+    {
+      "date": "2026-07-26",
+      "company": "Walmart",
+      "ticker": "WMT",
+      "stance": "praise",
+      "buyDays": [
+        -3,
+        -2
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "Wonderful news! I have just been informed that Giant Eagle, a GREAT American Grocery Company, will be lowering Prices, by a lot, across more than 300 products this Summer, through Labor Day, to help h",
+      "url": "https://www.trumpstruth.org/statuses/40147"
+    },
+    {
+      "date": "2026-07-14",
+      "company": "Micron",
+      "ticker": "MU",
+      "stance": "praise",
+      "buyDays": [
+        -6
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "“Last week, I shared with President Trump that, because of his leadership and policies, Micron would announce today that we are ahead of schedule and increasing our U.S. manufacturing and R&D investme",
+      "url": "https://www.trumpstruth.org/statuses/39931"
+    },
+    {
+      "date": "2026-07-14",
+      "company": "Apple",
+      "ticker": "AAPL",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Apple to invest $30 billion in US chip manufacturing: https://www.foxbusiness.com/media/apple-invest-30-billion-us-chip-manufacturing",
+      "url": "https://www.trumpstruth.org/statuses/39933"
+    },
+    {
+      "date": "2026-07-13",
+      "company": "Walmart",
+      "ticker": "WMT",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Trump announces Walmart to lower prices for thousands of products at his administration's request: https://justthenews.com/nation/economy/trump-announces-walmart-lower-prices-thousands-products-his-ad",
+      "url": "https://www.trumpstruth.org/statuses/39880"
+    },
+    {
+      "date": "2026-07-12",
+      "company": "Walmart",
+      "ticker": "WMT",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Great news! I have just been informed that one of the biggest, best, and smartest Retailers in America, Walmart, will be lowering prices, by a lot, at my Administration's request to celebrate our grea",
+      "url": "https://www.trumpstruth.org/statuses/39863"
+    },
+    {
+      "date": "2026-07-09",
+      "company": "TKO Group Holdings",
+      "ticker": "TKO",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [
+        -1
+      ],
+      "match": false,
+      "text": "RT @realDonaldTrumpJustin Gaethje after his Big Victory, and attaining the UFC World Championship, at the front door of the White House. He is a Great Fighter! President DONALD J. TRUMP",
+      "url": "https://www.trumpstruth.org/statuses/39808"
+    },
+    {
+      "date": "2026-07-05",
+      "company": "Micron",
+      "ticker": "MU",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "BIG NEWS! Micron, a truly GREAT American Company, and one of the “HOTTEST” anywhere in the World, has announced a HISTORIC $250 MILLION Investment in TRUMP ACCOUNTS. This incredible gesture, made by M",
+      "url": "https://www.trumpstruth.org/statuses/39656"
+    },
+    {
+      "date": "2026-06-22",
+      "company": "Intel",
+      "ticker": "INTC",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "The Technology the World relies on was invented in America. We all remember “Intel Inside.” Stupid Presidents took our Economy for granted, and let Taiwan and others steal our Semiconductor Factories.",
+      "url": "https://www.trumpstruth.org/statuses/39333"
+    },
+    {
+      "date": "2026-06-22",
+      "company": "Nvidia",
+      "ticker": "NVDA",
+      "stance": "praise",
+      "buyDays": [
+        -7,
+        -6
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "The Technology the World relies on was invented in America. We all remember “Intel Inside.” Stupid Presidents took our Economy for granted, and let Taiwan and others steal our Semiconductor Factories.",
+      "url": "https://www.trumpstruth.org/statuses/39333"
+    },
+    {
+      "date": "2026-06-22",
+      "company": "Apple",
+      "ticker": "AAPL",
+      "stance": "praise",
+      "buyDays": [
+        -7,
+        -6
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "The Technology the World relies on was invented in America. We all remember “Intel Inside.” Stupid Presidents took our Economy for granted, and let Taiwan and others steal our Semiconductor Factories.",
+      "url": "https://www.trumpstruth.org/statuses/39333"
+    },
+    {
+      "date": "2026-06-22",
+      "company": "UFC",
+      "ticker": "TKO",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "UFC FREEDOM 250! 🇺🇸🦅",
+      "url": "https://www.trumpstruth.org/statuses/39359"
+    },
+    {
+      "date": "2026-06-19",
+      "company": "TKO Group Holdings",
+      "ticker": "TKO",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "The UFC at the White House last night was incredible. The weather was scheduled to be horrendous, and it turned out to be PERFECT! So much for weather predicting. The Fighters were outstanding — Bo Ni",
+      "url": "https://www.trumpstruth.org/statuses/39263"
+    },
+    {
+      "date": "2026-06-18",
+      "company": "TKO Group Holdings",
+      "ticker": "TKO",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "This Sunday Night, during the historic Freedom 250 UFC Fight at the White House, The Department of War will debut their first TV Ad, entitled \"Peace Through Strength.\" WATCH IT BELOW. The Warrior Etho",
+      "url": "https://www.trumpstruth.org/statuses/39233"
+    },
+    {
+      "date": "2026-06-18",
+      "company": "Madison Square Garden Sports",
+      "ticker": "MSGS",
+      "stance": "praise",
+      "buyDays": [
+        -3
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "Congratulations to Jim Dolan and the New York Knicks!!! What a year it has been but, even more so, what incredible playoff wins we have all witnessed, especially the last four - Maybe the greatest in ",
+      "url": "https://www.trumpstruth.org/statuses/39247"
+    },
+    {
+      "date": "2026-06-17",
+      "company": "Citigroup",
+      "ticker": "C",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Wow! CITI was ranked Number 1 in topping M&A Advisory Market by Value in Q1. Congratulations to Jane F and ALL of her great people. They’ve worked really hard! BIG comeback for CITI!!! President DONAL",
+      "url": "https://www.trumpstruth.org/statuses/39204"
+    },
+    {
+      "date": "2026-06-17",
+      "company": "Northrop Grumman",
+      "ticker": "NOC",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [
+        -5
+      ],
+      "match": false,
+      "text": "No other President has ever been more committed to both REBUILDING our Great Military and SAVING our Great Country — And NOW is the time to make it happen, for Generations to come.  I am hereby callin",
+      "url": "https://www.trumpstruth.org/statuses/39211"
+    },
+    {
+      "date": "2026-06-09",
+      "company": "TKO Group Holdings",
+      "ticker": "TKO",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "I’ll be going to the G7, in France, immediately following what will be one of the Most Entertaining Nights in American History, the UFC World Championship Fights on the South Lawn of the White House. ",
+      "url": "https://www.trumpstruth.org/statuses/39073"
+    },
+    {
+      "date": "2026-06-02",
+      "company": "Carrier Global",
+      "ticker": "CARR",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "RT @realDonaldTrumpCan you imagine? A Barack Hussein Obama Judge named Christopher Cooper has stopped a magnificent structural and aesthetic rebuilding of The Trump Kennedy Center where Millions of Do",
+      "url": "https://www.trumpstruth.org/statuses/38944"
+    },
+    {
+      "date": "2026-06-01",
+      "company": "Carrier",
+      "ticker": "CARR",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Can you imagine? A Barack Hussein Obama Judge named Christopher Cooper has stopped a magnificent structural and aesthetic rebuilding of The Trump Kennedy Center where Millions of Dollars of material, ",
+      "url": "https://www.trumpstruth.org/statuses/38883"
+    },
+    {
+      "date": "2026-05-29",
+      "company": "TKO Group Holdings",
+      "ticker": "TKO",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "The voice and genius of the great Dana White (UFC!). Thank you Dana! President DJT",
+      "url": "https://www.trumpstruth.org/statuses/38762"
+    },
+    {
+      "date": "2026-05-17",
+      "company": "Nvidia",
+      "ticker": "NVDA",
+      "stance": "praise",
+      "buyDays": [
+        -2
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "RT @realDonaldTrumpCNBC incorrectly reported that the Great Jensen Huang, of Nvidia, was not invited to the incredible gathering of the World’s Greatest Businessmen/women proudly going to China. In ac",
+      "url": "https://www.trumpstruth.org/statuses/38445"
+    },
+    {
+      "date": "2026-05-17",
+      "company": "Tesla",
+      "ticker": "TSLA",
+      "stance": "praise",
+      "buyDays": [
+        -2
+      ],
+      "saleDays": [
+        -6
+      ],
+      "match": true,
+      "text": "RT @realDonaldTrumpCNBC incorrectly reported that the Great Jensen Huang, of Nvidia, was not invited to the incredible gathering of the World’s Greatest Businessmen/women proudly going to China. In ac",
+      "url": "https://www.trumpstruth.org/statuses/38445"
+    },
+    {
+      "date": "2026-05-17",
+      "company": "Apple",
+      "ticker": "AAPL",
+      "stance": "praise",
+      "buyDays": [
+        -2
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "RT @realDonaldTrumpCNBC incorrectly reported that the Great Jensen Huang, of Nvidia, was not invited to the incredible gathering of the World’s Greatest Businessmen/women proudly going to China. In ac",
+      "url": "https://www.trumpstruth.org/statuses/38445"
+    },
+    {
+      "date": "2026-05-17",
+      "company": "BlackRock",
+      "ticker": "BLK",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "RT @realDonaldTrumpCNBC incorrectly reported that the Great Jensen Huang, of Nvidia, was not invited to the incredible gathering of the World’s Greatest Businessmen/women proudly going to China. In ac",
+      "url": "https://www.trumpstruth.org/statuses/38445"
+    },
+    {
+      "date": "2026-05-17",
+      "company": "Blackstone",
+      "ticker": "BX",
+      "stance": "praise",
+      "buyDays": [
+        -2
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "RT @realDonaldTrumpCNBC incorrectly reported that the Great Jensen Huang, of Nvidia, was not invited to the incredible gathering of the World’s Greatest Businessmen/women proudly going to China. In ac",
+      "url": "https://www.trumpstruth.org/statuses/38445"
+    },
+    {
+      "date": "2026-05-17",
+      "company": "Boeing",
+      "ticker": "BA",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "RT @realDonaldTrumpCNBC incorrectly reported that the Great Jensen Huang, of Nvidia, was not invited to the incredible gathering of the World’s Greatest Businessmen/women proudly going to China. In ac",
+      "url": "https://www.trumpstruth.org/statuses/38445"
+    },
+    {
+      "date": "2026-05-17",
+      "company": "Citigroup",
+      "ticker": "C",
+      "stance": "praise",
+      "buyDays": [
+        -2
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "RT @realDonaldTrumpCNBC incorrectly reported that the Great Jensen Huang, of Nvidia, was not invited to the incredible gathering of the World’s Greatest Businessmen/women proudly going to China. In ac",
+      "url": "https://www.trumpstruth.org/statuses/38445"
+    },
+    {
+      "date": "2026-05-17",
+      "company": "GE Aerospace",
+      "ticker": "GE",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [
+        -6
+      ],
+      "match": false,
+      "text": "RT @realDonaldTrumpCNBC incorrectly reported that the Great Jensen Huang, of Nvidia, was not invited to the incredible gathering of the World’s Greatest Businessmen/women proudly going to China. In ac",
+      "url": "https://www.trumpstruth.org/statuses/38445"
+    },
+    {
+      "date": "2026-05-17",
+      "company": "Goldman Sachs",
+      "ticker": "GS",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "RT @realDonaldTrumpCNBC incorrectly reported that the Great Jensen Huang, of Nvidia, was not invited to the incredible gathering of the World’s Greatest Businessmen/women proudly going to China. In ac",
+      "url": "https://www.trumpstruth.org/statuses/38445"
+    },
+    {
+      "date": "2026-05-17",
+      "company": "Micron",
+      "ticker": "MU",
+      "stance": "praise",
+      "buyDays": [
+        -2
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "RT @realDonaldTrumpCNBC incorrectly reported that the Great Jensen Huang, of Nvidia, was not invited to the incredible gathering of the World’s Greatest Businessmen/women proudly going to China. In ac",
+      "url": "https://www.trumpstruth.org/statuses/38445"
+    },
+    {
+      "date": "2026-05-17",
+      "company": "Qualcomm",
+      "ticker": "QCOM",
+      "stance": "praise",
+      "buyDays": [
+        -2
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "RT @realDonaldTrumpCNBC incorrectly reported that the Great Jensen Huang, of Nvidia, was not invited to the incredible gathering of the World’s Greatest Businessmen/women proudly going to China. In ac",
+      "url": "https://www.trumpstruth.org/statuses/38445"
+    },
+    {
+      "date": "2026-05-12",
+      "company": "Nvidia",
+      "ticker": "NVDA",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "CNBC incorrectly reported that the Great Jensen Huang, of Nvidia, was not invited to the incredible gathering of the World’s Greatest Businessmen/women proudly going to China. In actuality, Jensen is ",
+      "url": "https://www.trumpstruth.org/statuses/38449"
+    },
+    {
+      "date": "2026-05-12",
+      "company": "Tesla",
+      "ticker": "TSLA",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [
+        -1
+      ],
+      "match": false,
+      "text": "CNBC incorrectly reported that the Great Jensen Huang, of Nvidia, was not invited to the incredible gathering of the World’s Greatest Businessmen/women proudly going to China. In actuality, Jensen is ",
+      "url": "https://www.trumpstruth.org/statuses/38449"
+    },
+    {
+      "date": "2026-05-12",
+      "company": "Apple",
+      "ticker": "AAPL",
+      "stance": "praise",
+      "buyDays": [
+        -7
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "CNBC incorrectly reported that the Great Jensen Huang, of Nvidia, was not invited to the incredible gathering of the World’s Greatest Businessmen/women proudly going to China. In actuality, Jensen is ",
+      "url": "https://www.trumpstruth.org/statuses/38449"
+    },
+    {
+      "date": "2026-05-12",
+      "company": "BlackRock",
+      "ticker": "BLK",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "CNBC incorrectly reported that the Great Jensen Huang, of Nvidia, was not invited to the incredible gathering of the World’s Greatest Businessmen/women proudly going to China. In actuality, Jensen is ",
+      "url": "https://www.trumpstruth.org/statuses/38449"
+    },
+    {
+      "date": "2026-05-12",
+      "company": "Blackstone",
+      "ticker": "BX",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "CNBC incorrectly reported that the Great Jensen Huang, of Nvidia, was not invited to the incredible gathering of the World’s Greatest Businessmen/women proudly going to China. In actuality, Jensen is ",
+      "url": "https://www.trumpstruth.org/statuses/38449"
+    },
+    {
+      "date": "2026-05-12",
+      "company": "Boeing",
+      "ticker": "BA",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "CNBC incorrectly reported that the Great Jensen Huang, of Nvidia, was not invited to the incredible gathering of the World’s Greatest Businessmen/women proudly going to China. In actuality, Jensen is ",
+      "url": "https://www.trumpstruth.org/statuses/38449"
+    },
+    {
+      "date": "2026-05-12",
+      "company": "Citigroup",
+      "ticker": "C",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "CNBC incorrectly reported that the Great Jensen Huang, of Nvidia, was not invited to the incredible gathering of the World’s Greatest Businessmen/women proudly going to China. In actuality, Jensen is ",
+      "url": "https://www.trumpstruth.org/statuses/38449"
+    },
+    {
+      "date": "2026-05-12",
+      "company": "GE Aerospace",
+      "ticker": "GE",
+      "stance": "praise",
+      "buyDays": [
+        -7
+      ],
+      "saleDays": [
+        -1
+      ],
+      "match": true,
+      "text": "CNBC incorrectly reported that the Great Jensen Huang, of Nvidia, was not invited to the incredible gathering of the World’s Greatest Businessmen/women proudly going to China. In actuality, Jensen is ",
+      "url": "https://www.trumpstruth.org/statuses/38449"
+    },
+    {
+      "date": "2026-05-12",
+      "company": "Goldman Sachs",
+      "ticker": "GS",
+      "stance": "praise",
+      "buyDays": [
+        -7
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "CNBC incorrectly reported that the Great Jensen Huang, of Nvidia, was not invited to the incredible gathering of the World’s Greatest Businessmen/women proudly going to China. In actuality, Jensen is ",
+      "url": "https://www.trumpstruth.org/statuses/38449"
+    },
+    {
+      "date": "2026-05-12",
+      "company": "Micron",
+      "ticker": "MU",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "CNBC incorrectly reported that the Great Jensen Huang, of Nvidia, was not invited to the incredible gathering of the World’s Greatest Businessmen/women proudly going to China. In actuality, Jensen is ",
+      "url": "https://www.trumpstruth.org/statuses/38449"
+    },
+    {
+      "date": "2026-05-12",
+      "company": "Qualcomm",
+      "ticker": "QCOM",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "CNBC incorrectly reported that the Great Jensen Huang, of Nvidia, was not invited to the incredible gathering of the World’s Greatest Businessmen/women proudly going to China. In actuality, Jensen is ",
+      "url": "https://www.trumpstruth.org/statuses/38449"
+    },
+    {
+      "date": "2026-05-11",
+      "company": "Eli Lilly",
+      "ticker": "LLY",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "RT @realDonaldTrumpLilly commits additional $4.5 billion across Indiana manufacturing sites, opens first dedicated genetic medicine facility: https://investor.lilly.com/news-releases/news-release-deta",
+      "url": "https://www.trumpstruth.org/statuses/38253"
+    },
+    {
+      "date": "2026-05-10",
+      "company": "Eli Lilly",
+      "ticker": "LLY",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Lilly commits additional $4.5 billion across Indiana manufacturing sites, opens first dedicated genetic medicine facility: https://investor.lilly.com/news-releases/news-release-details/lilly-commits-a",
+      "url": "https://www.trumpstruth.org/statuses/38244"
+    },
+    {
+      "date": "2026-05-06",
+      "company": "Eli Lilly",
+      "ticker": "LLY",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Lilly commits additional $4.5 billion across Indiana manufacturing sites, opens first dedicated genetic medicine facility: https:// investor.lilly.com/news-releas es/news-release-details/lilly-commits",
+      "url": "https://www.trumpstruth.org/statuses/38254"
+    },
+    {
+      "date": "2026-05-05",
+      "company": "Intel",
+      "ticker": "INTC",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Intel Stock continues to rise. I’m very proud of that Company in that I am responsible for making the United States of America over 30 Billion Dollars in the last 90 days on that stock alone. There ar",
+      "url": "https://www.trumpstruth.org/statuses/38092"
+    },
+    {
+      "date": "2026-05-01",
+      "company": "Wells Fargo",
+      "ticker": "WFC",
+      "stance": "attack",
+      "buyDays": [
+        -4
+      ],
+      "saleDays": [
+        -4
+      ],
+      "match": true,
+      "text": "It was my Great Honor to meet with the Mayor of Los Angeles, Karen Bass, Fifth District Supervisor Kathryn Barger (Los Angeles County Board of Supervisors), and the Supervisor’s Chief of Staff, Anna M",
+      "url": "https://www.trumpstruth.org/statuses/38021"
+    },
+    {
+      "date": "2026-04-25",
+      "company": "Apple",
+      "ticker": "AAPL",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "I have always been a big fan of Tim Cook, and likewise, Steve Jobs, but if Steve was not taken from the Planet Earth so young, and ran the company instead of Tim, the company would have done well, but",
+      "url": "https://www.trumpstruth.org/statuses/37953"
+    },
+    {
+      "date": "2026-04-21",
+      "company": "Netflix",
+      "ticker": "NFLX",
+      "stance": "attack",
+      "buyDays": [
+        -6,
+        -4
+      ],
+      "saleDays": [],
+      "match": false,
+      "text": "Was Reed Hastings forced to leave the Netflix Board because he’s a SLEAZEBAG? What was his Crime, and how many did he commit?",
+      "url": "https://www.trumpstruth.org/statuses/37861"
+    },
+    {
+      "date": "2026-04-20",
+      "company": "Apple",
+      "ticker": "AAPL",
+      "stance": "praise",
+      "buyDays": [
+        -5,
+        -3
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "Trump Effect: Apple Expands American Manufacturing Program with 4 Partners: https://www.breitbart.com/tech/2026/03/26/trump-effect-apple-expands-american-manufacturing-program-with-4-partners/",
+      "url": "https://www.trumpstruth.org/statuses/37847"
+    },
+    {
+      "date": "2026-04-17",
+      "company": "TKO Group Holdings",
+      "ticker": "TKO",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Congratulations to Paulo Costa on a Great UFC Fight last night in Miami. He will absolutely be a future Champion. It was great talking to him outside the ring after his Big Victory last night in Miami",
+      "url": "https://www.trumpstruth.org/statuses/37725"
+    },
+    {
+      "date": "2026-04-15",
+      "company": "Palantir Technologies",
+      "ticker": "PLTR",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [
+        -5
+      ],
+      "match": false,
+      "text": "Palantir Technologies (PLTR) has proven to have great war fighting capabilities and equipment. Just ask our enemies!!! President DJT",
+      "url": "https://www.trumpstruth.org/statuses/37688"
+    },
+    {
+      "date": "2026-03-26",
+      "company": "JPMorgan Chase",
+      "ticker": "JPM",
+      "stance": "attack",
+      "buyDays": [
+        -3,
+        -1
+      ],
+      "saleDays": [],
+      "match": false,
+      "text": "You Should Be Terrified by What JPMorgan Did to Trump: https://townhall.com/columnists/douglasmackinnon/2026/02/23/you-should-be-terrorized-by-what-jp-morgan-did-to-trump-n2671705",
+      "url": "https://www.trumpstruth.org/statuses/37370"
+    },
+    {
+      "date": "2026-03-18",
+      "company": "Thermo Fisher Scientific",
+      "ticker": "TMO",
+      "stance": "praise",
+      "buyDays": [
+        -7
+      ],
+      "saleDays": [
+        -1
+      ],
+      "match": true,
+      "text": "I am on my way to the Great State of Ohio, which I love and WON BIG three times, to visit Thermo Fisher, a Pharmaceutical Manufacturing Company, that is investing $2 Billion Dollars in U.S. Manufactur",
+      "url": "https://www.trumpstruth.org/statuses/37254"
+    },
+    {
+      "date": "2026-03-13",
+      "company": "Boeing",
+      "ticker": "BA",
+      "stance": "praise",
+      "buyDays": [
+        -2
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "We just concluded a very good meeting with the largest U.S. Defense Manufacturing Companies where we discussed Production and Production Schedules. They have agreed to quadruple Production of the “Exq",
+      "url": "https://www.trumpstruth.org/statuses/37186"
+    },
+    {
+      "date": "2026-03-13",
+      "company": "Honeywell",
+      "ticker": "HON",
+      "stance": "praise",
+      "buyDays": [
+        -1
+      ],
+      "saleDays": [
+        -7
+      ],
+      "match": true,
+      "text": "We just concluded a very good meeting with the largest U.S. Defense Manufacturing Companies where we discussed Production and Production Schedules. They have agreed to quadruple Production of the “Exq",
+      "url": "https://www.trumpstruth.org/statuses/37186"
+    },
+    {
+      "date": "2026-03-13",
+      "company": "L3Harris",
+      "ticker": "LHX",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "We just concluded a very good meeting with the largest U.S. Defense Manufacturing Companies where we discussed Production and Production Schedules. They have agreed to quadruple Production of the “Exq",
+      "url": "https://www.trumpstruth.org/statuses/37186"
+    },
+    {
+      "date": "2026-03-13",
+      "company": "Lockheed Martin",
+      "ticker": "LMT",
+      "stance": "praise",
+      "buyDays": [
+        -1
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "We just concluded a very good meeting with the largest U.S. Defense Manufacturing Companies where we discussed Production and Production Schedules. They have agreed to quadruple Production of the “Exq",
+      "url": "https://www.trumpstruth.org/statuses/37186"
+    },
+    {
+      "date": "2026-03-13",
+      "company": "Northrop Grumman",
+      "ticker": "NOC",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "We just concluded a very good meeting with the largest U.S. Defense Manufacturing Companies where we discussed Production and Production Schedules. They have agreed to quadruple Production of the “Exq",
+      "url": "https://www.trumpstruth.org/statuses/37186"
+    },
+    {
+      "date": "2026-03-13",
+      "company": "Raytheon",
+      "ticker": "RTX",
+      "stance": "praise",
+      "buyDays": [
+        -2
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "We just concluded a very good meeting with the largest U.S. Defense Manufacturing Companies where we discussed Production and Production Schedules. They have agreed to quadruple Production of the “Exq",
+      "url": "https://www.trumpstruth.org/statuses/37186"
+    },
+    {
+      "date": "2026-03-03",
+      "company": "Apple",
+      "ticker": "AAPL",
+      "stance": "attack",
+      "buyDays": [
+        -1
+      ],
+      "saleDays": [],
+      "match": false,
+      "text": "Apple News Continues Rejection of Right-Leaning Outlets in January: https://mrcfreespeechamerica.org/blogs/free-speech/heather-moon/2026/02/04/apple-news-continues-rejection-right-leaning-outlets",
+      "url": "https://www.trumpstruth.org/statuses/36977"
+    },
+    {
+      "date": "2026-03-02",
+      "company": "Apple",
+      "ticker": "AAPL",
+      "stance": "attack",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Apple News promotes left-leaning media outlets — as it shuts out conservative sites entirely: study: https://nypost.com/2026/02/10/business/apple-news-promotes-left-leaning-media-outlets-as-it-shuts-o",
+      "url": "https://www.trumpstruth.org/statuses/36932"
+    },
+    {
+      "date": "2026-02-27",
+      "company": "Netflix",
+      "ticker": "NFLX",
+      "stance": "attack",
+      "buyDays": [],
+      "saleDays": [
+        -4
+      ],
+      "match": true,
+      "text": "Netflix should fire racist, Trump Deranged Susan Rice, IMMEDIATELY, or pay the consequences. She’s got no talent or skills - Purely a political hack! HER POWER IS GONE, AND WILL NEVER BE BACK. How muc",
+      "url": "https://www.trumpstruth.org/statuses/36854"
+    },
+    {
+      "date": "2026-02-18",
+      "company": "Lockheed Martin",
+      "ticker": "LMT",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Our advanced F-22 Raptor Fighter Jet — Greatest in the World!",
+      "url": "https://www.trumpstruth.org/statuses/36699"
+    },
+    {
+      "date": "2026-02-16",
+      "company": "Apple",
+      "ticker": "AAPL",
+      "stance": "attack",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Apple News promotes left-leaning media outlets — as it shuts out conservative sites entirely: study: https://nypost.com/2026/02/10/business/apple-news-promotes-left-leaning-media-outlets-as-it-shuts-o",
+      "url": "https://www.trumpstruth.org/statuses/36641"
+    },
+    {
+      "date": "2026-02-14",
+      "company": "Dell Technologies",
+      "ticker": "DELL",
+      "stance": "praise",
+      "buyDays": [
+        -4
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "Great job by Michael and Susan Dell on https://InvestAmerica.org — These are truly spectacular people!",
+      "url": "https://www.trumpstruth.org/statuses/36608"
+    },
+    {
+      "date": "2026-02-13",
+      "company": "Tegna",
+      "ticker": "TGNA",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "We need more competition against THE ENEMY, the Fake News National TV Networks. Letting Good Deals get done like Nexstar - Tegna will help knock out the Fake News because there will be more competitio",
+      "url": "https://www.trumpstruth.org/statuses/36598"
+    },
+    {
+      "date": "2026-02-04",
+      "company": "General Dynamics",
+      "ticker": "GD",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Based on the fact that Canada has wrongfully, illegally, and steadfastly refused to certify the Gulfstream 500, 600, 700, and 800 Jets, one of the greatest, most technologically advanced airplanes eve",
+      "url": "https://www.trumpstruth.org/statuses/36304"
+    },
+    {
+      "date": "2026-01-29",
+      "company": "General Motors",
+      "ticker": "GM",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "General Motors to move Buick Envision SUV production from China to the United States:https://www.cbsnews.com/news/buick-envision-general-motors-propduction-us-china/",
+      "url": "https://www.trumpstruth.org/statuses/34674"
+    },
+    {
+      "date": "2026-01-28",
+      "company": "Netflix",
+      "ticker": "NFLX",
+      "stance": "attack",
+      "buyDays": [
+        -7,
+        -5
+      ],
+      "saleDays": [],
+      "match": false,
+      "text": "Stop the Netflix Cultural Takeover: https://www.oann.com/commentary/stop-the-netflix-cultural-takeover/",
+      "url": "https://www.trumpstruth.org/statuses/34531"
+    },
+    {
+      "date": "2026-01-28",
+      "company": "Meta",
+      "ticker": "META",
+      "stance": "praise",
+      "buyDays": [
+        -5
+      ],
+      "saleDays": [
+        -7
+      ],
+      "match": true,
+      "text": "Congratulations to DINA POWELL MCCORMICK, WHO HAS JUST BEEN NAMED THE NEW PRESIDENT OF META. A great choice by Mark Z!!! She is a fantastic, and very talented, person, who served the Trump Administrat",
+      "url": "https://www.trumpstruth.org/statuses/34539"
+    },
+    {
+      "date": "2026-01-28",
+      "company": "JPMorgan Chase",
+      "ticker": "JPM",
+      "stance": "attack",
+      "buyDays": [],
+      "saleDays": [
+        -6
+      ],
+      "match": true,
+      "text": "A front page Article in The Fake News Wall Street Journal states, without any verification, that I offered Jamie Dimon, of JPMorgan Chase, the job of Fed Chairman. This statement is totally untrue, th",
+      "url": "https://www.trumpstruth.org/statuses/34582"
+    },
+    {
+      "date": "2026-01-28",
+      "company": "Microsoft",
+      "ticker": "MSFT",
+      "stance": "praise",
+      "buyDays": [
+        -7,
+        -5
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "Under Sleepy Joe Biden and the Radical Left Democrats, the average American Household’s monthly Utility bills went up MASSIVELY — over 30%! I never want Americans to pay higher Electricity bills becau",
+      "url": "https://www.trumpstruth.org/statuses/34544"
+    },
+    {
+      "date": "2026-01-22",
+      "company": "JPMorgan Chase",
+      "ticker": "JPM",
+      "stance": "attack",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Trump sues JPMorgan Chase and CEO Jamie Dimon for $5B over alleged 'political' debanking: https://www. foxbusiness.com/politics/trump -sues-jpmorgan-chase-ceo-jamie-dimon-5b-over-alleged-political-deb",
+      "url": "https://www.trumpstruth.org/statuses/34816"
+    },
+    {
+      "date": "2026-01-17",
+      "company": "Raytheon",
+      "ticker": "RTX",
+      "stance": "attack",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "I have been informed by the Department of War that Defense Contractor, Raytheon, has been the least responsive to the needs of the Department of War, the slowest in increasing their volume, and the mo",
+      "url": "https://www.trumpstruth.org/statuses/34481"
+    },
+    {
+      "date": "2026-01-17",
+      "company": "Intel",
+      "ticker": "INTC",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "I just finished a great meeting with the very successful Intel CEO, Lip-Bu Tan. Intel just launched the first SUB 2 NANOMETER CPU PROCESSOR designed, built, and packaged right here in the U.S.A. The U",
+      "url": "https://www.trumpstruth.org/statuses/34489"
+    },
+    {
+      "date": "2026-01-14",
+      "company": "Kenvue",
+      "ticker": "KVUE",
+      "stance": "attack",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Pregnant Women, DON’T USE TYLENOL UNLESS ABSOLUTELY NECESSARY, DON’T GIVE TYLENOL TO YOUR YOUNG CHILD FOR VIRTUALLY ANY REASON, BREAK UP THE MMR SHOT INTO THREE TOTALLY SEPARATE SHOTS (NOT MIXED!), TA",
+      "url": "https://www.trumpstruth.org/statuses/34457"
+    },
+    {
+      "date": "2026-01-06",
+      "company": "Amazon",
+      "ticker": "AMZN",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Amazon to invest up to $50B to build AI infrastructure for US government agencies: https://www.foxbusiness.com/markets/amazon-invest-up-50b-build-ai-infrastructure-us-government-agencies",
+      "url": "https://www.trumpstruth.org/statuses/34369"
+    },
+    {
+      "date": "2025-12-17",
+      "company": "Lockheed Martin",
+      "ticker": "LMT",
+      "stance": "praise",
+      "buyDays": [
+        -6,
+        -5
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "It is great to see Andrej Babis appointed again as Prime Minister of the Czech Republic. Together, we will once again achieve Great Success on Defense, Energy, and Illegal Immigration — Just as we hav",
+      "url": null
+    },
+    {
+      "date": "2025-12-16",
+      "company": "Lockheed Martin",
+      "ticker": "LMT",
+      "stance": "praise",
+      "buyDays": [
+        -5,
+        -4
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "It is great to see Andrej Babis appointed again as Prime Minister of the Czech Republic. Together, we will once again achieve Great Success on Defense, Energy, and Illegal Immigration — Just as we hav",
+      "url": "https://www.trumpstruth.org/statuses/34248"
+    },
+    {
+      "date": "2025-12-10",
+      "company": "NVIDIA",
+      "ticker": "NVDA",
+      "stance": "praise",
+      "buyDays": [
+        -1
+      ],
+      "saleDays": [
+        -6
+      ],
+      "match": true,
+      "text": "I have informed President Xi, of China, that the United States will allow NVIDIA to ship its H200 products to approved customers in China, and other Countries, under conditions that allow for continue",
+      "url": null
+    },
+    {
+      "date": "2025-12-10",
+      "company": "AMD",
+      "ticker": "AMD",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [
+        -6
+      ],
+      "match": false,
+      "text": "I have informed President Xi, of China, that the United States will allow NVIDIA to ship its H200 products to approved customers in China, and other Countries, under conditions that allow for continue",
+      "url": null
+    },
+    {
+      "date": "2025-12-10",
+      "company": "Intel",
+      "ticker": "INTC",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "I have informed President Xi, of China, that the United States will allow NVIDIA to ship its H200 products to approved customers in China, and other Countries, under conditions that allow for continue",
+      "url": null
+    },
+    {
+      "date": "2025-12-08",
+      "company": "NVIDIA",
+      "ticker": "NVDA",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [
+        -4
+      ],
+      "match": false,
+      "text": "I have informed President Xi, of China, that the United States will allow NVIDIA to ship its H200 products to approved customers in China, and other Countries, under conditions that allow for continue",
+      "url": "https://www.trumpstruth.org/statuses/34193"
+    },
+    {
+      "date": "2025-12-08",
+      "company": "AMD",
+      "ticker": "AMD",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [
+        -4
+      ],
+      "match": false,
+      "text": "I have informed President Xi, of China, that the United States will allow NVIDIA to ship its H200 products to approved customers in China, and other Countries, under conditions that allow for continue",
+      "url": "https://www.trumpstruth.org/statuses/34193"
+    },
+    {
+      "date": "2025-12-08",
+      "company": "Intel",
+      "ticker": "INTC",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "I have informed President Xi, of China, that the United States will allow NVIDIA to ship its H200 products to approved customers in China, and other Countries, under conditions that allow for continue",
+      "url": "https://www.trumpstruth.org/statuses/34193"
+    },
+    {
+      "date": "2025-12-03",
+      "company": "Dell",
+      "ticker": "DELL",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "TWO GREAT PEOPLE. I LOVE DELL!!! President DJT\nhttps://www.newsmax.com/us/michael-dell-donate-trump-accounts/2025/12/02/id/1236720/",
+      "url": "https://www.trumpstruth.org/statuses/34121"
+    },
+    {
+      "date": "2025-11-19",
+      "company": "Nvidia",
+      "ticker": "NVDA",
+      "stance": "praise",
+      "buyDays": [
+        -5
+      ],
+      "saleDays": [
+        -1
+      ],
+      "match": true,
+      "text": "Jensen Huang: “As I promised, production of Blackwell has started. AI - invented in America, made in America, built for America and the world.”",
+      "url": "https://www.trumpstruth.org/statuses/35399"
+    },
+    {
+      "date": "2025-11-18",
+      "company": "TKO Group Holdings",
+      "ticker": "TKO",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Emilio is also a great friend of UFC STAR, a truly great and popular fighting “machine,” Jorge Masvidal, who strongly supported me all 3 times, helping me to get the most votes in the History of Flori",
+      "url": "https://www.trumpstruth.org/statuses/33873"
+    },
+    {
+      "date": "2025-11-14",
+      "company": "JPMorgan Chase",
+      "ticker": "JPM",
+      "stance": "attack",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Now that the Democrats are using the Epstein Hoax, involving Democrats, not Republicans, to try and deflect from their disastrous SHUTDOWN, and all of their other failures, I will be asking A.G. Pam B",
+      "url": "https://www.trumpstruth.org/statuses/33830"
+    },
+    {
+      "date": "2025-11-05",
+      "company": "Walmart",
+      "ticker": "WMT",
+      "stance": "praise",
+      "buyDays": [
+        -5,
+        -2
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "Walmart just announced that Prices for a Thanksgiving Dinner is now down 25% since under Sleepy/Crooked Joe Biden, in 2024. AFFORDABILITY is a Republican Stronghold. Hopefully, Republicans will use th",
+      "url": "https://www.trumpstruth.org/statuses/35452"
+    },
+    {
+      "date": "2025-10-30",
+      "company": "Nvidia",
+      "ticker": "NVDA",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "https://www. businessinsider.com/jensen-hua ng-nvidia-ceo-sponsor-h1bs-memo-2025-10 www.businessinsider.com Nvidia will foot the bill for Trump's new visa fees. Here's what CEO Jensen Huang told staff",
+      "url": "https://www.trumpstruth.org/statuses/33524"
+    },
+    {
+      "date": "2025-10-27",
+      "company": "Kenvue",
+      "ticker": "KVUE",
+      "stance": "attack",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Pregnant Women, DON’T USE TYLENOL UNLESS ABSOLUTELY NECESSARY, DON’T GIVE TYLENOL TO YOUR YOUNG CHILD FOR VIRTUALLY ANY REASON, BREAK UP THE MMR SHOT INTO THREE TOTALLY SEPARATE SHOTS (NOT MIXED!), TA",
+      "url": "https://www.trumpstruth.org/statuses/33460"
+    },
+    {
+      "date": "2025-10-24",
+      "company": "Ford",
+      "ticker": "F",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Ford and General Motors UP BIG on Tariffs placed on Big and Midsized Trucks coming from other countries. Thank you President Trump!",
+      "url": "https://truthsocial.com/@realDonaldTrump/115428798659352209"
+    },
+    {
+      "date": "2025-10-24",
+      "company": "General Motors",
+      "ticker": "GM",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Ford and General Motors UP BIG on Tariffs placed on Big and Midsized Trucks coming from other countries. Thank you President Trump!",
+      "url": "https://truthsocial.com/@realDonaldTrump/115428798659352209"
+    },
+    {
+      "date": "2025-10-23",
+      "company": "NVIDIA",
+      "ticker": "NVDA",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [
+        -7
+      ],
+      "match": false,
+      "text": "The Federal Government was preparing to “surge” San Francisco, California, on Saturday, but friends of mine who live in the area called last night to ask me not to go forward with the surge in that th",
+      "url": "https://truthsocial.com/@realDonaldTrump/115424560133045127"
+    },
+    {
+      "date": "2025-10-23",
+      "company": "Salesforce",
+      "ticker": "CRM",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [
+        -7
+      ],
+      "match": false,
+      "text": "The Federal Government was preparing to “surge” San Francisco, California, on Saturday, but friends of mine who live in the area called last night to ask me not to go forward with the surge in that th",
+      "url": "https://truthsocial.com/@realDonaldTrump/115424560133045127"
+    },
+    {
+      "date": "2025-10-22",
+      "company": "General Motors",
+      "ticker": "GM",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [
+        -6
+      ],
+      "match": false,
+      "text": "Mary Barra of General Motors, and Bill Ford of Ford Motor Company, just called to thank me for putting Tariffs on Mid Size and Large Size Trucks. Their Stock has gone through the roof! They told me th",
+      "url": "https://truthsocial.com/@realDonaldTrump/115418866635313882"
+    },
+    {
+      "date": "2025-10-22",
+      "company": "Ford Motor Company",
+      "ticker": "F",
+      "stance": "praise",
+      "buyDays": [
+        -7
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "Mary Barra of General Motors, and Bill Ford of Ford Motor Company, just called to thank me for putting Tariffs on Mid Size and Large Size Trucks. Their Stock has gone through the roof! They told me th",
+      "url": "https://truthsocial.com/@realDonaldTrump/115418866635313882"
+    },
+    {
+      "date": "2025-10-14",
+      "company": "Nvidia",
+      "ticker": "NVDA",
+      "stance": "praise",
+      "buyDays": [
+        -4
+      ],
+      "saleDays": [
+        -5
+      ],
+      "match": true,
+      "text": "Jensen Huang: \"President Trump did the Miracle. We are so proud and grateful.\"",
+      "url": "https://truthsocial.com/@realDonaldTrump/115370756035314921"
+    },
+    {
+      "date": "2025-10-08",
+      "company": "Kenvue",
+      "ticker": "KVUE",
+      "stance": "attack",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "RT @realDonaldTrumpPregnant Women, DON’T USE TYLENOL UNLESS ABSOLUTELY NECESSARY, DON’T GIVE TYLENOL TO YOUR YOUNG CHILD FOR VIRTUALLY ANY REASON, BREAK UP THE MMR SHOT INTO THREE TOTALLY SEPARATE SHO",
+      "url": "https://truthsocial.com/@realDonaldTrump/115336586203366680"
+    },
+    {
+      "date": "2025-10-07",
+      "company": "Intel",
+      "ticker": "INTC",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "https://amac.us/newsline/politics/genius-trumps-intel-investment-skyrockets-50-percent-in-one-month/",
+      "url": "https://truthsocial.com/@realDonaldTrump/115333710727059381"
+    },
+    {
+      "date": "2025-10-06",
+      "company": "Kenvue",
+      "ticker": "KVUE",
+      "stance": "attack",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "https://dailycaller.com/2025/09/26/scoop-internal-docs-tylenol-maker-janssen-autism-risk/",
+      "url": "https://truthsocial.com/@realDonaldTrump/115328476199712157"
+    },
+    {
+      "date": "2025-10-06",
+      "company": "Johnson & Johnson",
+      "ticker": "JNJ",
+      "stance": "attack",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "https://dailycaller.com/2025/09/26/scoop-internal-docs-tylenol-maker-janssen-autism-risk/",
+      "url": "https://truthsocial.com/@realDonaldTrump/115328476199712157"
+    },
+    {
+      "date": "2025-10-04",
+      "company": "Alphabet",
+      "ticker": "GOOGL",
+      "stance": "praise",
+      "buyDays": [
+        -3
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "I hope Univision, a great and very popular Hispanic Network, can get BACK onto the very amazing Google/YouTube. It has been taken out of their package, which is VERY BAD for Republicans in the upcomin",
+      "url": "https://truthsocial.com/@realDonaldTrump/115318223084524890"
+    },
+    {
+      "date": "2025-09-26",
+      "company": "Kenvue",
+      "ticker": "KVUE",
+      "stance": "attack",
+      "buyDays": [
+        -3
+      ],
+      "saleDays": [
+        -2
+      ],
+      "match": true,
+      "text": "Pregnant Women, DON’T USE TYLENOL UNLESS ABSOLUTELY NECESSARY, DON’T GIVE TYLENOL TO YOUR YOUNG CHILD FOR VIRTUALLY ANY REASON, BREAK UP THE MMR SHOT INTO THREE TOTALLY SEPARATE SHOTS (NOT MIXED!), TA",
+      "url": "https://truthsocial.com/@realDonaldTrump/115271135823530018"
+    },
+    {
+      "date": "2025-09-26",
+      "company": "Microsoft",
+      "ticker": "MSFT",
+      "stance": "attack",
+      "buyDays": [
+        -3,
+        -2,
+        -1
+      ],
+      "saleDays": [],
+      "match": false,
+      "text": "Corrupt and Totally Trump Deranged Lisa Monaco (A purported pawn of Legal Lightweight Andrew Weissmann), was a senior National Security aide under Barack Hussein Obama, and a Lawfare and Weaponization",
+      "url": "https://truthsocial.com/@realDonaldTrump/115272758814629814"
+    },
+    {
+      "date": "2025-09-25",
+      "company": "PACCAR",
+      "ticker": "PCAR",
+      "stance": "praise",
+      "buyDays": [
+        -2
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "In order to protect our Great Heavy Truck Manufacturers from unfair outside competition, I will be imposing, as of October 1st, 2025, a 25% Tariff on all “Heavy (Big!) Trucks” made in other parts of t",
+      "url": "https://truthsocial.com/@realDonaldTrump/115267382531822964"
+    },
+    {
+      "date": "2025-09-22",
+      "company": "Boeing",
+      "ticker": "BA",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Earlier this month I spoke with the Highly Respected President of Uzbekistan, Shavkat Mirziyoyev. Today I want to congratulate President Mirziyoyev on signing a GREAT Deal with Boeing! Worth over $8 B",
+      "url": "https://truthsocial.com/@realDonaldTrump/115250311291343080"
+    },
+    {
+      "date": "2025-09-19",
+      "company": "Boeing",
+      "ticker": "BA",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "I am pleased to host President Recep Tayyip Erdoğan, of Turkey, at the White House on September 25th. We are working on many Trade and Military Deals with the President, including the large scale purc",
+      "url": "https://truthsocial.com/@realDonaldTrump/115232256964155055"
+    },
+    {
+      "date": "2025-09-19",
+      "company": "Lockheed Martin",
+      "ticker": "LMT",
+      "stance": "praise",
+      "buyDays": [
+        -3
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "I am pleased to host President Recep Tayyip Erdoğan, of Turkey, at the White House on September 25th. We are working on many Trade and Military Deals with the President, including the large scale purc",
+      "url": "https://truthsocial.com/@realDonaldTrump/115232256964155055"
+    },
+    {
+      "date": "2025-09-15",
+      "company": "Amazon",
+      "ticker": "AMZN",
+      "stance": "praise",
+      "buyDays": [
+        -7
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "MY son Eric’s just out book, “UNDER SIEGE,” immediately went to NUMBER ONE on Amazon. Great going Eric, you deserve it!!! https://a.co/d/7oPyLF5",
+      "url": "https://truthsocial.com/@realDonaldTrump/115209308362990527"
+    },
+    {
+      "date": "2025-09-05",
+      "company": "Google",
+      "ticker": "GOOGL",
+      "stance": "praise",
+      "buyDays": [
+        -7
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "Europe today “hit” another great American company, Google, with a $3.5 Billion Dollar fine, effectively taking money that would otherwise go to American Investments and Jobs. This is on top of the man",
+      "url": "https://truthsocial.com/@realDonaldTrump/115153232183118149"
+    },
+    {
+      "date": "2025-09-05",
+      "company": "Apple",
+      "ticker": "AAPL",
+      "stance": "praise",
+      "buyDays": [
+        -7
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "Europe today “hit” another great American company, Google, with a $3.5 Billion Dollar fine, effectively taking money that would otherwise go to American Investments and Jobs. This is on top of the man",
+      "url": "https://truthsocial.com/@realDonaldTrump/115153232183118149"
+    },
+    {
+      "date": "2025-09-04",
+      "company": "Delta Air Lines",
+      "ticker": "DAL",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "From a Delta Captain: \"I thought you would get a kick out of this. Delta’s official memo to employees. Big changes Gulf of Mexico to Gulf of America. And the liberals thought Notice to Airman was raci",
+      "url": "https://truthsocial.com/@realDonaldTrump/115148649416502990"
+    },
+    {
+      "date": "2025-09-01",
+      "company": "Pfizer",
+      "ticker": "PFE",
+      "stance": "attack",
+      "buyDays": [
+        -5,
+        -3
+      ],
+      "saleDays": [],
+      "match": false,
+      "text": "It is very important that the Drug Companies justify the success of their various Covid Drugs. Many people think they are a miracle that saved Millions of lives. Others disagree! With CDC being ripped",
+      "url": "https://truthsocial.com/@realDonaldTrump/115128985245605660"
+    },
+    {
+      "date": "2025-08-26",
+      "company": "Cracker Barrel",
+      "ticker": "CBRL",
+      "stance": "attack",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Cracker Barrel should go back to the old logo, admit a mistake based on customer response (the ultimate Poll), and manage the company better than ever before. They got a Billion Dollars worth of free ",
+      "url": "https://truthsocial.com/@realDonaldTrump/115095579197949665"
+    },
+    {
+      "date": "2025-08-26",
+      "company": "Cracker Barrel",
+      "ticker": "CBRL",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Congratulations “Cracker Barrel” on changing your logo back to what it was. All of your fans very much appreciate it. Good luck into the future. Make lots of money and, most importantly, make your cus",
+      "url": "https://truthsocial.com/@realDonaldTrump/115097715754727825"
+    },
+    {
+      "date": "2025-08-25",
+      "company": "Intel",
+      "ticker": "INTC",
+      "stance": "praise",
+      "buyDays": [
+        -7
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "I PAID ZERO FOR INTEL, IT IS WORTH APPROXIMATELY 11 BILLION DOLLARS. All goes to the USA. Why are “stupid” people unhappy with that? I will make deals like that for our Country all day long. I will al",
+      "url": "https://truthsocial.com/@realDonaldTrump/115089582863713336"
+    },
+    {
+      "date": "2025-08-23",
+      "company": "Lockheed Martin",
+      "ticker": "LMT",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [
+        -5
+      ],
+      "match": false,
+      "text": "The greatest and most beautiful fighter jet ever made —— F-22 Raptor!",
+      "url": "https://truthsocial.com/@realDonaldTrump/115081441604745953"
+    },
+    {
+      "date": "2025-08-22",
+      "company": "Intel",
+      "ticker": "INTC",
+      "stance": "praise",
+      "buyDays": [
+        -7,
+        -4
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "It is my Great Honor to report that the United States of America now fully owns and controls 10% of INTEL, a Great American Company that has an even more incredible future. I negotiated this Deal with",
+      "url": "https://truthsocial.com/@realDonaldTrump/115074444617901812"
+    },
+    {
+      "date": "2025-08-12",
+      "company": "Goldman Sachs",
+      "ticker": "GS",
+      "stance": "attack",
+      "buyDays": [
+        -5
+      ],
+      "saleDays": [],
+      "match": false,
+      "text": "Trillions of Dollars are being taken in on Tariffs, which has been incredible for our Country, its Stock Market, its General Wealth, and just about everything else. It has been proven, that even at th",
+      "url": "https://truthsocial.com/@realDonaldTrump/115016246479417087"
+    },
+    {
+      "date": "2025-08-11",
+      "company": "Intel",
+      "ticker": "INTC",
+      "stance": "praise",
+      "buyDays": [
+        -7
+      ],
+      "saleDays": [
+        -4
+      ],
+      "match": true,
+      "text": "I met with Mr. Lip-Bu Tan, of Intel, along with Secretary of Commerce, Howard Lutnick, and Secretary of the Treasury, Scott Bessent. The meeting was a very interesting one. His success and rise is an ",
+      "url": "https://truthsocial.com/@realDonaldTrump/115012131343690532"
+    },
+    {
+      "date": "2025-08-07",
+      "company": "Intel",
+      "ticker": "INTC",
+      "stance": "attack",
+      "buyDays": [
+        -3
+      ],
+      "saleDays": [],
+      "match": false,
+      "text": "The CEO of INTEL is highly CONFLICTED and must resign, immediately. There is no other solution to this problem. Thank you for your attention to this problem!",
+      "url": "https://truthsocial.com/@realDonaldTrump/114987288040725570"
+    },
+    {
+      "date": "2025-08-06",
+      "company": "Apple",
+      "ticker": "AAPL",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "https://www.bloomberg.com/news/articles/2025-08-06/trump-apple-to-announce-fresh-100-billion-in-us-manufacturing",
+      "url": "https://truthsocial.com/@realDonaldTrump/114984063665976199"
+    },
+    {
+      "date": "2025-08-04",
+      "company": "American Eagle",
+      "ticker": "AEO",
+      "stance": "praise",
+      "buyDays": [
+        -4
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "Sydney Sweeney, a registered Republican, has the “HOTTEST” ad out there. It’s for American Eagle, and the jeans are “flying off the shelves.” Go get ‘em Sydney! On the other side of the ledger, Jaguar",
+      "url": "https://truthsocial.com/@realDonaldTrump/114970952739677687"
+    },
+    {
+      "date": "2025-07-24",
+      "company": "Tesla",
+      "ticker": "TSLA",
+      "stance": "praise",
+      "buyDays": [
+        -1
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "Everyone is stating that I will destroy Elon’s companies by taking away some, if not all, of the large scale subsidies he receives from the U.S. Government. This is not so! I want Elon, and all busine",
+      "url": "https://truthsocial.com/@realDonaldTrump/114908467282299011"
+    },
+    {
+      "date": "2025-07-23",
+      "company": "Nvidia",
+      "ticker": "NVDA",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Nvidia CEO Jensen Huang on winning the AI race: \"America's unique advantage that no country could possibly have is President Trump.\"",
+      "url": "https://truthsocial.com/@realDonaldTrump/114905849389326140"
+    },
+    {
+      "date": "2025-07-22",
+      "company": "Boeing",
+      "ticker": "BA",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "It is my Great Honor to announce our Trade Agreement with the Republic of Indonesia, as represented by their Highly Respected President, Prabowo Subianto. It is agreed that Indonesia will be Open Mark",
+      "url": "https://truthsocial.com/@realDonaldTrump/114898507608732258"
+    },
+    {
+      "date": "2025-07-16",
+      "company": "Coca-Cola",
+      "ticker": "KO",
+      "stance": "praise",
+      "buyDays": [
+        -1
+      ],
+      "saleDays": [
+        -2
+      ],
+      "match": true,
+      "text": "I have been speaking to Coca-Cola about using REAL Cane Sugar in Coke in the United States, and they have agreed to do so. I’d like to thank all of those in authority at Coca-Cola. This will be a very",
+      "url": "https://truthsocial.com/@realDonaldTrump/114864763487869986"
+    },
+    {
+      "date": "2025-07-15",
+      "company": "Boeing",
+      "ticker": "BA",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "This morning I finalized an important Deal with the Republic of Indonesia after speaking with their Highly Respected President Prabowo Subianto. This landmark Deal opens up Indonesia’s ENTIRE MARKET t",
+      "url": "https://truthsocial.com/@realDonaldTrump/114858589029028619"
+    },
+    {
+      "date": "2025-07-10",
+      "company": "NVIDIA",
+      "ticker": "NVDA",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Tech Stocks, Industrial Stocks, & NASDAQ, HIT ALL-TIME, RECORD HIGHS! CRYPTO, “Through the Roof.” NVIDIA IS UP 47% SINCE TRUMP TARIFFS. USA is taking in Hundreds of Billions of Dollars in Tariffs. COU",
+      "url": "https://truthsocial.com/@realDonaldTrump/114829408208555940"
+    },
+    {
+      "date": "2025-07-06",
+      "company": "Tesla",
+      "ticker": "TSLA",
+      "stance": "attack",
+      "buyDays": [
+        -5
+      ],
+      "saleDays": [],
+      "match": false,
+      "text": "I am saddened to watch Elon Musk go completely “off the rails,” essentially becoming a TRAIN WRECK over the past five weeks. He even wants to start a Third Political Party, despite the fact that they ",
+      "url": "https://truthsocial.com/@realDonaldTrump/114808616176041421"
+    },
+    {
+      "date": "2025-07-01",
+      "company": "Tesla",
+      "ticker": "TSLA",
+      "stance": "attack",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Elon Musk knew, long before he so strongly Endorsed me for President, that I was strongly against the EV Mandate. It is ridiculous, and was always a major part of my campaign. Electric cars are fine, ",
+      "url": "https://truthsocial.com/@realDonaldTrump/114776149269773065"
+    },
+    {
+      "date": "2025-06-05",
+      "company": "Tesla",
+      "ticker": "TSLA",
+      "stance": "attack",
+      "buyDays": [
+        -7,
+        -3
+      ],
+      "saleDays": [],
+      "match": false,
+      "text": "Elon was “wearing thin,” I asked him to leave, I took away his EV Mandate that forced everyone to buy Electric Cars that nobody else wanted (that he knew for months I was going to do!), and he just we",
+      "url": "https://truthsocial.com/@realDonaldTrump/114632205177163456"
+    },
+    {
+      "date": "2025-05-31",
+      "company": "Shift4 Payments",
+      "ticker": "FOUR",
+      "stance": "attack",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "After a thorough review of prior associations, I am hereby withdrawing the nomination of Jared Isaacman to head NASA. I will soon announce a new Nominee who will be Mission aligned, and put America Fi",
+      "url": "https://truthsocial.com/@realDonaldTrump/114605559474286180"
+    },
+    {
+      "date": "2025-05-30",
+      "company": "Tesla",
+      "ticker": "TSLA",
+      "stance": "praise",
+      "buyDays": [
+        -7,
+        -2,
+        -1
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "Join me with Elon—live in The Oval Office! https://www.youtube.com/live/dAv3PaMnme8?si=-CABNJ-rbVbrye3n",
+      "url": "https://truthsocial.com/@realDonaldTrump/114598088958949368"
+    },
+    {
+      "date": "2025-05-30",
+      "company": "U.S. Steel",
+      "ticker": "X",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Join me LIVE—at U.S. Steel in Pittsburgh! https://www.youtube.com/live/xqnyP6mUI7w?si=InXj22Kcvb_2TXIn",
+      "url": "https://truthsocial.com/@realDonaldTrump/114598871073067083"
+    },
+    {
+      "date": "2025-05-29",
+      "company": "Tesla",
+      "ticker": "TSLA",
+      "stance": "praise",
+      "buyDays": [
+        -6,
+        -1
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "I am having a Press Conference tomorrow at 1:30 P.M. EST, with Elon Musk, at the Oval Office. This will be his last day, but not really, because he will, always, be with us, helping all the way. Elon ",
+      "url": "https://truthsocial.com/@realDonaldTrump/114593895018014960"
+    },
+    {
+      "date": "2025-05-23",
+      "company": "Apple",
+      "ticker": "AAPL",
+      "stance": "attack",
+      "buyDays": [
+        -4
+      ],
+      "saleDays": [],
+      "match": false,
+      "text": "I have long ago informed Tim Cook of Apple that I expect their iPhone’s that will be sold in the United  States of America will be manufactured and built in the United States, not India, or anyplace e",
+      "url": "https://truthsocial.com/@realDonaldTrump/114556874484491575"
+    },
+    {
+      "date": "2025-05-23",
+      "company": "United States Steel",
+      "ticker": "X",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "I am proud to announce that, after much consideration and negotiation, US Steel will REMAIN in America, and keep its Headquarters in the Great City of Pittsburgh. For many years, the name, “United Sta",
+      "url": "https://truthsocial.com/@realDonaldTrump/114558783827880495"
+    },
+    {
+      "date": "2025-05-17",
+      "company": "Walmart",
+      "ticker": "WMT",
+      "stance": "attack",
+      "buyDays": [
+        -5,
+        -2
+      ],
+      "saleDays": [],
+      "match": false,
+      "text": "Walmart should STOP trying to blame Tariffs as the reason for raising prices throughout the chain. Walmart made BILLIONS OF DOLLARS  last year, far more than expected. Between Walmart and China they s",
+      "url": "https://truthsocial.com/@realDonaldTrump/114523638623110397"
+    },
+    {
+      "date": "2025-05-13",
+      "company": "Boeing",
+      "ticker": "BA",
+      "stance": "attack",
+      "buyDays": [
+        -7
+      ],
+      "saleDays": [],
+      "match": false,
+      "text": "The Boeing 747 is being given to the United States Air Force/Department of Defense, NOT TO ME! It is a gift from a Nation, Qatar, that we have successfully defended for many years. It will be used by ",
+      "url": "https://truthsocial.com/@realDonaldTrump/114503203859060399"
+    },
+    {
+      "date": "2025-05-09",
+      "company": "Boeing",
+      "ticker": "BA",
+      "stance": "praise",
+      "buyDays": [
+        -4,
+        -3
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "I just watched an exhausted, highly neurotic Stephanie Ruhle spew LIES about Tariffs, as do many others, in order not to give me the Victory that they all see coming. Few people know Stephanie Ruhle, ",
+      "url": "https://truthsocial.com/@realDonaldTrump/114478780390671313"
+    },
+    {
+      "date": "2025-05-06",
+      "company": "Eli Lilly",
+      "ticker": "LLY",
+      "stance": "praise",
+      "buyDays": [
+        -1
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "Eli Lilly CEO Dave Ricks: \"We were at the White House last week to talk about, with other industries as well as many pharma companies, the expansion of manufacturing in the U.S. It was good to see yes",
+      "url": "https://truthsocial.com/@realDonaldTrump/114461327233567337"
+    },
+    {
+      "date": "2025-05-01",
+      "company": "NVIDIA",
+      "ticker": "NVDA",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "NVIDIA CEO Jensen Huang: \"We're going to build NVIDIA's technology, the next generation of that, all here in the United States. Without the President's leadership, his policies, his support, and very ",
+      "url": "https://truthsocial.com/@realDonaldTrump/114432954072144063"
+    },
+    {
+      "date": "2025-05-01",
+      "company": "Amazon",
+      "ticker": "AMZN",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "It was my great honor to recognize some of the businesses making massive new investments right here in the United States of America—Hyundai, CMA CGM, Worldwide Amazon Stores, Venture Global LNG, Sieme",
+      "url": "https://truthsocial.com/@realDonaldTrump/114432976140064253"
+    },
+    {
+      "date": "2025-05-01",
+      "company": "Johnson & Johnson",
+      "ticker": "JNJ",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "It was my great honor to recognize some of the businesses making massive new investments right here in the United States of America—Hyundai, CMA CGM, Worldwide Amazon Stores, Venture Global LNG, Sieme",
+      "url": "https://truthsocial.com/@realDonaldTrump/114432976140064253"
+    },
+    {
+      "date": "2025-05-01",
+      "company": "Eli Lilly",
+      "ticker": "LLY",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "It was my great honor to recognize some of the businesses making massive new investments right here in the United States of America—Hyundai, CMA CGM, Worldwide Amazon Stores, Venture Global LNG, Sieme",
+      "url": "https://truthsocial.com/@realDonaldTrump/114432976140064253"
+    },
+    {
+      "date": "2025-05-01",
+      "company": "AbbVie",
+      "ticker": "ABBV",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "It was my great honor to recognize some of the businesses making massive new investments right here in the United States of America—Hyundai, CMA CGM, Worldwide Amazon Stores, Venture Global LNG, Sieme",
+      "url": "https://truthsocial.com/@realDonaldTrump/114432976140064253"
+    },
+    {
+      "date": "2025-05-01",
+      "company": "Thermo Fisher Scientific",
+      "ticker": "TMO",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "It was my great honor to recognize some of the businesses making massive new investments right here in the United States of America—Hyundai, CMA CGM, Worldwide Amazon Stores, Venture Global LNG, Sieme",
+      "url": "https://truthsocial.com/@realDonaldTrump/114432976140064253"
+    },
+    {
+      "date": "2025-05-01",
+      "company": "Merck",
+      "ticker": "MRK",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "It was my great honor to recognize some of the businesses making massive new investments right here in the United States of America—Hyundai, CMA CGM, Worldwide Amazon Stores, Venture Global LNG, Sieme",
+      "url": "https://truthsocial.com/@realDonaldTrump/114432976140064253"
+    },
+    {
+      "date": "2025-05-01",
+      "company": "Abbott Laboratories",
+      "ticker": "ABT",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "It was my great honor to recognize some of the businesses making massive new investments right here in the United States of America—Hyundai, CMA CGM, Worldwide Amazon Stores, Venture Global LNG, Sieme",
+      "url": "https://truthsocial.com/@realDonaldTrump/114432976140064253"
+    },
+    {
+      "date": "2025-05-01",
+      "company": "IBM",
+      "ticker": "IBM",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "It was my great honor to recognize some of the businesses making massive new investments right here in the United States of America—Hyundai, CMA CGM, Worldwide Amazon Stores, Venture Global LNG, Sieme",
+      "url": "https://truthsocial.com/@realDonaldTrump/114432976140064253"
+    },
+    {
+      "date": "2025-05-01",
+      "company": "GE Aerospace",
+      "ticker": "GE",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "It was my great honor to recognize some of the businesses making massive new investments right here in the United States of America—Hyundai, CMA CGM, Worldwide Amazon Stores, Venture Global LNG, Sieme",
+      "url": "https://truthsocial.com/@realDonaldTrump/114432976140064253"
+    },
+    {
+      "date": "2025-04-15",
+      "company": "NVIDIA",
+      "ticker": "NVDA",
+      "stance": "praise",
+      "buyDays": [
+        -7,
+        -5
+      ],
+      "saleDays": [
+        -4
+      ],
+      "match": true,
+      "text": "NVIDIA COMMITS 500 BILLION DOLLARS TO BUILD A.I. SUPERCOMPUTERS, PLUS, IN THE UNITED STATES, EXCLUSIVELY. This is very big and exciting news. All necessary permits will be expedited and quickly delive",
+      "url": "https://truthsocial.com/@realDonaldTrump/114341773968885783"
+    },
+    {
+      "date": "2025-04-14",
+      "company": "NVIDIA",
+      "ticker": "NVDA",
+      "stance": "praise",
+      "buyDays": [
+        -6,
+        -4
+      ],
+      "saleDays": [
+        -3
+      ],
+      "match": true,
+      "text": "“NVIDIA to Manufacture American-Made AI Supercomputers in US for First Time” https://blogs.nvidia.com/blog/nvidia-manufacture-american-made-ai-supercomputers-us/",
+      "url": "https://truthsocial.com/@realDonaldTrump/114336879485867419"
+    },
+    {
+      "date": "2025-04-09",
+      "company": "Apple",
+      "ticker": "AAPL",
+      "stance": "praise",
+      "buyDays": [
+        -1
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "This is a GREAT time to move your COMPANY into the United States of America, like Apple, and so many others, in record numbers, are doing. ZERO TARIFFS, and almost immediate Electrical/Energy hook ups",
+      "url": "https://truthsocial.com/@realDonaldTrump/114307832213562859"
+    },
+    {
+      "date": "2025-04-09",
+      "company": "JPMorgan Chase",
+      "ticker": "JPM",
+      "stance": "praise",
+      "buyDays": [
+        -5,
+        -1
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "“Fixing Trade and Tariffs is a good thing!” Jamie Dimon, JPMorgan Chase, Chairman & CEO, on Maria B Show!",
+      "url": "https://truthsocial.com/@realDonaldTrump/114308228615083777"
+    },
+    {
+      "date": "2025-04-03",
+      "company": "Ford",
+      "ticker": "F",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "A Great Ad by FORD!",
+      "url": "https://truthsocial.com/@realDonaldTrump/114275996140818073"
+    },
+    {
+      "date": "2025-03-21",
+      "company": "Tesla",
+      "ticker": "TSLA",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "I look forward to watching the sick terrorist thugs get 20 year jail sentences for what they are doing to Elon Musk and Tesla. Perhaps they could serve them in the prisons of El Salvador, which have b",
+      "url": "https://truthsocial.com/@realDonaldTrump/114200244380161257"
+    },
+    {
+      "date": "2025-03-21",
+      "company": "Nvidia",
+      "ticker": "NVDA",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "RT @realDonaldTrump“Nvidia to spend hundreds of billions in U.S. during Trump's term” https://www.axios.com/2025/03/20/nvidia-spend-hundreds-billions-us-during-trump-term",
+      "url": "https://truthsocial.com/@realDonaldTrump/114200553396504895"
+    },
+    {
+      "date": "2025-03-21",
+      "company": "Johnson & Johnson",
+      "ticker": "JNJ",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "https://www.axios.com/2025/03/21/johnson-johnson-55-billion-us-investment",
+      "url": "https://truthsocial.com/@realDonaldTrump/114200554069215571"
+    },
+    {
+      "date": "2025-03-20",
+      "company": "Nvidia",
+      "ticker": "NVDA",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "“Nvidia to spend hundreds of billions in U.S. during Trump's term” https://www.axios.com/2025/03/20/nvidia-spend-hundreds-billions-us-during-trump-term",
+      "url": "https://truthsocial.com/@realDonaldTrump/114194879718374915"
+    },
+    {
+      "date": "2025-03-20",
+      "company": "Apple",
+      "ticker": "AAPL",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Financial Times: “The huge spending projection from the world’s most valuable semiconductor group (Nvidia) follows multibillion-dollar US investment plans announced by other technology companies inclu",
+      "url": "https://truthsocial.com/@realDonaldTrump/114195442142009895"
+    },
+    {
+      "date": "2025-03-20",
+      "company": "Tesla",
+      "ticker": "TSLA",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "People that get caught sabotaging Teslas will stand a very good chance of going to jail for up to twenty years, and that includes the funders. WE ARE LOOKING FOR YOU!!!",
+      "url": "https://truthsocial.com/@realDonaldTrump/114198218638202475"
+    },
+    {
+      "date": "2025-03-19",
+      "company": "Tesla",
+      "ticker": "TSLA",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "THANK YOU, ELON—MAGA!",
+      "url": "https://truthsocial.com/@realDonaldTrump/114190677393220882"
+    },
+    {
+      "date": "2025-03-18",
+      "company": "Tesla",
+      "ticker": "TSLA",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "Wow. What a great interview of Elon Musk by Sean Hannity. A must watch. TWO GREAT AMERICANS!!!  DJT",
+      "url": "https://truthsocial.com/@realDonaldTrump/114186559522815802"
+    },
+    {
+      "date": "2025-03-12",
+      "company": "Tesla",
+      "ticker": "TSLA",
+      "stance": "praise",
+      "buyDays": [
+        -7,
+        -2
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "Wow!!! People are loving Elon, a GREAT PATRIOT. Nice to see!!! DJT",
+      "url": "https://truthsocial.com/@realDonaldTrump/114149845661093099"
+    },
+    {
+      "date": "2025-03-12",
+      "company": "Goldman Sachs",
+      "ticker": "GS",
+      "stance": "praise",
+      "buyDays": [
+        -7
+      ],
+      "saleDays": [
+        -2
+      ],
+      "match": true,
+      "text": "Goldman Sachs CEO David Solomon: \"One of the things that I do like is that the President is engaged with the business community. The administration is engaged with the business community — and that's ",
+      "url": "https://truthsocial.com/@realDonaldTrump/114151257383811463"
+    },
+    {
+      "date": "2025-03-12",
+      "company": "Cleveland-Cliffs",
+      "ticker": "CLF",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [
+        -2
+      ],
+      "match": false,
+      "text": "Cleveland-Cliffs CEO Lourenco Goncalves: “This is the right moment, the right time—manufacturing is BACK…We're going to build in America. We're going to produce things here, employ Americans.\"",
+      "url": "https://truthsocial.com/@realDonaldTrump/114151269304041473"
+    },
+    {
+      "date": "2025-03-12",
+      "company": "GE Aerospace",
+      "ticker": "GE",
+      "stance": "praise",
+      "buyDays": [
+        -7,
+        -2
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "“GE Aerospace announced on Tuesday a nearly $1 billion investment in U.S. manufacturing, the latest company to do so under the Trump administration…It marks the latest company to put money back into t",
+      "url": "https://truthsocial.com/@realDonaldTrump/114151328220491045"
+    },
+    {
+      "date": "2025-03-12",
+      "company": "Eli Lilly",
+      "ticker": "LLY",
+      "stance": "praise",
+      "buyDays": [
+        -7,
+        -2
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "“GE Aerospace announced on Tuesday a nearly $1 billion investment in U.S. manufacturing, the latest company to do so under the Trump administration…It marks the latest company to put money back into t",
+      "url": "https://truthsocial.com/@realDonaldTrump/114151328220491045"
+    },
+    {
+      "date": "2025-03-12",
+      "company": "Apple",
+      "ticker": "AAPL",
+      "stance": "praise",
+      "buyDays": [
+        -7,
+        -2
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "“GE Aerospace announced on Tuesday a nearly $1 billion investment in U.S. manufacturing, the latest company to do so under the Trump administration…It marks the latest company to put money back into t",
+      "url": "https://truthsocial.com/@realDonaldTrump/114151328220491045"
+    },
+    {
+      "date": "2025-03-12",
+      "company": "Meta",
+      "ticker": "META",
+      "stance": "praise",
+      "buyDays": [
+        -7
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "“GE Aerospace announced on Tuesday a nearly $1 billion investment in U.S. manufacturing, the latest company to do so under the Trump administration…It marks the latest company to put money back into t",
+      "url": "https://truthsocial.com/@realDonaldTrump/114151328220491045"
+    },
+    {
+      "date": "2025-03-11",
+      "company": "Tesla",
+      "ticker": "TSLA",
+      "stance": "praise",
+      "buyDays": [
+        -6,
+        -1
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "To Republicans, Conservatives, and all great Americans, Elon Musk is “putting it on the line” in order to help our Nation, and he is doing a FANTASTIC JOB! But the Radical Left Lunatics, as they often",
+      "url": "https://truthsocial.com/@realDonaldTrump/114141854575248527"
+    },
+    {
+      "date": "2025-03-10",
+      "company": "U.S. Steel",
+      "ticker": "X",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "https://amgreatness.com/2025/03/06/president-donald-j-trump-saving-u-s-steel/",
+      "url": "https://truthsocial.com/@realDonaldTrump/114140119242965457"
+    },
+    {
+      "date": "2025-03-10",
+      "company": "Apple",
+      "ticker": "AAPL",
+      "stance": "praise",
+      "buyDays": [
+        -5
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "https://www.breitbart.com/tech/2025/02/24/trump-tariff-win-apple-to-invest-500-billion-in-u-s-pledges-to-create-20000-jobs/",
+      "url": "https://truthsocial.com/@realDonaldTrump/114140337210541557"
+    },
+    {
+      "date": "2025-03-10",
+      "company": "Bank of America",
+      "ticker": "BAC",
+      "stance": "praise",
+      "buyDays": [
+        -5
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "https://www.breitbart.com/economy/2025/02/26/bank-of-americas-drops-dei-goals-following-trumps-order/",
+      "url": "https://truthsocial.com/@realDonaldTrump/114140392644303268"
+    },
+    {
+      "date": "2025-03-08",
+      "company": "Tesla",
+      "ticker": "TSLA",
+      "stance": "praise",
+      "buyDays": [
+        -3
+      ],
+      "saleDays": [],
+      "match": true,
+      "text": "ELON AND MARCO HAVE A GREAT RELATIONSHIP. ANY STATEMENT OTHER THAN THAT IS FAKE NEWS!!! DJT",
+      "url": "https://truthsocial.com/@realDonaldTrump/114129217070412961"
+    },
+    {
+      "date": "2025-02-26",
+      "company": "Apple",
+      "ticker": "AAPL",
+      "stance": "attack",
+      "buyDays": [
+        -2
+      ],
+      "saleDays": [],
+      "match": false,
+      "text": "APPLE SHOULD GET RID OF DEI RULES, NOT JUST MAKE ADJUSTMENTS TO THEM. DEI WAS A HOAX THAT HAS BEEN VERY BAD FOR OUR COUNTRY. DEI IS GONE!!!",
+      "url": "https://truthsocial.com/@realDonaldTrump/114070315739588346"
+    },
+    {
+      "date": "2025-02-26",
+      "company": "Southwest Airlines",
+      "ticker": "LUV",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "GREAT JOB BY THE SOUTHWEST PILOTS IN CHICAGO. A NEARLY TRAGIC CLOSE CALL. PERHAPS SUSPEND THE PILOTS LICENSE OF THE OTHER PLANE, WHO MUST HAVE BEEN “SLEEPING!”",
+      "url": "https://truthsocial.com/@realDonaldTrump/114070612892953565"
+    },
+    {
+      "date": "2025-02-24",
+      "company": "Apple",
+      "ticker": "AAPL",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "APPLE HAS JUST ANNOUNCED A RECORD 500 BILLION DOLLAR INVESTMENT IN THE UNITED STATES OF AMERICA. THE REASON, FAITH IN WHAT WE ARE DOING, WITHOUT WHICH, THEY WOULD’NT BE INVESTING TEN CENTS. THANK YOU ",
+      "url": "https://truthsocial.com/@realDonaldTrump/114059004456970017"
+    },
+    {
+      "date": "2025-01-25",
+      "company": "General Motors",
+      "ticker": "GM",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "RT: https://truthsocial.com/users/EdHunter97/statuses/113883310559125722What a beautiful car. Congratulations to GM!",
+      "url": "https://truthsocial.com/@realDonaldTrump/113889553768426019"
+    },
+    {
+      "date": "2025-01-25",
+      "company": "Alphabet",
+      "ticker": "GOOGL",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "President Donald J. Trump’s Historic Inauguration Sets Viewership RecordData from Streams Charts shows that due to coverage of President Trump’s Inauguration, the News section of YouTube set a new “Al",
+      "url": "https://truthsocial.com/@realDonaldTrump/113891965069994650"
+    },
+    {
+      "date": "2025-01-25",
+      "company": "Amazon",
+      "ticker": "AMZN",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "“New viewership records on Twitch and YouTube thanks to Donald Trump's Inauguration” https://streamscharts.com/news/donald-trumps-inauguration-viewership",
+      "url": "https://truthsocial.com/@realDonaldTrump/113891977496753674"
+    },
+    {
+      "date": "2025-01-09",
+      "company": "S&T Bancorp",
+      "ticker": "STBA",
+      "stance": "praise",
+      "buyDays": [],
+      "saleDays": [],
+      "match": false,
+      "text": "I am pleased to announce that Christine Jack Toretti will serve as the next United States Ambassador to Sweden. Christine is an incredible businesswoman, philanthropist, public servant, and RNC Commit",
+      "url": "https://truthsocial.com/@realDonaldTrump/113801030153083772"
+    }
+  ],
+  "from": "2025-01",
+  "mix": {
+    "from": "2026-01",
+    "to": "2026-05",
+    "trades": 6492,
+    "stocks": 5969,
+    "bonds": 412,
+    "funds": 111,
+    "stockTickers": 746,
+    "top": [
+      {
+        "ticker": "MSFT",
+        "company": "Microsoft",
+        "buy": 21,
+        "sell": 16
+      },
+      {
+        "ticker": "META",
+        "company": "Meta",
+        "buy": 18,
+        "sell": 14
+      },
+      {
+        "ticker": "AMZN",
+        "company": "Amazon",
+        "buy": 21,
+        "sell": 9
+      },
+      {
+        "ticker": "NFLX",
+        "company": "Netflix",
+        "buy": 15,
+        "sell": 14
+      },
+      {
+        "ticker": "HD",
+        "company": "Home Depot",
+        "buy": 13,
+        "sell": 14
+      },
+      {
+        "ticker": "V",
+        "company": "Visa",
+        "buy": 17,
+        "sell": 10
+      },
+      {
+        "ticker": "GOOGL",
+        "company": "Alphabet",
+        "buy": 19,
+        "sell": 7
+      },
+      {
+        "ticker": "UNH",
+        "company": "UnitedHealth",
+        "buy": 19,
+        "sell": 6
+      },
+      {
+        "ticker": "BRK.B",
+        "company": "Berkshire Hathaway",
+        "buy": 14,
+        "sell": 10
+      },
+      {
+        "ticker": "MA",
+        "company": "Mastercard",
+        "buy": 13,
+        "sell": 11
+      }
+    ],
+    "all": [
+      {
+        "ticker": "MSFT",
+        "buy": 21,
+        "sell": 16,
+        "company": "Microsoft"
+      },
+      {
+        "ticker": "META",
+        "buy": 18,
+        "sell": 14,
+        "company": "Meta"
+      },
+      {
+        "ticker": "AMZN",
+        "buy": 21,
+        "sell": 9,
+        "company": "Amazon"
+      },
+      {
+        "ticker": "NFLX",
+        "buy": 15,
+        "sell": 14,
+        "company": "Netflix"
+      },
+      {
+        "ticker": "HD",
+        "buy": 13,
+        "sell": 14,
+        "company": "Home Depot"
+      },
+      {
+        "ticker": "V",
+        "buy": 17,
+        "sell": 10,
+        "company": "Visa"
+      },
+      {
+        "ticker": "GOOGL",
+        "buy": 19,
+        "sell": 7,
+        "company": "Alphabet"
+      },
+      {
+        "ticker": "UNH",
+        "buy": 19,
+        "sell": 6,
+        "company": "UnitedHealth"
+      },
+      {
+        "ticker": "BRK.B",
+        "buy": 14,
+        "sell": 10,
+        "company": "Berkshire Hathaway"
+      },
+      {
+        "ticker": "MA",
+        "buy": 13,
+        "sell": 11,
+        "company": "Mastercard"
+      },
+      {
+        "ticker": "NVDA",
+        "buy": 16,
+        "sell": 8,
+        "company": "NVIDIA Corporation"
+      },
+      {
+        "ticker": "PLTR",
+        "buy": 14,
+        "sell": 10,
+        "company": "Palantir Technologies Inc."
+      },
+      {
+        "ticker": "VZ",
+        "buy": 14,
+        "sell": 10,
+        "company": "Verizon Communications Inc."
+      },
+      {
+        "ticker": "ACN",
+        "buy": 12,
+        "sell": 11,
+        "company": "Accenture plc Class A"
+      },
+      {
+        "ticker": "MCD",
+        "buy": 14,
+        "sell": 9,
+        "company": "McDonald's Corporation"
+      },
+      {
+        "ticker": "PG",
+        "buy": 13,
+        "sell": 10,
+        "company": "Procter & Gamble Company"
+      },
+      {
+        "ticker": "ORCL",
+        "buy": 14,
+        "sell": 8,
+        "company": "Oracle Corporation"
+      },
+      {
+        "ticker": "ABT",
+        "buy": 9,
+        "sell": 12,
+        "company": "Abbott Laboratories"
+      },
+      {
+        "ticker": "AMD",
+        "buy": 14,
+        "sell": 7,
+        "company": "Advanced Micro Devices, Inc."
+      },
+      {
+        "ticker": "CRM",
+        "buy": 9,
+        "sell": 12,
+        "company": "Salesforce, Inc."
+      },
+      {
+        "ticker": "AAPL",
+        "buy": 15,
+        "sell": 5,
+        "company": "Apple Inc."
+      },
+      {
+        "ticker": "AVGO",
+        "buy": 11,
+        "sell": 9,
+        "company": "Broadcom Inc."
+      },
+      {
+        "ticker": "JPM",
+        "buy": 11,
+        "sell": 9,
+        "company": "JP Morgan Chase & Co."
+      },
+      {
+        "ticker": "WFC",
+        "buy": 12,
+        "sell": 8,
+        "company": "Wells Fargo & Co."
+      },
+      {
+        "ticker": "ADBE",
+        "buy": 10,
+        "sell": 9,
+        "company": "Adobe Inc."
+      },
+      {
+        "ticker": "GIS",
+        "buy": 10,
+        "sell": 9,
+        "company": "General Mills, Inc."
+      },
+      {
+        "ticker": "PEP",
+        "buy": 12,
+        "sell": 7,
+        "company": "Pepsico, Inc."
+      },
+      {
+        "ticker": "ABBV",
+        "buy": 10,
+        "sell": 8,
+        "company": "AbbVie Inc."
+      },
+      {
+        "ticker": "COST",
+        "buy": 16,
+        "sell": 2,
+        "company": "Costco Wholesale Corporation"
+      },
+      {
+        "ticker": "CVX",
+        "buy": 14,
+        "sell": 4,
+        "company": "Chevron Corporation"
+      },
+      {
+        "ticker": "INTU",
+        "buy": 8,
+        "sell": 10,
+        "company": "Intuit Inc."
+      },
+      {
+        "ticker": "NOW",
+        "buy": 10,
+        "sell": 8,
+        "company": "ServiceNow, Inc."
+      },
+      {
+        "ticker": "PAYX",
+        "buy": 12,
+        "sell": 6,
+        "company": "Paychex, Inc."
+      },
+      {
+        "ticker": "TSLA",
+        "buy": 7,
+        "sell": 11,
+        "company": "Tesla, Inc."
+      },
+      {
+        "ticker": "T",
+        "buy": 12,
+        "sell": 5,
+        "company": "AT&T Inc."
+      },
+      {
+        "ticker": "XOM",
+        "buy": 12,
+        "sell": 5,
+        "company": "Exxon Mobil Corporation"
+      },
+      {
+        "ticker": "BKNG",
+        "buy": 9,
+        "sell": 7,
+        "company": "Booking Holdings Inc."
+      },
+      {
+        "ticker": "BSX",
+        "buy": 8,
+        "sell": 8,
+        "company": "Boston Scientific Corporation"
+      },
+      {
+        "ticker": "PANW",
+        "buy": 11,
+        "sell": 5,
+        "company": "Palo Alto Networks, Inc."
+      },
+      {
+        "ticker": "PM",
+        "buy": 13,
+        "sell": 3,
+        "company": "Philip Morris International Inc"
+      },
+      {
+        "ticker": "ROP",
+        "buy": 10,
+        "sell": 6,
+        "company": "Roper Technologies, Inc."
+      },
+      {
+        "ticker": "CPRT",
+        "buy": 8,
+        "sell": 7,
+        "company": "Copart Inc"
+      },
+      {
+        "ticker": "KKR",
+        "buy": 8,
+        "sell": 7,
+        "company": "KKR & Co. Inc."
+      },
+      {
+        "ticker": "PGR",
+        "buy": 9,
+        "sell": 6,
+        "company": "Progressive Corporation"
+      },
+      {
+        "ticker": "PYPL",
+        "buy": 10,
+        "sell": 5,
+        "company": "PayPal Holdings, Inc."
+      },
+      {
+        "ticker": "SPGI",
+        "buy": 7,
+        "sell": 8,
+        "company": "S&P Global Inc."
+      },
+      {
+        "ticker": "WMT",
+        "buy": 11,
+        "sell": 4,
+        "company": "Walmart Inc."
+      },
+      {
+        "ticker": "ADSK",
+        "buy": 5,
+        "sell": 9,
+        "company": "Autodesk, Inc."
+      },
+      {
+        "ticker": "BA",
+        "buy": 10,
+        "sell": 4,
+        "company": "Boeing Company"
+      },
+      {
+        "ticker": "BX",
+        "buy": 6,
+        "sell": 8,
+        "company": "Blackstone Inc."
+      },
+      {
+        "ticker": "CSGP",
+        "buy": 7,
+        "sell": 7,
+        "company": "CoStar Group, Inc."
+      },
+      {
+        "ticker": "GS",
+        "buy": 12,
+        "sell": 2,
+        "company": "Goldman Sachs Group Inc."
+      },
+      {
+        "ticker": "ISRG",
+        "buy": 5,
+        "sell": 9,
+        "company": "Intuitive Surgical, Inc."
+      },
+      {
+        "ticker": "JNJ",
+        "buy": 9,
+        "sell": 5,
+        "company": "Johnson & Johnson"
+      },
+      {
+        "ticker": "TYL",
+        "buy": 6,
+        "sell": 8,
+        "company": "Tyler Technologies Inc"
+      },
+      {
+        "ticker": "UBER",
+        "buy": 8,
+        "sell": 6,
+        "company": "Uber Technologies Inc"
+      },
+      {
+        "ticker": "BRO",
+        "buy": 7,
+        "sell": 6,
+        "company": "Brown & Brown, Inc."
+      },
+      {
+        "ticker": "ECL",
+        "buy": 7,
+        "sell": 6,
+        "company": "Ecolab Inc."
+      },
+      {
+        "ticker": "FISV",
+        "buy": 7,
+        "sell": 6,
+        "company": "Fiserv, Inc."
+      },
+      {
+        "ticker": "LIN",
+        "buy": 11,
+        "sell": 2,
+        "company": "Linde plc"
+      },
+      {
+        "ticker": "MET",
+        "buy": 4,
+        "sell": 9,
+        "company": "Metlife, Inc."
+      },
+      {
+        "ticker": "OMC",
+        "buy": 7,
+        "sell": 6,
+        "company": "Omnicom Group Inc"
+      },
+      {
+        "ticker": "QCOM",
+        "buy": 6,
+        "sell": 7,
+        "company": "QUALCOMM Incorporated"
+      },
+      {
+        "ticker": "SBUX",
+        "buy": 12,
+        "sell": 1,
+        "company": "Starbucks Corporation"
+      },
+      {
+        "ticker": "SNOW",
+        "buy": 6,
+        "sell": 7,
+        "company": "Snowflake Inc. Class A"
+      },
+      {
+        "ticker": "AXON",
+        "buy": 6,
+        "sell": 6,
+        "company": "Axon Enterprise Inc"
+      },
+      {
+        "ticker": "DHR",
+        "buy": 4,
+        "sell": 8,
+        "company": "Danaher Corporation"
+      },
+      {
+        "ticker": "FTNT",
+        "buy": 7,
+        "sell": 5,
+        "company": "Fortinet, Inc."
+      },
+      {
+        "ticker": "MSI",
+        "buy": 8,
+        "sell": 4,
+        "company": "Motorola Solutions, Inc."
+      },
+      {
+        "ticker": "NKE",
+        "buy": 6,
+        "sell": 6,
+        "company": "Nike, Inc."
+      },
+      {
+        "ticker": "AMGN",
+        "buy": 8,
+        "sell": 3,
+        "company": "Amgen Inc."
+      },
+      {
+        "ticker": "BAC",
+        "buy": 6,
+        "sell": 5,
+        "company": "Bank of America Corporation"
+      },
+      {
+        "ticker": "CDNS",
+        "buy": 8,
+        "sell": 3,
+        "company": "Cadence Design Systems, Inc."
+      },
+      {
+        "ticker": "CSCO",
+        "buy": 8,
+        "sell": 3,
+        "company": "Cisco Systems, Inc."
+      },
+      {
+        "ticker": "GPC",
+        "buy": 5,
+        "sell": 6,
+        "company": "Genuine Parts Co"
+      },
+      {
+        "ticker": "LULU",
+        "buy": 5,
+        "sell": 6,
+        "company": "Lululemon Athletica Inc."
+      },
+      {
+        "ticker": "MO",
+        "buy": 7,
+        "sell": 4,
+        "company": "Altria Group, Inc."
+      },
+      {
+        "ticker": "SO",
+        "buy": 7,
+        "sell": 4,
+        "company": "Southern Company"
+      },
+      {
+        "ticker": "SYK",
+        "buy": 6,
+        "sell": 5,
+        "company": "Stryker Corporation"
+      },
+      {
+        "ticker": "TDG",
+        "buy": 6,
+        "sell": 5,
+        "company": "Transdigm Group Incorporated"
+      },
+      {
+        "ticker": "TMUS",
+        "buy": 5,
+        "sell": 6,
+        "company": "T-Mobile US, Inc."
+      },
+      {
+        "ticker": "TTD",
+        "buy": 5,
+        "sell": 6,
+        "company": "The Trade Desk, Inc."
+      },
+      {
+        "ticker": "VST",
+        "buy": 5,
+        "sell": 6,
+        "company": "Vistra Corp"
+      },
+      {
+        "ticker": "AZO",
+        "buy": 5,
+        "sell": 5,
+        "company": "AutoZone, Inc."
+      },
+      {
+        "ticker": "COF",
+        "buy": 5,
+        "sell": 5,
+        "company": "Capital One Financial Corporation"
+      },
+      {
+        "ticker": "CTAS",
+        "buy": 5,
+        "sell": 5,
+        "company": "Cintas Corporation"
+      },
+      {
+        "ticker": "DXCM",
+        "buy": 5,
+        "sell": 5,
+        "company": "Dexcom Inc"
+      },
+      {
+        "ticker": "INTC",
+        "buy": 8,
+        "sell": 2,
+        "company": "Intel Corporation"
+      },
+      {
+        "ticker": "ORLY",
+        "buy": 6,
+        "sell": 4,
+        "company": "O'Reilly Automotive, Inc."
+      },
+      {
+        "ticker": "RSG",
+        "buy": 4,
+        "sell": 6,
+        "company": "Republic Services, Inc."
+      },
+      {
+        "ticker": "SYY",
+        "buy": 5,
+        "sell": 5,
+        "company": "Sysco Corporation"
+      },
+      {
+        "ticker": "WM",
+        "buy": 7,
+        "sell": 3,
+        "company": "Waste Management, Inc."
+      },
+      {
+        "ticker": "ZS",
+        "buy": 6,
+        "sell": 4,
+        "company": "Zscaler Inc"
+      },
+      {
+        "ticker": "CAT",
+        "buy": 5,
+        "sell": 4,
+        "company": "Caterpillar, Inc."
+      },
+      {
+        "ticker": "CI",
+        "buy": 4,
+        "sell": 5,
+        "company": "The Cigna Group"
+      },
+      {
+        "ticker": "COP",
+        "buy": 6,
+        "sell": 3,
+        "company": "ConocoPhillips"
+      },
+      {
+        "ticker": "DASH",
+        "buy": 4,
+        "sell": 5,
+        "company": "DoorDash, Inc."
+      },
+      {
+        "ticker": "DUK",
+        "buy": 7,
+        "sell": 2,
+        "company": "Duke Energy Corporation"
+      },
+      {
+        "ticker": "FICO",
+        "buy": 4,
+        "sell": 5,
+        "company": "Fair Isaac Corp"
+      },
+      {
+        "ticker": "HUBS",
+        "buy": 5,
+        "sell": 4,
+        "company": "Hubspot Inc"
+      },
+      {
+        "ticker": "HUM",
+        "buy": 5,
+        "sell": 4,
+        "company": "Humana Inc"
+      },
+      {
+        "ticker": "IQV",
+        "buy": 3,
+        "sell": 6,
+        "company": "IQVIA Holdings, Inc."
+      },
+      {
+        "ticker": "KHC",
+        "buy": 7,
+        "sell": 2,
+        "company": "The Kraft Heinz Company"
+      },
+      {
+        "ticker": "LITE",
+        "buy": 7,
+        "sell": 2,
+        "company": "Lumentum Holdings Inc."
+      },
+      {
+        "ticker": "NEE",
+        "buy": 6,
+        "sell": 3,
+        "company": "NextEra Energy, Inc."
+      },
+      {
+        "ticker": "PODD",
+        "buy": 4,
+        "sell": 5,
+        "company": "Insulet Corp"
+      },
+      {
+        "ticker": "SHW",
+        "buy": 4,
+        "sell": 5,
+        "company": "Sherwin-Williams Company"
+      },
+      {
+        "ticker": "TSCO",
+        "buy": 4,
+        "sell": 5,
+        "company": "Tractor Supply Company"
+      },
+      {
+        "ticker": "UPS",
+        "buy": 6,
+        "sell": 3,
+        "company": "United Parcel Service, Inc."
+      },
+      {
+        "ticker": "AIG",
+        "buy": 5,
+        "sell": 3,
+        "company": "American Intl Group, Inc."
+      },
+      {
+        "ticker": "CDW",
+        "buy": 5,
+        "sell": 3,
+        "company": "CDW Corporation"
+      },
+      {
+        "ticker": "CMCSA",
+        "buy": 5,
+        "sell": 3,
+        "company": "Comcast Corporation"
+      },
+      {
+        "ticker": "CTSH",
+        "buy": 5,
+        "sell": 3,
+        "company": "Cognizant Technology Solutions Corporation"
+      },
+      {
+        "ticker": "DIS",
+        "buy": 6,
+        "sell": 2,
+        "company": "Walt Disney Company"
+      },
+      {
+        "ticker": "DT",
+        "buy": 4,
+        "sell": 4,
+        "company": "Dynatrace Inc"
+      },
+      {
+        "ticker": "GILD",
+        "buy": 6,
+        "sell": 2,
+        "company": "Gilead Sciences, Inc."
+      },
+      {
+        "ticker": "INVH",
+        "buy": 3,
+        "sell": 5,
+        "company": "Invitation Homes Inc."
+      },
+      {
+        "ticker": "KMB",
+        "buy": 7,
+        "sell": 1,
+        "company": "Kimberly-Clark Corporation"
+      },
+      {
+        "ticker": "KVUE",
+        "buy": 6,
+        "sell": 2,
+        "company": "Kenvue Inc."
+      },
+      {
+        "ticker": "MDLZ",
+        "buy": 7,
+        "sell": 1,
+        "company": "Mondelez International, Inc."
+      },
+      {
+        "ticker": "MDT",
+        "buy": 5,
+        "sell": 3,
+        "company": "Medtronic plc."
+      },
+      {
+        "ticker": "MU",
+        "buy": 5,
+        "sell": 3,
+        "company": "Micron Technology, Inc."
+      },
+      {
+        "ticker": "PFE",
+        "buy": 6,
+        "sell": 2,
+        "company": "Pfizer, Inc."
+      },
+      {
+        "ticker": "PTC",
+        "buy": 5,
+        "sell": 3,
+        "company": "PTC Inc."
+      },
+      {
+        "ticker": "RMD",
+        "buy": 4,
+        "sell": 4,
+        "company": "Resmed Inc"
+      },
+      {
+        "ticker": "TMO",
+        "buy": 4,
+        "sell": 4,
+        "company": "Thermo Fisher Scientific Inc"
+      },
+      {
+        "ticker": "ANET",
+        "buy": 3,
+        "sell": 4,
+        "company": "Arista Networks, Inc."
+      },
+      {
+        "ticker": "AXP",
+        "buy": 4,
+        "sell": 3,
+        "company": "American Express Company"
+      },
+      {
+        "ticker": "BAX",
+        "buy": 5,
+        "sell": 2,
+        "company": "Baxter International Inc"
+      },
+      {
+        "ticker": "BMY",
+        "buy": 3,
+        "sell": 4,
+        "company": "Bristol-Myers Squibb Company"
+      },
+      {
+        "ticker": "CMS",
+        "buy": 3,
+        "sell": 4,
+        "company": "CMS Energy Corporation"
+      },
+      {
+        "ticker": "DOCU",
+        "buy": 4,
+        "sell": 3,
+        "company": "Docusign Inc"
+      },
+      {
+        "ticker": "EBAY",
+        "buy": 6,
+        "sell": 1,
+        "company": "Ebay Inc"
+      },
+      {
+        "ticker": "EFX",
+        "buy": 3,
+        "sell": 4,
+        "company": "Equifax, Inc."
+      },
+      {
+        "ticker": "EXC",
+        "buy": 5,
+        "sell": 2,
+        "company": "Exelon Corporation"
+      },
+      {
+        "ticker": "GEN",
+        "buy": 3,
+        "sell": 4,
+        "company": "Gen Digital Inc"
+      },
+      {
+        "ticker": "GPK",
+        "buy": 4,
+        "sell": 3,
+        "company": "Graphic Packaging Hldgco"
+      },
+      {
+        "ticker": "GWRE",
+        "buy": 4,
+        "sell": 3,
+        "company": "Guidewire Software, Inc."
+      },
+      {
+        "ticker": "HON",
+        "buy": 3,
+        "sell": 4,
+        "company": "Honeywell International Inc."
+      },
+      {
+        "ticker": "IT",
+        "buy": 3,
+        "sell": 4,
+        "company": "Gartner, Inc."
+      },
+      {
+        "ticker": "KDP",
+        "buy": 5,
+        "sell": 2,
+        "company": "Keurig Dr Pepper Inc."
+      },
+      {
+        "ticker": "KO",
+        "buy": 7,
+        "sell": 0,
+        "company": "Coca-Cola Company"
+      },
+      {
+        "ticker": "KR",
+        "buy": 2,
+        "sell": 5,
+        "company": "Kroger Company"
+      },
+      {
+        "ticker": "LII",
+        "buy": 5,
+        "sell": 2,
+        "company": "Lennox Intl Inc"
+      },
+      {
+        "ticker": "MSCI",
+        "buy": 3,
+        "sell": 4,
+        "company": "MSCI Inc"
+      },
+      {
+        "ticker": "NTAP",
+        "buy": 2,
+        "sell": 5,
+        "company": "Netapp Inc"
+      },
+      {
+        "ticker": "PAYC",
+        "buy": 4,
+        "sell": 3,
+        "company": "Paycom Software, Inc."
+      },
+      {
+        "ticker": "PH",
+        "buy": 3,
+        "sell": 4,
+        "company": "Parker-Hannifin Corporation"
+      },
+      {
+        "ticker": "PRU",
+        "buy": 2,
+        "sell": 5,
+        "company": "Prudential Financial, Inc."
+      },
+      {
+        "ticker": "SWKS",
+        "buy": 2,
+        "sell": 5,
+        "company": "Skyworks Solutions, Inc."
+      },
+      {
+        "ticker": "TXN",
+        "buy": 5,
+        "sell": 2,
+        "company": "Texas Instruments Incorporated"
+      },
+      {
+        "ticker": "ULTA",
+        "buy": 3,
+        "sell": 4,
+        "company": "Ulta Beauty Inc"
+      },
+      {
+        "ticker": "WDAY",
+        "buy": 4,
+        "sell": 3,
+        "company": "Workday, Inc."
+      },
+      {
+        "ticker": "A",
+        "buy": 2,
+        "sell": 4,
+        "company": "Agilent Technologies, Inc."
+      },
+      {
+        "ticker": "ADMA",
+        "buy": 3,
+        "sell": 3,
+        "company": "Adma Biologics Inc"
+      },
+      {
+        "ticker": "ALNY",
+        "buy": 4,
+        "sell": 2,
+        "company": "Alnylam Pharmaceuticals, Inc."
+      },
+      {
+        "ticker": "BLK",
+        "buy": 4,
+        "sell": 2,
+        "company": "BlackRock, Inc."
+      },
+      {
+        "ticker": "C",
+        "buy": 5,
+        "sell": 1,
+        "company": "Citigroup, Inc."
+      },
+      {
+        "ticker": "CNC",
+        "buy": 4,
+        "sell": 2,
+        "company": "Centene Corporation"
+      },
+      {
+        "ticker": "CRWD",
+        "buy": 3,
+        "sell": 3,
+        "company": "CrowdStrike Holdings, Inc."
+      },
+      {
+        "ticker": "CSW",
+        "buy": 4,
+        "sell": 2,
+        "company": "CSW Industrials Inc"
+      },
+      {
+        "ticker": "CVS",
+        "buy": 6,
+        "sell": 0,
+        "company": "CVS Health Corporation"
+      },
+      {
+        "ticker": "D",
+        "buy": 4,
+        "sell": 2,
+        "company": "Dominion Energy, Inc."
+      },
+      {
+        "ticker": "DLTR",
+        "buy": 3,
+        "sell": 3,
+        "company": "Dollar Tree, Inc."
+      },
+      {
+        "ticker": "DTE",
+        "buy": 5,
+        "sell": 1,
+        "company": "Dte Energy Co"
+      },
+      {
+        "ticker": "ED",
+        "buy": 5,
+        "sell": 1,
+        "company": "Consolidated Edison Inc"
+      },
+      {
+        "ticker": "GEHC",
+        "buy": 3,
+        "sell": 3,
+        "company": "Ge Healthcare Technologies Inc"
+      },
+      {
+        "ticker": "IDXX",
+        "buy": 3,
+        "sell": 3,
+        "company": "IDEXX Laboratories, Inc."
+      },
+      {
+        "ticker": "KLAC",
+        "buy": 5,
+        "sell": 1,
+        "company": "KLA Corporation"
+      },
+      {
+        "ticker": "KRUS",
+        "buy": 2,
+        "sell": 4,
+        "company": "Kura Sushi Usa Inc Cl A"
+      },
+      {
+        "ticker": "LLY",
+        "buy": 4,
+        "sell": 2,
+        "company": "Eli Lilly and Company"
+      },
+      {
+        "ticker": "LMT",
+        "buy": 5,
+        "sell": 1,
+        "company": "Lockheed Martin Corporation"
+      },
+      {
+        "ticker": "LRN",
+        "buy": 3,
+        "sell": 3,
+        "company": "Stride Inc"
+      },
+      {
+        "ticker": "MATX",
+        "buy": 3,
+        "sell": 3,
+        "company": "Matson Inc"
+      },
+      {
+        "ticker": "MGEE",
+        "buy": 3,
+        "sell": 3,
+        "company": "Mge Energy Inc"
+      },
+      {
+        "ticker": "MKTX",
+        "buy": 3,
+        "sell": 3,
+        "company": "MarketAxess Holdings, Inc."
+      },
+      {
+        "ticker": "MRK",
+        "buy": 2,
+        "sell": 4,
+        "company": "Merck & Company, Inc."
+      },
+      {
+        "ticker": "NVR",
+        "buy": 4,
+        "sell": 2,
+        "company": "NVR Inc"
+      },
+      {
+        "ticker": "OKE",
+        "buy": 5,
+        "sell": 1,
+        "company": "ONEOK, Inc."
+      },
+      {
+        "ticker": "ON",
+        "buy": 5,
+        "sell": 1,
+        "company": "ON Semiconductor Corporation"
+      },
+      {
+        "ticker": "OTIS",
+        "buy": 2,
+        "sell": 4,
+        "company": "Otis Worldwide Corporation"
+      },
+      {
+        "ticker": "PEG",
+        "buy": 4,
+        "sell": 2,
+        "company": "Public Service Enterprise Group Incorporated"
+      },
+      {
+        "ticker": "POOL",
+        "buy": 3,
+        "sell": 3,
+        "company": "Pool Corp"
+      },
+      {
+        "ticker": "SNPS",
+        "buy": 2,
+        "sell": 4,
+        "company": "Synopsys, Inc."
+      },
+      {
+        "ticker": "TGT",
+        "buy": 5,
+        "sell": 1,
+        "company": "Target Corporation"
+      },
+      {
+        "ticker": "VRSN",
+        "buy": 5,
+        "sell": 1,
+        "company": "VeriSign, Inc."
+      },
+      {
+        "ticker": "WEC",
+        "buy": 5,
+        "sell": 1,
+        "company": "WEC Energy Group, Inc."
+      },
+      {
+        "ticker": "XEL",
+        "buy": 6,
+        "sell": 0,
+        "company": "Xcel Energy Inc."
+      },
+      {
+        "ticker": "ZBH",
+        "buy": 4,
+        "sell": 2,
+        "company": "Zimmer Biomet Holdings Inc"
+      },
+      {
+        "ticker": "ADT",
+        "buy": 3,
+        "sell": 2,
+        "company": "Adt Inc Del"
+      },
+      {
+        "ticker": "ALAB",
+        "buy": 3,
+        "sell": 2,
+        "company": "Astera Labs Inc"
+      },
+      {
+        "ticker": "ALRM",
+        "buy": 3,
+        "sell": 2,
+        "company": "Alarm Com Hldgs Inc"
+      },
+      {
+        "ticker": "BBT",
+        "buy": 2,
+        "sell": 3,
+        "company": "Beacon Finl Corp"
+      },
+      {
+        "ticker": "BMI",
+        "buy": 2,
+        "sell": 3,
+        "company": "Badger Meter Inc"
+      },
+      {
+        "ticker": "BR",
+        "buy": 2,
+        "sell": 3,
+        "company": "Broadridge Financial Solutions, Inc."
+      },
+      {
+        "ticker": "CAG",
+        "buy": 2,
+        "sell": 3,
+        "company": "ConAgra Brands, Inc."
+      },
+      {
+        "ticker": "CERT",
+        "buy": 2,
+        "sell": 3,
+        "company": "Certara Inc"
+      },
+      {
+        "ticker": "CL",
+        "buy": 4,
+        "sell": 1,
+        "company": "Colgate-Palmolive Company"
+      },
+      {
+        "ticker": "CMG",
+        "buy": 3,
+        "sell": 2,
+        "company": "Chipotle Mexican Grill, Inc."
+      },
+      {
+        "ticker": "CNK",
+        "buy": 2,
+        "sell": 3,
+        "company": "Cinemark Hldgs Inc"
+      },
+      {
+        "ticker": "CORT",
+        "buy": 3,
+        "sell": 2,
+        "company": "Corcept Therapeutics Inc"
+      },
+      {
+        "ticker": "CPB",
+        "buy": 2,
+        "sell": 3,
+        "company": "The Campbell's Company"
+      },
+      {
+        "ticker": "DE",
+        "buy": 3,
+        "sell": 2,
+        "company": "Deere & Company"
+      },
+      {
+        "ticker": "DORM",
+        "buy": 1,
+        "sell": 4,
+        "company": "Dorman Prods Inc"
+      },
+      {
+        "ticker": "DRI",
+        "buy": 4,
+        "sell": 1,
+        "company": "Darden Restaurants, Inc."
+      },
+      {
+        "ticker": "ELV",
+        "buy": 3,
+        "sell": 2,
+        "company": "Elevance Health, Inc."
+      },
+      {
+        "ticker": "EMBC",
+        "buy": 2,
+        "sell": 3,
+        "company": "Embecta Corp"
+      },
+      {
+        "ticker": "EXLS",
+        "buy": 3,
+        "sell": 2,
+        "company": "Exlservice Hldgs Inc"
+      },
+      {
+        "ticker": "EXPE",
+        "buy": 3,
+        "sell": 2,
+        "company": "Expedia Group, Inc."
+      },
+      {
+        "ticker": "FAST",
+        "buy": 2,
+        "sell": 3,
+        "company": "Fastenal Company"
+      },
+      {
+        "ticker": "FIS",
+        "buy": 2,
+        "sell": 3,
+        "company": "Fidelity National Information Services Inc."
+      },
+      {
+        "ticker": "GDDY",
+        "buy": 4,
+        "sell": 1,
+        "company": "GoDaddy Inc. Class A"
+      },
+      {
+        "ticker": "HCA",
+        "buy": 1,
+        "sell": 4,
+        "company": "HCA Healthcare, Inc."
+      },
+      {
+        "ticker": "HPQ",
+        "buy": 2,
+        "sell": 3,
+        "company": "HP Inc."
+      },
+      {
+        "ticker": "IR",
+        "buy": 2,
+        "sell": 3,
+        "company": "Ingersoll Rand Inc"
+      },
+      {
+        "ticker": "KEY",
+        "buy": 5,
+        "sell": 0,
+        "company": "KeyCorp"
+      },
+      {
+        "ticker": "KFY",
+        "buy": 2,
+        "sell": 3,
+        "company": "Korn Ferry"
+      },
+      {
+        "ticker": "KNSL",
+        "buy": 2,
+        "sell": 3,
+        "company": "Kinsale Cap Group Inc"
+      },
+      {
+        "ticker": "KTB",
+        "buy": 2,
+        "sell": 3,
+        "company": "Kontoor Brands Inc"
+      },
+      {
+        "ticker": "LDOS",
+        "buy": 1,
+        "sell": 4,
+        "company": "Leidos Holdings, Inc."
+      },
+      {
+        "ticker": "MCK",
+        "buy": 3,
+        "sell": 2,
+        "company": "McKesson Corporation"
+      },
+      {
+        "ticker": "MLKN",
+        "buy": 3,
+        "sell": 2,
+        "company": "Millerknoll Inc"
+      },
+      {
+        "ticker": "MRVL",
+        "buy": 4,
+        "sell": 1,
+        "company": "Marvell Technology, Inc."
+      },
+      {
+        "ticker": "NRG",
+        "buy": 2,
+        "sell": 3,
+        "company": "NRG Energy Inc"
+      },
+      {
+        "ticker": "NXPI",
+        "buy": 2,
+        "sell": 3,
+        "company": "NXP Semiconductors N.V."
+      },
+      {
+        "ticker": "OTTR",
+        "buy": 3,
+        "sell": 2,
+        "company": "Otter Tail Corp"
+      },
+      {
+        "ticker": "OWL",
+        "buy": 5,
+        "sell": 0,
+        "company": "Blue Owl Capital Inc"
+      },
+      {
+        "ticker": "RTX",
+        "buy": 3,
+        "sell": 2,
+        "company": "RTX Corporation"
+      },
+      {
+        "ticker": "SMPL",
+        "buy": 1,
+        "sell": 4,
+        "company": "Simply Good Foods Co"
+      },
+      {
+        "ticker": "TTWO",
+        "buy": 3,
+        "sell": 2,
+        "company": "Take-Two Interactive Software, Inc."
+      },
+      {
+        "ticker": "VITL",
+        "buy": 2,
+        "sell": 3,
+        "company": "Vital Farms Inc"
+      },
+      {
+        "ticker": "VSNT",
+        "buy": 2,
+        "sell": 3,
+        "company": "Versant Media Group Inc"
+      },
+      {
+        "ticker": "WAY",
+        "buy": 2,
+        "sell": 3,
+        "company": "Waystar HLDG Corp"
+      },
+      {
+        "ticker": "WRB",
+        "buy": 3,
+        "sell": 2,
+        "company": "W.R. Berkley Corporation"
+      },
+      {
+        "ticker": "XYL",
+        "buy": 1,
+        "sell": 4,
+        "company": "Xylem Inc."
+      },
+      {
+        "ticker": "YUM",
+        "buy": 1,
+        "sell": 4,
+        "company": "Yum! Brands, Inc."
+      },
+      {
+        "ticker": "ZD",
+        "buy": 2,
+        "sell": 3,
+        "company": "Ziff Davis Inc"
+      },
+      {
+        "ticker": "ABNB",
+        "buy": 4,
+        "sell": 0,
+        "company": "Airbnb, Inc."
+      },
+      {
+        "ticker": "ACA",
+        "buy": 2,
+        "sell": 2,
+        "company": "Arcosa Inc"
+      },
+      {
+        "ticker": "ADUS",
+        "buy": 2,
+        "sell": 2,
+        "company": "Addus Homecare Corp"
+      },
+      {
+        "ticker": "AFL",
+        "buy": 2,
+        "sell": 2,
+        "company": "Aflac Incorporated"
+      },
+      {
+        "ticker": "AGYS",
+        "buy": 1,
+        "sell": 3,
+        "company": "Agilysys Inc"
+      },
+      {
+        "ticker": "AKAM",
+        "buy": 3,
+        "sell": 1,
+        "company": "Akamai Technologies, Inc."
+      },
+      {
+        "ticker": "ALG",
+        "buy": 2,
+        "sell": 2,
+        "company": "Alamo Group Inc"
+      },
+      {
+        "ticker": "AMCR",
+        "buy": 4,
+        "sell": 0,
+        "company": "Amcor plc"
+      },
+      {
+        "ticker": "AMSF",
+        "buy": 2,
+        "sell": 2,
+        "company": "Amerisafe Inc"
+      },
+      {
+        "ticker": "APD",
+        "buy": 3,
+        "sell": 1,
+        "company": "Air Products and Chemicals, Inc."
+      },
+      {
+        "ticker": "APOG",
+        "buy": 2,
+        "sell": 2,
+        "company": "Apogee Enterprises Inc"
+      },
+      {
+        "ticker": "APP",
+        "buy": 2,
+        "sell": 2,
+        "company": "Applovin Corporation"
+      },
+      {
+        "ticker": "AVTR",
+        "buy": 3,
+        "sell": 1,
+        "company": "Avantor, Inc."
+      },
+      {
+        "ticker": "BANR",
+        "buy": 1,
+        "sell": 3,
+        "company": "Banner Corp"
+      },
+      {
+        "ticker": "BBY",
+        "buy": 1,
+        "sell": 3,
+        "company": "Best Buy Co., Inc."
+      },
+      {
+        "ticker": "BCPC",
+        "buy": 2,
+        "sell": 2,
+        "company": "Balchem Corp"
+      },
+      {
+        "ticker": "BDX",
+        "buy": 3,
+        "sell": 1,
+        "company": "Becton, Dickinson and Company"
+      },
+      {
+        "ticker": "BL",
+        "buy": 2,
+        "sell": 2,
+        "company": "BlackLine, Inc."
+      },
+      {
+        "ticker": "CALM",
+        "buy": 2,
+        "sell": 2,
+        "company": "Cal Maine Foods Inc"
+      },
+      {
+        "ticker": "CASH",
+        "buy": 2,
+        "sell": 2,
+        "company": "Pathward Finl Inc"
+      },
+      {
+        "ticker": "CCL",
+        "buy": 2,
+        "sell": 2,
+        "company": "Carnival Corporation"
+      },
+      {
+        "ticker": "CHTR",
+        "buy": 2,
+        "sell": 2,
+        "company": "Charter Communications, Inc."
+      },
+      {
+        "ticker": "COIN",
+        "buy": 3,
+        "sell": 1,
+        "company": "Coinbase Global, Inc."
+      },
+      {
+        "ticker": "COR",
+        "buy": 2,
+        "sell": 2,
+        "company": "Cencora Inc"
+      },
+      {
+        "ticker": "CVLT",
+        "buy": 2,
+        "sell": 2,
+        "company": "Commvault Systems, Inc."
+      },
+      {
+        "ticker": "DDOG",
+        "buy": 2,
+        "sell": 2,
+        "company": "Datadog, Inc. CMN Class A"
+      },
+      {
+        "ticker": "DPZ",
+        "buy": 3,
+        "sell": 1,
+        "company": "Domino's Pizza Inc"
+      },
+      {
+        "ticker": "DV",
+        "buy": 2,
+        "sell": 2,
+        "company": "Doubleverify Hldgs Inc"
+      },
+      {
+        "ticker": "DXC",
+        "buy": 2,
+        "sell": 2,
+        "company": "DXC Technology Co"
+      },
+      {
+        "ticker": "EAT",
+        "buy": 2,
+        "sell": 2,
+        "company": "Brinker Intl Inc"
+      },
+      {
+        "ticker": "ENOV",
+        "buy": 2,
+        "sell": 2,
+        "company": "Enovis Corp"
+      },
+      {
+        "ticker": "EOG",
+        "buy": 3,
+        "sell": 1,
+        "company": "EOG Resources, Inc."
+      },
+      {
+        "ticker": "EQH",
+        "buy": 2,
+        "sell": 2,
+        "company": "Equitable Holdings Inc"
+      },
+      {
+        "ticker": "EQT",
+        "buy": 3,
+        "sell": 1,
+        "company": "Eqt Corp"
+      },
+      {
+        "ticker": "F",
+        "buy": 3,
+        "sell": 1,
+        "company": "Ford Motor Company"
+      },
+      {
+        "ticker": "FELE",
+        "buy": 2,
+        "sell": 2,
+        "company": "Franklin Elec Inc"
+      },
+      {
+        "ticker": "FRPT",
+        "buy": 2,
+        "sell": 2,
+        "company": "Freshpet Inc"
+      },
+      {
+        "ticker": "GKOS",
+        "buy": 2,
+        "sell": 2,
+        "company": "Glaukos Corp"
+      },
+      {
+        "ticker": "HNI",
+        "buy": 2,
+        "sell": 2,
+        "company": "Hni Corp"
+      },
+      {
+        "ticker": "INDV",
+        "buy": 2,
+        "sell": 2,
+        "company": "Indivior Pharmaceuticals"
+      },
+      {
+        "ticker": "JBTM",
+        "buy": 2,
+        "sell": 2,
+        "company": "JBT Marel Corp"
+      },
+      {
+        "ticker": "LKQ",
+        "buy": 2,
+        "sell": 2,
+        "company": "LKQ Corporation"
+      },
+      {
+        "ticker": "LNN",
+        "buy": 2,
+        "sell": 2,
+        "company": "Lindsay Corp"
+      },
+      {
+        "ticker": "LRCX",
+        "buy": 2,
+        "sell": 2,
+        "company": "Lam Research Corporation"
+      },
+      {
+        "ticker": "MBC",
+        "buy": 2,
+        "sell": 2,
+        "company": "Masterbrand Inc"
+      },
+      {
+        "ticker": "MCHP",
+        "buy": 2,
+        "sell": 2,
+        "company": "Microchip Technology Incorporated"
+      },
+      {
+        "ticker": "MORN",
+        "buy": 3,
+        "sell": 1,
+        "company": "Morningstar, Inc."
+      },
+      {
+        "ticker": "MS",
+        "buy": 2,
+        "sell": 2,
+        "company": "Morgan Stanley"
+      },
+      {
+        "ticker": "NEO",
+        "buy": 2,
+        "sell": 2,
+        "company": "Neogenomics Inc"
+      },
+      {
+        "ticker": "NSIT",
+        "buy": 2,
+        "sell": 2,
+        "company": "Insight Enterprises Inc"
+      },
+      {
+        "ticker": "NTRA",
+        "buy": 2,
+        "sell": 2,
+        "company": "Natera, Inc."
+      },
+      {
+        "ticker": "PCG",
+        "buy": 1,
+        "sell": 3,
+        "company": "PG&E Corp"
+      },
+      {
+        "ticker": "PCOR",
+        "buy": 2,
+        "sell": 2,
+        "company": "Procore Technologies Inc"
+      },
+      {
+        "ticker": "PCTY",
+        "buy": 2,
+        "sell": 2,
+        "company": "Paylocity Holding Corporation"
+      },
+      {
+        "ticker": "PGNY",
+        "buy": 2,
+        "sell": 2,
+        "company": "Progyny Inc"
+      },
+      {
+        "ticker": "PLMR",
+        "buy": 2,
+        "sell": 2,
+        "company": "Palomar Hldgs Inc"
+      },
+      {
+        "ticker": "PPL",
+        "buy": 3,
+        "sell": 1,
+        "company": "PPL Corporation"
+      },
+      {
+        "ticker": "PRAA",
+        "buy": 2,
+        "sell": 2,
+        "company": "Pra Group Inc"
+      },
+      {
+        "ticker": "PRGS",
+        "buy": 3,
+        "sell": 1,
+        "company": "Progress Software Corporation"
+      },
+      {
+        "ticker": "PRVA",
+        "buy": 2,
+        "sell": 2,
+        "company": "Privia Health Group Inc"
+      },
+      {
+        "ticker": "PSX",
+        "buy": 3,
+        "sell": 1,
+        "company": "Phillips 66"
+      },
+      {
+        "ticker": "PTCT",
+        "buy": 2,
+        "sell": 2,
+        "company": "PTC Therapeutics Inc"
+      },
+      {
+        "ticker": "QRVO",
+        "buy": 2,
+        "sell": 2,
+        "company": "Qorvo Inc"
+      },
+      {
+        "ticker": "RAL",
+        "buy": 3,
+        "sell": 1,
+        "company": "Ralliant Corp"
+      },
+      {
+        "ticker": "REGN",
+        "buy": 4,
+        "sell": 0,
+        "company": "Regeneron Pharmaceuticals, Inc."
+      },
+      {
+        "ticker": "RF",
+        "buy": 2,
+        "sell": 2,
+        "company": "Regions Financial Corporation"
+      },
+      {
+        "ticker": "RHI",
+        "buy": 1,
+        "sell": 3,
+        "company": "Robert Half International Inc."
+      },
+      {
+        "ticker": "RLI",
+        "buy": 0,
+        "sell": 4,
+        "company": "RLI Corp."
+      },
+      {
+        "ticker": "ROL",
+        "buy": 0,
+        "sell": 4,
+        "company": "Rollins, Inc."
+      },
+      {
+        "ticker": "SAIL",
+        "buy": 2,
+        "sell": 2,
+        "company": "Sailpoint Inc"
+      },
+      {
+        "ticker": "SCSC",
+        "buy": 2,
+        "sell": 2,
+        "company": "Scansource Inc"
+      },
+      {
+        "ticker": "SMCI",
+        "buy": 2,
+        "sell": 2,
+        "company": "Super Micro Computer, Inc."
+      },
+      {
+        "ticker": "SNDK",
+        "buy": 3,
+        "sell": 1,
+        "company": "Sandisk Corporation"
+      },
+      {
+        "ticker": "SOFI",
+        "buy": 1,
+        "sell": 3,
+        "company": "Sofi Technologies Inc"
+      },
+      {
+        "ticker": "SRE",
+        "buy": 2,
+        "sell": 2,
+        "company": "DBA Sempra"
+      },
+      {
+        "ticker": "STLA",
+        "buy": 2,
+        "sell": 2,
+        "company": "Stellantis N V"
+      },
+      {
+        "ticker": "STZ",
+        "buy": 3,
+        "sell": 1,
+        "company": "Constellation Brands, Inc."
+      },
+      {
+        "ticker": "TEAM",
+        "buy": 3,
+        "sell": 1,
+        "company": "Atlassian Corporation"
+      },
+      {
+        "ticker": "TER",
+        "buy": 1,
+        "sell": 3,
+        "company": "Teradyne, Inc."
+      },
+      {
+        "ticker": "TFX",
+        "buy": 2,
+        "sell": 2,
+        "company": "Teleflex Incorporated"
+      },
+      {
+        "ticker": "TGTX",
+        "buy": 2,
+        "sell": 2,
+        "company": "TG Therapeutics Inc"
+      },
+      {
+        "ticker": "TRMB",
+        "buy": 2,
+        "sell": 2,
+        "company": "Trimble Inc."
+      },
+      {
+        "ticker": "UPBD",
+        "buy": 2,
+        "sell": 2,
+        "company": "Upbound Group Inc"
+      },
+      {
+        "ticker": "UPWK",
+        "buy": 1,
+        "sell": 3,
+        "company": "Upwork Inc"
+      },
+      {
+        "ticker": "UVV",
+        "buy": 1,
+        "sell": 3,
+        "company": "Universal Corp Va"
+      },
+      {
+        "ticker": "VRSK",
+        "buy": 3,
+        "sell": 1,
+        "company": "Verisk Analytics, Inc."
+      },
+      {
+        "ticker": "VSEC",
+        "buy": 2,
+        "sell": 2,
+        "company": "Vse Corp"
+      },
+      {
+        "ticker": "WINA",
+        "buy": 2,
+        "sell": 2,
+        "company": "Winmark Corp"
+      },
+      {
+        "ticker": "XYZ",
+        "buy": 3,
+        "sell": 1,
+        "company": "Block, Inc. CMN Class A"
+      },
+      {
+        "ticker": "ZBRA",
+        "buy": 1,
+        "sell": 3,
+        "company": "Zebra Technologies Corporation"
+      },
+      {
+        "ticker": "ZTS",
+        "buy": 2,
+        "sell": 2,
+        "company": "Zoetis Inc. Class A"
+      },
+      {
+        "ticker": "ACIW",
+        "buy": 1,
+        "sell": 2,
+        "company": "ACI Worldwide, Inc."
+      },
+      {
+        "ticker": "ACM",
+        "buy": 1,
+        "sell": 2,
+        "company": "Aecom"
+      },
+      {
+        "ticker": "ADEA",
+        "buy": 2,
+        "sell": 1,
+        "company": "Adeia Inc"
+      },
+      {
+        "ticker": "ADI",
+        "buy": 2,
+        "sell": 1,
+        "company": "Analog Devices, Inc."
+      },
+      {
+        "ticker": "ADP",
+        "buy": 1,
+        "sell": 2,
+        "company": "Automatic Data Processing, Inc."
+      },
+      {
+        "ticker": "AGX",
+        "buy": 2,
+        "sell": 1,
+        "company": "Argan Inc"
+      },
+      {
+        "ticker": "AMP",
+        "buy": 1,
+        "sell": 2,
+        "company": "Ameriprise Financial, Inc."
+      },
+      {
+        "ticker": "ARCC",
+        "buy": 3,
+        "sell": 0,
+        "company": "Ares Capital Corporation"
+      },
+      {
+        "ticker": "AROC",
+        "buy": 2,
+        "sell": 1,
+        "company": "Archrock Inc"
+      },
+      {
+        "ticker": "ASTS",
+        "buy": 3,
+        "sell": 0,
+        "company": "Ast Spacemobile Inc"
+      },
+      {
+        "ticker": "ATR",
+        "buy": 2,
+        "sell": 1,
+        "company": "AptarGroup, Inc."
+      },
+      {
+        "ticker": "AVA",
+        "buy": 1,
+        "sell": 2,
+        "company": "Avista Corp"
+      },
+      {
+        "ticker": "AVY",
+        "buy": 0,
+        "sell": 3,
+        "company": "Avery Dennison Corporation"
+      },
+      {
+        "ticker": "BCC",
+        "buy": 1,
+        "sell": 2,
+        "company": "Boise Cascade, L.L.C."
+      },
+      {
+        "ticker": "BLDR",
+        "buy": 0,
+        "sell": 3,
+        "company": "Builders Firstsource, Inc."
+      },
+      {
+        "ticker": "BTSG",
+        "buy": 2,
+        "sell": 1,
+        "company": "Brightspring Health SVCS"
+      },
+      {
+        "ticker": "CAH",
+        "buy": 1,
+        "sell": 2,
+        "company": "Cardinal Health, Inc."
+      },
+      {
+        "ticker": "CARR",
+        "buy": 2,
+        "sell": 1,
+        "company": "Carrier Global Corporation"
+      },
+      {
+        "ticker": "CB",
+        "buy": 1,
+        "sell": 2,
+        "company": "Chubb Limited"
+      },
+      {
+        "ticker": "CBRE",
+        "buy": 2,
+        "sell": 1,
+        "company": "Cbre Group, Inc. CMN Class A"
+      },
+      {
+        "ticker": "CCI",
+        "buy": 2,
+        "sell": 1,
+        "company": "Crown Castle Inc."
+      },
+      {
+        "ticker": "CIEN",
+        "buy": 2,
+        "sell": 1,
+        "company": "Ciena Corporation"
+      },
+      {
+        "ticker": "CINF",
+        "buy": 1,
+        "sell": 2,
+        "company": "Cincinnati Financial Corporation"
+      },
+      {
+        "ticker": "CME",
+        "buy": 3,
+        "sell": 0,
+        "company": "CME Group Inc."
+      },
+      {
+        "ticker": "COHR",
+        "buy": 0,
+        "sell": 3,
+        "company": "Coherent Corp."
+      },
+      {
+        "ticker": "CRDO",
+        "buy": 1,
+        "sell": 2,
+        "company": "Credo Technology Group Holding Ltd"
+      },
+      {
+        "ticker": "CRVL",
+        "buy": 2,
+        "sell": 1,
+        "company": "Corvel Corp"
+      },
+      {
+        "ticker": "CRWV",
+        "buy": 2,
+        "sell": 1,
+        "company": "Coreweave Inc"
+      },
+      {
+        "ticker": "CURB",
+        "buy": 2,
+        "sell": 1,
+        "company": "Curbline Pptys Corp"
+      },
+      {
+        "ticker": "CVBF",
+        "buy": 1,
+        "sell": 2,
+        "company": "CVB Finl Corp"
+      },
+      {
+        "ticker": "CVNA",
+        "buy": 2,
+        "sell": 1,
+        "company": "Carvana Co. Class A"
+      },
+      {
+        "ticker": "CXW",
+        "buy": 1,
+        "sell": 2,
+        "company": "CoreCivic, Inc."
+      },
+      {
+        "ticker": "DAL",
+        "buy": 2,
+        "sell": 1,
+        "company": "Delta Air Lines, Inc."
+      },
+      {
+        "ticker": "DIOD",
+        "buy": 2,
+        "sell": 1,
+        "company": "Diodes Inc"
+      },
+      {
+        "ticker": "DNOW",
+        "buy": 2,
+        "sell": 1,
+        "company": "Dnow Inc"
+      },
+      {
+        "ticker": "DOW",
+        "buy": 2,
+        "sell": 1,
+        "company": "Dow Inc"
+      },
+      {
+        "ticker": "DXPE",
+        "buy": 1,
+        "sell": 2,
+        "company": "DXP Enterprises Inc"
+      },
+      {
+        "ticker": "EME",
+        "buy": 2,
+        "sell": 1,
+        "company": "EMCOR Group, Inc."
+      },
+      {
+        "ticker": "EMR",
+        "buy": 2,
+        "sell": 1,
+        "company": "Emerson Electric Company"
+      },
+      {
+        "ticker": "ENPH",
+        "buy": 2,
+        "sell": 1,
+        "company": "Enphase Energy, Inc."
+      },
+      {
+        "ticker": "ENR",
+        "buy": 1,
+        "sell": 2,
+        "company": "Energizer Hldgs Inc New"
+      },
+      {
+        "ticker": "EPAM",
+        "buy": 1,
+        "sell": 2,
+        "company": "EPAM Systems, Inc."
+      },
+      {
+        "ticker": "ES",
+        "buy": 2,
+        "sell": 1,
+        "company": "Eversource Energy"
+      },
+      {
+        "ticker": "EVRG",
+        "buy": 2,
+        "sell": 1,
+        "company": "Evergy, Inc."
+      },
+      {
+        "ticker": "EW",
+        "buy": 2,
+        "sell": 1,
+        "company": "Edwards Lifesciences Corporation"
+      },
+      {
+        "ticker": "EXE",
+        "buy": 0,
+        "sell": 3,
+        "company": "Expand Energy Corporation"
+      },
+      {
+        "ticker": "FANG",
+        "buy": 2,
+        "sell": 1,
+        "company": "Diamondback Energy, Inc."
+      },
+      {
+        "ticker": "FE",
+        "buy": 2,
+        "sell": 1,
+        "company": "Firstenergy Corp"
+      },
+      {
+        "ticker": "FFIV",
+        "buy": 2,
+        "sell": 1,
+        "company": "F5, Inc."
+      },
+      {
+        "ticker": "GBDC",
+        "buy": 3,
+        "sell": 0,
+        "company": "Golub Capital BDC, Inc."
+      },
+      {
+        "ticker": "GEV",
+        "buy": 2,
+        "sell": 1,
+        "company": "Ge Vernova Inc"
+      },
+      {
+        "ticker": "GNRC",
+        "buy": 1,
+        "sell": 2,
+        "company": "Generac Holdlings Inc."
+      },
+      {
+        "ticker": "GOGO",
+        "buy": 1,
+        "sell": 2,
+        "company": "Gogo Inc"
+      },
+      {
+        "ticker": "GOLF",
+        "buy": 1,
+        "sell": 2,
+        "company": "Acushnet Hldgs Corp"
+      },
+      {
+        "ticker": "GPI",
+        "buy": 1,
+        "sell": 2,
+        "company": "Group 1 Automotive Inc"
+      },
+      {
+        "ticker": "GRMN",
+        "buy": 1,
+        "sell": 2,
+        "company": "Garmin Ltd."
+      },
+      {
+        "ticker": "HAYW",
+        "buy": 1,
+        "sell": 2,
+        "company": "Hayward Hldgs Inc"
+      },
+      {
+        "ticker": "HSTM",
+        "buy": 1,
+        "sell": 2,
+        "company": "Healthstream Inc"
+      },
+      {
+        "ticker": "IOSP",
+        "buy": 2,
+        "sell": 1,
+        "company": "Innospec Inc"
+      },
+      {
+        "ticker": "ITW",
+        "buy": 2,
+        "sell": 1,
+        "company": "Illinois Tool Works Inc."
+      },
+      {
+        "ticker": "JCI",
+        "buy": 1,
+        "sell": 2,
+        "company": "Johnson Controls International plc Ordinary Share"
+      },
+      {
+        "ticker": "KAI",
+        "buy": 2,
+        "sell": 1,
+        "company": "Kadant Inc"
+      },
+      {
+        "ticker": "KBDC",
+        "buy": 3,
+        "sell": 0,
+        "company": "Kayne Anderson BDC Inc"
+      },
+      {
+        "ticker": "KMI",
+        "buy": 1,
+        "sell": 2,
+        "company": "Kinder Morgan, Inc."
+      },
+      {
+        "ticker": "KMX",
+        "buy": 2,
+        "sell": 1,
+        "company": "Carmax Inc"
+      },
+      {
+        "ticker": "LGIH",
+        "buy": 1,
+        "sell": 2,
+        "company": "LGI Homes, Inc."
+      },
+      {
+        "ticker": "LH",
+        "buy": 1,
+        "sell": 2,
+        "company": "Labcorp Holdings Inc."
+      },
+      {
+        "ticker": "LNG",
+        "buy": 1,
+        "sell": 2,
+        "company": "Cheniere Energy, Inc."
+      },
+      {
+        "ticker": "LPLA",
+        "buy": 1,
+        "sell": 2,
+        "company": "LPL Financial Holdings Inc."
+      },
+      {
+        "ticker": "LUMN",
+        "buy": 1,
+        "sell": 2,
+        "company": "Lumen Technologies, Inc."
+      },
+      {
+        "ticker": "LVS",
+        "buy": 0,
+        "sell": 3,
+        "company": "Las Vegas Sands Corp."
+      },
+      {
+        "ticker": "LZ",
+        "buy": 2,
+        "sell": 1,
+        "company": "Legalzoom Com Inc"
+      },
+      {
+        "ticker": "LZB",
+        "buy": 1,
+        "sell": 2,
+        "company": "La Z Boy Inc"
+      },
+      {
+        "ticker": "MDB",
+        "buy": 1,
+        "sell": 2,
+        "company": "MongoDB, Inc."
+      },
+      {
+        "ticker": "MMM",
+        "buy": 1,
+        "sell": 2,
+        "company": "3M Company"
+      },
+      {
+        "ticker": "MOH",
+        "buy": 2,
+        "sell": 1,
+        "company": "Molina Healthcare, Inc."
+      },
+      {
+        "ticker": "NAVI",
+        "buy": 1,
+        "sell": 2,
+        "company": "Navient Corp"
+      },
+      {
+        "ticker": "NDAQ",
+        "buy": 0,
+        "sell": 3,
+        "company": "Nasdaq, Inc."
+      },
+      {
+        "ticker": "NI",
+        "buy": 2,
+        "sell": 1,
+        "company": "NiSource Inc"
+      },
+      {
+        "ticker": "NOG",
+        "buy": 1,
+        "sell": 2,
+        "company": "Northern Oil & Gas Inc"
+      },
+      {
+        "ticker": "NSP",
+        "buy": 2,
+        "sell": 1,
+        "company": "Insperity, Inc."
+      },
+      {
+        "ticker": "NWSA",
+        "buy": 3,
+        "sell": 0,
+        "company": "News Corporation CMN Class A"
+      },
+      {
+        "ticker": "PI",
+        "buy": 1,
+        "sell": 2,
+        "company": "Impinj, Inc."
+      },
+      {
+        "ticker": "PLXS",
+        "buy": 1,
+        "sell": 2,
+        "company": "Plexus Corp"
+      },
+      {
+        "ticker": "PNC",
+        "buy": 2,
+        "sell": 1,
+        "company": "PNC Financial Services Group, Inc."
+      },
+      {
+        "ticker": "PRIM",
+        "buy": 2,
+        "sell": 1,
+        "company": "Primoris Services Corporation"
+      },
+      {
+        "ticker": "PSA",
+        "buy": 2,
+        "sell": 1,
+        "company": "Public Storage"
+      },
+      {
+        "ticker": "PTEN",
+        "buy": 2,
+        "sell": 1,
+        "company": "Patterson-UTI Energy, Inc."
+      },
+      {
+        "ticker": "PWR",
+        "buy": 3,
+        "sell": 0,
+        "company": "Quanta Services, Inc."
+      },
+      {
+        "ticker": "PZZA",
+        "buy": 1,
+        "sell": 2,
+        "company": "Papa Johns Intl Inc"
+      },
+      {
+        "ticker": "QQQ",
+        "buy": 2,
+        "sell": 1,
+        "company": "Invesco QQQ Trust, Series 1"
+      },
+      {
+        "ticker": "QTWO",
+        "buy": 1,
+        "sell": 2,
+        "company": "Q2 Hldgs Inc"
+      },
+      {
+        "ticker": "RDN",
+        "buy": 1,
+        "sell": 2,
+        "company": "Radian Group Inc"
+      },
+      {
+        "ticker": "RDNT",
+        "buy": 1,
+        "sell": 2,
+        "company": "Radnet Inc"
+      },
+      {
+        "ticker": "RGLD",
+        "buy": 2,
+        "sell": 1,
+        "company": "Royal Gold, Inc."
+      },
+      {
+        "ticker": "RJF",
+        "buy": 1,
+        "sell": 2,
+        "company": "Raymond James Financial Inc."
+      },
+      {
+        "ticker": "RUN",
+        "buy": 1,
+        "sell": 2,
+        "company": "Sunrun Inc."
+      },
+      {
+        "ticker": "SABR",
+        "buy": 2,
+        "sell": 1,
+        "company": "Sabre Corporation"
+      },
+      {
+        "ticker": "SARO",
+        "buy": 2,
+        "sell": 1,
+        "company": "StandardAero, Inc."
+      },
+      {
+        "ticker": "SCL",
+        "buy": 2,
+        "sell": 1,
+        "company": "Stepan Co"
+      },
+      {
+        "ticker": "SDGR",
+        "buy": 2,
+        "sell": 1,
+        "company": "Schrodinger Inc"
+      },
+      {
+        "ticker": "SEZL",
+        "buy": 2,
+        "sell": 1,
+        "company": "Sezzle Inc"
+      },
+      {
+        "ticker": "SKY",
+        "buy": 2,
+        "sell": 1,
+        "company": "Skyline Champion Corporation"
+      },
+      {
+        "ticker": "SLVM",
+        "buy": 1,
+        "sell": 2,
+        "company": "Sylvamo Corp"
+      },
+      {
+        "ticker": "SM",
+        "buy": 3,
+        "sell": 0,
+        "company": "SM Energy Co"
+      },
+      {
+        "ticker": "SOLV",
+        "buy": 1,
+        "sell": 2,
+        "company": "Solventum Corporation"
+      },
+      {
+        "ticker": "SSNC",
+        "buy": 2,
+        "sell": 1,
+        "company": "SS&C Technologies Holdings, In"
+      },
+      {
+        "ticker": "STC",
+        "buy": 1,
+        "sell": 2,
+        "company": "Stewart Information SVCS"
+      },
+      {
+        "ticker": "SW",
+        "buy": 2,
+        "sell": 1,
+        "company": "Smurfit Westrock PLC"
+      },
+      {
+        "ticker": "TEL",
+        "buy": 1,
+        "sell": 2,
+        "company": "TE Connectivity plc"
+      },
+      {
+        "ticker": "TNDM",
+        "buy": 1,
+        "sell": 2,
+        "company": "Tandem Diabetes Care, Inc."
+      },
+      {
+        "ticker": "TRIP",
+        "buy": 1,
+        "sell": 2,
+        "company": "TripAdvisor, Inc."
+      },
+      {
+        "ticker": "TRU",
+        "buy": 2,
+        "sell": 1,
+        "company": "TransUnion"
+      },
+      {
+        "ticker": "TRUP",
+        "buy": 1,
+        "sell": 2,
+        "company": "Trupanion, Inc."
+      },
+      {
+        "ticker": "TSLX",
+        "buy": 3,
+        "sell": 0,
+        "company": "Sixth Street Specialty Lending Inc"
+      },
+      {
+        "ticker": "TSN",
+        "buy": 2,
+        "sell": 1,
+        "company": "Tyson Foods, Inc."
+      },
+      {
+        "ticker": "UAL",
+        "buy": 1,
+        "sell": 2,
+        "company": "United Airlines Holdings Inc"
+      },
+      {
+        "ticker": "UCTT",
+        "buy": 1,
+        "sell": 2,
+        "company": "Ultra Clean Holdings, Inc."
+      },
+      {
+        "ticker": "UFPT",
+        "buy": 1,
+        "sell": 2,
+        "company": "Ufp Technologies Inc"
+      },
+      {
+        "ticker": "UPST",
+        "buy": 2,
+        "sell": 1,
+        "company": "Upstart Hldgs Inc"
+      },
+      {
+        "ticker": "URI",
+        "buy": 1,
+        "sell": 2,
+        "company": "United Rentals, Inc."
+      },
+      {
+        "ticker": "VCEL",
+        "buy": 1,
+        "sell": 2,
+        "company": "Vericel Corp"
+      },
+      {
+        "ticker": "VLO",
+        "buy": 2,
+        "sell": 1,
+        "company": "Valero Energy Corporation"
+      },
+      {
+        "ticker": "VLTO",
+        "buy": 2,
+        "sell": 1,
+        "company": "Veralto Corp"
+      },
+      {
+        "ticker": "VSAT",
+        "buy": 1,
+        "sell": 2,
+        "company": "ViaSat, Inc."
+      },
+      {
+        "ticker": "VYX",
+        "buy": 2,
+        "sell": 1,
+        "company": "NCR Voyix Corp"
+      },
+      {
+        "ticker": "WSFS",
+        "buy": 1,
+        "sell": 2,
+        "company": "WSFS Financial Corporation"
+      },
+      {
+        "ticker": "WSM",
+        "buy": 1,
+        "sell": 2,
+        "company": "Williams-Sonoma, Inc."
+      },
+      {
+        "ticker": "YELP",
+        "buy": 1,
+        "sell": 2,
+        "company": "Yelp Inc"
+      },
+      {
+        "ticker": "ABG",
+        "buy": 1,
+        "sell": 1,
+        "company": "Asbury Automotive Group"
+      },
+      {
+        "ticker": "ACGL",
+        "buy": 1,
+        "sell": 1,
+        "company": "Arch Capital Group LTD."
+      },
+      {
+        "ticker": "ACLS",
+        "buy": 1,
+        "sell": 1,
+        "company": "Axcelis Technologies Inc"
+      },
+      {
+        "ticker": "ADM",
+        "buy": 1,
+        "sell": 1,
+        "company": "Archer-Daniels-Midland Company"
+      },
+      {
+        "ticker": "AEE",
+        "buy": 2,
+        "sell": 0,
+        "company": "Ameren Corporation"
+      },
+      {
+        "ticker": "AIR",
+        "buy": 1,
+        "sell": 1,
+        "company": "Aar Corp"
+      },
+      {
+        "ticker": "AMAT",
+        "buy": 1,
+        "sell": 1,
+        "company": "Applied Materials, Inc."
+      },
+      {
+        "ticker": "ANIP",
+        "buy": 1,
+        "sell": 1,
+        "company": "Ani Pharmaceuticals Inc"
+      },
+      {
+        "ticker": "AON",
+        "buy": 0,
+        "sell": 2,
+        "company": "Aon PLC"
+      },
+      {
+        "ticker": "ARE",
+        "buy": 1,
+        "sell": 1,
+        "company": "Alexandria Real Estate Equities, Inc."
+      },
+      {
+        "ticker": "ARES",
+        "buy": 1,
+        "sell": 1,
+        "company": "Ares Management Corp"
+      },
+      {
+        "ticker": "ARLO",
+        "buy": 1,
+        "sell": 1,
+        "company": "Arlo Technologies Inc"
+      },
+      {
+        "ticker": "ARR",
+        "buy": 1,
+        "sell": 1,
+        "company": "Armour Residential REIT"
+      },
+      {
+        "ticker": "ASTH",
+        "buy": 1,
+        "sell": 1,
+        "company": "Astrana Health Inc"
+      },
+      {
+        "ticker": "ATO",
+        "buy": 0,
+        "sell": 2,
+        "company": "Atmos Energy Corporation"
+      },
+      {
+        "ticker": "AZTA",
+        "buy": 1,
+        "sell": 1,
+        "company": "Azenta, Inc."
+      },
+      {
+        "ticker": "BALL",
+        "buy": 1,
+        "sell": 1,
+        "company": "Ball Corporation"
+      },
+      {
+        "ticker": "BF-B",
+        "buy": 0,
+        "sell": 2,
+        "company": "Brown Forman Corp CL B CMN Class B"
+      },
+      {
+        "ticker": "BFH",
+        "buy": 1,
+        "sell": 1,
+        "company": "Bread Finl Holdings"
+      },
+      {
+        "ticker": "BIIB",
+        "buy": 1,
+        "sell": 1,
+        "company": "Biogen Inc."
+      },
+      {
+        "ticker": "BLFS",
+        "buy": 1,
+        "sell": 1,
+        "company": "BioLife Solutions, Inc."
+      },
+      {
+        "ticker": "BLMN",
+        "buy": 1,
+        "sell": 1,
+        "company": "Bloomin Brands Inc"
+      },
+      {
+        "ticker": "CABO",
+        "buy": 1,
+        "sell": 1,
+        "company": "Cable One Inc"
+      },
+      {
+        "ticker": "CAKE",
+        "buy": 1,
+        "sell": 1,
+        "company": "Cheesecake Factory Inc"
+      },
+      {
+        "ticker": "CG",
+        "buy": 1,
+        "sell": 1,
+        "company": "The Carlyle Group Inc."
+      },
+      {
+        "ticker": "CHCO",
+        "buy": 1,
+        "sell": 1,
+        "company": "City HLDG Co"
+      },
+      {
+        "ticker": "CHDN",
+        "buy": 0,
+        "sell": 2,
+        "company": "Churchill Downs, Incorporated"
+      },
+      {
+        "ticker": "CLSK",
+        "buy": 1,
+        "sell": 1,
+        "company": "Cleanspark Inc"
+      },
+      {
+        "ticker": "CNMD",
+        "buy": 1,
+        "sell": 1,
+        "company": "Conmed Corp"
+      },
+      {
+        "ticker": "CNXN",
+        "buy": 1,
+        "sell": 1,
+        "company": "PC Connection Inc"
+      },
+      {
+        "ticker": "COLL",
+        "buy": 0,
+        "sell": 2,
+        "company": "Collegium Pharmaceutical"
+      },
+      {
+        "ticker": "CPAY",
+        "buy": 2,
+        "sell": 0,
+        "company": "Corpay, Inc."
+      },
+      {
+        "ticker": "CRBG",
+        "buy": 2,
+        "sell": 0,
+        "company": "Corebridge Finl Inc"
+      },
+      {
+        "ticker": "DBD",
+        "buy": 1,
+        "sell": 1,
+        "company": "Diebold Nixdorf Inc"
+      },
+      {
+        "ticker": "DCH",
+        "buy": 1,
+        "sell": 1,
+        "company": "Dauch Corp"
+      },
+      {
+        "ticker": "DECK",
+        "buy": 1,
+        "sell": 1,
+        "company": "Deckers Outdoors Corp"
+      },
+      {
+        "ticker": "DELL",
+        "buy": 1,
+        "sell": 1,
+        "company": "Dell Technologies Inc."
+      },
+      {
+        "ticker": "DGX",
+        "buy": 2,
+        "sell": 0,
+        "company": "Quest Diagnostics Incorporated"
+      },
+      {
+        "ticker": "DVA",
+        "buy": 2,
+        "sell": 0,
+        "company": "DaVita Inc."
+      },
+      {
+        "ticker": "EIG",
+        "buy": 1,
+        "sell": 1,
+        "company": "Employers Hldgs Inc"
+      },
+      {
+        "ticker": "ENVA",
+        "buy": 1,
+        "sell": 1,
+        "company": "Enova Intl Inc"
+      },
+      {
+        "ticker": "ESAB",
+        "buy": 1,
+        "sell": 1,
+        "company": "ESAB Corporation"
+      },
+      {
+        "ticker": "ETN",
+        "buy": 1,
+        "sell": 1,
+        "company": "Eaton Corporation, PLC"
+      },
+      {
+        "ticker": "EXR",
+        "buy": 2,
+        "sell": 0,
+        "company": "Extra Space Storage Inc."
+      },
+      {
+        "ticker": "EXTR",
+        "buy": 1,
+        "sell": 1,
+        "company": "Extreme Networks Inc"
+      },
+      {
+        "ticker": "FCX",
+        "buy": 2,
+        "sell": 0,
+        "company": "Freeport-McMoRan, Inc."
+      },
+      {
+        "ticker": "FIX",
+        "buy": 2,
+        "sell": 0,
+        "company": "Comfort Systems USA, Inc."
+      },
+      {
+        "ticker": "FSLR",
+        "buy": 0,
+        "sell": 2,
+        "company": "First Solar, Inc."
+      },
+      {
+        "ticker": "GD",
+        "buy": 1,
+        "sell": 1,
+        "company": "General Dynamics Corporation"
+      },
+      {
+        "ticker": "GFF",
+        "buy": 1,
+        "sell": 1,
+        "company": "Griffon Corp"
+      },
+      {
+        "ticker": "GLW",
+        "buy": 1,
+        "sell": 1,
+        "company": "Corning Incorporated"
+      },
+      {
+        "ticker": "GO",
+        "buy": 0,
+        "sell": 2,
+        "company": "Grocery Outlet Holding Corp."
+      },
+      {
+        "ticker": "HCI",
+        "buy": 1,
+        "sell": 1,
+        "company": "Hci Group Inc"
+      },
+      {
+        "ticker": "HEI",
+        "buy": 1,
+        "sell": 1,
+        "company": "Heico Corporation"
+      },
+      {
+        "ticker": "HIG",
+        "buy": 0,
+        "sell": 2,
+        "company": "Hartford Insurance Group Inc/T"
+      },
+      {
+        "ticker": "HLIT",
+        "buy": 1,
+        "sell": 1,
+        "company": "Harmonic Inc"
+      },
+      {
+        "ticker": "HPE",
+        "buy": 1,
+        "sell": 1,
+        "company": "Hewlett Packard Enterprise Company"
+      },
+      {
+        "ticker": "HSY",
+        "buy": 1,
+        "sell": 1,
+        "company": "The Hershey Company"
+      },
+      {
+        "ticker": "HWKN",
+        "buy": 1,
+        "sell": 1,
+        "company": "Hawkins Inc"
+      },
+      {
+        "ticker": "HWM",
+        "buy": 1,
+        "sell": 1,
+        "company": "Howmet Aerospace Inc."
+      },
+      {
+        "ticker": "IFF",
+        "buy": 2,
+        "sell": 0,
+        "company": "International Flavors & Fragrances, Inc."
+      },
+      {
+        "ticker": "ILMN",
+        "buy": 2,
+        "sell": 0,
+        "company": "Illumina, Inc."
+      },
+      {
+        "ticker": "INGR",
+        "buy": 0,
+        "sell": 2,
+        "company": "Ingredion Incorporated"
+      },
+      {
+        "ticker": "IP",
+        "buy": 0,
+        "sell": 2,
+        "company": "International Paper Company"
+      },
+      {
+        "ticker": "JBGS",
+        "buy": 0,
+        "sell": 2,
+        "company": "JBG Smith Pptys"
+      },
+      {
+        "ticker": "JBL",
+        "buy": 1,
+        "sell": 1,
+        "company": "Jabil Inc"
+      },
+      {
+        "ticker": "KD",
+        "buy": 2,
+        "sell": 0,
+        "company": "Kyndryl Holdings, Inc."
+      },
+      {
+        "ticker": "KMPR",
+        "buy": 2,
+        "sell": 0,
+        "company": "Kemper Corporation"
+      },
+      {
+        "ticker": "L",
+        "buy": 1,
+        "sell": 1,
+        "company": "Loews Corporation"
+      },
+      {
+        "ticker": "LNT",
+        "buy": 2,
+        "sell": 0,
+        "company": "Alliant Energy Corporation"
+      },
+      {
+        "ticker": "LQDT",
+        "buy": 1,
+        "sell": 1,
+        "company": "Liquidity SVCS Inc"
+      },
+      {
+        "ticker": "LUV",
+        "buy": 2,
+        "sell": 0,
+        "company": "Southwest Airlines Company"
+      },
+      {
+        "ticker": "LW",
+        "buy": 2,
+        "sell": 0,
+        "company": "Lamb Weston Holdings, Inc."
+      },
+      {
+        "ticker": "MAA",
+        "buy": 1,
+        "sell": 1,
+        "company": "Mid-America Apartment Communities, Inc."
+      },
+      {
+        "ticker": "MARA",
+        "buy": 1,
+        "sell": 1,
+        "company": "Mara Hldgs Inc"
+      },
+      {
+        "ticker": "MKL",
+        "buy": 0,
+        "sell": 2,
+        "company": "Markel Group Inc."
+      },
+      {
+        "ticker": "MMI",
+        "buy": 1,
+        "sell": 1,
+        "company": "Marcus & Millichap Inc"
+      },
+      {
+        "ticker": "MNRO",
+        "buy": 1,
+        "sell": 1,
+        "company": "Monro Inc"
+      },
+      {
+        "ticker": "MNST",
+        "buy": 2,
+        "sell": 0,
+        "company": "Monster Beverage Corporation"
+      },
+      {
+        "ticker": "MOD",
+        "buy": 2,
+        "sell": 0,
+        "company": "Modine Mfg Co"
+      },
+      {
+        "ticker": "MPWR",
+        "buy": 1,
+        "sell": 1,
+        "company": "Monolithic Power Systems, Inc."
+      },
+      {
+        "ticker": "MRNA",
+        "buy": 1,
+        "sell": 1,
+        "company": "Moderna, Inc."
+      },
+      {
+        "ticker": "MSA",
+        "buy": 0,
+        "sell": 2,
+        "company": "Msa Safety Inc"
+      },
+      {
+        "ticker": "MTCH",
+        "buy": 2,
+        "sell": 0,
+        "company": "Match Group, Inc."
+      },
+      {
+        "ticker": "NABL",
+        "buy": 1,
+        "sell": 1,
+        "company": "N-Able Inc"
+      },
+      {
+        "ticker": "NBIS",
+        "buy": 2,
+        "sell": 0,
+        "company": "Nebius Group N V"
+      },
+      {
+        "ticker": "NBTB",
+        "buy": 1,
+        "sell": 1,
+        "company": "NBT Bancorp Inc"
+      },
+      {
+        "ticker": "NCLH",
+        "buy": 1,
+        "sell": 1,
+        "company": "Norwegian Cruise Line Holdings Ltd."
+      },
+      {
+        "ticker": "NET",
+        "buy": 2,
+        "sell": 0,
+        "company": "Cloudflare, Inc. Class A"
+      },
+      {
+        "ticker": "NUE",
+        "buy": 2,
+        "sell": 0,
+        "company": "Nucor Corporation"
+      },
+      {
+        "ticker": "OGN",
+        "buy": 1,
+        "sell": 1,
+        "company": "Organon & Co."
+      },
+      {
+        "ticker": "OPLN",
+        "buy": 1,
+        "sell": 1,
+        "company": "Openlane Inc"
+      },
+      {
+        "ticker": "OSIS",
+        "buy": 1,
+        "sell": 1,
+        "company": "Osi Sys Inc"
+      },
+      {
+        "ticker": "PAYO",
+        "buy": 1,
+        "sell": 1,
+        "company": "Payoneer Global Inc"
+      },
+      {
+        "ticker": "PEN",
+        "buy": 1,
+        "sell": 1,
+        "company": "Penumbra Inc"
+      },
+      {
+        "ticker": "PENN",
+        "buy": 1,
+        "sell": 1,
+        "company": "Penn Entertainment Inc"
+      },
+      {
+        "ticker": "PHIN",
+        "buy": 1,
+        "sell": 1,
+        "company": "Phinia Inc"
+      },
+      {
+        "ticker": "PLD",
+        "buy": 1,
+        "sell": 1,
+        "company": "Prologis, Inc."
+      },
+      {
+        "ticker": "QDEL",
+        "buy": 1,
+        "sell": 1,
+        "company": "Quidelortho Corp"
+      },
+      {
+        "ticker": "QNST",
+        "buy": 1,
+        "sell": 1,
+        "company": "Quinstreet Inc"
+      },
+      {
+        "ticker": "RAMP",
+        "buy": 1,
+        "sell": 1,
+        "company": "Liveramp Hldgs Inc"
+      },
+      {
+        "ticker": "RPRX",
+        "buy": 0,
+        "sell": 2,
+        "company": "Royalty Pharma PLC"
+      },
+      {
+        "ticker": "RVMD",
+        "buy": 1,
+        "sell": 1,
+        "company": "Revolution Medicines Inc"
+      },
+      {
+        "ticker": "RVTY",
+        "buy": 1,
+        "sell": 1,
+        "company": "Revvity, Inc."
+      },
+      {
+        "ticker": "RXO",
+        "buy": 1,
+        "sell": 1,
+        "company": "Rxo Inc"
+      },
+      {
+        "ticker": "SANM",
+        "buy": 1,
+        "sell": 1,
+        "company": "Sanmina Corp"
+      },
+      {
+        "ticker": "SBSI",
+        "buy": 1,
+        "sell": 1,
+        "company": "Southside Bancshares Inc"
+      },
+      {
+        "ticker": "SCI",
+        "buy": 0,
+        "sell": 2,
+        "company": "Service Corporation International"
+      },
+      {
+        "ticker": "SITM",
+        "buy": 1,
+        "sell": 1,
+        "company": "Sitime Corp"
+      },
+      {
+        "ticker": "SKYW",
+        "buy": 0,
+        "sell": 2,
+        "company": "Skywest Inc"
+      },
+      {
+        "ticker": "SNEX",
+        "buy": 1,
+        "sell": 1,
+        "company": "Stonex Group Inc"
+      },
+      {
+        "ticker": "SRPT",
+        "buy": 1,
+        "sell": 1,
+        "company": "Sarepta Therapeutics, Inc."
+      },
+      {
+        "ticker": "STT",
+        "buy": 1,
+        "sell": 1,
+        "company": "State Street Corporation"
+      },
+      {
+        "ticker": "TBBK",
+        "buy": 0,
+        "sell": 2,
+        "company": "Bancorp Inc Del"
+      },
+      {
+        "ticker": "TDY",
+        "buy": 1,
+        "sell": 1,
+        "company": "Teledyne Technologies Incorporated"
+      },
+      {
+        "ticker": "TFC",
+        "buy": 2,
+        "sell": 0,
+        "company": "Truist Financial Corporation"
+      },
+      {
+        "ticker": "THRM",
+        "buy": 1,
+        "sell": 1,
+        "company": "Gentherm Inc"
+      },
+      {
+        "ticker": "TNC",
+        "buy": 1,
+        "sell": 1,
+        "company": "Tennant Co"
+      },
+      {
+        "ticker": "TPR",
+        "buy": 0,
+        "sell": 2,
+        "company": "Tapestry, Inc."
+      },
+      {
+        "ticker": "TREX",
+        "buy": 1,
+        "sell": 1,
+        "company": "Trex Co Inc"
+      },
+      {
+        "ticker": "UHS",
+        "buy": 1,
+        "sell": 1,
+        "company": "Universal Health Services, Inc."
+      },
+      {
+        "ticker": "UNP",
+        "buy": 2,
+        "sell": 0,
+        "company": "Union Pacific Corporation"
+      },
+      {
+        "ticker": "URBN",
+        "buy": 1,
+        "sell": 1,
+        "company": "Urban Outfitters Inc"
+      },
+      {
+        "ticker": "USPH",
+        "buy": 0,
+        "sell": 2,
+        "company": "U.S. Physical Therapy, Inc."
+      },
+      {
+        "ticker": "VICI",
+        "buy": 2,
+        "sell": 0,
+        "company": "VICI Properties Inc."
+      },
+      {
+        "ticker": "VICR",
+        "buy": 1,
+        "sell": 1,
+        "company": "Vicor Corp"
+      },
+      {
+        "ticker": "VRNS",
+        "buy": 0,
+        "sell": 2,
+        "company": "Varonis Systems, Inc."
+      },
+      {
+        "ticker": "WBD",
+        "buy": 0,
+        "sell": 2,
+        "company": "Warner Bros. Discovery, Inc."
+      },
+      {
+        "ticker": "WD",
+        "buy": 1,
+        "sell": 1,
+        "company": "Walker & Dunlop Inc"
+      },
+      {
+        "ticker": "WDFC",
+        "buy": 1,
+        "sell": 1,
+        "company": "WD 40 Co"
+      },
+      {
+        "ticker": "WERN",
+        "buy": 1,
+        "sell": 1,
+        "company": "Werner Enterprises Inc"
+      },
+      {
+        "ticker": "WING",
+        "buy": 1,
+        "sell": 1,
+        "company": "Wingstop Inc"
+      },
+      {
+        "ticker": "WKC",
+        "buy": 1,
+        "sell": 1,
+        "company": "World Kinect Corp"
+      },
+      {
+        "ticker": "WYNN",
+        "buy": 0,
+        "sell": 2,
+        "company": "Wynn Resorts LTD"
+      },
+      {
+        "ticker": "XPEL",
+        "buy": 1,
+        "sell": 1,
+        "company": "Xpel Inc"
+      },
+      {
+        "ticker": "ZM",
+        "buy": 1,
+        "sell": 1,
+        "company": "Zoom Video Communications, Inc."
+      },
+      {
+        "ticker": "AES",
+        "buy": 0,
+        "sell": 1,
+        "company": "The AES Corporation"
+      },
+      {
+        "ticker": "ALB",
+        "buy": 1,
+        "sell": 0,
+        "company": "Albemarle Corporation"
+      },
+      {
+        "ticker": "ALHC",
+        "buy": 1,
+        "sell": 0,
+        "company": "Alignment Healthcare Inc"
+      },
+      {
+        "ticker": "ALK",
+        "buy": 0,
+        "sell": 1,
+        "company": "Alaska Air Group, Inc."
+      },
+      {
+        "ticker": "ALL",
+        "buy": 0,
+        "sell": 1,
+        "company": "Allstate Corporation"
+      },
+      {
+        "ticker": "AMKR",
+        "buy": 0,
+        "sell": 1,
+        "company": "Amkor Technology, Inc."
+      },
+      {
+        "ticker": "AMN",
+        "buy": 1,
+        "sell": 0,
+        "company": "AMN Healthcare Services Inc AMN Healthcare Services Inc"
+      },
+      {
+        "ticker": "AORT",
+        "buy": 0,
+        "sell": 1,
+        "company": "Artivion, Inc."
+      },
+      {
+        "ticker": "APG",
+        "buy": 1,
+        "sell": 0,
+        "company": "Api Group Corp"
+      },
+      {
+        "ticker": "APO",
+        "buy": 0,
+        "sell": 1,
+        "company": "Apollo Global Management, Inc."
+      },
+      {
+        "ticker": "ATEN",
+        "buy": 1,
+        "sell": 0,
+        "company": "A10 Networks Inc"
+      },
+      {
+        "ticker": "AVB",
+        "buy": 1,
+        "sell": 0,
+        "company": "AvalonBay Communities, Inc."
+      },
+      {
+        "ticker": "BBIO",
+        "buy": 1,
+        "sell": 0,
+        "company": "BridgeBio Pharma, Inc."
+      },
+      {
+        "ticker": "BJRI",
+        "buy": 1,
+        "sell": 0,
+        "company": "BJS Restaurants Inc"
+      },
+      {
+        "ticker": "BMRN",
+        "buy": 1,
+        "sell": 0,
+        "company": "BioMarin Pharmaceutical Inc."
+      },
+      {
+        "ticker": "BOOT",
+        "buy": 0,
+        "sell": 1,
+        "company": "Boot Barn Hldgs Inc"
+      },
+      {
+        "ticker": "CALY",
+        "buy": 0,
+        "sell": 1,
+        "company": "Callaway Golf Company"
+      },
+      {
+        "ticker": "CARS",
+        "buy": 0,
+        "sell": 1,
+        "company": "Cars Com Inc"
+      },
+      {
+        "ticker": "CART",
+        "buy": 0,
+        "sell": 1,
+        "company": "Maplebear Inc."
+      },
+      {
+        "ticker": "CASY",
+        "buy": 1,
+        "sell": 0,
+        "company": "Caseys General Stores, Inc."
+      },
+      {
+        "ticker": "CF",
+        "buy": 0,
+        "sell": 1,
+        "company": "CF Industries Holdings, Inc."
+      },
+      {
+        "ticker": "CFG",
+        "buy": 1,
+        "sell": 0,
+        "company": "Citizens Financial Group, Inc."
+      },
+      {
+        "ticker": "CHE",
+        "buy": 1,
+        "sell": 0,
+        "company": "Chemed Corp"
+      },
+      {
+        "ticker": "CHRD",
+        "buy": 1,
+        "sell": 0,
+        "company": "Chord Energy Corporation"
+      },
+      {
+        "ticker": "CHRW",
+        "buy": 1,
+        "sell": 0,
+        "company": "C.H. Robinson Worldwide, Inc."
+      },
+      {
+        "ticker": "CMI",
+        "buy": 0,
+        "sell": 1,
+        "company": "Cummins Inc."
+      },
+      {
+        "ticker": "COHU",
+        "buy": 0,
+        "sell": 1,
+        "company": "Cohu Inc"
+      },
+      {
+        "ticker": "COO",
+        "buy": 0,
+        "sell": 1,
+        "company": "Cooper Cos Inc/The"
+      },
+      {
+        "ticker": "CPT",
+        "buy": 0,
+        "sell": 1,
+        "company": "Camden Property Trust"
+      },
+      {
+        "ticker": "CRL",
+        "buy": 0,
+        "sell": 1,
+        "company": "Charles River Laboratories International, Inc."
+      },
+      {
+        "ticker": "CSX",
+        "buy": 1,
+        "sell": 0,
+        "company": "CSX Corporation"
+      },
+      {
+        "ticker": "CTKB",
+        "buy": 0,
+        "sell": 1,
+        "company": "Cytek Biosciences Inc"
+      },
+      {
+        "ticker": "CTVA",
+        "buy": 1,
+        "sell": 0,
+        "company": "Corteva, Inc."
+      },
+      {
+        "ticker": "CVSA",
+        "buy": 1,
+        "sell": 0,
+        "company": "Covista Inc"
+      },
+      {
+        "ticker": "CW",
+        "buy": 1,
+        "sell": 0,
+        "company": "Curtiss Wright Corp"
+      },
+      {
+        "ticker": "DD",
+        "buy": 0,
+        "sell": 1,
+        "company": "DuPont de Nemours, Inc."
+      },
+      {
+        "ticker": "DFIN",
+        "buy": 0,
+        "sell": 1,
+        "company": "Donnelley Finl Solutions"
+      },
+      {
+        "ticker": "DLX",
+        "buy": 0,
+        "sell": 1,
+        "company": "Deluxe Corp"
+      },
+      {
+        "ticker": "DOC",
+        "buy": 0,
+        "sell": 1,
+        "company": "Healthpeak Op, LLC"
+      },
+      {
+        "ticker": "DOCN",
+        "buy": 0,
+        "sell": 1,
+        "company": "Digitalocean Hldgs Inc"
+      },
+      {
+        "ticker": "DVN",
+        "buy": 1,
+        "sell": 0,
+        "company": "Devon Energy Corporation"
+      },
+      {
+        "ticker": "EFOR",
+        "buy": 0,
+        "sell": 1,
+        "company": "Everforth Inc"
+      },
+      {
+        "ticker": "EIX",
+        "buy": 1,
+        "sell": 0,
+        "company": "Edison International"
+      },
+      {
+        "ticker": "ELF",
+        "buy": 0,
+        "sell": 1,
+        "company": "E.L.F. Beauty Inc"
+      },
+      {
+        "ticker": "ENTG",
+        "buy": 1,
+        "sell": 0,
+        "company": "Entegris, Inc."
+      },
+      {
+        "ticker": "EQIX",
+        "buy": 1,
+        "sell": 0,
+        "company": "Equinix, Inc."
+      },
+      {
+        "ticker": "ESS",
+        "buy": 0,
+        "sell": 1,
+        "company": "Essex Property Trust, Inc."
+      },
+      {
+        "ticker": "EXPD",
+        "buy": 1,
+        "sell": 0,
+        "company": "Expeditors International of Washington, Inc."
+      },
+      {
+        "ticker": "FDX",
+        "buy": 1,
+        "sell": 0,
+        "company": "FedEx Corporation"
+      },
+      {
+        "ticker": "FITB",
+        "buy": 1,
+        "sell": 0,
+        "company": "Fifth Third Bancorp"
+      },
+      {
+        "ticker": "FLEX",
+        "buy": 1,
+        "sell": 0,
+        "company": "Flex LTD"
+      },
+      {
+        "ticker": "FORM",
+        "buy": 0,
+        "sell": 1,
+        "company": "Formfactor Inc"
+      },
+      {
+        "ticker": "FRT",
+        "buy": 0,
+        "sell": 1,
+        "company": "Federal Realty Investment Trust"
+      },
+      {
+        "ticker": "FUL",
+        "buy": 0,
+        "sell": 1,
+        "company": "Fuller H B Co"
+      },
+      {
+        "ticker": "FWONA",
+        "buy": 1,
+        "sell": 0,
+        "company": "Liberty Media Corporation"
+      },
+      {
+        "ticker": "FWRD",
+        "buy": 0,
+        "sell": 1,
+        "company": "Forward Air Corp New"
+      },
+      {
+        "ticker": "GE",
+        "buy": 1,
+        "sell": 0,
+        "company": "General Electric Company"
+      },
+      {
+        "ticker": "GL",
+        "buy": 0,
+        "sell": 1,
+        "company": "Globe Life Inc."
+      },
+      {
+        "ticker": "GWW",
+        "buy": 1,
+        "sell": 0,
+        "company": "W.W. Grainger, Inc."
+      },
+      {
+        "ticker": "HCC",
+        "buy": 0,
+        "sell": 1,
+        "company": "Warrior Met Coal Inc"
+      },
+      {
+        "ticker": "HII",
+        "buy": 0,
+        "sell": 1,
+        "company": "Huntington Ingalls Industries, Inc."
+      },
+      {
+        "ticker": "HLT",
+        "buy": 1,
+        "sell": 0,
+        "company": "Hilton Worldwide Holdings Inc."
+      },
+      {
+        "ticker": "HOOD",
+        "buy": 1,
+        "sell": 0,
+        "company": "Robinhood Markets, Inc."
+      },
+      {
+        "ticker": "HSIC",
+        "buy": 0,
+        "sell": 1,
+        "company": "Henry Schein, Inc."
+      },
+      {
+        "ticker": "HUBB",
+        "buy": 1,
+        "sell": 0,
+        "company": "Hubbell Inc"
+      },
+      {
+        "ticker": "IBM",
+        "buy": 0,
+        "sell": 1,
+        "company": "International Business Machines Corporation"
+      },
+      {
+        "ticker": "ICE",
+        "buy": 0,
+        "sell": 1,
+        "company": "Intercontinental Exchange Inc."
+      },
+      {
+        "ticker": "ICLR",
+        "buy": 0,
+        "sell": 1,
+        "company": "ICON plc"
+      },
+      {
+        "ticker": "IDCC",
+        "buy": 0,
+        "sell": 1,
+        "company": "Interdigital Inc"
+      },
+      {
+        "ticker": "INSM",
+        "buy": 0,
+        "sell": 1,
+        "company": "Insmed Incorporated"
+      },
+      {
+        "ticker": "INVA",
+        "buy": 1,
+        "sell": 0,
+        "company": "Innoviva Inc"
+      },
+      {
+        "ticker": "INVX",
+        "buy": 0,
+        "sell": 1,
+        "company": "Innovex Intl Inc"
+      },
+      {
+        "ticker": "ITT",
+        "buy": 1,
+        "sell": 0,
+        "company": "ITT Inc."
+      },
+      {
+        "ticker": "IVZ",
+        "buy": 0,
+        "sell": 1,
+        "company": "Invesco Ltd"
+      },
+      {
+        "ticker": "J",
+        "buy": 0,
+        "sell": 1,
+        "company": "Jacobs Engr Group Inc"
+      },
+      {
+        "ticker": "JACK",
+        "buy": 0,
+        "sell": 1,
+        "company": "Jack In The Box Inc"
+      },
+      {
+        "ticker": "JLL",
+        "buy": 0,
+        "sell": 1,
+        "company": "Jones Lang LaSalle Incorporated"
+      },
+      {
+        "ticker": "KBR",
+        "buy": 1,
+        "sell": 0,
+        "company": "KBR Inc"
+      },
+      {
+        "ticker": "KIM",
+        "buy": 1,
+        "sell": 0,
+        "company": "Kimco Realty Op, LLC"
+      },
+      {
+        "ticker": "KRYS",
+        "buy": 0,
+        "sell": 1,
+        "company": "Krystal Biotech Inc"
+      },
+      {
+        "ticker": "LEN",
+        "buy": 1,
+        "sell": 0,
+        "company": "Lennar Corporation CMN Class A"
+      },
+      {
+        "ticker": "LKFN",
+        "buy": 0,
+        "sell": 1,
+        "company": "Lakeland Finl Corp"
+      },
+      {
+        "ticker": "LOW",
+        "buy": 1,
+        "sell": 0,
+        "company": "Lowe's Companies, Inc."
+      },
+      {
+        "ticker": "LYB",
+        "buy": 0,
+        "sell": 1,
+        "company": "Lyondellbasell Industries N.V. CMN Class A"
+      },
+      {
+        "ticker": "MGM",
+        "buy": 0,
+        "sell": 1,
+        "company": "MGM Resorts International"
+      },
+      {
+        "ticker": "MGPI",
+        "buy": 0,
+        "sell": 1,
+        "company": "MGP Ingredients, Inc."
+      },
+      {
+        "ticker": "MLM",
+        "buy": 1,
+        "sell": 0,
+        "company": "Martin Marietta Materials, Inc."
+      },
+      {
+        "ticker": "MOS",
+        "buy": 0,
+        "sell": 1,
+        "company": "Mosaic Company"
+      },
+      {
+        "ticker": "MTB",
+        "buy": 1,
+        "sell": 0,
+        "company": "M&T Bank Corporation"
+      },
+      {
+        "ticker": "MTD",
+        "buy": 1,
+        "sell": 0,
+        "company": "Mettler-Toledo International, Inc."
+      },
+      {
+        "ticker": "MTH",
+        "buy": 0,
+        "sell": 1,
+        "company": "Meritage Homes Corporation"
+      },
+      {
+        "ticker": "MTRN",
+        "buy": 0,
+        "sell": 1,
+        "company": "Materion Corp"
+      },
+      {
+        "ticker": "MYGN",
+        "buy": 0,
+        "sell": 1,
+        "company": "Myriad Genetics Inc"
+      },
+      {
+        "ticker": "NMIH",
+        "buy": 0,
+        "sell": 1,
+        "company": "Nmi Hldgs Inc"
+      },
+      {
+        "ticker": "NSC",
+        "buy": 1,
+        "sell": 0,
+        "company": "Norfolk Southern Corporation"
+      },
+      {
+        "ticker": "NVRI",
+        "buy": 0,
+        "sell": 1,
+        "company": "Enviri Corp"
+      },
+      {
+        "ticker": "NWL",
+        "buy": 1,
+        "sell": 0,
+        "company": "Newell Brands Inc."
+      },
+      {
+        "ticker": "O",
+        "buy": 1,
+        "sell": 0,
+        "company": "Realty Income Corporation"
+      },
+      {
+        "ticker": "OGE",
+        "buy": 0,
+        "sell": 1,
+        "company": "OGE Energy Corp"
+      },
+      {
+        "ticker": "OUT",
+        "buy": 0,
+        "sell": 1,
+        "company": "Outfront Media Inc"
+      },
+      {
+        "ticker": "PAG",
+        "buy": 1,
+        "sell": 0,
+        "company": "Penske Automotive Group"
+      },
+      {
+        "ticker": "PCAR",
+        "buy": 1,
+        "sell": 0,
+        "company": "PACCAR Inc."
+      },
+      {
+        "ticker": "PCRX",
+        "buy": 1,
+        "sell": 0,
+        "company": "Pacira BioSciences, Inc."
+      },
+      {
+        "ticker": "PFG",
+        "buy": 0,
+        "sell": 1,
+        "company": "Principal Financial Group, Inc"
+      },
+      {
+        "ticker": "PFGC",
+        "buy": 0,
+        "sell": 1,
+        "company": "Performance Food Group Company"
+      },
+      {
+        "ticker": "PIPR",
+        "buy": 1,
+        "sell": 0,
+        "company": "Piper Sandler Companies"
+      },
+      {
+        "ticker": "PJT",
+        "buy": 1,
+        "sell": 0,
+        "company": "PJT Partners Inc"
+      },
+      {
+        "ticker": "POWI",
+        "buy": 1,
+        "sell": 0,
+        "company": "Power Integrations, Inc."
+      },
+      {
+        "ticker": "PPC",
+        "buy": 1,
+        "sell": 0,
+        "company": "Pilgrims Pride Corp New"
+      },
+      {
+        "ticker": "PPG",
+        "buy": 1,
+        "sell": 0,
+        "company": "PPG Industries, Inc."
+      },
+      {
+        "ticker": "PRG",
+        "buy": 1,
+        "sell": 0,
+        "company": "Prog Hldgs Inc"
+      },
+      {
+        "ticker": "PTGX",
+        "buy": 0,
+        "sell": 1,
+        "company": "Protagonist Therapeutics"
+      },
+      {
+        "ticker": "Q",
+        "buy": 0,
+        "sell": 1,
+        "company": "Qnity Electronics Inc"
+      },
+      {
+        "ticker": "RCUS",
+        "buy": 0,
+        "sell": 1,
+        "company": "Arcus Biosciences Inc"
+      },
+      {
+        "ticker": "RELY",
+        "buy": 1,
+        "sell": 0,
+        "company": "Remitly Global Inc"
+      },
+      {
+        "ticker": "REYN",
+        "buy": 0,
+        "sell": 1,
+        "company": "Reynolds Consumer Products Inc."
+      },
+      {
+        "ticker": "REZI",
+        "buy": 0,
+        "sell": 1,
+        "company": "Resideo Technologies, Inc."
+      },
+      {
+        "ticker": "RGEN",
+        "buy": 0,
+        "sell": 1,
+        "company": "Repligen Corporation"
+      },
+      {
+        "ticker": "ROK",
+        "buy": 1,
+        "sell": 0,
+        "company": "Rockwell Automation, Inc."
+      },
+      {
+        "ticker": "ROST",
+        "buy": 1,
+        "sell": 0,
+        "company": "Ross Stores, Inc."
+      },
+      {
+        "ticker": "RS",
+        "buy": 1,
+        "sell": 0,
+        "company": "Reliance, Inc."
+      },
+      {
+        "ticker": "SBAC",
+        "buy": 1,
+        "sell": 0,
+        "company": "Sba Communications Corporation"
+      },
+      {
+        "ticker": "SF",
+        "buy": 1,
+        "sell": 0,
+        "company": "Stifel Financial Corporation"
+      },
+      {
+        "ticker": "SLB",
+        "buy": 1,
+        "sell": 0,
+        "company": "SLB Limited"
+      },
+      {
+        "ticker": "SLM",
+        "buy": 1,
+        "sell": 0,
+        "company": "SLM Corp"
+      },
+      {
+        "ticker": "SMTC",
+        "buy": 0,
+        "sell": 1,
+        "company": "Semtech Corporation"
+      },
+      {
+        "ticker": "SPG",
+        "buy": 1,
+        "sell": 0,
+        "company": "Simon Property Group, Inc."
+      },
+      {
+        "ticker": "STLD",
+        "buy": 1,
+        "sell": 0,
+        "company": "Steel Dynamics, Inc."
+      },
+      {
+        "ticker": "STX",
+        "buy": 0,
+        "sell": 1,
+        "company": "Seagate Technology Holdings PLC"
+      },
+      {
+        "ticker": "SUPN",
+        "buy": 0,
+        "sell": 1,
+        "company": "Supernus Pharmaceuticals, Inc."
+      },
+      {
+        "ticker": "SXC",
+        "buy": 0,
+        "sell": 1,
+        "company": "Suncoke Energy Inc"
+      },
+      {
+        "ticker": "SYF",
+        "buy": 1,
+        "sell": 0,
+        "company": "Synchrony Financial"
+      },
+      {
+        "ticker": "THRY",
+        "buy": 0,
+        "sell": 1,
+        "company": "Thryv Hldgs Inc"
+      },
+      {
+        "ticker": "TMDX",
+        "buy": 0,
+        "sell": 1,
+        "company": "Transmedics Group Inc"
+      },
+      {
+        "ticker": "TROW",
+        "buy": 0,
+        "sell": 1,
+        "company": "T. Rowe Price Group, Inc."
+      },
+      {
+        "ticker": "TRV",
+        "buy": 0,
+        "sell": 1,
+        "company": "The Travelers Companies, Inc."
+      },
+      {
+        "ticker": "TT",
+        "buy": 1,
+        "sell": 0,
+        "company": "Trane Technologies plc"
+      },
+      {
+        "ticker": "TTEK",
+        "buy": 0,
+        "sell": 1,
+        "company": "Tetra Tech, Inc."
+      },
+      {
+        "ticker": "TTMI",
+        "buy": 0,
+        "sell": 1,
+        "company": "TTM Technologies Inc"
+      },
+      {
+        "ticker": "UDR",
+        "buy": 0,
+        "sell": 1,
+        "company": "Udr Inc"
+      },
+      {
+        "ticker": "UNIT",
+        "buy": 1,
+        "sell": 0,
+        "company": "Uniti Group Inc New"
+      },
+      {
+        "ticker": "VEEV",
+        "buy": 1,
+        "sell": 0,
+        "company": "Veeva Systems Inc. Class A"
+      },
+      {
+        "ticker": "VGNT",
+        "buy": 0,
+        "sell": 1,
+        "company": "Versigent LTD"
+      },
+      {
+        "ticker": "VMC",
+        "buy": 0,
+        "sell": 1,
+        "company": "Vulcan Materials Company"
+      },
+      {
+        "ticker": "VTR",
+        "buy": 0,
+        "sell": 1,
+        "company": "Ventas, Inc."
+      },
+      {
+        "ticker": "WDC",
+        "buy": 1,
+        "sell": 0,
+        "company": "Western Digital Corporation"
+      },
+      {
+        "ticker": "WEX",
+        "buy": 0,
+        "sell": 1,
+        "company": "WEX Inc."
+      },
+      {
+        "ticker": "WMB",
+        "buy": 0,
+        "sell": 1,
+        "company": "Williams Companies, Inc."
+      },
+      {
+        "ticker": "WMG",
+        "buy": 0,
+        "sell": 1,
+        "company": "Warner Music Group Corp"
+      },
+      {
+        "ticker": "WSO",
+        "buy": 1,
+        "sell": 0,
+        "company": "Watsco, Inc."
+      },
+      {
+        "ticker": "WT",
+        "buy": 1,
+        "sell": 0,
+        "company": "Wisdomtree Inc"
+      },
+      {
+        "ticker": "WWD",
+        "buy": 1,
+        "sell": 0,
+        "company": "Woodward Inc"
+      },
+      {
+        "ticker": "WY",
+        "buy": 0,
+        "sell": 1,
+        "company": "Weyerhaeuser Company"
+      }
+    ]
+  }
+}

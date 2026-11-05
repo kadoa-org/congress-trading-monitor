@@ -14,6 +14,8 @@ const day = (s) => { const d = new Date(`${s}T00:00:00Z`); return `${d.getUTCDat
 const int = (v) => v.toLocaleString("en-US");
 // The weekly chart's colours (BUY and SELL in WeeklyFlows.jsx).
 const BUY = "#00703c", SELL = "#d4351c";
+// The Trump trades charts' colours (C in TradeCharts.jsx), matching the POTUS Tracker's image of the same insight.
+const TRUMP = "#0072B2", CONGRESS = "#505a5f";
 
 // One builder per insight without a custom image, returning the spec for its h1 and key numbers.
 const BUILDERS = {
@@ -44,6 +46,18 @@ const BUILDERS = {
       key: `Median federal lobbying in ${year} per $1M of market cap, across ${rows.length} US companies traded by members of Congress.`,
       rows: Object.keys(GROUPS).sort((a, b) => medians[b] - medians[a]).map((g) => ({ label: GROUPS[g].label, value: medians[g], text: `$${medians[g]}`, colour: GROUPS[g].color })),
       source: "LDA.gov, SEC",
+    };
+  },
+  "trump-trades": () => {
+    const t = JSON.parse(readFileSync(join(root, "src/static/trump-trades.json"), "utf8")).totals;
+    return {
+      title: INSIGHTS.find((i) => i.slug === "trump-trades").title,
+      key: "Disclosed trades, January 2025 to August 2026.",
+      figures: [
+        { value: int(t.trump), label: `Trump's ${t.accounts} accounts`, colour: TRUMP },
+        { value: int(t.congress), label: `${t.members} members of Congress`, colour: CONGRESS },
+      ],
+      source: "OGE, House and Senate disclosures, Truth Social",
     };
   },
 };

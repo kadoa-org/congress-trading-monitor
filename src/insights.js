@@ -2,6 +2,13 @@
 // shared data load and is prerendered with its own title and description so a link shares well.
 export const INSIGHTS = [
   {
+    slug: "trump-trades",
+    title: "Trump's accounts made more trades than all of Congress combined",
+    summary: "31,877 disclosed trades since January 2025, against 20,973 by all of Congress, spread across hundreds of stocks.",
+    seoTitle: "Trump's Stock Trades vs Congress",
+    seoDescription: "Trump's investment accounts made 31,877 disclosed trades from January 2025 to August 2026, more than all 175 trading members of Congress combined. Most were stocks in big companies.",
+  },
+  {
     slug: "committee-trades",
     title: "Trading the companies their committees oversee",
     summary: "55 members of Congress traded stocks in companies their committees oversee since January 2025.",
@@ -30,6 +37,6 @@ export const insightBySlug = (slug) => INSIGHTS.find((i) => i.slug === slug);
 // insight when one ships, or set it to null to take the banner down. The text is written for the banner: about 50
 // characters with the number first, so it fits a phone in one or two lines.
 export const ANNOUNCED = {
-  slug: "committee-trades",
-  text: "1 in 10 lawmakers traded stocks their committees oversee",
+  slug: "trump-trades",
+  text: "Trump's accounts made more trades than all of Congress",
 };

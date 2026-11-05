@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from "react";
 import CommitteeTrades from "../components/CommitteeTrades";
 import LobbyingScatter, { GROUPS, money, perMillion } from "../components/LobbyingScatter";
+import TrumpTrades from "../components/TrumpTrades";
 import WeeklyFlows from "../components/WeeklyFlows";
 import { insightBySlug } from "../insights";
 import { ChartCard, DataTable } from "../kit";
@@ -120,6 +121,7 @@ export default function InsightPage({ slug, data }) {
       <main className="govuk-main-wrapper" id="main-content">
         {insight.slug === "weekly-trading" && flows.length > 0 && <WeeklyTrading flows={flows} />}
         {insight.slug === "committee-trades" && <CommitteeTrades />}
+        {insight.slug === "trump-trades" && <TrumpTrades />}
         {insight.slug === "lobbying-vs-market-cap" && lobbyingMcap && <LobbyingVsMarketCap data={lobbyingMcap} />}
       </main>
     </div>
