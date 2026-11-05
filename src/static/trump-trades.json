@@ -2822,43 +2822,43 @@
         "ticker": "NVDA",
         "buy": 16,
         "sell": 8,
-        "company": "NVIDIA Corporation"
+        "company": "NVIDIA"
       },
       {
         "ticker": "PLTR",
         "buy": 14,
         "sell": 10,
-        "company": "Palantir Technologies Inc."
+        "company": "Palantir Technologies"
       },
       {
         "ticker": "VZ",
         "buy": 14,
         "sell": 10,
-        "company": "Verizon Communications Inc."
+        "company": "Verizon Communications"
       },
       {
         "ticker": "ACN",
         "buy": 12,
         "sell": 11,
-        "company": "Accenture plc Class A"
+        "company": "Accenture"
       },
       {
         "ticker": "MCD",
         "buy": 14,
         "sell": 9,
-        "company": "McDonald's Corporation"
+        "company": "McDonald's"
       },
       {
         "ticker": "PG",
         "buy": 13,
         "sell": 10,
-        "company": "Procter & Gamble Company"
+        "company": "Procter & Gamble"
       },
       {
         "ticker": "ORCL",
         "buy": 14,
         "sell": 8,
-        "company": "Oracle Corporation"
+        "company": "Oracle"
       },
       {
         "ticker": "ABT",
@@ -2870,211 +2870,211 @@
         "ticker": "AMD",
         "buy": 14,
         "sell": 7,
-        "company": "Advanced Micro Devices, Inc."
+        "company": "Advanced Micro Devices"
       },
       {
         "ticker": "CRM",
         "buy": 9,
         "sell": 12,
-        "company": "Salesforce, Inc."
+        "company": "Salesforce"
       },
       {
         "ticker": "AAPL",
         "buy": 15,
         "sell": 5,
-        "company": "Apple Inc."
+        "company": "Apple"
       },
       {
         "ticker": "AVGO",
         "buy": 11,
         "sell": 9,
-        "company": "Broadcom Inc."
+        "company": "Broadcom"
       },
       {
         "ticker": "JPM",
         "buy": 11,
         "sell": 9,
-        "company": "JP Morgan Chase & Co."
+        "company": "JP Morgan Chase"
       },
       {
         "ticker": "WFC",
         "buy": 12,
         "sell": 8,
-        "company": "Wells Fargo & Co."
+        "company": "Wells Fargo"
       },
       {
         "ticker": "ADBE",
         "buy": 10,
         "sell": 9,
-        "company": "Adobe Inc."
+        "company": "Adobe"
       },
       {
         "ticker": "GIS",
         "buy": 10,
         "sell": 9,
-        "company": "General Mills, Inc."
+        "company": "General Mills"
       },
       {
         "ticker": "PEP",
         "buy": 12,
         "sell": 7,
-        "company": "Pepsico, Inc."
+        "company": "Pepsico"
       },
       {
         "ticker": "ABBV",
         "buy": 10,
         "sell": 8,
-        "company": "AbbVie Inc."
-      },
-      {
-        "ticker": "COST",
-        "buy": 16,
-        "sell": 2,
-        "company": "Costco Wholesale Corporation"
+        "company": "AbbVie"
       },
       {
         "ticker": "CVX",
         "buy": 14,
         "sell": 4,
-        "company": "Chevron Corporation"
+        "company": "Chevron"
+      },
+      {
+        "ticker": "COST",
+        "buy": 16,
+        "sell": 2,
+        "company": "Costco Wholesale"
       },
       {
         "ticker": "INTU",
         "buy": 8,
         "sell": 10,
-        "company": "Intuit Inc."
-      },
-      {
-        "ticker": "NOW",
-        "buy": 10,
-        "sell": 8,
-        "company": "ServiceNow, Inc."
+        "company": "Intuit"
       },
       {
         "ticker": "PAYX",
         "buy": 12,
         "sell": 6,
-        "company": "Paychex, Inc."
+        "company": "Paychex"
+      },
+      {
+        "ticker": "NOW",
+        "buy": 10,
+        "sell": 8,
+        "company": "ServiceNow"
       },
       {
         "ticker": "TSLA",
         "buy": 7,
         "sell": 11,
-        "company": "Tesla, Inc."
+        "company": "Tesla"
       },
       {
         "ticker": "T",
         "buy": 12,
         "sell": 5,
-        "company": "AT&T Inc."
+        "company": "AT&T"
       },
       {
         "ticker": "XOM",
         "buy": 12,
         "sell": 5,
-        "company": "Exxon Mobil Corporation"
+        "company": "Exxon Mobil"
       },
       {
         "ticker": "BKNG",
         "buy": 9,
         "sell": 7,
-        "company": "Booking Holdings Inc."
+        "company": "Booking"
       },
       {
         "ticker": "BSX",
         "buy": 8,
         "sell": 8,
-        "company": "Boston Scientific Corporation"
+        "company": "Boston Scientific"
       },
       {
         "ticker": "PANW",
         "buy": 11,
         "sell": 5,
-        "company": "Palo Alto Networks, Inc."
+        "company": "Palo Alto Networks"
       },
       {
         "ticker": "PM",
         "buy": 13,
         "sell": 3,
-        "company": "Philip Morris International Inc"
+        "company": "Philip Morris International"
       },
       {
         "ticker": "ROP",
         "buy": 10,
         "sell": 6,
-        "company": "Roper Technologies, Inc."
+        "company": "Roper Technologies"
       },
       {
         "ticker": "CPRT",
         "buy": 8,
         "sell": 7,
-        "company": "Copart Inc"
+        "company": "Copart"
       },
       {
         "ticker": "KKR",
         "buy": 8,
         "sell": 7,
-        "company": "KKR & Co. Inc."
-      },
-      {
-        "ticker": "PGR",
-        "buy": 9,
-        "sell": 6,
-        "company": "Progressive Corporation"
+        "company": "KKR"
       },
       {
         "ticker": "PYPL",
         "buy": 10,
         "sell": 5,
-        "company": "PayPal Holdings, Inc."
+        "company": "PayPal"
+      },
+      {
+        "ticker": "PGR",
+        "buy": 9,
+        "sell": 6,
+        "company": "Progressive"
       },
       {
         "ticker": "SPGI",
         "buy": 7,
         "sell": 8,
-        "company": "S&P Global Inc."
+        "company": "S&P Global"
       },
       {
         "ticker": "WMT",
         "buy": 11,
         "sell": 4,
-        "company": "Walmart Inc."
+        "company": "Walmart"
       },
       {
         "ticker": "ADSK",
         "buy": 5,
         "sell": 9,
-        "company": "Autodesk, Inc."
-      },
-      {
-        "ticker": "BA",
-        "buy": 10,
-        "sell": 4,
-        "company": "Boeing Company"
+        "company": "Autodesk"
       },
       {
         "ticker": "BX",
         "buy": 6,
         "sell": 8,
-        "company": "Blackstone Inc."
+        "company": "Blackstone"
+      },
+      {
+        "ticker": "BA",
+        "buy": 10,
+        "sell": 4,
+        "company": "Boeing"
       },
       {
         "ticker": "CSGP",
         "buy": 7,
         "sell": 7,
-        "company": "CoStar Group, Inc."
+        "company": "CoStar"
       },
       {
         "ticker": "GS",
         "buy": 12,
         "sell": 2,
-        "company": "Goldman Sachs Group Inc."
+        "company": "Goldman Sachs"
       },
       {
         "ticker": "ISRG",
         "buy": 5,
         "sell": 9,
-        "company": "Intuitive Surgical, Inc."
+        "company": "Intuitive Surgical"
       },
       {
         "ticker": "JNJ",
@@ -3086,247 +3086,247 @@
         "ticker": "TYL",
         "buy": 6,
         "sell": 8,
-        "company": "Tyler Technologies Inc"
+        "company": "Tyler Technologies"
       },
       {
         "ticker": "UBER",
         "buy": 8,
         "sell": 6,
-        "company": "Uber Technologies Inc"
+        "company": "Uber Technologies"
       },
       {
         "ticker": "BRO",
         "buy": 7,
         "sell": 6,
-        "company": "Brown & Brown, Inc."
+        "company": "Brown & Brown"
       },
       {
         "ticker": "ECL",
         "buy": 7,
         "sell": 6,
-        "company": "Ecolab Inc."
+        "company": "Ecolab"
       },
       {
         "ticker": "FISV",
         "buy": 7,
         "sell": 6,
-        "company": "Fiserv, Inc."
+        "company": "Fiserv"
       },
       {
         "ticker": "LIN",
         "buy": 11,
         "sell": 2,
-        "company": "Linde plc"
+        "company": "Linde"
       },
       {
         "ticker": "MET",
         "buy": 4,
         "sell": 9,
-        "company": "Metlife, Inc."
+        "company": "Metlife"
       },
       {
         "ticker": "OMC",
         "buy": 7,
         "sell": 6,
-        "company": "Omnicom Group Inc"
+        "company": "Omnicom"
       },
       {
         "ticker": "QCOM",
         "buy": 6,
         "sell": 7,
-        "company": "QUALCOMM Incorporated"
-      },
-      {
-        "ticker": "SBUX",
-        "buy": 12,
-        "sell": 1,
-        "company": "Starbucks Corporation"
+        "company": "QUALCOMM"
       },
       {
         "ticker": "SNOW",
         "buy": 6,
         "sell": 7,
-        "company": "Snowflake Inc. Class A"
+        "company": "Snowflake"
+      },
+      {
+        "ticker": "SBUX",
+        "buy": 12,
+        "sell": 1,
+        "company": "Starbucks"
       },
       {
         "ticker": "AXON",
         "buy": 6,
         "sell": 6,
-        "company": "Axon Enterprise Inc"
+        "company": "Axon Enterprise"
       },
       {
         "ticker": "DHR",
         "buy": 4,
         "sell": 8,
-        "company": "Danaher Corporation"
+        "company": "Danaher"
       },
       {
         "ticker": "FTNT",
         "buy": 7,
         "sell": 5,
-        "company": "Fortinet, Inc."
+        "company": "Fortinet"
       },
       {
         "ticker": "MSI",
         "buy": 8,
         "sell": 4,
-        "company": "Motorola Solutions, Inc."
+        "company": "Motorola Solutions"
       },
       {
         "ticker": "NKE",
         "buy": 6,
         "sell": 6,
-        "company": "Nike, Inc."
-      },
-      {
-        "ticker": "AMGN",
-        "buy": 8,
-        "sell": 3,
-        "company": "Amgen Inc."
-      },
-      {
-        "ticker": "BAC",
-        "buy": 6,
-        "sell": 5,
-        "company": "Bank of America Corporation"
-      },
-      {
-        "ticker": "CDNS",
-        "buy": 8,
-        "sell": 3,
-        "company": "Cadence Design Systems, Inc."
-      },
-      {
-        "ticker": "CSCO",
-        "buy": 8,
-        "sell": 3,
-        "company": "Cisco Systems, Inc."
-      },
-      {
-        "ticker": "GPC",
-        "buy": 5,
-        "sell": 6,
-        "company": "Genuine Parts Co"
-      },
-      {
-        "ticker": "LULU",
-        "buy": 5,
-        "sell": 6,
-        "company": "Lululemon Athletica Inc."
+        "company": "Nike"
       },
       {
         "ticker": "MO",
         "buy": 7,
         "sell": 4,
-        "company": "Altria Group, Inc."
+        "company": "Altria"
+      },
+      {
+        "ticker": "AMGN",
+        "buy": 8,
+        "sell": 3,
+        "company": "Amgen"
+      },
+      {
+        "ticker": "BAC",
+        "buy": 6,
+        "sell": 5,
+        "company": "Bank of America"
+      },
+      {
+        "ticker": "CDNS",
+        "buy": 8,
+        "sell": 3,
+        "company": "Cadence Design Systems"
+      },
+      {
+        "ticker": "CSCO",
+        "buy": 8,
+        "sell": 3,
+        "company": "Cisco Systems"
+      },
+      {
+        "ticker": "GPC",
+        "buy": 5,
+        "sell": 6,
+        "company": "Genuine Parts"
+      },
+      {
+        "ticker": "LULU",
+        "buy": 5,
+        "sell": 6,
+        "company": "Lululemon Athletica"
       },
       {
         "ticker": "SO",
         "buy": 7,
         "sell": 4,
-        "company": "Southern Company"
+        "company": "Southern"
       },
       {
         "ticker": "SYK",
         "buy": 6,
         "sell": 5,
-        "company": "Stryker Corporation"
-      },
-      {
-        "ticker": "TDG",
-        "buy": 6,
-        "sell": 5,
-        "company": "Transdigm Group Incorporated"
+        "company": "Stryker"
       },
       {
         "ticker": "TMUS",
         "buy": 5,
         "sell": 6,
-        "company": "T-Mobile US, Inc."
+        "company": "T-Mobile US"
       },
       {
         "ticker": "TTD",
         "buy": 5,
         "sell": 6,
-        "company": "The Trade Desk, Inc."
+        "company": "Trade Desk"
+      },
+      {
+        "ticker": "TDG",
+        "buy": 6,
+        "sell": 5,
+        "company": "Transdigm"
       },
       {
         "ticker": "VST",
         "buy": 5,
         "sell": 6,
-        "company": "Vistra Corp"
+        "company": "Vistra"
       },
       {
         "ticker": "AZO",
         "buy": 5,
         "sell": 5,
-        "company": "AutoZone, Inc."
+        "company": "AutoZone"
       },
       {
         "ticker": "COF",
         "buy": 5,
         "sell": 5,
-        "company": "Capital One Financial Corporation"
+        "company": "Capital One Financial"
       },
       {
         "ticker": "CTAS",
         "buy": 5,
         "sell": 5,
-        "company": "Cintas Corporation"
+        "company": "Cintas"
       },
       {
         "ticker": "DXCM",
         "buy": 5,
         "sell": 5,
-        "company": "Dexcom Inc"
+        "company": "Dexcom"
       },
       {
         "ticker": "INTC",
         "buy": 8,
         "sell": 2,
-        "company": "Intel Corporation"
+        "company": "Intel"
       },
       {
         "ticker": "ORLY",
         "buy": 6,
         "sell": 4,
-        "company": "O'Reilly Automotive, Inc."
+        "company": "O'Reilly Automotive"
       },
       {
         "ticker": "RSG",
         "buy": 4,
         "sell": 6,
-        "company": "Republic Services, Inc."
+        "company": "Republic Services"
       },
       {
         "ticker": "SYY",
         "buy": 5,
         "sell": 5,
-        "company": "Sysco Corporation"
+        "company": "Sysco"
       },
       {
         "ticker": "WM",
         "buy": 7,
         "sell": 3,
-        "company": "Waste Management, Inc."
+        "company": "Waste Management"
       },
       {
         "ticker": "ZS",
         "buy": 6,
         "sell": 4,
-        "company": "Zscaler Inc"
+        "company": "Zscaler"
       },
       {
         "ticker": "CAT",
         "buy": 5,
         "sell": 4,
-        "company": "Caterpillar, Inc."
+        "company": "Caterpillar"
       },
       {
         "ticker": "CI",
         "buy": 4,
         "sell": 5,
-        "company": "The Cigna Group"
+        "company": "Cigna"
       },
       {
         "ticker": "COP",
@@ -3338,241 +3338,253 @@
         "ticker": "DASH",
         "buy": 4,
         "sell": 5,
-        "company": "DoorDash, Inc."
+        "company": "DoorDash"
       },
       {
         "ticker": "DUK",
         "buy": 7,
         "sell": 2,
-        "company": "Duke Energy Corporation"
+        "company": "Duke Energy"
       },
       {
         "ticker": "FICO",
         "buy": 4,
         "sell": 5,
-        "company": "Fair Isaac Corp"
+        "company": "Fair Isaac"
       },
       {
         "ticker": "HUBS",
         "buy": 5,
         "sell": 4,
-        "company": "Hubspot Inc"
+        "company": "Hubspot"
       },
       {
         "ticker": "HUM",
         "buy": 5,
         "sell": 4,
-        "company": "Humana Inc"
-      },
-      {
-        "ticker": "IQV",
-        "buy": 3,
-        "sell": 6,
-        "company": "IQVIA Holdings, Inc."
-      },
-      {
-        "ticker": "KHC",
-        "buy": 7,
-        "sell": 2,
-        "company": "The Kraft Heinz Company"
-      },
-      {
-        "ticker": "LITE",
-        "buy": 7,
-        "sell": 2,
-        "company": "Lumentum Holdings Inc."
-      },
-      {
-        "ticker": "NEE",
-        "buy": 6,
-        "sell": 3,
-        "company": "NextEra Energy, Inc."
+        "company": "Humana"
       },
       {
         "ticker": "PODD",
         "buy": 4,
         "sell": 5,
-        "company": "Insulet Corp"
+        "company": "Insulet"
+      },
+      {
+        "ticker": "IQV",
+        "buy": 3,
+        "sell": 6,
+        "company": "IQVIA"
+      },
+      {
+        "ticker": "KHC",
+        "buy": 7,
+        "sell": 2,
+        "company": "Kraft Heinz"
+      },
+      {
+        "ticker": "LITE",
+        "buy": 7,
+        "sell": 2,
+        "company": "Lumentum"
+      },
+      {
+        "ticker": "NEE",
+        "buy": 6,
+        "sell": 3,
+        "company": "NextEra Energy"
       },
       {
         "ticker": "SHW",
         "buy": 4,
         "sell": 5,
-        "company": "Sherwin-Williams Company"
+        "company": "Sherwin-Williams"
       },
       {
         "ticker": "TSCO",
         "buy": 4,
         "sell": 5,
-        "company": "Tractor Supply Company"
+        "company": "Tractor Supply"
       },
       {
         "ticker": "UPS",
         "buy": 6,
         "sell": 3,
-        "company": "United Parcel Service, Inc."
+        "company": "United Parcel Service"
       },
       {
         "ticker": "AIG",
         "buy": 5,
         "sell": 3,
-        "company": "American Intl Group, Inc."
+        "company": "American Intl"
       },
       {
         "ticker": "CDW",
         "buy": 5,
         "sell": 3,
-        "company": "CDW Corporation"
-      },
-      {
-        "ticker": "CMCSA",
-        "buy": 5,
-        "sell": 3,
-        "company": "Comcast Corporation"
+        "company": "CDW"
       },
       {
         "ticker": "CTSH",
         "buy": 5,
         "sell": 3,
-        "company": "Cognizant Technology Solutions Corporation"
+        "company": "Cognizant Technology Solutions"
       },
       {
-        "ticker": "DIS",
-        "buy": 6,
-        "sell": 2,
-        "company": "Walt Disney Company"
+        "ticker": "CMCSA",
+        "buy": 5,
+        "sell": 3,
+        "company": "Comcast"
       },
       {
         "ticker": "DT",
         "buy": 4,
         "sell": 4,
-        "company": "Dynatrace Inc"
+        "company": "Dynatrace"
       },
       {
         "ticker": "GILD",
         "buy": 6,
         "sell": 2,
-        "company": "Gilead Sciences, Inc."
+        "company": "Gilead Sciences"
       },
       {
         "ticker": "INVH",
         "buy": 3,
         "sell": 5,
-        "company": "Invitation Homes Inc."
-      },
-      {
-        "ticker": "KMB",
-        "buy": 7,
-        "sell": 1,
-        "company": "Kimberly-Clark Corporation"
+        "company": "Invitation Homes"
       },
       {
         "ticker": "KVUE",
         "buy": 6,
         "sell": 2,
-        "company": "Kenvue Inc."
+        "company": "Kenvue"
       },
       {
-        "ticker": "MDLZ",
+        "ticker": "KMB",
         "buy": 7,
         "sell": 1,
-        "company": "Mondelez International, Inc."
+        "company": "Kimberly-Clark"
       },
       {
         "ticker": "MDT",
         "buy": 5,
         "sell": 3,
-        "company": "Medtronic plc."
+        "company": "Medtronic"
       },
       {
         "ticker": "MU",
         "buy": 5,
         "sell": 3,
-        "company": "Micron Technology, Inc."
+        "company": "Micron Technology"
+      },
+      {
+        "ticker": "MDLZ",
+        "buy": 7,
+        "sell": 1,
+        "company": "Mondelez International"
       },
       {
         "ticker": "PFE",
         "buy": 6,
         "sell": 2,
-        "company": "Pfizer, Inc."
+        "company": "Pfizer"
       },
       {
         "ticker": "PTC",
         "buy": 5,
         "sell": 3,
-        "company": "PTC Inc."
+        "company": "PTC"
       },
       {
         "ticker": "RMD",
         "buy": 4,
         "sell": 4,
-        "company": "Resmed Inc"
+        "company": "Resmed"
       },
       {
         "ticker": "TMO",
         "buy": 4,
         "sell": 4,
-        "company": "Thermo Fisher Scientific Inc"
+        "company": "Thermo Fisher Scientific"
       },
       {
-        "ticker": "ANET",
-        "buy": 3,
-        "sell": 4,
-        "company": "Arista Networks, Inc."
+        "ticker": "DIS",
+        "buy": 6,
+        "sell": 2,
+        "company": "Walt Disney"
       },
       {
         "ticker": "AXP",
         "buy": 4,
         "sell": 3,
-        "company": "American Express Company"
+        "company": "American Express"
+      },
+      {
+        "ticker": "ANET",
+        "buy": 3,
+        "sell": 4,
+        "company": "Arista Networks"
       },
       {
         "ticker": "BAX",
         "buy": 5,
         "sell": 2,
-        "company": "Baxter International Inc"
+        "company": "Baxter International"
       },
       {
         "ticker": "BMY",
         "buy": 3,
         "sell": 4,
-        "company": "Bristol-Myers Squibb Company"
+        "company": "Bristol-Myers Squibb"
       },
       {
         "ticker": "CMS",
         "buy": 3,
         "sell": 4,
-        "company": "CMS Energy Corporation"
+        "company": "CMS Energy"
+      },
+      {
+        "ticker": "KO",
+        "buy": 7,
+        "sell": 0,
+        "company": "Coca-Cola"
       },
       {
         "ticker": "DOCU",
         "buy": 4,
         "sell": 3,
-        "company": "Docusign Inc"
+        "company": "Docusign"
       },
       {
         "ticker": "EBAY",
         "buy": 6,
         "sell": 1,
-        "company": "Ebay Inc"
+        "company": "Ebay"
       },
       {
         "ticker": "EFX",
         "buy": 3,
         "sell": 4,
-        "company": "Equifax, Inc."
+        "company": "Equifax"
       },
       {
         "ticker": "EXC",
         "buy": 5,
         "sell": 2,
-        "company": "Exelon Corporation"
+        "company": "Exelon"
+      },
+      {
+        "ticker": "IT",
+        "buy": 3,
+        "sell": 4,
+        "company": "Gartner"
       },
       {
         "ticker": "GEN",
         "buy": 3,
         "sell": 4,
-        "company": "Gen Digital Inc"
+        "company": "Gen Digital"
       },
       {
         "ticker": "GPK",
@@ -3584,313 +3596,301 @@
         "ticker": "GWRE",
         "buy": 4,
         "sell": 3,
-        "company": "Guidewire Software, Inc."
+        "company": "Guidewire Software"
       },
       {
         "ticker": "HON",
         "buy": 3,
         "sell": 4,
-        "company": "Honeywell International Inc."
-      },
-      {
-        "ticker": "IT",
-        "buy": 3,
-        "sell": 4,
-        "company": "Gartner, Inc."
+        "company": "Honeywell International"
       },
       {
         "ticker": "KDP",
         "buy": 5,
         "sell": 2,
-        "company": "Keurig Dr Pepper Inc."
-      },
-      {
-        "ticker": "KO",
-        "buy": 7,
-        "sell": 0,
-        "company": "Coca-Cola Company"
+        "company": "Keurig Dr Pepper"
       },
       {
         "ticker": "KR",
         "buy": 2,
         "sell": 5,
-        "company": "Kroger Company"
+        "company": "Kroger"
       },
       {
         "ticker": "LII",
         "buy": 5,
         "sell": 2,
-        "company": "Lennox Intl Inc"
+        "company": "Lennox Intl"
       },
       {
         "ticker": "MSCI",
         "buy": 3,
         "sell": 4,
-        "company": "MSCI Inc"
+        "company": "MSCI"
       },
       {
         "ticker": "NTAP",
         "buy": 2,
         "sell": 5,
-        "company": "Netapp Inc"
-      },
-      {
-        "ticker": "PAYC",
-        "buy": 4,
-        "sell": 3,
-        "company": "Paycom Software, Inc."
+        "company": "Netapp"
       },
       {
         "ticker": "PH",
         "buy": 3,
         "sell": 4,
-        "company": "Parker-Hannifin Corporation"
+        "company": "Parker-Hannifin"
+      },
+      {
+        "ticker": "PAYC",
+        "buy": 4,
+        "sell": 3,
+        "company": "Paycom Software"
       },
       {
         "ticker": "PRU",
         "buy": 2,
         "sell": 5,
-        "company": "Prudential Financial, Inc."
+        "company": "Prudential Financial"
       },
       {
         "ticker": "SWKS",
         "buy": 2,
         "sell": 5,
-        "company": "Skyworks Solutions, Inc."
+        "company": "Skyworks Solutions"
       },
       {
         "ticker": "TXN",
         "buy": 5,
         "sell": 2,
-        "company": "Texas Instruments Incorporated"
+        "company": "Texas Instruments"
       },
       {
         "ticker": "ULTA",
         "buy": 3,
         "sell": 4,
-        "company": "Ulta Beauty Inc"
+        "company": "Ulta Beauty"
       },
       {
         "ticker": "WDAY",
         "buy": 4,
         "sell": 3,
-        "company": "Workday, Inc."
-      },
-      {
-        "ticker": "A",
-        "buy": 2,
-        "sell": 4,
-        "company": "Agilent Technologies, Inc."
+        "company": "Workday"
       },
       {
         "ticker": "ADMA",
         "buy": 3,
         "sell": 3,
-        "company": "Adma Biologics Inc"
+        "company": "Adma Biologics"
+      },
+      {
+        "ticker": "A",
+        "buy": 2,
+        "sell": 4,
+        "company": "Agilent Technologies"
       },
       {
         "ticker": "ALNY",
         "buy": 4,
         "sell": 2,
-        "company": "Alnylam Pharmaceuticals, Inc."
+        "company": "Alnylam Pharmaceuticals"
       },
       {
         "ticker": "BLK",
         "buy": 4,
         "sell": 2,
-        "company": "BlackRock, Inc."
-      },
-      {
-        "ticker": "C",
-        "buy": 5,
-        "sell": 1,
-        "company": "Citigroup, Inc."
+        "company": "BlackRock"
       },
       {
         "ticker": "CNC",
         "buy": 4,
         "sell": 2,
-        "company": "Centene Corporation"
+        "company": "Centene"
       },
       {
-        "ticker": "CRWD",
-        "buy": 3,
-        "sell": 3,
-        "company": "CrowdStrike Holdings, Inc."
-      },
-      {
-        "ticker": "CSW",
-        "buy": 4,
-        "sell": 2,
-        "company": "CSW Industrials Inc"
-      },
-      {
-        "ticker": "CVS",
-        "buy": 6,
-        "sell": 0,
-        "company": "CVS Health Corporation"
-      },
-      {
-        "ticker": "D",
-        "buy": 4,
-        "sell": 2,
-        "company": "Dominion Energy, Inc."
-      },
-      {
-        "ticker": "DLTR",
-        "buy": 3,
-        "sell": 3,
-        "company": "Dollar Tree, Inc."
-      },
-      {
-        "ticker": "DTE",
+        "ticker": "C",
         "buy": 5,
         "sell": 1,
-        "company": "Dte Energy Co"
+        "company": "Citigroup"
       },
       {
         "ticker": "ED",
         "buy": 5,
         "sell": 1,
-        "company": "Consolidated Edison Inc"
+        "company": "Consolidated Edison"
       },
       {
-        "ticker": "GEHC",
+        "ticker": "CRWD",
         "buy": 3,
         "sell": 3,
-        "company": "Ge Healthcare Technologies Inc"
+        "company": "CrowdStrike"
       },
       {
-        "ticker": "IDXX",
+        "ticker": "CSW",
+        "buy": 4,
+        "sell": 2,
+        "company": "CSW Industrials"
+      },
+      {
+        "ticker": "CVS",
+        "buy": 6,
+        "sell": 0,
+        "company": "CVS Health"
+      },
+      {
+        "ticker": "DLTR",
         "buy": 3,
         "sell": 3,
-        "company": "IDEXX Laboratories, Inc."
+        "company": "Dollar Tree"
       },
       {
-        "ticker": "KLAC",
+        "ticker": "D",
+        "buy": 4,
+        "sell": 2,
+        "company": "Dominion Energy"
+      },
+      {
+        "ticker": "DTE",
         "buy": 5,
         "sell": 1,
-        "company": "KLA Corporation"
-      },
-      {
-        "ticker": "KRUS",
-        "buy": 2,
-        "sell": 4,
-        "company": "Kura Sushi Usa Inc Cl A"
+        "company": "Dte Energy"
       },
       {
         "ticker": "LLY",
         "buy": 4,
         "sell": 2,
-        "company": "Eli Lilly and Company"
+        "company": "Eli Lilly and"
+      },
+      {
+        "ticker": "GEHC",
+        "buy": 3,
+        "sell": 3,
+        "company": "Ge Healthcare Technologies"
+      },
+      {
+        "ticker": "IDXX",
+        "buy": 3,
+        "sell": 3,
+        "company": "IDEXX Laboratories"
+      },
+      {
+        "ticker": "KLAC",
+        "buy": 5,
+        "sell": 1,
+        "company": "KLA"
+      },
+      {
+        "ticker": "KRUS",
+        "buy": 2,
+        "sell": 4,
+        "company": "Kura Sushi Usa"
       },
       {
         "ticker": "LMT",
         "buy": 5,
         "sell": 1,
-        "company": "Lockheed Martin Corporation"
-      },
-      {
-        "ticker": "LRN",
-        "buy": 3,
-        "sell": 3,
-        "company": "Stride Inc"
-      },
-      {
-        "ticker": "MATX",
-        "buy": 3,
-        "sell": 3,
-        "company": "Matson Inc"
-      },
-      {
-        "ticker": "MGEE",
-        "buy": 3,
-        "sell": 3,
-        "company": "Mge Energy Inc"
+        "company": "Lockheed Martin"
       },
       {
         "ticker": "MKTX",
         "buy": 3,
         "sell": 3,
-        "company": "MarketAxess Holdings, Inc."
+        "company": "MarketAxess"
+      },
+      {
+        "ticker": "MATX",
+        "buy": 3,
+        "sell": 3,
+        "company": "Matson"
       },
       {
         "ticker": "MRK",
         "buy": 2,
         "sell": 4,
-        "company": "Merck & Company, Inc."
+        "company": "Merck"
+      },
+      {
+        "ticker": "MGEE",
+        "buy": 3,
+        "sell": 3,
+        "company": "Mge Energy"
       },
       {
         "ticker": "NVR",
         "buy": 4,
         "sell": 2,
-        "company": "NVR Inc"
-      },
-      {
-        "ticker": "OKE",
-        "buy": 5,
-        "sell": 1,
-        "company": "ONEOK, Inc."
+        "company": "NVR"
       },
       {
         "ticker": "ON",
         "buy": 5,
         "sell": 1,
-        "company": "ON Semiconductor Corporation"
+        "company": "ON Semiconductor"
+      },
+      {
+        "ticker": "OKE",
+        "buy": 5,
+        "sell": 1,
+        "company": "ONEOK"
       },
       {
         "ticker": "OTIS",
         "buy": 2,
         "sell": 4,
-        "company": "Otis Worldwide Corporation"
-      },
-      {
-        "ticker": "PEG",
-        "buy": 4,
-        "sell": 2,
-        "company": "Public Service Enterprise Group Incorporated"
+        "company": "Otis Worldwide"
       },
       {
         "ticker": "POOL",
         "buy": 3,
         "sell": 3,
-        "company": "Pool Corp"
+        "company": "Pool"
+      },
+      {
+        "ticker": "PEG",
+        "buy": 4,
+        "sell": 2,
+        "company": "Public Service Enterprise"
+      },
+      {
+        "ticker": "LRN",
+        "buy": 3,
+        "sell": 3,
+        "company": "Stride"
       },
       {
         "ticker": "SNPS",
         "buy": 2,
         "sell": 4,
-        "company": "Synopsys, Inc."
+        "company": "Synopsys"
       },
       {
         "ticker": "TGT",
         "buy": 5,
         "sell": 1,
-        "company": "Target Corporation"
+        "company": "Target"
       },
       {
         "ticker": "VRSN",
         "buy": 5,
         "sell": 1,
-        "company": "VeriSign, Inc."
+        "company": "VeriSign"
       },
       {
         "ticker": "WEC",
         "buy": 5,
         "sell": 1,
-        "company": "WEC Energy Group, Inc."
+        "company": "WEC Energy"
       },
       {
         "ticker": "XEL",
         "buy": 6,
         "sell": 0,
-        "company": "Xcel Energy Inc."
+        "company": "Xcel Energy"
       },
       {
         "ticker": "ZBH",
         "buy": 4,
         "sell": 2,
-        "company": "Zimmer Biomet Holdings Inc"
+        "company": "Zimmer Biomet"
       },
       {
         "ticker": "ADT",
@@ -3899,154 +3899,160 @@
         "company": "Adt Inc Del"
       },
       {
-        "ticker": "ALAB",
-        "buy": 3,
-        "sell": 2,
-        "company": "Astera Labs Inc"
-      },
-      {
         "ticker": "ALRM",
         "buy": 3,
         "sell": 2,
-        "company": "Alarm Com Hldgs Inc"
+        "company": "Alarm Com"
       },
       {
-        "ticker": "BBT",
-        "buy": 2,
-        "sell": 3,
-        "company": "Beacon Finl Corp"
+        "ticker": "ALAB",
+        "buy": 3,
+        "sell": 2,
+        "company": "Astera Labs"
       },
       {
         "ticker": "BMI",
         "buy": 2,
         "sell": 3,
-        "company": "Badger Meter Inc"
+        "company": "Badger Meter"
+      },
+      {
+        "ticker": "BBT",
+        "buy": 2,
+        "sell": 3,
+        "company": "Beacon Finl"
+      },
+      {
+        "ticker": "OWL",
+        "buy": 5,
+        "sell": 0,
+        "company": "Blue Owl Capital"
       },
       {
         "ticker": "BR",
         "buy": 2,
         "sell": 3,
-        "company": "Broadridge Financial Solutions, Inc."
-      },
-      {
-        "ticker": "CAG",
-        "buy": 2,
-        "sell": 3,
-        "company": "ConAgra Brands, Inc."
-      },
-      {
-        "ticker": "CERT",
-        "buy": 2,
-        "sell": 3,
-        "company": "Certara Inc"
-      },
-      {
-        "ticker": "CL",
-        "buy": 4,
-        "sell": 1,
-        "company": "Colgate-Palmolive Company"
-      },
-      {
-        "ticker": "CMG",
-        "buy": 3,
-        "sell": 2,
-        "company": "Chipotle Mexican Grill, Inc."
-      },
-      {
-        "ticker": "CNK",
-        "buy": 2,
-        "sell": 3,
-        "company": "Cinemark Hldgs Inc"
-      },
-      {
-        "ticker": "CORT",
-        "buy": 3,
-        "sell": 2,
-        "company": "Corcept Therapeutics Inc"
+        "company": "Broadridge Financial Solutions"
       },
       {
         "ticker": "CPB",
         "buy": 2,
         "sell": 3,
-        "company": "The Campbell's Company"
+        "company": "Campbell's"
       },
       {
-        "ticker": "DE",
+        "ticker": "CERT",
+        "buy": 2,
+        "sell": 3,
+        "company": "Certara"
+      },
+      {
+        "ticker": "CMG",
         "buy": 3,
         "sell": 2,
-        "company": "Deere & Company"
+        "company": "Chipotle Mexican Grill"
       },
       {
-        "ticker": "DORM",
-        "buy": 1,
-        "sell": 4,
-        "company": "Dorman Prods Inc"
+        "ticker": "CNK",
+        "buy": 2,
+        "sell": 3,
+        "company": "Cinemark"
+      },
+      {
+        "ticker": "CL",
+        "buy": 4,
+        "sell": 1,
+        "company": "Colgate-Palmolive"
+      },
+      {
+        "ticker": "CAG",
+        "buy": 2,
+        "sell": 3,
+        "company": "ConAgra Brands"
+      },
+      {
+        "ticker": "CORT",
+        "buy": 3,
+        "sell": 2,
+        "company": "Corcept Therapeutics"
       },
       {
         "ticker": "DRI",
         "buy": 4,
         "sell": 1,
-        "company": "Darden Restaurants, Inc."
+        "company": "Darden Restaurants"
+      },
+      {
+        "ticker": "DE",
+        "buy": 3,
+        "sell": 2,
+        "company": "Deere"
+      },
+      {
+        "ticker": "DORM",
+        "buy": 1,
+        "sell": 4,
+        "company": "Dorman Prods"
       },
       {
         "ticker": "ELV",
         "buy": 3,
         "sell": 2,
-        "company": "Elevance Health, Inc."
+        "company": "Elevance Health"
       },
       {
         "ticker": "EMBC",
         "buy": 2,
         "sell": 3,
-        "company": "Embecta Corp"
+        "company": "Embecta"
       },
       {
         "ticker": "EXLS",
         "buy": 3,
         "sell": 2,
-        "company": "Exlservice Hldgs Inc"
+        "company": "Exlservice"
       },
       {
         "ticker": "EXPE",
         "buy": 3,
         "sell": 2,
-        "company": "Expedia Group, Inc."
+        "company": "Expedia"
       },
       {
         "ticker": "FAST",
         "buy": 2,
         "sell": 3,
-        "company": "Fastenal Company"
+        "company": "Fastenal"
       },
       {
         "ticker": "FIS",
         "buy": 2,
         "sell": 3,
-        "company": "Fidelity National Information Services Inc."
+        "company": "Fidelity National Information Services"
       },
       {
         "ticker": "GDDY",
         "buy": 4,
         "sell": 1,
-        "company": "GoDaddy Inc. Class A"
+        "company": "GoDaddy"
       },
       {
         "ticker": "HCA",
         "buy": 1,
         "sell": 4,
-        "company": "HCA Healthcare, Inc."
+        "company": "HCA Healthcare"
       },
       {
         "ticker": "HPQ",
         "buy": 2,
         "sell": 3,
-        "company": "HP Inc."
+        "company": "HP"
       },
       {
         "ticker": "IR",
         "buy": 2,
         "sell": 3,
-        "company": "Ingersoll Rand Inc"
+        "company": "Ingersoll Rand"
       },
       {
         "ticker": "KEY",
@@ -4055,574 +4061,298 @@
         "company": "KeyCorp"
       },
       {
+        "ticker": "KNSL",
+        "buy": 2,
+        "sell": 3,
+        "company": "Kinsale Cap"
+      },
+      {
+        "ticker": "KTB",
+        "buy": 2,
+        "sell": 3,
+        "company": "Kontoor Brands"
+      },
+      {
         "ticker": "KFY",
         "buy": 2,
         "sell": 3,
         "company": "Korn Ferry"
       },
       {
-        "ticker": "KNSL",
-        "buy": 2,
-        "sell": 3,
-        "company": "Kinsale Cap Group Inc"
-      },
-      {
-        "ticker": "KTB",
-        "buy": 2,
-        "sell": 3,
-        "company": "Kontoor Brands Inc"
-      },
-      {
         "ticker": "LDOS",
         "buy": 1,
         "sell": 4,
-        "company": "Leidos Holdings, Inc."
-      },
-      {
-        "ticker": "MCK",
-        "buy": 3,
-        "sell": 2,
-        "company": "McKesson Corporation"
-      },
-      {
-        "ticker": "MLKN",
-        "buy": 3,
-        "sell": 2,
-        "company": "Millerknoll Inc"
+        "company": "Leidos"
       },
       {
         "ticker": "MRVL",
         "buy": 4,
         "sell": 1,
-        "company": "Marvell Technology, Inc."
+        "company": "Marvell Technology"
+      },
+      {
+        "ticker": "MCK",
+        "buy": 3,
+        "sell": 2,
+        "company": "McKesson"
+      },
+      {
+        "ticker": "MLKN",
+        "buy": 3,
+        "sell": 2,
+        "company": "Millerknoll"
       },
       {
         "ticker": "NRG",
         "buy": 2,
         "sell": 3,
-        "company": "NRG Energy Inc"
+        "company": "NRG Energy"
       },
       {
         "ticker": "NXPI",
         "buy": 2,
         "sell": 3,
-        "company": "NXP Semiconductors N.V."
+        "company": "NXP Semiconductors"
       },
       {
         "ticker": "OTTR",
         "buy": 3,
         "sell": 2,
-        "company": "Otter Tail Corp"
-      },
-      {
-        "ticker": "OWL",
-        "buy": 5,
-        "sell": 0,
-        "company": "Blue Owl Capital Inc"
+        "company": "Otter Tail"
       },
       {
         "ticker": "RTX",
         "buy": 3,
         "sell": 2,
-        "company": "RTX Corporation"
+        "company": "RTX"
       },
       {
         "ticker": "SMPL",
         "buy": 1,
         "sell": 4,
-        "company": "Simply Good Foods Co"
+        "company": "Simply Good Foods"
       },
       {
         "ticker": "TTWO",
         "buy": 3,
         "sell": 2,
-        "company": "Take-Two Interactive Software, Inc."
-      },
-      {
-        "ticker": "VITL",
-        "buy": 2,
-        "sell": 3,
-        "company": "Vital Farms Inc"
+        "company": "Take-Two Interactive Software"
       },
       {
         "ticker": "VSNT",
         "buy": 2,
         "sell": 3,
-        "company": "Versant Media Group Inc"
+        "company": "Versant Media"
       },
       {
-        "ticker": "WAY",
+        "ticker": "VITL",
         "buy": 2,
         "sell": 3,
-        "company": "Waystar HLDG Corp"
+        "company": "Vital Farms"
       },
       {
         "ticker": "WRB",
         "buy": 3,
         "sell": 2,
-        "company": "W.R. Berkley Corporation"
+        "company": "W.R. Berkley"
+      },
+      {
+        "ticker": "WAY",
+        "buy": 2,
+        "sell": 3,
+        "company": "Waystar HLDG"
       },
       {
         "ticker": "XYL",
         "buy": 1,
         "sell": 4,
-        "company": "Xylem Inc."
+        "company": "Xylem"
       },
       {
         "ticker": "YUM",
         "buy": 1,
         "sell": 4,
-        "company": "Yum! Brands, Inc."
+        "company": "Yum! Brands"
       },
       {
         "ticker": "ZD",
         "buy": 2,
         "sell": 3,
-        "company": "Ziff Davis Inc"
-      },
-      {
-        "ticker": "ABNB",
-        "buy": 4,
-        "sell": 0,
-        "company": "Airbnb, Inc."
-      },
-      {
-        "ticker": "ACA",
-        "buy": 2,
-        "sell": 2,
-        "company": "Arcosa Inc"
+        "company": "Ziff Davis"
       },
       {
         "ticker": "ADUS",
         "buy": 2,
         "sell": 2,
-        "company": "Addus Homecare Corp"
+        "company": "Addus Homecare"
       },
       {
         "ticker": "AFL",
         "buy": 2,
         "sell": 2,
-        "company": "Aflac Incorporated"
+        "company": "Aflac"
       },
       {
         "ticker": "AGYS",
         "buy": 1,
         "sell": 3,
-        "company": "Agilysys Inc"
-      },
-      {
-        "ticker": "AKAM",
-        "buy": 3,
-        "sell": 1,
-        "company": "Akamai Technologies, Inc."
-      },
-      {
-        "ticker": "ALG",
-        "buy": 2,
-        "sell": 2,
-        "company": "Alamo Group Inc"
-      },
-      {
-        "ticker": "AMCR",
-        "buy": 4,
-        "sell": 0,
-        "company": "Amcor plc"
-      },
-      {
-        "ticker": "AMSF",
-        "buy": 2,
-        "sell": 2,
-        "company": "Amerisafe Inc"
+        "company": "Agilysys"
       },
       {
         "ticker": "APD",
         "buy": 3,
         "sell": 1,
-        "company": "Air Products and Chemicals, Inc."
+        "company": "Air Products and Chemicals"
+      },
+      {
+        "ticker": "ABNB",
+        "buy": 4,
+        "sell": 0,
+        "company": "Airbnb"
+      },
+      {
+        "ticker": "AKAM",
+        "buy": 3,
+        "sell": 1,
+        "company": "Akamai Technologies"
+      },
+      {
+        "ticker": "ALG",
+        "buy": 2,
+        "sell": 2,
+        "company": "Alamo"
+      },
+      {
+        "ticker": "AMCR",
+        "buy": 4,
+        "sell": 0,
+        "company": "Amcor"
+      },
+      {
+        "ticker": "AMSF",
+        "buy": 2,
+        "sell": 2,
+        "company": "Amerisafe"
       },
       {
         "ticker": "APOG",
         "buy": 2,
         "sell": 2,
-        "company": "Apogee Enterprises Inc"
+        "company": "Apogee Enterprises"
       },
       {
         "ticker": "APP",
         "buy": 2,
         "sell": 2,
-        "company": "Applovin Corporation"
+        "company": "Applovin"
+      },
+      {
+        "ticker": "ACA",
+        "buy": 2,
+        "sell": 2,
+        "company": "Arcosa"
+      },
+      {
+        "ticker": "TEAM",
+        "buy": 3,
+        "sell": 1,
+        "company": "Atlassian"
       },
       {
         "ticker": "AVTR",
         "buy": 3,
         "sell": 1,
-        "company": "Avantor, Inc."
-      },
-      {
-        "ticker": "BANR",
-        "buy": 1,
-        "sell": 3,
-        "company": "Banner Corp"
-      },
-      {
-        "ticker": "BBY",
-        "buy": 1,
-        "sell": 3,
-        "company": "Best Buy Co., Inc."
+        "company": "Avantor"
       },
       {
         "ticker": "BCPC",
         "buy": 2,
         "sell": 2,
-        "company": "Balchem Corp"
+        "company": "Balchem"
+      },
+      {
+        "ticker": "BANR",
+        "buy": 1,
+        "sell": 3,
+        "company": "Banner"
       },
       {
         "ticker": "BDX",
         "buy": 3,
         "sell": 1,
-        "company": "Becton, Dickinson and Company"
+        "company": "Becton, Dickinson and"
+      },
+      {
+        "ticker": "BBY",
+        "buy": 1,
+        "sell": 3,
+        "company": "Best Buy"
       },
       {
         "ticker": "BL",
         "buy": 2,
         "sell": 2,
-        "company": "BlackLine, Inc."
+        "company": "BlackLine"
       },
       {
-        "ticker": "CALM",
-        "buy": 2,
-        "sell": 2,
-        "company": "Cal Maine Foods Inc"
-      },
-      {
-        "ticker": "CASH",
-        "buy": 2,
-        "sell": 2,
-        "company": "Pathward Finl Inc"
-      },
-      {
-        "ticker": "CCL",
-        "buy": 2,
-        "sell": 2,
-        "company": "Carnival Corporation"
-      },
-      {
-        "ticker": "CHTR",
-        "buy": 2,
-        "sell": 2,
-        "company": "Charter Communications, Inc."
-      },
-      {
-        "ticker": "COIN",
+        "ticker": "XYZ",
         "buy": 3,
         "sell": 1,
-        "company": "Coinbase Global, Inc."
-      },
-      {
-        "ticker": "COR",
-        "buy": 2,
-        "sell": 2,
-        "company": "Cencora Inc"
-      },
-      {
-        "ticker": "CVLT",
-        "buy": 2,
-        "sell": 2,
-        "company": "Commvault Systems, Inc."
-      },
-      {
-        "ticker": "DDOG",
-        "buy": 2,
-        "sell": 2,
-        "company": "Datadog, Inc. CMN Class A"
-      },
-      {
-        "ticker": "DPZ",
-        "buy": 3,
-        "sell": 1,
-        "company": "Domino's Pizza Inc"
-      },
-      {
-        "ticker": "DV",
-        "buy": 2,
-        "sell": 2,
-        "company": "Doubleverify Hldgs Inc"
-      },
-      {
-        "ticker": "DXC",
-        "buy": 2,
-        "sell": 2,
-        "company": "DXC Technology Co"
+        "company": "Block"
       },
       {
         "ticker": "EAT",
         "buy": 2,
         "sell": 2,
-        "company": "Brinker Intl Inc"
+        "company": "Brinker Intl"
       },
       {
-        "ticker": "ENOV",
+        "ticker": "CALM",
         "buy": 2,
         "sell": 2,
-        "company": "Enovis Corp"
+        "company": "Cal Maine Foods"
       },
       {
-        "ticker": "EOG",
+        "ticker": "CCL",
+        "buy": 2,
+        "sell": 2,
+        "company": "Carnival"
+      },
+      {
+        "ticker": "COR",
+        "buy": 2,
+        "sell": 2,
+        "company": "Cencora"
+      },
+      {
+        "ticker": "CHTR",
+        "buy": 2,
+        "sell": 2,
+        "company": "Charter Communications"
+      },
+      {
+        "ticker": "COIN",
         "buy": 3,
         "sell": 1,
-        "company": "EOG Resources, Inc."
+        "company": "Coinbase Global"
       },
       {
-        "ticker": "EQH",
+        "ticker": "CVLT",
         "buy": 2,
         "sell": 2,
-        "company": "Equitable Holdings Inc"
+        "company": "Commvault Systems"
       },
       {
-        "ticker": "EQT",
+        "ticker": "STZ",
         "buy": 3,
         "sell": 1,
-        "company": "Eqt Corp"
+        "company": "Constellation Brands"
       },
       {
-        "ticker": "F",
-        "buy": 3,
-        "sell": 1,
-        "company": "Ford Motor Company"
-      },
-      {
-        "ticker": "FELE",
+        "ticker": "DDOG",
         "buy": 2,
         "sell": 2,
-        "company": "Franklin Elec Inc"
-      },
-      {
-        "ticker": "FRPT",
-        "buy": 2,
-        "sell": 2,
-        "company": "Freshpet Inc"
-      },
-      {
-        "ticker": "GKOS",
-        "buy": 2,
-        "sell": 2,
-        "company": "Glaukos Corp"
-      },
-      {
-        "ticker": "HNI",
-        "buy": 2,
-        "sell": 2,
-        "company": "Hni Corp"
-      },
-      {
-        "ticker": "INDV",
-        "buy": 2,
-        "sell": 2,
-        "company": "Indivior Pharmaceuticals"
-      },
-      {
-        "ticker": "JBTM",
-        "buy": 2,
-        "sell": 2,
-        "company": "JBT Marel Corp"
-      },
-      {
-        "ticker": "LKQ",
-        "buy": 2,
-        "sell": 2,
-        "company": "LKQ Corporation"
-      },
-      {
-        "ticker": "LNN",
-        "buy": 2,
-        "sell": 2,
-        "company": "Lindsay Corp"
-      },
-      {
-        "ticker": "LRCX",
-        "buy": 2,
-        "sell": 2,
-        "company": "Lam Research Corporation"
-      },
-      {
-        "ticker": "MBC",
-        "buy": 2,
-        "sell": 2,
-        "company": "Masterbrand Inc"
-      },
-      {
-        "ticker": "MCHP",
-        "buy": 2,
-        "sell": 2,
-        "company": "Microchip Technology Incorporated"
-      },
-      {
-        "ticker": "MORN",
-        "buy": 3,
-        "sell": 1,
-        "company": "Morningstar, Inc."
-      },
-      {
-        "ticker": "MS",
-        "buy": 2,
-        "sell": 2,
-        "company": "Morgan Stanley"
-      },
-      {
-        "ticker": "NEO",
-        "buy": 2,
-        "sell": 2,
-        "company": "Neogenomics Inc"
-      },
-      {
-        "ticker": "NSIT",
-        "buy": 2,
-        "sell": 2,
-        "company": "Insight Enterprises Inc"
-      },
-      {
-        "ticker": "NTRA",
-        "buy": 2,
-        "sell": 2,
-        "company": "Natera, Inc."
-      },
-      {
-        "ticker": "PCG",
-        "buy": 1,
-        "sell": 3,
-        "company": "PG&E Corp"
-      },
-      {
-        "ticker": "PCOR",
-        "buy": 2,
-        "sell": 2,
-        "company": "Procore Technologies Inc"
-      },
-      {
-        "ticker": "PCTY",
-        "buy": 2,
-        "sell": 2,
-        "company": "Paylocity Holding Corporation"
-      },
-      {
-        "ticker": "PGNY",
-        "buy": 2,
-        "sell": 2,
-        "company": "Progyny Inc"
-      },
-      {
-        "ticker": "PLMR",
-        "buy": 2,
-        "sell": 2,
-        "company": "Palomar Hldgs Inc"
-      },
-      {
-        "ticker": "PPL",
-        "buy": 3,
-        "sell": 1,
-        "company": "PPL Corporation"
-      },
-      {
-        "ticker": "PRAA",
-        "buy": 2,
-        "sell": 2,
-        "company": "Pra Group Inc"
-      },
-      {
-        "ticker": "PRGS",
-        "buy": 3,
-        "sell": 1,
-        "company": "Progress Software Corporation"
-      },
-      {
-        "ticker": "PRVA",
-        "buy": 2,
-        "sell": 2,
-        "company": "Privia Health Group Inc"
-      },
-      {
-        "ticker": "PSX",
-        "buy": 3,
-        "sell": 1,
-        "company": "Phillips 66"
-      },
-      {
-        "ticker": "PTCT",
-        "buy": 2,
-        "sell": 2,
-        "company": "PTC Therapeutics Inc"
-      },
-      {
-        "ticker": "QRVO",
-        "buy": 2,
-        "sell": 2,
-        "company": "Qorvo Inc"
-      },
-      {
-        "ticker": "RAL",
-        "buy": 3,
-        "sell": 1,
-        "company": "Ralliant Corp"
-      },
-      {
-        "ticker": "REGN",
-        "buy": 4,
-        "sell": 0,
-        "company": "Regeneron Pharmaceuticals, Inc."
-      },
-      {
-        "ticker": "RF",
-        "buy": 2,
-        "sell": 2,
-        "company": "Regions Financial Corporation"
-      },
-      {
-        "ticker": "RHI",
-        "buy": 1,
-        "sell": 3,
-        "company": "Robert Half International Inc."
-      },
-      {
-        "ticker": "RLI",
-        "buy": 0,
-        "sell": 4,
-        "company": "RLI Corp."
-      },
-      {
-        "ticker": "ROL",
-        "buy": 0,
-        "sell": 4,
-        "company": "Rollins, Inc."
-      },
-      {
-        "ticker": "SAIL",
-        "buy": 2,
-        "sell": 2,
-        "company": "Sailpoint Inc"
-      },
-      {
-        "ticker": "SCSC",
-        "buy": 2,
-        "sell": 2,
-        "company": "Scansource Inc"
-      },
-      {
-        "ticker": "SMCI",
-        "buy": 2,
-        "sell": 2,
-        "company": "Super Micro Computer, Inc."
-      },
-      {
-        "ticker": "SNDK",
-        "buy": 3,
-        "sell": 1,
-        "company": "Sandisk Corporation"
-      },
-      {
-        "ticker": "SOFI",
-        "buy": 1,
-        "sell": 3,
-        "company": "Sofi Technologies Inc"
+        "company": "Datadog"
       },
       {
         "ticker": "SRE",
@@ -4631,58 +4361,322 @@
         "company": "DBA Sempra"
       },
       {
+        "ticker": "DPZ",
+        "buy": 3,
+        "sell": 1,
+        "company": "Domino's Pizza"
+      },
+      {
+        "ticker": "DV",
+        "buy": 2,
+        "sell": 2,
+        "company": "Doubleverify"
+      },
+      {
+        "ticker": "DXC",
+        "buy": 2,
+        "sell": 2,
+        "company": "DXC Technology"
+      },
+      {
+        "ticker": "ENOV",
+        "buy": 2,
+        "sell": 2,
+        "company": "Enovis"
+      },
+      {
+        "ticker": "EOG",
+        "buy": 3,
+        "sell": 1,
+        "company": "EOG Resources"
+      },
+      {
+        "ticker": "EQT",
+        "buy": 3,
+        "sell": 1,
+        "company": "Eqt"
+      },
+      {
+        "ticker": "EQH",
+        "buy": 2,
+        "sell": 2,
+        "company": "Equitable"
+      },
+      {
+        "ticker": "F",
+        "buy": 3,
+        "sell": 1,
+        "company": "Ford Motor"
+      },
+      {
+        "ticker": "FELE",
+        "buy": 2,
+        "sell": 2,
+        "company": "Franklin Elec"
+      },
+      {
+        "ticker": "FRPT",
+        "buy": 2,
+        "sell": 2,
+        "company": "Freshpet"
+      },
+      {
+        "ticker": "GKOS",
+        "buy": 2,
+        "sell": 2,
+        "company": "Glaukos"
+      },
+      {
+        "ticker": "HNI",
+        "buy": 2,
+        "sell": 2,
+        "company": "Hni"
+      },
+      {
+        "ticker": "INDV",
+        "buy": 2,
+        "sell": 2,
+        "company": "Indivior Pharmaceuticals"
+      },
+      {
+        "ticker": "NSIT",
+        "buy": 2,
+        "sell": 2,
+        "company": "Insight Enterprises"
+      },
+      {
+        "ticker": "JBTM",
+        "buy": 2,
+        "sell": 2,
+        "company": "JBT Marel"
+      },
+      {
+        "ticker": "LRCX",
+        "buy": 2,
+        "sell": 2,
+        "company": "Lam Research"
+      },
+      {
+        "ticker": "LNN",
+        "buy": 2,
+        "sell": 2,
+        "company": "Lindsay"
+      },
+      {
+        "ticker": "LKQ",
+        "buy": 2,
+        "sell": 2,
+        "company": "LKQ"
+      },
+      {
+        "ticker": "MBC",
+        "buy": 2,
+        "sell": 2,
+        "company": "Masterbrand"
+      },
+      {
+        "ticker": "MCHP",
+        "buy": 2,
+        "sell": 2,
+        "company": "Microchip Technology"
+      },
+      {
+        "ticker": "MS",
+        "buy": 2,
+        "sell": 2,
+        "company": "Morgan Stanley"
+      },
+      {
+        "ticker": "MORN",
+        "buy": 3,
+        "sell": 1,
+        "company": "Morningstar"
+      },
+      {
+        "ticker": "NTRA",
+        "buy": 2,
+        "sell": 2,
+        "company": "Natera"
+      },
+      {
+        "ticker": "NEO",
+        "buy": 2,
+        "sell": 2,
+        "company": "Neogenomics"
+      },
+      {
+        "ticker": "PLMR",
+        "buy": 2,
+        "sell": 2,
+        "company": "Palomar"
+      },
+      {
+        "ticker": "CASH",
+        "buy": 2,
+        "sell": 2,
+        "company": "Pathward Finl"
+      },
+      {
+        "ticker": "PCTY",
+        "buy": 2,
+        "sell": 2,
+        "company": "Paylocity Holding"
+      },
+      {
+        "ticker": "PCG",
+        "buy": 1,
+        "sell": 3,
+        "company": "PG&E"
+      },
+      {
+        "ticker": "PSX",
+        "buy": 3,
+        "sell": 1,
+        "company": "Phillips 66"
+      },
+      {
+        "ticker": "PPL",
+        "buy": 3,
+        "sell": 1,
+        "company": "PPL"
+      },
+      {
+        "ticker": "PRAA",
+        "buy": 2,
+        "sell": 2,
+        "company": "Pra"
+      },
+      {
+        "ticker": "PRVA",
+        "buy": 2,
+        "sell": 2,
+        "company": "Privia Health"
+      },
+      {
+        "ticker": "PCOR",
+        "buy": 2,
+        "sell": 2,
+        "company": "Procore Technologies"
+      },
+      {
+        "ticker": "PRGS",
+        "buy": 3,
+        "sell": 1,
+        "company": "Progress Software"
+      },
+      {
+        "ticker": "PGNY",
+        "buy": 2,
+        "sell": 2,
+        "company": "Progyny"
+      },
+      {
+        "ticker": "PTCT",
+        "buy": 2,
+        "sell": 2,
+        "company": "PTC Therapeutics"
+      },
+      {
+        "ticker": "QRVO",
+        "buy": 2,
+        "sell": 2,
+        "company": "Qorvo"
+      },
+      {
+        "ticker": "RAL",
+        "buy": 3,
+        "sell": 1,
+        "company": "Ralliant"
+      },
+      {
+        "ticker": "REGN",
+        "buy": 4,
+        "sell": 0,
+        "company": "Regeneron Pharmaceuticals"
+      },
+      {
+        "ticker": "RF",
+        "buy": 2,
+        "sell": 2,
+        "company": "Regions Financial"
+      },
+      {
+        "ticker": "RLI",
+        "buy": 0,
+        "sell": 4,
+        "company": "RLI"
+      },
+      {
+        "ticker": "RHI",
+        "buy": 1,
+        "sell": 3,
+        "company": "Robert Half International"
+      },
+      {
+        "ticker": "ROL",
+        "buy": 0,
+        "sell": 4,
+        "company": "Rollins"
+      },
+      {
+        "ticker": "SAIL",
+        "buy": 2,
+        "sell": 2,
+        "company": "Sailpoint"
+      },
+      {
+        "ticker": "SNDK",
+        "buy": 3,
+        "sell": 1,
+        "company": "Sandisk"
+      },
+      {
+        "ticker": "SCSC",
+        "buy": 2,
+        "sell": 2,
+        "company": "Scansource"
+      },
+      {
+        "ticker": "SOFI",
+        "buy": 1,
+        "sell": 3,
+        "company": "Sofi Technologies"
+      },
+      {
         "ticker": "STLA",
         "buy": 2,
         "sell": 2,
         "company": "Stellantis N V"
       },
       {
-        "ticker": "STZ",
-        "buy": 3,
-        "sell": 1,
-        "company": "Constellation Brands, Inc."
-      },
-      {
-        "ticker": "TEAM",
-        "buy": 3,
-        "sell": 1,
-        "company": "Atlassian Corporation"
-      },
-      {
-        "ticker": "TER",
-        "buy": 1,
-        "sell": 3,
-        "company": "Teradyne, Inc."
+        "ticker": "SMCI",
+        "buy": 2,
+        "sell": 2,
+        "company": "Super Micro Computer"
       },
       {
         "ticker": "TFX",
         "buy": 2,
         "sell": 2,
-        "company": "Teleflex Incorporated"
+        "company": "Teleflex"
+      },
+      {
+        "ticker": "TER",
+        "buy": 1,
+        "sell": 3,
+        "company": "Teradyne"
       },
       {
         "ticker": "TGTX",
         "buy": 2,
         "sell": 2,
-        "company": "TG Therapeutics Inc"
+        "company": "TG Therapeutics"
       },
       {
         "ticker": "TRMB",
         "buy": 2,
         "sell": 2,
-        "company": "Trimble Inc."
-      },
-      {
-        "ticker": "UPBD",
-        "buy": 2,
-        "sell": 2,
-        "company": "Upbound Group Inc"
-      },
-      {
-        "ticker": "UPWK",
-        "buy": 1,
-        "sell": 3,
-        "company": "Upwork Inc"
+        "company": "Trimble"
       },
       {
         "ticker": "UVV",
@@ -4691,46 +4685,70 @@
         "company": "Universal Corp Va"
       },
       {
+        "ticker": "UPBD",
+        "buy": 2,
+        "sell": 2,
+        "company": "Upbound"
+      },
+      {
+        "ticker": "UPWK",
+        "buy": 1,
+        "sell": 3,
+        "company": "Upwork"
+      },
+      {
         "ticker": "VRSK",
         "buy": 3,
         "sell": 1,
-        "company": "Verisk Analytics, Inc."
+        "company": "Verisk Analytics"
       },
       {
         "ticker": "VSEC",
         "buy": 2,
         "sell": 2,
-        "company": "Vse Corp"
+        "company": "Vse"
       },
       {
         "ticker": "WINA",
         "buy": 2,
         "sell": 2,
-        "company": "Winmark Corp"
-      },
-      {
-        "ticker": "XYZ",
-        "buy": 3,
-        "sell": 1,
-        "company": "Block, Inc. CMN Class A"
+        "company": "Winmark"
       },
       {
         "ticker": "ZBRA",
         "buy": 1,
         "sell": 3,
-        "company": "Zebra Technologies Corporation"
+        "company": "Zebra Technologies"
       },
       {
         "ticker": "ZTS",
         "buy": 2,
         "sell": 2,
-        "company": "Zoetis Inc. Class A"
+        "company": "Zoetis"
+      },
+      {
+        "ticker": "MMM",
+        "buy": 1,
+        "sell": 2,
+        "company": "3M"
       },
       {
         "ticker": "ACIW",
         "buy": 1,
         "sell": 2,
-        "company": "ACI Worldwide, Inc."
+        "company": "ACI Worldwide"
+      },
+      {
+        "ticker": "GOLF",
+        "buy": 1,
+        "sell": 2,
+        "company": "Acushnet"
+      },
+      {
+        "ticker": "ADEA",
+        "buy": 2,
+        "sell": 1,
+        "company": "Adeia"
       },
       {
         "ticker": "ACM",
@@ -4739,70 +4757,64 @@
         "company": "Aecom"
       },
       {
-        "ticker": "ADEA",
-        "buy": 2,
-        "sell": 1,
-        "company": "Adeia Inc"
+        "ticker": "AMP",
+        "buy": 1,
+        "sell": 2,
+        "company": "Ameriprise Financial"
       },
       {
         "ticker": "ADI",
         "buy": 2,
         "sell": 1,
-        "company": "Analog Devices, Inc."
-      },
-      {
-        "ticker": "ADP",
-        "buy": 1,
-        "sell": 2,
-        "company": "Automatic Data Processing, Inc."
-      },
-      {
-        "ticker": "AGX",
-        "buy": 2,
-        "sell": 1,
-        "company": "Argan Inc"
-      },
-      {
-        "ticker": "AMP",
-        "buy": 1,
-        "sell": 2,
-        "company": "Ameriprise Financial, Inc."
-      },
-      {
-        "ticker": "ARCC",
-        "buy": 3,
-        "sell": 0,
-        "company": "Ares Capital Corporation"
-      },
-      {
-        "ticker": "AROC",
-        "buy": 2,
-        "sell": 1,
-        "company": "Archrock Inc"
-      },
-      {
-        "ticker": "ASTS",
-        "buy": 3,
-        "sell": 0,
-        "company": "Ast Spacemobile Inc"
+        "company": "Analog Devices"
       },
       {
         "ticker": "ATR",
         "buy": 2,
         "sell": 1,
-        "company": "AptarGroup, Inc."
+        "company": "AptarGroup"
       },
       {
-        "ticker": "AVA",
+        "ticker": "AROC",
+        "buy": 2,
+        "sell": 1,
+        "company": "Archrock"
+      },
+      {
+        "ticker": "ARCC",
+        "buy": 3,
+        "sell": 0,
+        "company": "Ares Capital"
+      },
+      {
+        "ticker": "AGX",
+        "buy": 2,
+        "sell": 1,
+        "company": "Argan"
+      },
+      {
+        "ticker": "ASTS",
+        "buy": 3,
+        "sell": 0,
+        "company": "Ast Spacemobile"
+      },
+      {
+        "ticker": "ADP",
         "buy": 1,
         "sell": 2,
-        "company": "Avista Corp"
+        "company": "Automatic Data Processing"
       },
       {
         "ticker": "AVY",
         "buy": 0,
         "sell": 3,
-        "company": "Avery Dennison Corporation"
+        "company": "Avery Dennison"
+      },
+      {
+        "ticker": "AVA",
+        "buy": 1,
+        "sell": 2,
+        "company": "Avista"
       },
       {
         "ticker": "BCC",
@@ -4811,172 +4823,202 @@
         "company": "Boise Cascade, L.L.C."
       },
       {
-        "ticker": "BLDR",
-        "buy": 0,
-        "sell": 3,
-        "company": "Builders Firstsource, Inc."
-      },
-      {
         "ticker": "BTSG",
         "buy": 2,
         "sell": 1,
         "company": "Brightspring Health SVCS"
       },
       {
+        "ticker": "BLDR",
+        "buy": 0,
+        "sell": 3,
+        "company": "Builders Firstsource"
+      },
+      {
         "ticker": "CAH",
         "buy": 1,
         "sell": 2,
-        "company": "Cardinal Health, Inc."
+        "company": "Cardinal Health"
+      },
+      {
+        "ticker": "KMX",
+        "buy": 2,
+        "sell": 1,
+        "company": "Carmax"
       },
       {
         "ticker": "CARR",
         "buy": 2,
         "sell": 1,
-        "company": "Carrier Global Corporation"
-      },
-      {
-        "ticker": "CB",
-        "buy": 1,
-        "sell": 2,
-        "company": "Chubb Limited"
-      },
-      {
-        "ticker": "CBRE",
-        "buy": 2,
-        "sell": 1,
-        "company": "Cbre Group, Inc. CMN Class A"
-      },
-      {
-        "ticker": "CCI",
-        "buy": 2,
-        "sell": 1,
-        "company": "Crown Castle Inc."
-      },
-      {
-        "ticker": "CIEN",
-        "buy": 2,
-        "sell": 1,
-        "company": "Ciena Corporation"
-      },
-      {
-        "ticker": "CINF",
-        "buy": 1,
-        "sell": 2,
-        "company": "Cincinnati Financial Corporation"
-      },
-      {
-        "ticker": "CME",
-        "buy": 3,
-        "sell": 0,
-        "company": "CME Group Inc."
-      },
-      {
-        "ticker": "COHR",
-        "buy": 0,
-        "sell": 3,
-        "company": "Coherent Corp."
-      },
-      {
-        "ticker": "CRDO",
-        "buy": 1,
-        "sell": 2,
-        "company": "Credo Technology Group Holding Ltd"
-      },
-      {
-        "ticker": "CRVL",
-        "buy": 2,
-        "sell": 1,
-        "company": "Corvel Corp"
-      },
-      {
-        "ticker": "CRWV",
-        "buy": 2,
-        "sell": 1,
-        "company": "Coreweave Inc"
-      },
-      {
-        "ticker": "CURB",
-        "buy": 2,
-        "sell": 1,
-        "company": "Curbline Pptys Corp"
-      },
-      {
-        "ticker": "CVBF",
-        "buy": 1,
-        "sell": 2,
-        "company": "CVB Finl Corp"
+        "company": "Carrier Global"
       },
       {
         "ticker": "CVNA",
         "buy": 2,
         "sell": 1,
-        "company": "Carvana Co. Class A"
+        "company": "Carvana"
+      },
+      {
+        "ticker": "CBRE",
+        "buy": 2,
+        "sell": 1,
+        "company": "Cbre"
+      },
+      {
+        "ticker": "LNG",
+        "buy": 1,
+        "sell": 2,
+        "company": "Cheniere Energy"
+      },
+      {
+        "ticker": "CB",
+        "buy": 1,
+        "sell": 2,
+        "company": "Chubb"
+      },
+      {
+        "ticker": "CIEN",
+        "buy": 2,
+        "sell": 1,
+        "company": "Ciena"
+      },
+      {
+        "ticker": "CINF",
+        "buy": 1,
+        "sell": 2,
+        "company": "Cincinnati Financial"
+      },
+      {
+        "ticker": "CME",
+        "buy": 3,
+        "sell": 0,
+        "company": "CME"
+      },
+      {
+        "ticker": "COHR",
+        "buy": 0,
+        "sell": 3,
+        "company": "Coherent"
       },
       {
         "ticker": "CXW",
         "buy": 1,
         "sell": 2,
-        "company": "CoreCivic, Inc."
+        "company": "CoreCivic"
+      },
+      {
+        "ticker": "CRWV",
+        "buy": 2,
+        "sell": 1,
+        "company": "Coreweave"
+      },
+      {
+        "ticker": "CRVL",
+        "buy": 2,
+        "sell": 1,
+        "company": "Corvel"
+      },
+      {
+        "ticker": "CRDO",
+        "buy": 1,
+        "sell": 2,
+        "company": "Credo Technology Group Holding"
+      },
+      {
+        "ticker": "CCI",
+        "buy": 2,
+        "sell": 1,
+        "company": "Crown Castle"
+      },
+      {
+        "ticker": "CURB",
+        "buy": 2,
+        "sell": 1,
+        "company": "Curbline Pptys"
+      },
+      {
+        "ticker": "CVBF",
+        "buy": 1,
+        "sell": 2,
+        "company": "CVB Finl"
       },
       {
         "ticker": "DAL",
         "buy": 2,
         "sell": 1,
-        "company": "Delta Air Lines, Inc."
+        "company": "Delta Air Lines"
+      },
+      {
+        "ticker": "FANG",
+        "buy": 2,
+        "sell": 1,
+        "company": "Diamondback Energy"
       },
       {
         "ticker": "DIOD",
         "buy": 2,
         "sell": 1,
-        "company": "Diodes Inc"
+        "company": "Diodes"
       },
       {
         "ticker": "DNOW",
         "buy": 2,
         "sell": 1,
-        "company": "Dnow Inc"
+        "company": "Dnow"
       },
       {
         "ticker": "DOW",
         "buy": 2,
         "sell": 1,
-        "company": "Dow Inc"
+        "company": "Dow"
       },
       {
         "ticker": "DXPE",
         "buy": 1,
         "sell": 2,
-        "company": "DXP Enterprises Inc"
+        "company": "DXP Enterprises"
+      },
+      {
+        "ticker": "EW",
+        "buy": 2,
+        "sell": 1,
+        "company": "Edwards Lifesciences"
       },
       {
         "ticker": "EME",
         "buy": 2,
         "sell": 1,
-        "company": "EMCOR Group, Inc."
+        "company": "EMCOR"
       },
       {
         "ticker": "EMR",
         "buy": 2,
         "sell": 1,
-        "company": "Emerson Electric Company"
-      },
-      {
-        "ticker": "ENPH",
-        "buy": 2,
-        "sell": 1,
-        "company": "Enphase Energy, Inc."
+        "company": "Emerson Electric"
       },
       {
         "ticker": "ENR",
         "buy": 1,
         "sell": 2,
-        "company": "Energizer Hldgs Inc New"
+        "company": "Energizer"
+      },
+      {
+        "ticker": "ENPH",
+        "buy": 2,
+        "sell": 1,
+        "company": "Enphase Energy"
       },
       {
         "ticker": "EPAM",
         "buy": 1,
         "sell": 2,
-        "company": "EPAM Systems, Inc."
+        "company": "EPAM Systems"
+      },
+      {
+        "ticker": "EVRG",
+        "buy": 2,
+        "sell": 1,
+        "company": "Evergy"
       },
       {
         "ticker": "ES",
@@ -4985,286 +5027,94 @@
         "company": "Eversource Energy"
       },
       {
-        "ticker": "EVRG",
-        "buy": 2,
-        "sell": 1,
-        "company": "Evergy, Inc."
-      },
-      {
-        "ticker": "EW",
-        "buy": 2,
-        "sell": 1,
-        "company": "Edwards Lifesciences Corporation"
-      },
-      {
         "ticker": "EXE",
         "buy": 0,
         "sell": 3,
-        "company": "Expand Energy Corporation"
-      },
-      {
-        "ticker": "FANG",
-        "buy": 2,
-        "sell": 1,
-        "company": "Diamondback Energy, Inc."
-      },
-      {
-        "ticker": "FE",
-        "buy": 2,
-        "sell": 1,
-        "company": "Firstenergy Corp"
+        "company": "Expand Energy"
       },
       {
         "ticker": "FFIV",
         "buy": 2,
         "sell": 1,
-        "company": "F5, Inc."
+        "company": "F5"
       },
       {
-        "ticker": "GBDC",
-        "buy": 3,
-        "sell": 0,
-        "company": "Golub Capital BDC, Inc."
-      },
-      {
-        "ticker": "GEV",
+        "ticker": "FE",
         "buy": 2,
         "sell": 1,
-        "company": "Ge Vernova Inc"
-      },
-      {
-        "ticker": "GNRC",
-        "buy": 1,
-        "sell": 2,
-        "company": "Generac Holdlings Inc."
-      },
-      {
-        "ticker": "GOGO",
-        "buy": 1,
-        "sell": 2,
-        "company": "Gogo Inc"
-      },
-      {
-        "ticker": "GOLF",
-        "buy": 1,
-        "sell": 2,
-        "company": "Acushnet Hldgs Corp"
-      },
-      {
-        "ticker": "GPI",
-        "buy": 1,
-        "sell": 2,
-        "company": "Group 1 Automotive Inc"
+        "company": "Firstenergy"
       },
       {
         "ticker": "GRMN",
         "buy": 1,
         "sell": 2,
-        "company": "Garmin Ltd."
+        "company": "Garmin"
+      },
+      {
+        "ticker": "GEV",
+        "buy": 2,
+        "sell": 1,
+        "company": "Ge Vernova"
+      },
+      {
+        "ticker": "GNRC",
+        "buy": 1,
+        "sell": 2,
+        "company": "Generac Holdlings"
+      },
+      {
+        "ticker": "GOGO",
+        "buy": 1,
+        "sell": 2,
+        "company": "Gogo"
+      },
+      {
+        "ticker": "GBDC",
+        "buy": 3,
+        "sell": 0,
+        "company": "Golub Capital BDC"
+      },
+      {
+        "ticker": "GPI",
+        "buy": 1,
+        "sell": 2,
+        "company": "Group 1 Automotive"
       },
       {
         "ticker": "HAYW",
         "buy": 1,
         "sell": 2,
-        "company": "Hayward Hldgs Inc"
+        "company": "Hayward"
       },
       {
         "ticker": "HSTM",
         "buy": 1,
         "sell": 2,
-        "company": "Healthstream Inc"
-      },
-      {
-        "ticker": "IOSP",
-        "buy": 2,
-        "sell": 1,
-        "company": "Innospec Inc"
+        "company": "Healthstream"
       },
       {
         "ticker": "ITW",
         "buy": 2,
         "sell": 1,
-        "company": "Illinois Tool Works Inc."
-      },
-      {
-        "ticker": "JCI",
-        "buy": 1,
-        "sell": 2,
-        "company": "Johnson Controls International plc Ordinary Share"
-      },
-      {
-        "ticker": "KAI",
-        "buy": 2,
-        "sell": 1,
-        "company": "Kadant Inc"
-      },
-      {
-        "ticker": "KBDC",
-        "buy": 3,
-        "sell": 0,
-        "company": "Kayne Anderson BDC Inc"
-      },
-      {
-        "ticker": "KMI",
-        "buy": 1,
-        "sell": 2,
-        "company": "Kinder Morgan, Inc."
-      },
-      {
-        "ticker": "KMX",
-        "buy": 2,
-        "sell": 1,
-        "company": "Carmax Inc"
-      },
-      {
-        "ticker": "LGIH",
-        "buy": 1,
-        "sell": 2,
-        "company": "LGI Homes, Inc."
-      },
-      {
-        "ticker": "LH",
-        "buy": 1,
-        "sell": 2,
-        "company": "Labcorp Holdings Inc."
-      },
-      {
-        "ticker": "LNG",
-        "buy": 1,
-        "sell": 2,
-        "company": "Cheniere Energy, Inc."
-      },
-      {
-        "ticker": "LPLA",
-        "buy": 1,
-        "sell": 2,
-        "company": "LPL Financial Holdings Inc."
-      },
-      {
-        "ticker": "LUMN",
-        "buy": 1,
-        "sell": 2,
-        "company": "Lumen Technologies, Inc."
-      },
-      {
-        "ticker": "LVS",
-        "buy": 0,
-        "sell": 3,
-        "company": "Las Vegas Sands Corp."
-      },
-      {
-        "ticker": "LZ",
-        "buy": 2,
-        "sell": 1,
-        "company": "Legalzoom Com Inc"
-      },
-      {
-        "ticker": "LZB",
-        "buy": 1,
-        "sell": 2,
-        "company": "La Z Boy Inc"
-      },
-      {
-        "ticker": "MDB",
-        "buy": 1,
-        "sell": 2,
-        "company": "MongoDB, Inc."
-      },
-      {
-        "ticker": "MMM",
-        "buy": 1,
-        "sell": 2,
-        "company": "3M Company"
-      },
-      {
-        "ticker": "MOH",
-        "buy": 2,
-        "sell": 1,
-        "company": "Molina Healthcare, Inc."
-      },
-      {
-        "ticker": "NAVI",
-        "buy": 1,
-        "sell": 2,
-        "company": "Navient Corp"
-      },
-      {
-        "ticker": "NDAQ",
-        "buy": 0,
-        "sell": 3,
-        "company": "Nasdaq, Inc."
-      },
-      {
-        "ticker": "NI",
-        "buy": 2,
-        "sell": 1,
-        "company": "NiSource Inc"
-      },
-      {
-        "ticker": "NOG",
-        "buy": 1,
-        "sell": 2,
-        "company": "Northern Oil & Gas Inc"
-      },
-      {
-        "ticker": "NSP",
-        "buy": 2,
-        "sell": 1,
-        "company": "Insperity, Inc."
-      },
-      {
-        "ticker": "NWSA",
-        "buy": 3,
-        "sell": 0,
-        "company": "News Corporation CMN Class A"
+        "company": "Illinois Tool Works"
       },
       {
         "ticker": "PI",
         "buy": 1,
         "sell": 2,
-        "company": "Impinj, Inc."
+        "company": "Impinj"
       },
       {
-        "ticker": "PLXS",
-        "buy": 1,
-        "sell": 2,
-        "company": "Plexus Corp"
-      },
-      {
-        "ticker": "PNC",
+        "ticker": "IOSP",
         "buy": 2,
         "sell": 1,
-        "company": "PNC Financial Services Group, Inc."
+        "company": "Innospec"
       },
       {
-        "ticker": "PRIM",
+        "ticker": "NSP",
         "buy": 2,
         "sell": 1,
-        "company": "Primoris Services Corporation"
-      },
-      {
-        "ticker": "PSA",
-        "buy": 2,
-        "sell": 1,
-        "company": "Public Storage"
-      },
-      {
-        "ticker": "PTEN",
-        "buy": 2,
-        "sell": 1,
-        "company": "Patterson-UTI Energy, Inc."
-      },
-      {
-        "ticker": "PWR",
-        "buy": 3,
-        "sell": 0,
-        "company": "Quanta Services, Inc."
-      },
-      {
-        "ticker": "PZZA",
-        "buy": 1,
-        "sell": 2,
-        "company": "Papa Johns Intl Inc"
+        "company": "Insperity"
       },
       {
         "ticker": "QQQ",
@@ -5273,100 +5123,256 @@
         "company": "Invesco QQQ Trust, Series 1"
       },
       {
+        "ticker": "JCI",
+        "buy": 1,
+        "sell": 2,
+        "company": "Johnson Controls"
+      },
+      {
+        "ticker": "KAI",
+        "buy": 2,
+        "sell": 1,
+        "company": "Kadant"
+      },
+      {
+        "ticker": "KBDC",
+        "buy": 3,
+        "sell": 0,
+        "company": "Kayne Anderson BDC"
+      },
+      {
+        "ticker": "KMI",
+        "buy": 1,
+        "sell": 2,
+        "company": "Kinder Morgan"
+      },
+      {
+        "ticker": "LZB",
+        "buy": 1,
+        "sell": 2,
+        "company": "La Z Boy"
+      },
+      {
+        "ticker": "LH",
+        "buy": 1,
+        "sell": 2,
+        "company": "Labcorp"
+      },
+      {
+        "ticker": "LVS",
+        "buy": 0,
+        "sell": 3,
+        "company": "Las Vegas Sands"
+      },
+      {
+        "ticker": "LZ",
+        "buy": 2,
+        "sell": 1,
+        "company": "Legalzoom Com"
+      },
+      {
+        "ticker": "LGIH",
+        "buy": 1,
+        "sell": 2,
+        "company": "LGI Homes"
+      },
+      {
+        "ticker": "LPLA",
+        "buy": 1,
+        "sell": 2,
+        "company": "LPL Financial"
+      },
+      {
+        "ticker": "LUMN",
+        "buy": 1,
+        "sell": 2,
+        "company": "Lumen Technologies"
+      },
+      {
+        "ticker": "MOH",
+        "buy": 2,
+        "sell": 1,
+        "company": "Molina Healthcare"
+      },
+      {
+        "ticker": "MDB",
+        "buy": 1,
+        "sell": 2,
+        "company": "MongoDB"
+      },
+      {
+        "ticker": "NDAQ",
+        "buy": 0,
+        "sell": 3,
+        "company": "Nasdaq"
+      },
+      {
+        "ticker": "NAVI",
+        "buy": 1,
+        "sell": 2,
+        "company": "Navient"
+      },
+      {
+        "ticker": "VYX",
+        "buy": 2,
+        "sell": 1,
+        "company": "NCR Voyix"
+      },
+      {
+        "ticker": "NWSA",
+        "buy": 3,
+        "sell": 0,
+        "company": "News"
+      },
+      {
+        "ticker": "NI",
+        "buy": 2,
+        "sell": 1,
+        "company": "NiSource"
+      },
+      {
+        "ticker": "NOG",
+        "buy": 1,
+        "sell": 2,
+        "company": "Northern Oil & Gas"
+      },
+      {
+        "ticker": "PZZA",
+        "buy": 1,
+        "sell": 2,
+        "company": "Papa Johns Intl"
+      },
+      {
+        "ticker": "PTEN",
+        "buy": 2,
+        "sell": 1,
+        "company": "Patterson-UTI Energy"
+      },
+      {
+        "ticker": "PLXS",
+        "buy": 1,
+        "sell": 2,
+        "company": "Plexus"
+      },
+      {
+        "ticker": "PNC",
+        "buy": 2,
+        "sell": 1,
+        "company": "PNC Financial Services"
+      },
+      {
+        "ticker": "PRIM",
+        "buy": 2,
+        "sell": 1,
+        "company": "Primoris Services"
+      },
+      {
+        "ticker": "PSA",
+        "buy": 2,
+        "sell": 1,
+        "company": "Public Storage"
+      },
+      {
         "ticker": "QTWO",
         "buy": 1,
         "sell": 2,
-        "company": "Q2 Hldgs Inc"
+        "company": "Q2"
+      },
+      {
+        "ticker": "PWR",
+        "buy": 3,
+        "sell": 0,
+        "company": "Quanta Services"
       },
       {
         "ticker": "RDN",
         "buy": 1,
         "sell": 2,
-        "company": "Radian Group Inc"
+        "company": "Radian"
       },
       {
         "ticker": "RDNT",
         "buy": 1,
         "sell": 2,
-        "company": "Radnet Inc"
-      },
-      {
-        "ticker": "RGLD",
-        "buy": 2,
-        "sell": 1,
-        "company": "Royal Gold, Inc."
+        "company": "Radnet"
       },
       {
         "ticker": "RJF",
         "buy": 1,
         "sell": 2,
-        "company": "Raymond James Financial Inc."
+        "company": "Raymond James Financial"
       },
       {
-        "ticker": "RUN",
-        "buy": 1,
-        "sell": 2,
-        "company": "Sunrun Inc."
+        "ticker": "RGLD",
+        "buy": 2,
+        "sell": 1,
+        "company": "Royal Gold"
       },
       {
         "ticker": "SABR",
         "buy": 2,
         "sell": 1,
-        "company": "Sabre Corporation"
-      },
-      {
-        "ticker": "SARO",
-        "buy": 2,
-        "sell": 1,
-        "company": "StandardAero, Inc."
-      },
-      {
-        "ticker": "SCL",
-        "buy": 2,
-        "sell": 1,
-        "company": "Stepan Co"
+        "company": "Sabre"
       },
       {
         "ticker": "SDGR",
         "buy": 2,
         "sell": 1,
-        "company": "Schrodinger Inc"
+        "company": "Schrodinger"
       },
       {
         "ticker": "SEZL",
         "buy": 2,
         "sell": 1,
-        "company": "Sezzle Inc"
+        "company": "Sezzle"
+      },
+      {
+        "ticker": "TSLX",
+        "buy": 3,
+        "sell": 0,
+        "company": "Sixth Street Specialty Lending"
       },
       {
         "ticker": "SKY",
         "buy": 2,
         "sell": 1,
-        "company": "Skyline Champion Corporation"
-      },
-      {
-        "ticker": "SLVM",
-        "buy": 1,
-        "sell": 2,
-        "company": "Sylvamo Corp"
+        "company": "Skyline Champion"
       },
       {
         "ticker": "SM",
         "buy": 3,
         "sell": 0,
-        "company": "SM Energy Co"
+        "company": "SM Energy"
+      },
+      {
+        "ticker": "SW",
+        "buy": 2,
+        "sell": 1,
+        "company": "Smurfit Westrock"
       },
       {
         "ticker": "SOLV",
         "buy": 1,
         "sell": 2,
-        "company": "Solventum Corporation"
+        "company": "Solventum"
       },
       {
         "ticker": "SSNC",
         "buy": 2,
         "sell": 1,
-        "company": "SS&C Technologies Holdings, In"
+        "company": "SS&C Technologies"
+      },
+      {
+        "ticker": "SARO",
+        "buy": 2,
+        "sell": 1,
+        "company": "StandardAero"
+      },
+      {
+        "ticker": "SCL",
+        "buy": 2,
+        "sell": 1,
+        "company": "Stepan"
       },
       {
         "ticker": "STC",
@@ -5375,28 +5381,28 @@
         "company": "Stewart Information SVCS"
       },
       {
-        "ticker": "SW",
-        "buy": 2,
-        "sell": 1,
-        "company": "Smurfit Westrock PLC"
-      },
-      {
-        "ticker": "TEL",
+        "ticker": "RUN",
         "buy": 1,
         "sell": 2,
-        "company": "TE Connectivity plc"
+        "company": "Sunrun"
+      },
+      {
+        "ticker": "SLVM",
+        "buy": 1,
+        "sell": 2,
+        "company": "Sylvamo"
       },
       {
         "ticker": "TNDM",
         "buy": 1,
         "sell": 2,
-        "company": "Tandem Diabetes Care, Inc."
+        "company": "Tandem Diabetes Care"
       },
       {
-        "ticker": "TRIP",
+        "ticker": "TEL",
         "buy": 1,
         "sell": 2,
-        "company": "TripAdvisor, Inc."
+        "company": "TE Connectivity"
       },
       {
         "ticker": "TRU",
@@ -5405,172 +5411,160 @@
         "company": "TransUnion"
       },
       {
+        "ticker": "TRIP",
+        "buy": 1,
+        "sell": 2,
+        "company": "TripAdvisor"
+      },
+      {
         "ticker": "TRUP",
         "buy": 1,
         "sell": 2,
-        "company": "Trupanion, Inc."
-      },
-      {
-        "ticker": "TSLX",
-        "buy": 3,
-        "sell": 0,
-        "company": "Sixth Street Specialty Lending Inc"
+        "company": "Trupanion"
       },
       {
         "ticker": "TSN",
         "buy": 2,
         "sell": 1,
-        "company": "Tyson Foods, Inc."
-      },
-      {
-        "ticker": "UAL",
-        "buy": 1,
-        "sell": 2,
-        "company": "United Airlines Holdings Inc"
-      },
-      {
-        "ticker": "UCTT",
-        "buy": 1,
-        "sell": 2,
-        "company": "Ultra Clean Holdings, Inc."
+        "company": "Tyson Foods"
       },
       {
         "ticker": "UFPT",
         "buy": 1,
         "sell": 2,
-        "company": "Ufp Technologies Inc"
+        "company": "Ufp Technologies"
       },
       {
-        "ticker": "UPST",
-        "buy": 2,
-        "sell": 1,
-        "company": "Upstart Hldgs Inc"
+        "ticker": "UCTT",
+        "buy": 1,
+        "sell": 2,
+        "company": "Ultra Clean"
+      },
+      {
+        "ticker": "UAL",
+        "buy": 1,
+        "sell": 2,
+        "company": "United Airlines"
       },
       {
         "ticker": "URI",
         "buy": 1,
         "sell": 2,
-        "company": "United Rentals, Inc."
+        "company": "United Rentals"
       },
       {
-        "ticker": "VCEL",
-        "buy": 1,
-        "sell": 2,
-        "company": "Vericel Corp"
+        "ticker": "UPST",
+        "buy": 2,
+        "sell": 1,
+        "company": "Upstart"
       },
       {
         "ticker": "VLO",
         "buy": 2,
         "sell": 1,
-        "company": "Valero Energy Corporation"
+        "company": "Valero Energy"
       },
       {
         "ticker": "VLTO",
         "buy": 2,
         "sell": 1,
-        "company": "Veralto Corp"
+        "company": "Veralto"
+      },
+      {
+        "ticker": "VCEL",
+        "buy": 1,
+        "sell": 2,
+        "company": "Vericel"
       },
       {
         "ticker": "VSAT",
         "buy": 1,
         "sell": 2,
-        "company": "ViaSat, Inc."
-      },
-      {
-        "ticker": "VYX",
-        "buy": 2,
-        "sell": 1,
-        "company": "NCR Voyix Corp"
-      },
-      {
-        "ticker": "WSFS",
-        "buy": 1,
-        "sell": 2,
-        "company": "WSFS Financial Corporation"
+        "company": "ViaSat"
       },
       {
         "ticker": "WSM",
         "buy": 1,
         "sell": 2,
-        "company": "Williams-Sonoma, Inc."
+        "company": "Williams-Sonoma"
+      },
+      {
+        "ticker": "WSFS",
+        "buy": 1,
+        "sell": 2,
+        "company": "WSFS Financial"
       },
       {
         "ticker": "YELP",
         "buy": 1,
         "sell": 2,
-        "company": "Yelp Inc"
-      },
-      {
-        "ticker": "ABG",
-        "buy": 1,
-        "sell": 1,
-        "company": "Asbury Automotive Group"
-      },
-      {
-        "ticker": "ACGL",
-        "buy": 1,
-        "sell": 1,
-        "company": "Arch Capital Group LTD."
-      },
-      {
-        "ticker": "ACLS",
-        "buy": 1,
-        "sell": 1,
-        "company": "Axcelis Technologies Inc"
-      },
-      {
-        "ticker": "ADM",
-        "buy": 1,
-        "sell": 1,
-        "company": "Archer-Daniels-Midland Company"
-      },
-      {
-        "ticker": "AEE",
-        "buy": 2,
-        "sell": 0,
-        "company": "Ameren Corporation"
+        "company": "Yelp"
       },
       {
         "ticker": "AIR",
         "buy": 1,
         "sell": 1,
-        "company": "Aar Corp"
-      },
-      {
-        "ticker": "AMAT",
-        "buy": 1,
-        "sell": 1,
-        "company": "Applied Materials, Inc."
-      },
-      {
-        "ticker": "ANIP",
-        "buy": 1,
-        "sell": 1,
-        "company": "Ani Pharmaceuticals Inc"
-      },
-      {
-        "ticker": "AON",
-        "buy": 0,
-        "sell": 2,
-        "company": "Aon PLC"
+        "company": "Aar"
       },
       {
         "ticker": "ARE",
         "buy": 1,
         "sell": 1,
-        "company": "Alexandria Real Estate Equities, Inc."
+        "company": "Alexandria Real Estate Equities"
+      },
+      {
+        "ticker": "LNT",
+        "buy": 2,
+        "sell": 0,
+        "company": "Alliant Energy"
+      },
+      {
+        "ticker": "AEE",
+        "buy": 2,
+        "sell": 0,
+        "company": "Ameren"
+      },
+      {
+        "ticker": "ANIP",
+        "buy": 1,
+        "sell": 1,
+        "company": "Ani Pharmaceuticals"
+      },
+      {
+        "ticker": "AON",
+        "buy": 0,
+        "sell": 2,
+        "company": "Aon"
+      },
+      {
+        "ticker": "AMAT",
+        "buy": 1,
+        "sell": 1,
+        "company": "Applied Materials"
+      },
+      {
+        "ticker": "ACGL",
+        "buy": 1,
+        "sell": 1,
+        "company": "Arch Capital"
+      },
+      {
+        "ticker": "ADM",
+        "buy": 1,
+        "sell": 1,
+        "company": "Archer-Daniels-Midland"
       },
       {
         "ticker": "ARES",
         "buy": 1,
         "sell": 1,
-        "company": "Ares Management Corp"
+        "company": "Ares Management"
       },
       {
         "ticker": "ARLO",
         "buy": 1,
         "sell": 1,
-        "company": "Arlo Technologies Inc"
+        "company": "Arlo Technologies"
       },
       {
         "ticker": "ARR",
@@ -5579,106 +5573,118 @@
         "company": "Armour Residential REIT"
       },
       {
+        "ticker": "ABG",
+        "buy": 1,
+        "sell": 1,
+        "company": "Asbury Automotive"
+      },
+      {
         "ticker": "ASTH",
         "buy": 1,
         "sell": 1,
-        "company": "Astrana Health Inc"
+        "company": "Astrana Health"
       },
       {
         "ticker": "ATO",
         "buy": 0,
         "sell": 2,
-        "company": "Atmos Energy Corporation"
+        "company": "Atmos Energy"
+      },
+      {
+        "ticker": "ACLS",
+        "buy": 1,
+        "sell": 1,
+        "company": "Axcelis Technologies"
       },
       {
         "ticker": "AZTA",
         "buy": 1,
         "sell": 1,
-        "company": "Azenta, Inc."
+        "company": "Azenta"
       },
       {
         "ticker": "BALL",
         "buy": 1,
         "sell": 1,
-        "company": "Ball Corporation"
+        "company": "Ball"
       },
       {
-        "ticker": "BF-B",
+        "ticker": "TBBK",
         "buy": 0,
         "sell": 2,
-        "company": "Brown Forman Corp CL B CMN Class B"
-      },
-      {
-        "ticker": "BFH",
-        "buy": 1,
-        "sell": 1,
-        "company": "Bread Finl Holdings"
+        "company": "Bancorp Inc Del"
       },
       {
         "ticker": "BIIB",
         "buy": 1,
         "sell": 1,
-        "company": "Biogen Inc."
+        "company": "Biogen"
       },
       {
         "ticker": "BLFS",
         "buy": 1,
         "sell": 1,
-        "company": "BioLife Solutions, Inc."
+        "company": "BioLife Solutions"
       },
       {
         "ticker": "BLMN",
         "buy": 1,
         "sell": 1,
-        "company": "Bloomin Brands Inc"
+        "company": "Bloomin Brands"
+      },
+      {
+        "ticker": "BFH",
+        "buy": 1,
+        "sell": 1,
+        "company": "Bread Finl"
+      },
+      {
+        "ticker": "BF-B",
+        "buy": 0,
+        "sell": 2,
+        "company": "Brown Forman"
       },
       {
         "ticker": "CABO",
         "buy": 1,
         "sell": 1,
-        "company": "Cable One Inc"
-      },
-      {
-        "ticker": "CAKE",
-        "buy": 1,
-        "sell": 1,
-        "company": "Cheesecake Factory Inc"
+        "company": "Cable One"
       },
       {
         "ticker": "CG",
         "buy": 1,
         "sell": 1,
-        "company": "The Carlyle Group Inc."
+        "company": "Carlyle"
       },
       {
-        "ticker": "CHCO",
+        "ticker": "CAKE",
         "buy": 1,
         "sell": 1,
-        "company": "City HLDG Co"
+        "company": "Cheesecake Factory"
       },
       {
         "ticker": "CHDN",
         "buy": 0,
         "sell": 2,
-        "company": "Churchill Downs, Incorporated"
+        "company": "Churchill Downs"
+      },
+      {
+        "ticker": "CHCO",
+        "buy": 1,
+        "sell": 1,
+        "company": "City HLDG"
       },
       {
         "ticker": "CLSK",
         "buy": 1,
         "sell": 1,
-        "company": "Cleanspark Inc"
+        "company": "Cleanspark"
       },
       {
-        "ticker": "CNMD",
-        "buy": 1,
-        "sell": 1,
-        "company": "Conmed Corp"
-      },
-      {
-        "ticker": "CNXN",
-        "buy": 1,
-        "sell": 1,
-        "company": "PC Connection Inc"
+        "ticker": "NET",
+        "buy": 2,
+        "sell": 0,
+        "company": "Cloudflare"
       },
       {
         "ticker": "COLL",
@@ -5687,202 +5693,214 @@
         "company": "Collegium Pharmaceutical"
       },
       {
-        "ticker": "CPAY",
+        "ticker": "FIX",
         "buy": 2,
         "sell": 0,
-        "company": "Corpay, Inc."
+        "company": "Comfort Systems USA"
+      },
+      {
+        "ticker": "CNMD",
+        "buy": 1,
+        "sell": 1,
+        "company": "Conmed"
       },
       {
         "ticker": "CRBG",
         "buy": 2,
         "sell": 0,
-        "company": "Corebridge Finl Inc"
-      },
-      {
-        "ticker": "DBD",
-        "buy": 1,
-        "sell": 1,
-        "company": "Diebold Nixdorf Inc"
-      },
-      {
-        "ticker": "DCH",
-        "buy": 1,
-        "sell": 1,
-        "company": "Dauch Corp"
-      },
-      {
-        "ticker": "DECK",
-        "buy": 1,
-        "sell": 1,
-        "company": "Deckers Outdoors Corp"
-      },
-      {
-        "ticker": "DELL",
-        "buy": 1,
-        "sell": 1,
-        "company": "Dell Technologies Inc."
-      },
-      {
-        "ticker": "DGX",
-        "buy": 2,
-        "sell": 0,
-        "company": "Quest Diagnostics Incorporated"
-      },
-      {
-        "ticker": "DVA",
-        "buy": 2,
-        "sell": 0,
-        "company": "DaVita Inc."
-      },
-      {
-        "ticker": "EIG",
-        "buy": 1,
-        "sell": 1,
-        "company": "Employers Hldgs Inc"
-      },
-      {
-        "ticker": "ENVA",
-        "buy": 1,
-        "sell": 1,
-        "company": "Enova Intl Inc"
-      },
-      {
-        "ticker": "ESAB",
-        "buy": 1,
-        "sell": 1,
-        "company": "ESAB Corporation"
-      },
-      {
-        "ticker": "ETN",
-        "buy": 1,
-        "sell": 1,
-        "company": "Eaton Corporation, PLC"
-      },
-      {
-        "ticker": "EXR",
-        "buy": 2,
-        "sell": 0,
-        "company": "Extra Space Storage Inc."
-      },
-      {
-        "ticker": "EXTR",
-        "buy": 1,
-        "sell": 1,
-        "company": "Extreme Networks Inc"
-      },
-      {
-        "ticker": "FCX",
-        "buy": 2,
-        "sell": 0,
-        "company": "Freeport-McMoRan, Inc."
-      },
-      {
-        "ticker": "FIX",
-        "buy": 2,
-        "sell": 0,
-        "company": "Comfort Systems USA, Inc."
-      },
-      {
-        "ticker": "FSLR",
-        "buy": 0,
-        "sell": 2,
-        "company": "First Solar, Inc."
-      },
-      {
-        "ticker": "GD",
-        "buy": 1,
-        "sell": 1,
-        "company": "General Dynamics Corporation"
-      },
-      {
-        "ticker": "GFF",
-        "buy": 1,
-        "sell": 1,
-        "company": "Griffon Corp"
+        "company": "Corebridge Finl"
       },
       {
         "ticker": "GLW",
         "buy": 1,
         "sell": 1,
-        "company": "Corning Incorporated"
+        "company": "Corning"
+      },
+      {
+        "ticker": "CPAY",
+        "buy": 2,
+        "sell": 0,
+        "company": "Corpay"
+      },
+      {
+        "ticker": "DCH",
+        "buy": 1,
+        "sell": 1,
+        "company": "Dauch"
+      },
+      {
+        "ticker": "DVA",
+        "buy": 2,
+        "sell": 0,
+        "company": "DaVita"
+      },
+      {
+        "ticker": "DECK",
+        "buy": 1,
+        "sell": 1,
+        "company": "Deckers Outdoors"
+      },
+      {
+        "ticker": "DELL",
+        "buy": 1,
+        "sell": 1,
+        "company": "Dell Technologies"
+      },
+      {
+        "ticker": "DBD",
+        "buy": 1,
+        "sell": 1,
+        "company": "Diebold Nixdorf"
+      },
+      {
+        "ticker": "ETN",
+        "buy": 1,
+        "sell": 1,
+        "company": "Eaton"
+      },
+      {
+        "ticker": "EIG",
+        "buy": 1,
+        "sell": 1,
+        "company": "Employers"
+      },
+      {
+        "ticker": "ENVA",
+        "buy": 1,
+        "sell": 1,
+        "company": "Enova Intl"
+      },
+      {
+        "ticker": "ESAB",
+        "buy": 1,
+        "sell": 1,
+        "company": "ESAB"
+      },
+      {
+        "ticker": "EXR",
+        "buy": 2,
+        "sell": 0,
+        "company": "Extra Space Storage"
+      },
+      {
+        "ticker": "EXTR",
+        "buy": 1,
+        "sell": 1,
+        "company": "Extreme Networks"
+      },
+      {
+        "ticker": "FSLR",
+        "buy": 0,
+        "sell": 2,
+        "company": "First Solar"
+      },
+      {
+        "ticker": "FCX",
+        "buy": 2,
+        "sell": 0,
+        "company": "Freeport-McMoRan"
+      },
+      {
+        "ticker": "GD",
+        "buy": 1,
+        "sell": 1,
+        "company": "General Dynamics"
+      },
+      {
+        "ticker": "THRM",
+        "buy": 1,
+        "sell": 1,
+        "company": "Gentherm"
+      },
+      {
+        "ticker": "GFF",
+        "buy": 1,
+        "sell": 1,
+        "company": "Griffon"
       },
       {
         "ticker": "GO",
         "buy": 0,
         "sell": 2,
-        "company": "Grocery Outlet Holding Corp."
-      },
-      {
-        "ticker": "HCI",
-        "buy": 1,
-        "sell": 1,
-        "company": "Hci Group Inc"
-      },
-      {
-        "ticker": "HEI",
-        "buy": 1,
-        "sell": 1,
-        "company": "Heico Corporation"
-      },
-      {
-        "ticker": "HIG",
-        "buy": 0,
-        "sell": 2,
-        "company": "Hartford Insurance Group Inc/T"
+        "company": "Grocery Outlet Holding"
       },
       {
         "ticker": "HLIT",
         "buy": 1,
         "sell": 1,
-        "company": "Harmonic Inc"
+        "company": "Harmonic"
       },
       {
-        "ticker": "HPE",
-        "buy": 1,
-        "sell": 1,
-        "company": "Hewlett Packard Enterprise Company"
-      },
-      {
-        "ticker": "HSY",
-        "buy": 1,
-        "sell": 1,
-        "company": "The Hershey Company"
+        "ticker": "HIG",
+        "buy": 0,
+        "sell": 2,
+        "company": "Hartford Insurance"
       },
       {
         "ticker": "HWKN",
         "buy": 1,
         "sell": 1,
-        "company": "Hawkins Inc"
+        "company": "Hawkins"
+      },
+      {
+        "ticker": "HCI",
+        "buy": 1,
+        "sell": 1,
+        "company": "Hci"
+      },
+      {
+        "ticker": "HEI",
+        "buy": 1,
+        "sell": 1,
+        "company": "Heico"
+      },
+      {
+        "ticker": "HSY",
+        "buy": 1,
+        "sell": 1,
+        "company": "Hershey"
+      },
+      {
+        "ticker": "HPE",
+        "buy": 1,
+        "sell": 1,
+        "company": "Hewlett Packard Enterprise"
       },
       {
         "ticker": "HWM",
         "buy": 1,
         "sell": 1,
-        "company": "Howmet Aerospace Inc."
-      },
-      {
-        "ticker": "IFF",
-        "buy": 2,
-        "sell": 0,
-        "company": "International Flavors & Fragrances, Inc."
+        "company": "Howmet Aerospace"
       },
       {
         "ticker": "ILMN",
         "buy": 2,
         "sell": 0,
-        "company": "Illumina, Inc."
+        "company": "Illumina"
       },
       {
         "ticker": "INGR",
         "buy": 0,
         "sell": 2,
-        "company": "Ingredion Incorporated"
+        "company": "Ingredion"
+      },
+      {
+        "ticker": "IFF",
+        "buy": 2,
+        "sell": 0,
+        "company": "International Flavors & Fragrances"
       },
       {
         "ticker": "IP",
         "buy": 0,
         "sell": 2,
-        "company": "International Paper Company"
+        "company": "International Paper"
+      },
+      {
+        "ticker": "JBL",
+        "buy": 1,
+        "sell": 1,
+        "company": "Jabil"
       },
       {
         "ticker": "JBGS",
@@ -5891,124 +5909,118 @@
         "company": "JBG Smith Pptys"
       },
       {
-        "ticker": "JBL",
-        "buy": 1,
-        "sell": 1,
-        "company": "Jabil Inc"
+        "ticker": "KMPR",
+        "buy": 2,
+        "sell": 0,
+        "company": "Kemper"
       },
       {
         "ticker": "KD",
         "buy": 2,
         "sell": 0,
-        "company": "Kyndryl Holdings, Inc."
-      },
-      {
-        "ticker": "KMPR",
-        "buy": 2,
-        "sell": 0,
-        "company": "Kemper Corporation"
-      },
-      {
-        "ticker": "L",
-        "buy": 1,
-        "sell": 1,
-        "company": "Loews Corporation"
-      },
-      {
-        "ticker": "LNT",
-        "buy": 2,
-        "sell": 0,
-        "company": "Alliant Energy Corporation"
-      },
-      {
-        "ticker": "LQDT",
-        "buy": 1,
-        "sell": 1,
-        "company": "Liquidity SVCS Inc"
-      },
-      {
-        "ticker": "LUV",
-        "buy": 2,
-        "sell": 0,
-        "company": "Southwest Airlines Company"
+        "company": "Kyndryl"
       },
       {
         "ticker": "LW",
         "buy": 2,
         "sell": 0,
-        "company": "Lamb Weston Holdings, Inc."
+        "company": "Lamb Weston"
       },
       {
-        "ticker": "MAA",
+        "ticker": "LQDT",
         "buy": 1,
         "sell": 1,
-        "company": "Mid-America Apartment Communities, Inc."
+        "company": "Liquidity SVCS"
+      },
+      {
+        "ticker": "RAMP",
+        "buy": 1,
+        "sell": 1,
+        "company": "Liveramp"
+      },
+      {
+        "ticker": "L",
+        "buy": 1,
+        "sell": 1,
+        "company": "Loews"
       },
       {
         "ticker": "MARA",
         "buy": 1,
         "sell": 1,
-        "company": "Mara Hldgs Inc"
-      },
-      {
-        "ticker": "MKL",
-        "buy": 0,
-        "sell": 2,
-        "company": "Markel Group Inc."
+        "company": "Mara"
       },
       {
         "ticker": "MMI",
         "buy": 1,
         "sell": 1,
-        "company": "Marcus & Millichap Inc"
+        "company": "Marcus & Millichap"
       },
       {
-        "ticker": "MNRO",
-        "buy": 1,
-        "sell": 1,
-        "company": "Monro Inc"
-      },
-      {
-        "ticker": "MNST",
-        "buy": 2,
-        "sell": 0,
-        "company": "Monster Beverage Corporation"
-      },
-      {
-        "ticker": "MOD",
-        "buy": 2,
-        "sell": 0,
-        "company": "Modine Mfg Co"
-      },
-      {
-        "ticker": "MPWR",
-        "buy": 1,
-        "sell": 1,
-        "company": "Monolithic Power Systems, Inc."
-      },
-      {
-        "ticker": "MRNA",
-        "buy": 1,
-        "sell": 1,
-        "company": "Moderna, Inc."
-      },
-      {
-        "ticker": "MSA",
+        "ticker": "MKL",
         "buy": 0,
         "sell": 2,
-        "company": "Msa Safety Inc"
+        "company": "Markel"
       },
       {
         "ticker": "MTCH",
         "buy": 2,
         "sell": 0,
-        "company": "Match Group, Inc."
+        "company": "Match"
+      },
+      {
+        "ticker": "MAA",
+        "buy": 1,
+        "sell": 1,
+        "company": "Mid-America Apartment Communities"
+      },
+      {
+        "ticker": "MRNA",
+        "buy": 1,
+        "sell": 1,
+        "company": "Moderna"
+      },
+      {
+        "ticker": "MOD",
+        "buy": 2,
+        "sell": 0,
+        "company": "Modine Mfg"
+      },
+      {
+        "ticker": "MPWR",
+        "buy": 1,
+        "sell": 1,
+        "company": "Monolithic Power Systems"
+      },
+      {
+        "ticker": "MNRO",
+        "buy": 1,
+        "sell": 1,
+        "company": "Monro"
+      },
+      {
+        "ticker": "MNST",
+        "buy": 2,
+        "sell": 0,
+        "company": "Monster Beverage"
+      },
+      {
+        "ticker": "MSA",
+        "buy": 0,
+        "sell": 2,
+        "company": "Msa Safety"
       },
       {
         "ticker": "NABL",
         "buy": 1,
         "sell": 1,
-        "company": "N-Able Inc"
+        "company": "N-Able"
+      },
+      {
+        "ticker": "NBTB",
+        "buy": 1,
+        "sell": 1,
+        "company": "NBT Bancorp"
       },
       {
         "ticker": "NBIS",
@@ -6017,130 +6029,124 @@
         "company": "Nebius Group N V"
       },
       {
-        "ticker": "NBTB",
-        "buy": 1,
-        "sell": 1,
-        "company": "NBT Bancorp Inc"
-      },
-      {
         "ticker": "NCLH",
         "buy": 1,
         "sell": 1,
-        "company": "Norwegian Cruise Line Holdings Ltd."
-      },
-      {
-        "ticker": "NET",
-        "buy": 2,
-        "sell": 0,
-        "company": "Cloudflare, Inc. Class A"
+        "company": "Norwegian Cruise Line"
       },
       {
         "ticker": "NUE",
         "buy": 2,
         "sell": 0,
-        "company": "Nucor Corporation"
-      },
-      {
-        "ticker": "OGN",
-        "buy": 1,
-        "sell": 1,
-        "company": "Organon & Co."
+        "company": "Nucor"
       },
       {
         "ticker": "OPLN",
         "buy": 1,
         "sell": 1,
-        "company": "Openlane Inc"
+        "company": "Openlane"
+      },
+      {
+        "ticker": "OGN",
+        "buy": 1,
+        "sell": 1,
+        "company": "Organon"
       },
       {
         "ticker": "OSIS",
         "buy": 1,
         "sell": 1,
-        "company": "Osi Sys Inc"
+        "company": "Osi Sys"
       },
       {
         "ticker": "PAYO",
         "buy": 1,
         "sell": 1,
-        "company": "Payoneer Global Inc"
+        "company": "Payoneer Global"
       },
       {
-        "ticker": "PEN",
+        "ticker": "CNXN",
         "buy": 1,
         "sell": 1,
-        "company": "Penumbra Inc"
+        "company": "PC Connection"
       },
       {
         "ticker": "PENN",
         "buy": 1,
         "sell": 1,
-        "company": "Penn Entertainment Inc"
+        "company": "Penn Entertainment"
+      },
+      {
+        "ticker": "PEN",
+        "buy": 1,
+        "sell": 1,
+        "company": "Penumbra"
       },
       {
         "ticker": "PHIN",
         "buy": 1,
         "sell": 1,
-        "company": "Phinia Inc"
+        "company": "Phinia"
       },
       {
         "ticker": "PLD",
         "buy": 1,
         "sell": 1,
-        "company": "Prologis, Inc."
+        "company": "Prologis"
+      },
+      {
+        "ticker": "DGX",
+        "buy": 2,
+        "sell": 0,
+        "company": "Quest Diagnostics"
       },
       {
         "ticker": "QDEL",
         "buy": 1,
         "sell": 1,
-        "company": "Quidelortho Corp"
+        "company": "Quidelortho"
       },
       {
         "ticker": "QNST",
         "buy": 1,
         "sell": 1,
-        "company": "Quinstreet Inc"
-      },
-      {
-        "ticker": "RAMP",
-        "buy": 1,
-        "sell": 1,
-        "company": "Liveramp Hldgs Inc"
-      },
-      {
-        "ticker": "RPRX",
-        "buy": 0,
-        "sell": 2,
-        "company": "Royalty Pharma PLC"
+        "company": "Quinstreet"
       },
       {
         "ticker": "RVMD",
         "buy": 1,
         "sell": 1,
-        "company": "Revolution Medicines Inc"
+        "company": "Revolution Medicines"
       },
       {
         "ticker": "RVTY",
         "buy": 1,
         "sell": 1,
-        "company": "Revvity, Inc."
+        "company": "Revvity"
+      },
+      {
+        "ticker": "RPRX",
+        "buy": 0,
+        "sell": 2,
+        "company": "Royalty Pharma"
       },
       {
         "ticker": "RXO",
         "buy": 1,
         "sell": 1,
-        "company": "Rxo Inc"
+        "company": "Rxo"
       },
       {
         "ticker": "SANM",
         "buy": 1,
         "sell": 1,
-        "company": "Sanmina Corp"
+        "company": "Sanmina"
       },
       {
-        "ticker": "SBSI",
+        "ticker": "SRPT",
         "buy": 1,
         "sell": 1,
-        "company": "Southside Bancshares Inc"
+        "company": "Sarepta Therapeutics"
       },
       {
         "ticker": "SCI",
@@ -6152,337 +6158,277 @@
         "ticker": "SITM",
         "buy": 1,
         "sell": 1,
-        "company": "Sitime Corp"
+        "company": "Sitime"
       },
       {
         "ticker": "SKYW",
         "buy": 0,
         "sell": 2,
-        "company": "Skywest Inc"
+        "company": "Skywest"
       },
       {
-        "ticker": "SNEX",
+        "ticker": "SBSI",
         "buy": 1,
         "sell": 1,
-        "company": "Stonex Group Inc"
+        "company": "Southside Bancshares"
       },
       {
-        "ticker": "SRPT",
-        "buy": 1,
-        "sell": 1,
-        "company": "Sarepta Therapeutics, Inc."
+        "ticker": "LUV",
+        "buy": 2,
+        "sell": 0,
+        "company": "Southwest Airlines"
       },
       {
         "ticker": "STT",
         "buy": 1,
         "sell": 1,
-        "company": "State Street Corporation"
+        "company": "State Street"
       },
       {
-        "ticker": "TBBK",
-        "buy": 0,
-        "sell": 2,
-        "company": "Bancorp Inc Del"
-      },
-      {
-        "ticker": "TDY",
+        "ticker": "SNEX",
         "buy": 1,
         "sell": 1,
-        "company": "Teledyne Technologies Incorporated"
-      },
-      {
-        "ticker": "TFC",
-        "buy": 2,
-        "sell": 0,
-        "company": "Truist Financial Corporation"
-      },
-      {
-        "ticker": "THRM",
-        "buy": 1,
-        "sell": 1,
-        "company": "Gentherm Inc"
-      },
-      {
-        "ticker": "TNC",
-        "buy": 1,
-        "sell": 1,
-        "company": "Tennant Co"
+        "company": "Stonex"
       },
       {
         "ticker": "TPR",
         "buy": 0,
         "sell": 2,
-        "company": "Tapestry, Inc."
+        "company": "Tapestry"
+      },
+      {
+        "ticker": "TDY",
+        "buy": 1,
+        "sell": 1,
+        "company": "Teledyne Technologies"
+      },
+      {
+        "ticker": "TNC",
+        "buy": 1,
+        "sell": 1,
+        "company": "Tennant"
       },
       {
         "ticker": "TREX",
         "buy": 1,
         "sell": 1,
-        "company": "Trex Co Inc"
+        "company": "Trex"
       },
       {
-        "ticker": "UHS",
-        "buy": 1,
-        "sell": 1,
-        "company": "Universal Health Services, Inc."
-      },
-      {
-        "ticker": "UNP",
+        "ticker": "TFC",
         "buy": 2,
         "sell": 0,
-        "company": "Union Pacific Corporation"
-      },
-      {
-        "ticker": "URBN",
-        "buy": 1,
-        "sell": 1,
-        "company": "Urban Outfitters Inc"
+        "company": "Truist Financial"
       },
       {
         "ticker": "USPH",
         "buy": 0,
         "sell": 2,
-        "company": "U.S. Physical Therapy, Inc."
+        "company": "U.S. Physical Therapy"
       },
       {
-        "ticker": "VICI",
+        "ticker": "UNP",
         "buy": 2,
         "sell": 0,
-        "company": "VICI Properties Inc."
+        "company": "Union Pacific"
       },
       {
-        "ticker": "VICR",
+        "ticker": "UHS",
         "buy": 1,
         "sell": 1,
-        "company": "Vicor Corp"
+        "company": "Universal Health Services"
+      },
+      {
+        "ticker": "URBN",
+        "buy": 1,
+        "sell": 1,
+        "company": "Urban Outfitters"
       },
       {
         "ticker": "VRNS",
         "buy": 0,
         "sell": 2,
-        "company": "Varonis Systems, Inc."
+        "company": "Varonis Systems"
       },
       {
-        "ticker": "WBD",
-        "buy": 0,
-        "sell": 2,
-        "company": "Warner Bros. Discovery, Inc."
+        "ticker": "VICI",
+        "buy": 2,
+        "sell": 0,
+        "company": "VICI Properties"
+      },
+      {
+        "ticker": "VICR",
+        "buy": 1,
+        "sell": 1,
+        "company": "Vicor"
       },
       {
         "ticker": "WD",
         "buy": 1,
         "sell": 1,
-        "company": "Walker & Dunlop Inc"
+        "company": "Walker & Dunlop"
+      },
+      {
+        "ticker": "WBD",
+        "buy": 0,
+        "sell": 2,
+        "company": "Warner Bros. Discovery"
       },
       {
         "ticker": "WDFC",
         "buy": 1,
         "sell": 1,
-        "company": "WD 40 Co"
+        "company": "WD 40"
       },
       {
         "ticker": "WERN",
         "buy": 1,
         "sell": 1,
-        "company": "Werner Enterprises Inc"
+        "company": "Werner Enterprises"
       },
       {
         "ticker": "WING",
         "buy": 1,
         "sell": 1,
-        "company": "Wingstop Inc"
+        "company": "Wingstop"
       },
       {
         "ticker": "WKC",
         "buy": 1,
         "sell": 1,
-        "company": "World Kinect Corp"
+        "company": "World Kinect"
       },
       {
         "ticker": "WYNN",
         "buy": 0,
         "sell": 2,
-        "company": "Wynn Resorts LTD"
+        "company": "Wynn Resorts"
       },
       {
         "ticker": "XPEL",
         "buy": 1,
         "sell": 1,
-        "company": "Xpel Inc"
+        "company": "Xpel"
       },
       {
         "ticker": "ZM",
         "buy": 1,
         "sell": 1,
-        "company": "Zoom Video Communications, Inc."
-      },
-      {
-        "ticker": "AES",
-        "buy": 0,
-        "sell": 1,
-        "company": "The AES Corporation"
-      },
-      {
-        "ticker": "ALB",
-        "buy": 1,
-        "sell": 0,
-        "company": "Albemarle Corporation"
-      },
-      {
-        "ticker": "ALHC",
-        "buy": 1,
-        "sell": 0,
-        "company": "Alignment Healthcare Inc"
-      },
-      {
-        "ticker": "ALK",
-        "buy": 0,
-        "sell": 1,
-        "company": "Alaska Air Group, Inc."
-      },
-      {
-        "ticker": "ALL",
-        "buy": 0,
-        "sell": 1,
-        "company": "Allstate Corporation"
-      },
-      {
-        "ticker": "AMKR",
-        "buy": 0,
-        "sell": 1,
-        "company": "Amkor Technology, Inc."
-      },
-      {
-        "ticker": "AMN",
-        "buy": 1,
-        "sell": 0,
-        "company": "AMN Healthcare Services Inc AMN Healthcare Services Inc"
-      },
-      {
-        "ticker": "AORT",
-        "buy": 0,
-        "sell": 1,
-        "company": "Artivion, Inc."
-      },
-      {
-        "ticker": "APG",
-        "buy": 1,
-        "sell": 0,
-        "company": "Api Group Corp"
-      },
-      {
-        "ticker": "APO",
-        "buy": 0,
-        "sell": 1,
-        "company": "Apollo Global Management, Inc."
+        "company": "Zoom Video Communications"
       },
       {
         "ticker": "ATEN",
         "buy": 1,
         "sell": 0,
-        "company": "A10 Networks Inc"
+        "company": "A10 Networks"
+      },
+      {
+        "ticker": "AES",
+        "buy": 0,
+        "sell": 1,
+        "company": "AES"
+      },
+      {
+        "ticker": "ALK",
+        "buy": 0,
+        "sell": 1,
+        "company": "Alaska Air"
+      },
+      {
+        "ticker": "ALB",
+        "buy": 1,
+        "sell": 0,
+        "company": "Albemarle"
+      },
+      {
+        "ticker": "ALHC",
+        "buy": 1,
+        "sell": 0,
+        "company": "Alignment Healthcare"
+      },
+      {
+        "ticker": "ALL",
+        "buy": 0,
+        "sell": 1,
+        "company": "Allstate"
+      },
+      {
+        "ticker": "AMKR",
+        "buy": 0,
+        "sell": 1,
+        "company": "Amkor Technology"
+      },
+      {
+        "ticker": "AMN",
+        "buy": 1,
+        "sell": 0,
+        "company": "AMN Healthcare"
+      },
+      {
+        "ticker": "APG",
+        "buy": 1,
+        "sell": 0,
+        "company": "Api"
+      },
+      {
+        "ticker": "APO",
+        "buy": 0,
+        "sell": 1,
+        "company": "Apollo Global Management"
+      },
+      {
+        "ticker": "RCUS",
+        "buy": 0,
+        "sell": 1,
+        "company": "Arcus Biosciences"
+      },
+      {
+        "ticker": "AORT",
+        "buy": 0,
+        "sell": 1,
+        "company": "Artivion"
       },
       {
         "ticker": "AVB",
         "buy": 1,
         "sell": 0,
-        "company": "AvalonBay Communities, Inc."
-      },
-      {
-        "ticker": "BBIO",
-        "buy": 1,
-        "sell": 0,
-        "company": "BridgeBio Pharma, Inc."
-      },
-      {
-        "ticker": "BJRI",
-        "buy": 1,
-        "sell": 0,
-        "company": "BJS Restaurants Inc"
+        "company": "AvalonBay Communities"
       },
       {
         "ticker": "BMRN",
         "buy": 1,
         "sell": 0,
-        "company": "BioMarin Pharmaceutical Inc."
+        "company": "BioMarin Pharmaceutical"
+      },
+      {
+        "ticker": "BJRI",
+        "buy": 1,
+        "sell": 0,
+        "company": "BJS Restaurants"
       },
       {
         "ticker": "BOOT",
         "buy": 0,
         "sell": 1,
-        "company": "Boot Barn Hldgs Inc"
+        "company": "Boot Barn"
       },
       {
-        "ticker": "CALY",
-        "buy": 0,
-        "sell": 1,
-        "company": "Callaway Golf Company"
-      },
-      {
-        "ticker": "CARS",
-        "buy": 0,
-        "sell": 1,
-        "company": "Cars Com Inc"
-      },
-      {
-        "ticker": "CART",
-        "buy": 0,
-        "sell": 1,
-        "company": "Maplebear Inc."
-      },
-      {
-        "ticker": "CASY",
+        "ticker": "BBIO",
         "buy": 1,
         "sell": 0,
-        "company": "Caseys General Stores, Inc."
-      },
-      {
-        "ticker": "CF",
-        "buy": 0,
-        "sell": 1,
-        "company": "CF Industries Holdings, Inc."
-      },
-      {
-        "ticker": "CFG",
-        "buy": 1,
-        "sell": 0,
-        "company": "Citizens Financial Group, Inc."
-      },
-      {
-        "ticker": "CHE",
-        "buy": 1,
-        "sell": 0,
-        "company": "Chemed Corp"
-      },
-      {
-        "ticker": "CHRD",
-        "buy": 1,
-        "sell": 0,
-        "company": "Chord Energy Corporation"
+        "company": "BridgeBio Pharma"
       },
       {
         "ticker": "CHRW",
         "buy": 1,
         "sell": 0,
-        "company": "C.H. Robinson Worldwide, Inc."
+        "company": "C.H. Robinson Worldwide"
       },
       {
-        "ticker": "CMI",
+        "ticker": "CALY",
         "buy": 0,
         "sell": 1,
-        "company": "Cummins Inc."
-      },
-      {
-        "ticker": "COHU",
-        "buy": 0,
-        "sell": 1,
-        "company": "Cohu Inc"
-      },
-      {
-        "ticker": "COO",
-        "buy": 0,
-        "sell": 1,
-        "company": "Cooper Cos Inc/The"
+        "company": "Callaway Golf"
       },
       {
         "ticker": "CPT",
@@ -6491,46 +6437,112 @@
         "company": "Camden Property Trust"
       },
       {
+        "ticker": "CARS",
+        "buy": 0,
+        "sell": 1,
+        "company": "Cars Com"
+      },
+      {
+        "ticker": "CASY",
+        "buy": 1,
+        "sell": 0,
+        "company": "Caseys General Stores"
+      },
+      {
+        "ticker": "CF",
+        "buy": 0,
+        "sell": 1,
+        "company": "CF Industries"
+      },
+      {
         "ticker": "CRL",
         "buy": 0,
         "sell": 1,
-        "company": "Charles River Laboratories International, Inc."
+        "company": "Charles River Laboratories International"
       },
       {
-        "ticker": "CSX",
+        "ticker": "CHE",
         "buy": 1,
         "sell": 0,
-        "company": "CSX Corporation"
+        "company": "Chemed"
       },
       {
-        "ticker": "CTKB",
+        "ticker": "CHRD",
+        "buy": 1,
+        "sell": 0,
+        "company": "Chord Energy"
+      },
+      {
+        "ticker": "CFG",
+        "buy": 1,
+        "sell": 0,
+        "company": "Citizens Financial"
+      },
+      {
+        "ticker": "COHU",
         "buy": 0,
         "sell": 1,
-        "company": "Cytek Biosciences Inc"
+        "company": "Cohu"
+      },
+      {
+        "ticker": "COO",
+        "buy": 0,
+        "sell": 1,
+        "company": "Cooper Cos Inc/The"
       },
       {
         "ticker": "CTVA",
         "buy": 1,
         "sell": 0,
-        "company": "Corteva, Inc."
+        "company": "Corteva"
       },
       {
         "ticker": "CVSA",
         "buy": 1,
         "sell": 0,
-        "company": "Covista Inc"
+        "company": "Covista"
+      },
+      {
+        "ticker": "CSX",
+        "buy": 1,
+        "sell": 0,
+        "company": "CSX"
+      },
+      {
+        "ticker": "CMI",
+        "buy": 0,
+        "sell": 1,
+        "company": "Cummins"
       },
       {
         "ticker": "CW",
         "buy": 1,
         "sell": 0,
-        "company": "Curtiss Wright Corp"
+        "company": "Curtiss Wright"
       },
       {
-        "ticker": "DD",
+        "ticker": "CTKB",
         "buy": 0,
         "sell": 1,
-        "company": "DuPont de Nemours, Inc."
+        "company": "Cytek Biosciences"
+      },
+      {
+        "ticker": "DLX",
+        "buy": 0,
+        "sell": 1,
+        "company": "Deluxe"
+      },
+      {
+        "ticker": "DVN",
+        "buy": 1,
+        "sell": 0,
+        "company": "Devon Energy"
+      },
+      {
+        "ticker": "DOCN",
+        "buy": 0,
+        "sell": 1,
+        "company": "Digitalocean"
       },
       {
         "ticker": "DFIN",
@@ -6539,34 +6551,16 @@
         "company": "Donnelley Finl Solutions"
       },
       {
-        "ticker": "DLX",
+        "ticker": "DD",
         "buy": 0,
         "sell": 1,
-        "company": "Deluxe Corp"
+        "company": "DuPont de Nemours"
       },
       {
-        "ticker": "DOC",
+        "ticker": "ELF",
         "buy": 0,
         "sell": 1,
-        "company": "Healthpeak Op, LLC"
-      },
-      {
-        "ticker": "DOCN",
-        "buy": 0,
-        "sell": 1,
-        "company": "Digitalocean Hldgs Inc"
-      },
-      {
-        "ticker": "DVN",
-        "buy": 1,
-        "sell": 0,
-        "company": "Devon Energy Corporation"
-      },
-      {
-        "ticker": "EFOR",
-        "buy": 0,
-        "sell": 1,
-        "company": "Everforth Inc"
+        "company": "E.L.F. Beauty"
       },
       {
         "ticker": "EIX",
@@ -6575,40 +6569,52 @@
         "company": "Edison International"
       },
       {
-        "ticker": "ELF",
-        "buy": 0,
-        "sell": 1,
-        "company": "E.L.F. Beauty Inc"
-      },
-      {
         "ticker": "ENTG",
         "buy": 1,
         "sell": 0,
-        "company": "Entegris, Inc."
+        "company": "Entegris"
+      },
+      {
+        "ticker": "NVRI",
+        "buy": 0,
+        "sell": 1,
+        "company": "Enviri"
       },
       {
         "ticker": "EQIX",
         "buy": 1,
         "sell": 0,
-        "company": "Equinix, Inc."
+        "company": "Equinix"
       },
       {
         "ticker": "ESS",
         "buy": 0,
         "sell": 1,
-        "company": "Essex Property Trust, Inc."
+        "company": "Essex Property Trust"
+      },
+      {
+        "ticker": "EFOR",
+        "buy": 0,
+        "sell": 1,
+        "company": "Everforth"
       },
       {
         "ticker": "EXPD",
         "buy": 1,
         "sell": 0,
-        "company": "Expeditors International of Washington, Inc."
+        "company": "Expeditors International of Washington"
+      },
+      {
+        "ticker": "FRT",
+        "buy": 0,
+        "sell": 1,
+        "company": "Federal Realty Investment Trust"
       },
       {
         "ticker": "FDX",
         "buy": 1,
         "sell": 0,
-        "company": "FedEx Corporation"
+        "company": "FedEx"
       },
       {
         "ticker": "FITB",
@@ -6620,205 +6626,223 @@
         "ticker": "FLEX",
         "buy": 1,
         "sell": 0,
-        "company": "Flex LTD"
+        "company": "Flex"
       },
       {
         "ticker": "FORM",
         "buy": 0,
         "sell": 1,
-        "company": "Formfactor Inc"
-      },
-      {
-        "ticker": "FRT",
-        "buy": 0,
-        "sell": 1,
-        "company": "Federal Realty Investment Trust"
-      },
-      {
-        "ticker": "FUL",
-        "buy": 0,
-        "sell": 1,
-        "company": "Fuller H B Co"
-      },
-      {
-        "ticker": "FWONA",
-        "buy": 1,
-        "sell": 0,
-        "company": "Liberty Media Corporation"
+        "company": "Formfactor"
       },
       {
         "ticker": "FWRD",
         "buy": 0,
         "sell": 1,
-        "company": "Forward Air Corp New"
+        "company": "Forward Air"
+      },
+      {
+        "ticker": "FUL",
+        "buy": 0,
+        "sell": 1,
+        "company": "Fuller H B"
       },
       {
         "ticker": "GE",
         "buy": 1,
         "sell": 0,
-        "company": "General Electric Company"
+        "company": "General Electric"
       },
       {
         "ticker": "GL",
         "buy": 0,
         "sell": 1,
-        "company": "Globe Life Inc."
+        "company": "Globe Life"
       },
       {
-        "ticker": "GWW",
-        "buy": 1,
-        "sell": 0,
-        "company": "W.W. Grainger, Inc."
-      },
-      {
-        "ticker": "HCC",
+        "ticker": "DOC",
         "buy": 0,
         "sell": 1,
-        "company": "Warrior Met Coal Inc"
-      },
-      {
-        "ticker": "HII",
-        "buy": 0,
-        "sell": 1,
-        "company": "Huntington Ingalls Industries, Inc."
-      },
-      {
-        "ticker": "HLT",
-        "buy": 1,
-        "sell": 0,
-        "company": "Hilton Worldwide Holdings Inc."
-      },
-      {
-        "ticker": "HOOD",
-        "buy": 1,
-        "sell": 0,
-        "company": "Robinhood Markets, Inc."
+        "company": "Healthpeak Op"
       },
       {
         "ticker": "HSIC",
         "buy": 0,
         "sell": 1,
-        "company": "Henry Schein, Inc."
+        "company": "Henry Schein"
+      },
+      {
+        "ticker": "HLT",
+        "buy": 1,
+        "sell": 0,
+        "company": "Hilton Worldwide"
       },
       {
         "ticker": "HUBB",
         "buy": 1,
         "sell": 0,
-        "company": "Hubbell Inc"
+        "company": "Hubbell"
+      },
+      {
+        "ticker": "HII",
+        "buy": 0,
+        "sell": 1,
+        "company": "Huntington Ingalls Industries"
       },
       {
         "ticker": "IBM",
         "buy": 0,
         "sell": 1,
-        "company": "International Business Machines Corporation"
-      },
-      {
-        "ticker": "ICE",
-        "buy": 0,
-        "sell": 1,
-        "company": "Intercontinental Exchange Inc."
+        "company": "IBM"
       },
       {
         "ticker": "ICLR",
         "buy": 0,
         "sell": 1,
-        "company": "ICON plc"
-      },
-      {
-        "ticker": "IDCC",
-        "buy": 0,
-        "sell": 1,
-        "company": "Interdigital Inc"
-      },
-      {
-        "ticker": "INSM",
-        "buy": 0,
-        "sell": 1,
-        "company": "Insmed Incorporated"
-      },
-      {
-        "ticker": "INVA",
-        "buy": 1,
-        "sell": 0,
-        "company": "Innoviva Inc"
+        "company": "ICON"
       },
       {
         "ticker": "INVX",
         "buy": 0,
         "sell": 1,
-        "company": "Innovex Intl Inc"
+        "company": "Innovex Intl"
       },
       {
-        "ticker": "ITT",
+        "ticker": "INVA",
         "buy": 1,
         "sell": 0,
-        "company": "ITT Inc."
+        "company": "Innoviva"
+      },
+      {
+        "ticker": "INSM",
+        "buy": 0,
+        "sell": 1,
+        "company": "Insmed"
+      },
+      {
+        "ticker": "ICE",
+        "buy": 0,
+        "sell": 1,
+        "company": "Intercontinental Exchange"
+      },
+      {
+        "ticker": "IDCC",
+        "buy": 0,
+        "sell": 1,
+        "company": "Interdigital"
       },
       {
         "ticker": "IVZ",
         "buy": 0,
         "sell": 1,
-        "company": "Invesco Ltd"
+        "company": "Invesco"
       },
       {
-        "ticker": "J",
-        "buy": 0,
-        "sell": 1,
-        "company": "Jacobs Engr Group Inc"
+        "ticker": "ITT",
+        "buy": 1,
+        "sell": 0,
+        "company": "ITT"
       },
       {
         "ticker": "JACK",
         "buy": 0,
         "sell": 1,
-        "company": "Jack In The Box Inc"
+        "company": "Jack In The Box"
+      },
+      {
+        "ticker": "J",
+        "buy": 0,
+        "sell": 1,
+        "company": "Jacobs Engr"
       },
       {
         "ticker": "JLL",
         "buy": 0,
         "sell": 1,
-        "company": "Jones Lang LaSalle Incorporated"
+        "company": "Jones Lang LaSalle"
       },
       {
         "ticker": "KBR",
         "buy": 1,
         "sell": 0,
-        "company": "KBR Inc"
+        "company": "KBR"
       },
       {
         "ticker": "KIM",
         "buy": 1,
         "sell": 0,
-        "company": "Kimco Realty Op, LLC"
+        "company": "Kimco Realty Op"
       },
       {
         "ticker": "KRYS",
         "buy": 0,
         "sell": 1,
-        "company": "Krystal Biotech Inc"
-      },
-      {
-        "ticker": "LEN",
-        "buy": 1,
-        "sell": 0,
-        "company": "Lennar Corporation CMN Class A"
+        "company": "Krystal Biotech"
       },
       {
         "ticker": "LKFN",
         "buy": 0,
         "sell": 1,
-        "company": "Lakeland Finl Corp"
+        "company": "Lakeland Finl"
+      },
+      {
+        "ticker": "LEN",
+        "buy": 1,
+        "sell": 0,
+        "company": "Lennar"
+      },
+      {
+        "ticker": "FWONA",
+        "buy": 1,
+        "sell": 0,
+        "company": "Liberty Media"
       },
       {
         "ticker": "LOW",
         "buy": 1,
         "sell": 0,
-        "company": "Lowe's Companies, Inc."
+        "company": "Lowe's Companies"
       },
       {
         "ticker": "LYB",
         "buy": 0,
         "sell": 1,
-        "company": "Lyondellbasell Industries N.V. CMN Class A"
+        "company": "Lyondellbasell Industries"
+      },
+      {
+        "ticker": "MTB",
+        "buy": 1,
+        "sell": 0,
+        "company": "M&T Bank"
+      },
+      {
+        "ticker": "CART",
+        "buy": 0,
+        "sell": 1,
+        "company": "Maplebear"
+      },
+      {
+        "ticker": "MLM",
+        "buy": 1,
+        "sell": 0,
+        "company": "Martin Marietta Materials"
+      },
+      {
+        "ticker": "MTRN",
+        "buy": 0,
+        "sell": 1,
+        "company": "Materion"
+      },
+      {
+        "ticker": "MTH",
+        "buy": 0,
+        "sell": 1,
+        "company": "Meritage Homes"
+      },
+      {
+        "ticker": "MTD",
+        "buy": 1,
+        "sell": 0,
+        "company": "Mettler-Toledo International"
       },
       {
         "ticker": "MGM",
@@ -6830,121 +6854,79 @@
         "ticker": "MGPI",
         "buy": 0,
         "sell": 1,
-        "company": "MGP Ingredients, Inc."
-      },
-      {
-        "ticker": "MLM",
-        "buy": 1,
-        "sell": 0,
-        "company": "Martin Marietta Materials, Inc."
+        "company": "MGP Ingredients"
       },
       {
         "ticker": "MOS",
         "buy": 0,
         "sell": 1,
-        "company": "Mosaic Company"
-      },
-      {
-        "ticker": "MTB",
-        "buy": 1,
-        "sell": 0,
-        "company": "M&T Bank Corporation"
-      },
-      {
-        "ticker": "MTD",
-        "buy": 1,
-        "sell": 0,
-        "company": "Mettler-Toledo International, Inc."
-      },
-      {
-        "ticker": "MTH",
-        "buy": 0,
-        "sell": 1,
-        "company": "Meritage Homes Corporation"
-      },
-      {
-        "ticker": "MTRN",
-        "buy": 0,
-        "sell": 1,
-        "company": "Materion Corp"
+        "company": "Mosaic"
       },
       {
         "ticker": "MYGN",
         "buy": 0,
         "sell": 1,
-        "company": "Myriad Genetics Inc"
-      },
-      {
-        "ticker": "NMIH",
-        "buy": 0,
-        "sell": 1,
-        "company": "Nmi Hldgs Inc"
-      },
-      {
-        "ticker": "NSC",
-        "buy": 1,
-        "sell": 0,
-        "company": "Norfolk Southern Corporation"
-      },
-      {
-        "ticker": "NVRI",
-        "buy": 0,
-        "sell": 1,
-        "company": "Enviri Corp"
+        "company": "Myriad Genetics"
       },
       {
         "ticker": "NWL",
         "buy": 1,
         "sell": 0,
-        "company": "Newell Brands Inc."
+        "company": "Newell Brands"
       },
       {
-        "ticker": "O",
+        "ticker": "NMIH",
+        "buy": 0,
+        "sell": 1,
+        "company": "Nmi"
+      },
+      {
+        "ticker": "NSC",
         "buy": 1,
         "sell": 0,
-        "company": "Realty Income Corporation"
+        "company": "Norfolk Southern"
       },
       {
         "ticker": "OGE",
         "buy": 0,
         "sell": 1,
-        "company": "OGE Energy Corp"
+        "company": "OGE Energy"
       },
       {
         "ticker": "OUT",
         "buy": 0,
         "sell": 1,
-        "company": "Outfront Media Inc"
-      },
-      {
-        "ticker": "PAG",
-        "buy": 1,
-        "sell": 0,
-        "company": "Penske Automotive Group"
+        "company": "Outfront Media"
       },
       {
         "ticker": "PCAR",
         "buy": 1,
         "sell": 0,
-        "company": "PACCAR Inc."
+        "company": "PACCAR"
       },
       {
         "ticker": "PCRX",
         "buy": 1,
         "sell": 0,
-        "company": "Pacira BioSciences, Inc."
+        "company": "Pacira BioSciences"
       },
       {
-        "ticker": "PFG",
-        "buy": 0,
-        "sell": 1,
-        "company": "Principal Financial Group, Inc"
+        "ticker": "PAG",
+        "buy": 1,
+        "sell": 0,
+        "company": "Penske Automotive"
       },
       {
         "ticker": "PFGC",
         "buy": 0,
         "sell": 1,
-        "company": "Performance Food Group Company"
+        "company": "Performance Food"
+      },
+      {
+        "ticker": "PPC",
+        "buy": 1,
+        "sell": 0,
+        "company": "Pilgrims Pride"
       },
       {
         "ticker": "PIPR",
@@ -6956,31 +6938,31 @@
         "ticker": "PJT",
         "buy": 1,
         "sell": 0,
-        "company": "PJT Partners Inc"
+        "company": "PJT Partners"
       },
       {
         "ticker": "POWI",
         "buy": 1,
         "sell": 0,
-        "company": "Power Integrations, Inc."
-      },
-      {
-        "ticker": "PPC",
-        "buy": 1,
-        "sell": 0,
-        "company": "Pilgrims Pride Corp New"
+        "company": "Power Integrations"
       },
       {
         "ticker": "PPG",
         "buy": 1,
         "sell": 0,
-        "company": "PPG Industries, Inc."
+        "company": "PPG Industries"
+      },
+      {
+        "ticker": "PFG",
+        "buy": 0,
+        "sell": 1,
+        "company": "Principal Financial"
       },
       {
         "ticker": "PRG",
         "buy": 1,
         "sell": 0,
-        "company": "Prog Hldgs Inc"
+        "company": "Prog"
       },
       {
         "ticker": "PTGX",
@@ -6992,115 +6974,121 @@
         "ticker": "Q",
         "buy": 0,
         "sell": 1,
-        "company": "Qnity Electronics Inc"
+        "company": "Qnity Electronics"
       },
       {
-        "ticker": "RCUS",
-        "buy": 0,
-        "sell": 1,
-        "company": "Arcus Biosciences Inc"
-      },
-      {
-        "ticker": "RELY",
+        "ticker": "O",
         "buy": 1,
         "sell": 0,
-        "company": "Remitly Global Inc"
-      },
-      {
-        "ticker": "REYN",
-        "buy": 0,
-        "sell": 1,
-        "company": "Reynolds Consumer Products Inc."
-      },
-      {
-        "ticker": "REZI",
-        "buy": 0,
-        "sell": 1,
-        "company": "Resideo Technologies, Inc."
-      },
-      {
-        "ticker": "RGEN",
-        "buy": 0,
-        "sell": 1,
-        "company": "Repligen Corporation"
-      },
-      {
-        "ticker": "ROK",
-        "buy": 1,
-        "sell": 0,
-        "company": "Rockwell Automation, Inc."
-      },
-      {
-        "ticker": "ROST",
-        "buy": 1,
-        "sell": 0,
-        "company": "Ross Stores, Inc."
+        "company": "Realty Income"
       },
       {
         "ticker": "RS",
         "buy": 1,
         "sell": 0,
-        "company": "Reliance, Inc."
+        "company": "Reliance"
+      },
+      {
+        "ticker": "RELY",
+        "buy": 1,
+        "sell": 0,
+        "company": "Remitly Global"
+      },
+      {
+        "ticker": "RGEN",
+        "buy": 0,
+        "sell": 1,
+        "company": "Repligen"
+      },
+      {
+        "ticker": "REZI",
+        "buy": 0,
+        "sell": 1,
+        "company": "Resideo Technologies"
+      },
+      {
+        "ticker": "REYN",
+        "buy": 0,
+        "sell": 1,
+        "company": "Reynolds Consumer Products"
+      },
+      {
+        "ticker": "HOOD",
+        "buy": 1,
+        "sell": 0,
+        "company": "Robinhood Markets"
+      },
+      {
+        "ticker": "ROK",
+        "buy": 1,
+        "sell": 0,
+        "company": "Rockwell Automation"
+      },
+      {
+        "ticker": "ROST",
+        "buy": 1,
+        "sell": 0,
+        "company": "Ross Stores"
       },
       {
         "ticker": "SBAC",
         "buy": 1,
         "sell": 0,
-        "company": "Sba Communications Corporation"
-      },
-      {
-        "ticker": "SF",
-        "buy": 1,
-        "sell": 0,
-        "company": "Stifel Financial Corporation"
-      },
-      {
-        "ticker": "SLB",
-        "buy": 1,
-        "sell": 0,
-        "company": "SLB Limited"
-      },
-      {
-        "ticker": "SLM",
-        "buy": 1,
-        "sell": 0,
-        "company": "SLM Corp"
-      },
-      {
-        "ticker": "SMTC",
-        "buy": 0,
-        "sell": 1,
-        "company": "Semtech Corporation"
-      },
-      {
-        "ticker": "SPG",
-        "buy": 1,
-        "sell": 0,
-        "company": "Simon Property Group, Inc."
-      },
-      {
-        "ticker": "STLD",
-        "buy": 1,
-        "sell": 0,
-        "company": "Steel Dynamics, Inc."
+        "company": "Sba Communications"
       },
       {
         "ticker": "STX",
         "buy": 0,
         "sell": 1,
-        "company": "Seagate Technology Holdings PLC"
+        "company": "Seagate Technology"
       },
       {
-        "ticker": "SUPN",
+        "ticker": "SMTC",
         "buy": 0,
         "sell": 1,
-        "company": "Supernus Pharmaceuticals, Inc."
+        "company": "Semtech"
+      },
+      {
+        "ticker": "SPG",
+        "buy": 1,
+        "sell": 0,
+        "company": "Simon Property"
+      },
+      {
+        "ticker": "SLB",
+        "buy": 1,
+        "sell": 0,
+        "company": "SLB"
+      },
+      {
+        "ticker": "SLM",
+        "buy": 1,
+        "sell": 0,
+        "company": "SLM"
+      },
+      {
+        "ticker": "STLD",
+        "buy": 1,
+        "sell": 0,
+        "company": "Steel Dynamics"
+      },
+      {
+        "ticker": "SF",
+        "buy": 1,
+        "sell": 0,
+        "company": "Stifel Financial"
       },
       {
         "ticker": "SXC",
         "buy": 0,
         "sell": 1,
-        "company": "Suncoke Energy Inc"
+        "company": "Suncoke Energy"
+      },
+      {
+        "ticker": "SUPN",
+        "buy": 0,
+        "sell": 1,
+        "company": "Supernus Pharmaceuticals"
       },
       {
         "ticker": "SYF",
@@ -7109,130 +7097,142 @@
         "company": "Synchrony Financial"
       },
       {
-        "ticker": "THRY",
-        "buy": 0,
-        "sell": 1,
-        "company": "Thryv Hldgs Inc"
-      },
-      {
-        "ticker": "TMDX",
-        "buy": 0,
-        "sell": 1,
-        "company": "Transmedics Group Inc"
-      },
-      {
         "ticker": "TROW",
         "buy": 0,
         "sell": 1,
-        "company": "T. Rowe Price Group, Inc."
-      },
-      {
-        "ticker": "TRV",
-        "buy": 0,
-        "sell": 1,
-        "company": "The Travelers Companies, Inc."
-      },
-      {
-        "ticker": "TT",
-        "buy": 1,
-        "sell": 0,
-        "company": "Trane Technologies plc"
+        "company": "T. Rowe Price"
       },
       {
         "ticker": "TTEK",
         "buy": 0,
         "sell": 1,
-        "company": "Tetra Tech, Inc."
+        "company": "Tetra Tech"
+      },
+      {
+        "ticker": "THRY",
+        "buy": 0,
+        "sell": 1,
+        "company": "Thryv"
+      },
+      {
+        "ticker": "TT",
+        "buy": 1,
+        "sell": 0,
+        "company": "Trane Technologies"
+      },
+      {
+        "ticker": "TMDX",
+        "buy": 0,
+        "sell": 1,
+        "company": "Transmedics"
+      },
+      {
+        "ticker": "TRV",
+        "buy": 0,
+        "sell": 1,
+        "company": "Travelers Companies"
       },
       {
         "ticker": "TTMI",
         "buy": 0,
         "sell": 1,
-        "company": "TTM Technologies Inc"
+        "company": "TTM Technologies"
       },
       {
         "ticker": "UDR",
         "buy": 0,
         "sell": 1,
-        "company": "Udr Inc"
+        "company": "Udr"
       },
       {
         "ticker": "UNIT",
         "buy": 1,
         "sell": 0,
-        "company": "Uniti Group Inc New"
+        "company": "Uniti"
       },
       {
         "ticker": "VEEV",
         "buy": 1,
         "sell": 0,
-        "company": "Veeva Systems Inc. Class A"
-      },
-      {
-        "ticker": "VGNT",
-        "buy": 0,
-        "sell": 1,
-        "company": "Versigent LTD"
-      },
-      {
-        "ticker": "VMC",
-        "buy": 0,
-        "sell": 1,
-        "company": "Vulcan Materials Company"
+        "company": "Veeva Systems"
       },
       {
         "ticker": "VTR",
         "buy": 0,
         "sell": 1,
-        "company": "Ventas, Inc."
+        "company": "Ventas"
       },
       {
-        "ticker": "WDC",
+        "ticker": "VGNT",
+        "buy": 0,
+        "sell": 1,
+        "company": "Versigent"
+      },
+      {
+        "ticker": "VMC",
+        "buy": 0,
+        "sell": 1,
+        "company": "Vulcan Materials"
+      },
+      {
+        "ticker": "GWW",
         "buy": 1,
         "sell": 0,
-        "company": "Western Digital Corporation"
-      },
-      {
-        "ticker": "WEX",
-        "buy": 0,
-        "sell": 1,
-        "company": "WEX Inc."
-      },
-      {
-        "ticker": "WMB",
-        "buy": 0,
-        "sell": 1,
-        "company": "Williams Companies, Inc."
+        "company": "W.W. Grainger"
       },
       {
         "ticker": "WMG",
         "buy": 0,
         "sell": 1,
-        "company": "Warner Music Group Corp"
+        "company": "Warner Music"
+      },
+      {
+        "ticker": "HCC",
+        "buy": 0,
+        "sell": 1,
+        "company": "Warrior Met Coal"
       },
       {
         "ticker": "WSO",
         "buy": 1,
         "sell": 0,
-        "company": "Watsco, Inc."
+        "company": "Watsco"
       },
       {
-        "ticker": "WT",
+        "ticker": "WDC",
         "buy": 1,
         "sell": 0,
-        "company": "Wisdomtree Inc"
+        "company": "Western Digital"
       },
       {
-        "ticker": "WWD",
-        "buy": 1,
-        "sell": 0,
-        "company": "Woodward Inc"
+        "ticker": "WEX",
+        "buy": 0,
+        "sell": 1,
+        "company": "WEX"
       },
       {
         "ticker": "WY",
         "buy": 0,
         "sell": 1,
-        "company": "Weyerhaeuser Company"
+        "company": "Weyerhaeuser"
+      },
+      {
+        "ticker": "WMB",
+        "buy": 0,
+        "sell": 1,
+        "company": "Williams Companies"
+      },
+      {
+        "ticker": "WT",
+        "buy": 1,
+        "sell": 0,
+        "company": "Wisdomtree"
+      },
+      {
+        "ticker": "WWD",
+        "buy": 1,
+        "sell": 0,
+        "company": "Woodward"
       }
     ]
   }

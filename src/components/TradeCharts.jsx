@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 // Charts for the Trump trades insight, copied from the POTUS Tracker's TradeCharts.jsx so both sites show the same
 // figures: trades per month (Trump's accounts vs Congress) and the most-traded stocks. Colours: Trump blue, Congress
 // grey, purchases green, sales red (Okabe-Ito, checked for colour blindness; the stock bars also label each part).
@@ -50,29 +52,40 @@ function Bars({ months, W, H, ticks }) {
   );
 }
 
-// The most-traded stocks: purchases and sales as one stacked bar per company, counts inside, the total after.
-export function TopStocks({ top }) {
-  const max = Math.max(...top.map((r) => r.buy + r.sell));
+// Every stock as one stacked bar of purchases and sales, the total after. The 10 most traded show at full size; the
+// button expands the rest in compact rows, with counts inside a bar only where they fit.
+export function TopStocks({ stocks, initial = 10 }) {
+  const [all, setAll] = useState(false);
+  const max = Math.max(...stocks.map((r) => r.buy + r.sell));
+  const rows = all ? stocks : stocks.slice(0, initial);
   return (
     <figure className="m-0">
       <div className="mb-3 flex flex-wrap gap-x-6 gap-y-1 text-[16px]">
         <span className="flex items-center gap-2"><i className="block h-4 w-4 rounded-[2px]" style={{ background: C.buy }} /><b style={{ color: C.buyText }}>Purchases</b></span>
         <span className="flex items-center gap-2"><i className="block h-4 w-4 rounded-[2px]" style={{ background: C.sale }} /><b style={{ color: C.saleText }}>Sales</b></span>
       </div>
-      <div className="flex flex-col gap-2">
-        {top.map((r) => (
-          <div key={r.ticker} className="grid grid-cols-[110px_minmax(0,1fr)] items-center gap-3 sm:grid-cols-[170px_minmax(0,1fr)]">
-            <div className="text-right text-[16px] font-bold sm:text-[17px]">{r.company}</div>
-            <div className="flex items-center gap-2">
-              <div className="flex h-7" style={{ width: `${((r.buy + r.sell) / max) * 80}%` }} role="img" aria-label={`${r.company}: ${r.buy} purchases, ${r.sell} sales`}>
-                <span className="flex items-center justify-end pr-1.5 text-[14px] font-bold text-white" style={{ width: `${(r.buy / (r.buy + r.sell)) * 100}%`, background: C.buy }}>{r.buy}</span>
-                <span className="ml-[2px] flex flex-1 items-center justify-end pr-1.5 text-[14px] font-bold text-white" style={{ background: C.sale }}>{r.sell}</span>
+      <div className="flex flex-col gap-1.5">
+        {rows.map((r, i) => {
+          const big = i < initial, n = r.buy + r.sell, fits = (v) => big || (v / max) * 80 >= 4;
+          return (
+            <div key={r.ticker} className="grid grid-cols-[130px_minmax(0,1fr)] items-center gap-3 sm:grid-cols-[220px_minmax(0,1fr)]">
+              <div className={`truncate text-right font-bold ${big ? "text-[16px] sm:text-[17px]" : "text-[14px]"}`} title={r.company}>{r.company}</div>
+              <div className="flex items-center gap-2">
+                <div className={`flex ${big ? "h-7" : "h-5"}`} style={{ width: `${(n / max) * 80}%` }} role="img" aria-label={`${r.company}: ${r.buy} purchases, ${r.sell} sales`}>
+                  {r.buy > 0 && <span className="flex items-center justify-end pr-1.5 text-[14px] font-bold text-white" style={{ width: `${(r.buy / n) * 100}%`, background: C.buy }}>{fits(r.buy) && r.buy}</span>}
+                  {r.sell > 0 && <span className={`flex flex-1 items-center justify-end pr-1.5 text-[14px] font-bold text-white ${r.buy > 0 ? "ml-[2px]" : ""}`} style={{ background: C.sale }}>{fits(r.sell) && r.sell}</span>}
+                </div>
+                <b className={big ? "text-[16px]" : "text-[14px]"}>{n}</b>
               </div>
-              <b className="text-[16px]">{r.buy + r.sell}</b>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
+      {stocks.length > initial && (
+        <button type="button" className="mt-4 cursor-pointer text-[16px] font-bold underline" onClick={() => setAll((v) => !v)}>
+          {all ? `Show the ${initial} most traded` : `Show all ${stocks.length.toLocaleString("en-US")} stocks`}
+        </button>
+      )}
     </figure>
   );
 }
