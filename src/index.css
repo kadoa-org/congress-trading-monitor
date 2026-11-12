@@ -283,14 +283,14 @@ a.ct-chip:hover{text-decoration:underline}
 .dk-linkbutton:focus-visible{outline:3px solid #fd0;background:#fd0;color:#0b0c0c;text-decoration:none}
 /* generations insight: one row per generation, two bars and three right-aligned numbers */
 .gen{font-size:16px;margin:0 0 40px}.gen:last-child{margin-bottom:0}
-.gen__row{display:grid;grid-template-columns:minmax(0,150px) minmax(0,1fr) 4em 8em 8em;gap:0 15px;align-items:center;padding:12px 0;border-top:1px solid #d5d9dc}
-.gen__row--head{border-top:0;border-bottom:1px solid #0b0c0c;padding:0 0 10px;color:#505a5f;align-items:end}.gen__row--head+.gen__row{border-top:0}
+.gen__row{display:grid;grid-template-columns:minmax(0,150px) minmax(0,1fr) 3em 5em 5.5em 7em;gap:0 15px;align-items:center;padding:12px 0;border-top:1px solid #d5d9dc}
+.gen__row--head{border-top:0;border-bottom:1px solid #0b0c0c;padding:0 0 10px;color:#505a5f;align-items:end}.gen__row--head .gen__num{white-space:normal;line-height:1.25}.gen__row--head+.gen__row{border-top:0}
 .gen__row--head strong{font-size:19px;color:#0b0c0c}
 .gen__name strong{display:block}.gen__note{color:#505a5f}
 .gen__bars{display:block;min-width:0}.gen__bar{display:block;height:20px}.gen__bar--people{height:12px;margin-top:4px;opacity:.35}
 .gen__num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums;color:#505a5f}.gen__num strong{color:#0b0c0c}
 @media (max-width:640px){
-  .gen__row{grid-template-columns:minmax(0,1fr) 3em 3.6em 5em;gap:4px 8px}
-  .gen__name{grid-column:1/-1}.gen__row--head .gen__bars{display:none}.gen__row--head .gen__name{grid-column:1}
+  .gen__row{grid-template-columns:2.6em repeat(3,minmax(0,1fr));gap:6px 8px}
+  .gen__name,.gen__bars{grid-column:1/-1}.gen__row--head .gen__bars{display:none}
   .gen__row--head .gen__num{font-size:14px;white-space:normal;line-height:1.2}
 }

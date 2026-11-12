@@ -3,7 +3,7 @@ import { ChartCard, DataTable } from "../kit";
 import { ExtLink } from "../ui";
 
 // Each generation's share of seats in the Congress elected in November 2026, beside its share of Americans old
-// enough to hold them and the change since before the election. A frozen analysis built in the datasets repo
+// enough to hold them and its share before the election. A frozen analysis built in the datasets repo
 // (services/custom/datasets/congress-generations) from the members' birth dates, the election results and Census
 // population estimates; only decided seats are counted.
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -13,11 +13,6 @@ const COLOUR = { Silent: "#6f777b", Boomers: "#009E73", "Gen X": "#CC79A7", Mill
 // The longest bar is two thirds of the track, so a share of 65% fills it.
 const MAX = 65;
 const pct = (v) => (v > 0 && v < 0.5 ? "<1%" : `${Math.round(v)}%`);
-// The change between the two rounded shares, so it agrees with the seats figure beside it.
-const change = (r) => {
-  const d = Math.round(r.share) - Math.round(r.shareBefore);
-  return d === 0 ? "0" : `${d > 0 ? "+" : "−"}${Math.abs(d)}`;
-};
 const cell = (v) => (v == null ? "" : /[",\n]/.test(String(v)) ? `"${String(v).replace(/"/g, '""')}"` : String(v));
 
 function download(chambers) {
@@ -30,13 +25,14 @@ function download(chambers) {
 
 function Chamber({ ch }) {
   return (
-    <div className="gen" role="img" aria-label={`${ch.name}: ${ch.rows.map((r) => `${r.name} ${pct(r.share)} of seats, ${pct(r.population)} of Americans ${ch.minAge} and over`).join("; ")}`}>
+    <div className="gen" role="img" aria-label={`${ch.name}: ${ch.rows.map((r) => `${r.name} ${pct(r.share)} of seats, ${pct(r.population)} of the US population aged ${ch.minAge} and over`).join("; ")}`}>
       <div className="gen__row gen__row--head" aria-hidden="true">
         <span className="gen__name"><strong>{ch.name}</strong></span>
         <span className="gen__bars gen__note">{ch.decided} of {ch.total} seats decided</span>
         <span className="gen__num">Seats</span>
-        <span className="gen__num">Midterm change</span>
-        <span className="gen__num">Americans {ch.minAge}+</span>
+        <span className="gen__num">Share of seats</span>
+        <span className="gen__num">Before midterms</span>
+        <span className="gen__num">US population aged {ch.minAge}+</span>
       </div>
       {ch.rows.map((r) => (
         <div className="gen__row" key={r.key} aria-hidden="true">
@@ -49,8 +45,9 @@ function Chamber({ ch }) {
               </>
             ) : <span className="gen__note">Senators must be {ch.minAge}</span>}
           </span>
+          <span className="gen__num"><strong>{r.seats}</strong></span>
           <span className="gen__num"><strong>{pct(r.share)}</strong></span>
-          <span className="gen__num">{r.population > 0 ? change(r) : ""}</span>
+          <span className="gen__num">{pct(r.shareBefore)}</span>
           <span className="gen__num">{pct(r.population)}</span>
         </div>
       ))}
@@ -74,7 +71,7 @@ export default function CongressGenerations() {
       <ChartCard
         id="generations-title"
         title="Each generation's share of seats, and of Americans old enough to hold them"
-        description="The solid bar is the share of seats, the pale bar the share of Americans old enough. Midterm change is in percentage points."
+        description="The solid bar is the share of seats, the pale bar the share of the US population old enough."
         date={`Seats decided by ${day(asOf)}`}
         tabs={[
           { label: "Chart", content: <>{chambers.map((ch) => <Chamber key={ch.key} ch={ch} />)}</> },
@@ -90,8 +87,8 @@ export default function CongressGenerations() {
                   { key: "seats", header: "Seats", align: "right" },
                   { key: "seatsBefore", header: "Before", align: "right", hideBelow: "sm" },
                   { key: "share", header: "Share of seats", align: "right", render: (r) => pct(r.share) },
-                  { key: "change", header: "Midterm change", align: "right", hideBelow: "sm", render: (r) => (r.eligible ? change(r) : "–") },
-                  { key: "population", header: "Share of Americans old enough", align: "right", render: (r) => pct(r.population) },
+                  { key: "shareBefore", header: "Share before midterms", align: "right", hideBelow: "sm", render: (r) => pct(r.shareBefore) },
+                  { key: "population", header: "Share of US population old enough", align: "right", render: (r) => pct(r.population) },
                 ]}
               />
             ),
