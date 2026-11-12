@@ -98,7 +98,6 @@ export default function CongressGenerations() {
           },
           { label: "Download", content: <><p className="govuk-body">Both chambers as a CSV: seats now and before the election, share of decided seats and share of Americans old enough to serve, by generation.</p><button type="button" className="govuk-button govuk-button--secondary" onClick={() => download(chambers)}>Download CSV</button></> },
         ]}
-        footer={<p>Source: <ExtLink href="https://github.com/unitedstates/congress-legislators">congress-legislators</ExtLink>, Wikipedia&apos;s 2026 election results, Census Bureau population estimates.</p>}
       />
       <ChartCard id="age-title" title="The new members are younger" description="Median age on 3 January 2027, when the new Congress starts.">
         <DataTable
@@ -116,11 +115,12 @@ export default function CongressGenerations() {
       <section className="insight-about">
         <h2>About the data</h2>
         <ul>
+          <li>Sources: <ExtLink href="https://github.com/unitedstates/congress-legislators">congress-legislators</ExtLink>, Wikipedia&apos;s 2026 election results, Census Bureau population estimates.</li>
           <li>Only decided seats are counted, as of {day(asOf)}: {senate.decided} of {senate.total} in the Senate and {house.decided} of {house.total} in the House. The rest are uncalled races, runoffs or seats awaiting an appointment.</li>
           <li>&quot;Before the election&quot; is every sitting member. Shares after it are of decided seats, so each open Senate seat can still move a share by about a point.</li>
           <li>Generations use Pew Research Center&apos;s birth years. People born before 1928 are counted with the Silent generation.</li>
-          <li>The population is all US residents old enough to serve, {senate.minAge} for the Senate and {house.minAge} for the House, from the Census Bureau&apos;s July 2025 estimates by age. It is not limited to citizens.</li>
-          <li>Birth dates of sitting members are from the congress-legislators dataset. New members and their birth years are from Wikipedia&apos;s list of new members of the 120th Congress, where a few are given as one of two years; we use the earlier.</li>
+          <li>The population is all US residents old enough to serve, {senate.minAge} for the Senate and {house.minAge} for the House, as of July 2025. It is not limited to citizens.</li>
+          <li>A few new members&apos; birth years are listed as one of two years. We use the earlier.</li>
           <li>Age is the year the new Congress starts less the birth year.</li>
         </ul>
       </section>
