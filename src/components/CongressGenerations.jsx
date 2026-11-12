@@ -35,7 +35,7 @@ function Chamber({ ch }) {
         <span className="gen__name"><strong>{ch.name}</strong></span>
         <span className="gen__bars gen__note">{ch.decided} of {ch.total} seats decided</span>
         <span className="gen__num">Seats</span>
-        <span className="gen__num">Change, pts</span>
+        <span className="gen__num">Midterm change</span>
         <span className="gen__num">Americans {ch.minAge}+</span>
       </div>
       {ch.rows.map((r) => (
@@ -74,7 +74,7 @@ export default function CongressGenerations() {
       <ChartCard
         id="generations-title"
         title="Each generation's share of seats, and of Americans old enough to hold them"
-        description="The solid bar is the share of seats, the pale bar the share of Americans old enough. Change is in points since before the election."
+        description="The solid bar is the share of seats, the pale bar the share of Americans old enough. Midterm change is in percentage points."
         date={`Seats decided by ${day(asOf)}`}
         tabs={[
           { label: "Chart", content: <>{chambers.map((ch) => <Chamber key={ch.key} ch={ch} />)}</> },
@@ -90,7 +90,7 @@ export default function CongressGenerations() {
                   { key: "seats", header: "Seats", align: "right" },
                   { key: "seatsBefore", header: "Before", align: "right", hideBelow: "sm" },
                   { key: "share", header: "Share of seats", align: "right", render: (r) => pct(r.share) },
-                  { key: "change", header: "Change, pts", align: "right", hideBelow: "sm", render: (r) => (r.eligible ? change(r) : "–") },
+                  { key: "change", header: "Midterm change", align: "right", hideBelow: "sm", render: (r) => (r.eligible ? change(r) : "–") },
                   { key: "population", header: "Share of Americans old enough", align: "right", render: (r) => pct(r.population) },
                 ]}
               />
