@@ -1,0 +1,145 @@
+{
+ "asOf": "2026-11-12",
+ "chambers": [
+  {
+   "key": "sen",
+   "name": "Senate",
+   "total": 100,
+   "minAge": 30,
+   "decided": 97,
+   "before": 100,
+   "newMembers": 16,
+   "medianAge": {
+    "before": 67,
+    "now": 63,
+    "newMembers": 51
+   },
+   "aged80": {
+    "before": 11,
+    "now": 8
+   },
+   "rows": [
+    {
+     "key": "Silent",
+     "name": "Silent",
+     "born": "1928 to 1945",
+     "seats": 4,
+     "seatsBefore": 6,
+     "share": 4.1,
+     "shareBefore": 6,
+     "population": 7.3
+    },
+    {
+     "key": "Boomers",
+     "name": "Boomers",
+     "born": "1946 to 1964",
+     "seats": 49,
+     "seatsBefore": 62,
+     "share": 50.5,
+     "shareBefore": 62,
+     "population": 30.6
+    },
+    {
+     "key": "Gen X",
+     "name": "Gen X",
+     "born": "1965 to 1980",
+     "seats": 36,
+     "seatsBefore": 28,
+     "share": 37.1,
+     "shareBefore": 28,
+     "population": 29.2
+    },
+    {
+     "key": "Millennials",
+     "name": "Millennials",
+     "born": "1981 to 1996",
+     "seats": 8,
+     "seatsBefore": 4,
+     "share": 8.2,
+     "shareBefore": 4,
+     "population": 33.1
+    },
+    {
+     "key": "Gen Z",
+     "name": "Gen Z",
+     "born": "1997 to 2012",
+     "seats": 0,
+     "seatsBefore": 0,
+     "share": 0,
+     "shareBefore": 0,
+     "population": 0
+    }
+   ]
+  },
+  {
+   "key": "rep",
+   "name": "House",
+   "total": 435,
+   "minAge": 25,
+   "decided": 427,
+   "before": 433,
+   "newMembers": 109,
+   "medianAge": {
+    "before": 59,
+    "now": 57,
+    "newMembers": 49
+   },
+   "aged80": {
+    "before": 26,
+    "now": 16
+   },
+   "rows": [
+    {
+     "key": "Silent",
+     "name": "Silent",
+     "born": "1928 to 1945",
+     "seats": 9,
+     "seatsBefore": 16,
+     "share": 2.1,
+     "shareBefore": 3.7,
+     "population": 6.5
+    },
+    {
+     "key": "Boomers",
+     "name": "Boomers",
+     "born": "1946 to 1964",
+     "seats": 132,
+     "seatsBefore": 164,
+     "share": 30.9,
+     "shareBefore": 37.9,
+     "population": 27.6
+    },
+    {
+     "key": "Gen X",
+     "name": "Gen X",
+     "born": "1965 to 1980",
+     "seats": 192,
+     "seatsBefore": 179,
+     "share": 45,
+     "shareBefore": 41.3,
+     "population": 26.3
+    },
+    {
+     "key": "Millennials",
+     "name": "Millennials",
+     "born": "1981 to 1996",
+     "seats": 91,
+     "seatsBefore": 73,
+     "share": 21.3,
+     "shareBefore": 16.9,
+     "population": 29.9
+    },
+    {
+     "key": "Gen Z",
+     "name": "Gen Z",
+     "born": "1997 to 2012",
+     "seats": 3,
+     "seatsBefore": 1,
+     "share": 0.7,
+     "shareBefore": 0.2,
+     "population": 9.7
+    }
+   ]
+  }
+ ]
+}

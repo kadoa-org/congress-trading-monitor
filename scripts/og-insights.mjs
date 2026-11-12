@@ -48,6 +48,21 @@ const BUILDERS = {
       source: "LDA.gov, SEC",
     };
   },
+  "congress-generations": () => {
+    const { asOf, chambers } = JSON.parse(readFileSync(join(root, "src/static/congress-generations.json"), "utf8"));
+    const senate = chambers.find((c) => c.key === "sen"), boomers = senate.rows.find((r) => r.key === "Boomers");
+    const pct = (v) => `${Math.round(v)}%`;
+    return {
+      title: INSIGHTS.find((i) => i.slug === "congress-generations").title,
+      key: `Boomers in the Senate, with seats decided by ${day(asOf)}.`,
+      figures: [
+        { value: pct(boomers.share), label: "Of Senate seats", colour: "#00703c" },
+        { value: pct(boomers.shareBefore), label: "Before the election" },
+        { value: pct(boomers.population), label: `Of Americans ${senate.minAge} and over`, colour: CONGRESS },
+      ],
+      source: "congress-legislators, Wikipedia, Census Bureau",
+    };
+  },
   "trump-trades": () => {
     const t = JSON.parse(readFileSync(join(root, "src/static/trump-trades.json"), "utf8")).totals;
     return {

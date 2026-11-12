@@ -2,6 +2,13 @@
 // shared data load and is prerendered with its own title and description so a link shares well.
 export const INSIGHTS = [
   {
+    slug: "congress-generations",
+    title: "Boomers still hold half the Senate after the 2026 midterms",
+    summary: "Boomers are 31% of Americans aged 30 and over and hold 51% of decided Senate seats, down from 62%. Millennials are 33% and hold 8%.",
+    seoTitle: "Generations in Congress After the 2026 Midterms: Boomers, Gen X, Millennials, Gen Z",
+    seoDescription: "Each generation's share of Senate and House seats after the 2026 midterms, against its share of Americans old enough to serve. Boomers hold 51% of decided Senate seats, down from 62%.",
+  },
+  {
     slug: "trump-trades",
     title: "Trump's accounts made more trades than all of Congress combined",
     summary: "31,877 disclosed trades since January 2025, against 20,973 by all of Congress, spread across hundreds of stocks.",
@@ -37,6 +44,6 @@ export const insightBySlug = (slug) => INSIGHTS.find((i) => i.slug === slug);
 // insight when one ships, or set it to null to take the banner down. The text is written for the banner: about 50
 // characters with the number first, so it fits a phone in one or two lines.
 export const ANNOUNCED = {
-  slug: "trump-trades",
-  text: "Trump's accounts made more trades than all of Congress",
+  slug: "congress-generations",
+  text: "Boomers still hold half the Senate after the midterms",
 };
