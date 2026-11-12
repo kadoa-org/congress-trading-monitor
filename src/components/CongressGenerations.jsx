@@ -117,7 +117,8 @@ export default function CongressGenerations() {
         <ul>
           <li>Sources: <ExtLink href="https://github.com/unitedstates/congress-legislators">congress-legislators</ExtLink>, Wikipedia&apos;s 2026 election results, Census Bureau population estimates.</li>
           <li>Only decided seats are counted, as of {day(asOf)}: {senate.decided} of {senate.total} in the Senate and {house.decided} of {house.total} in the House. The rest are uncalled races, runoffs or seats awaiting an appointment.</li>
-          <li>&quot;Before the election&quot; is every sitting member. Shares after it are of decided seats, so each open Senate seat can still move a share by about a point.</li>
+          <li>The open Senate seats are Alaska (uncalled), Minnesota and Tennessee (awaiting appointments). Their current senators, all Boomers, are not counted, so Boomers will end with 49 to 52 of the 100 seats.</li>
+          <li>&quot;Before the election&quot; is every sitting member.</li>
           <li>Generations use Pew Research Center&apos;s birth years. People born before 1928 are counted with the Silent generation.</li>
           <li>The population is all US residents old enough to serve, {senate.minAge} for the Senate and {house.minAge} for the House, as of July 2025. It is not limited to citizens.</li>
           <li>A few new members&apos; birth years are listed as one of two years. We use the earlier.</li>
