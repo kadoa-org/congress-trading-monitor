@@ -137,7 +137,14 @@ export default function CongressGenerations() {
   // The first Congress in which Gen X held a larger share of a chamber than Boomers, if any.
   const passed = (key) => years.find((_, i) => history.chambers[key].share["Gen X"][i] > history.chambers[key].share.Boomers[i]);
   const peak = (key, gen) => { const s = history.chambers[key].share[gen], top = Math.max(...s); return { share: top, year: years[s.indexOf(top)] }; };
-  const historyTable = (key) => years.map((yr, i) => ({ yr, ...Object.fromEntries(history.generations.map((g) => [g.name, history.chambers[key].share[g.name][i]])) })).reverse();
+  const tableOf = (share) => years.map((yr, i) => ({ yr, ...Object.fromEntries(history.generations.map((g) => [g.name, share[g.name][i]])) })).reverse();
+  const historyTable = (key) => tableOf(history.chambers[key].share);
+  const historyColumns = [
+    { key: "yr", header: "Congress starting", render: (r) => <strong>{r.yr}</strong> },
+    ...history.generations.filter((g) => g.name !== "Before 1883").map((g) => ({ key: g.name, header: g.name, align: "right", render: (r) => (r[g.name] ? pct(r[g.name]) : "–") })),
+  ];
+  const all = history.congress.share, lastYear = years.length - 1;
+  const allPeak = Math.max(...all.Boomers);
   const partyRows = chambers.flatMap((ch) => Object.entries(history.chambers[ch.key].parties).map(([p, seats]) => ({ label: `${ch.name} ${p}`, seats, total: Object.values(seats).reduce((a, b) => a + b, 0) })));
   const both = history.congress;
   const [senate, house] = chambers;
@@ -151,6 +158,16 @@ export default function CongressGenerations() {
         The Congress elected in November 2026 has {both.latest["Gen X"]} Gen X members and {both.latest.Boomers} Boomers. Boomers still hold{" "}
         {pct(boomers.share)} of Senate seats, down from {pct(boomers.shareBefore)}, and are {pct(boomers.population)} of Americans aged {senate.minAge} and over.
       </p>
+      <ChartCard
+        id="history-congress"
+        title="Generations in Congress since 1945"
+        description={`Gen X is ${pct(all["Gen X"][lastYear])} of the new Congress and Boomers ${pct(all.Boomers[lastYear])}. Boomers peaked at ${pct(allPeak)} in ${years[all.Boomers.indexOf(allPeak)]}.`}
+        date={`Congresses starting ${years[0]} to ${years.at(-1)}. The last counts seats decided by ${day(asOf)}`}
+        tabs={[
+          { label: "Chart", content: <GenHistory name="Congress" share={all} years={years} /> },
+          { label: "Tabular data", short: "Tabular", scroll: true, content: <DataTable rows={tableOf(all)} rowKey={(r) => r.yr} columns={historyColumns} /> },
+        ]}
+      />
       <ChartCard
         id="generations-title"
         title="Each generation's share of seats, and of Americans old enough to hold them"
@@ -196,10 +213,7 @@ export default function CongressGenerations() {
                   <DataTable
                     rows={historyTable(ch.key)}
                     rowKey={(r) => r.yr}
-                    columns={[
-                      { key: "yr", header: "Congress starting", render: (r) => <strong>{r.yr}</strong> },
-                      ...history.generations.filter((g) => g.name !== "Before 1883").map((g) => ({ key: g.name, header: g.name, align: "right", render: (r) => (r[g.name] ? pct(r[g.name]) : "–") })),
-                    ]}
+                    columns={historyColumns}
                   />
                 ),
               },
