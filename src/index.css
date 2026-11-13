@@ -294,3 +294,13 @@ a.ct-chip:hover{text-decoration:underline}
   .gen__name,.gen__bars{grid-column:1/-1}.gen__row--head .gen__bars{display:none}
   .gen__row--head .gen__num{font-size:14px;white-space:normal;line-height:1.2}
 }
+
+/* Generations insight: the lines since 1945 and the party bars. */
+.genline{width:100%}.genline svg{display:block;overflow:visible}
+.genline__tick{font-size:16px;fill:#505a5f}.genline__title{font-size:16px;font-weight:700;fill:#0b0c0c}.genline__name{font-size:16px;paint-order:stroke;stroke:#fff;stroke-width:4px;stroke-linejoin:round}.genline__name--main{font-weight:700}
+.genparty{font-size:16px}.genparty__key{display:flex;flex-wrap:wrap;gap:6px 18px;margin:0 0 16px;color:#505a5f}
+.genparty__key i{display:inline-block;width:12px;height:12px;margin-right:6px}
+.genparty__row{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr);gap:4px 15px;align-items:center;padding:10px 0;border-top:1px solid #d5d9dc}
+.genparty__label strong{display:block}
+.genparty__bar{display:flex;height:28px}.genparty__bar i{display:flex;align-items:center;justify-content:center;font-style:normal;font-weight:700;color:#0b0c0c;overflow:hidden;min-width:2px}
+@media (max-width:640px){.genparty__row{grid-template-columns:minmax(0,1fr)}}

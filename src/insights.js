@@ -3,10 +3,10 @@
 export const INSIGHTS = [
   {
     slug: "congress-generations",
-    title: "Boomers still hold half the Senate after the 2026 midterms",
-    summary: "Boomers are 31% of Americans aged 30 and over and hold 51% of decided Senate seats, down from 62%. Millennials are 33% and hold 8%.",
+    title: "Gen X will outnumber Boomers in Congress for the first time",
+    summary: "The Congress elected in November 2026 has 228 Gen X members and 181 Boomers. Boomers still hold 51% of decided Senate seats, down from 62%.",
     seoTitle: "Generations in Congress After the 2026 Midterms: Boomers, Gen X, Millennials, Gen Z",
-    seoDescription: "Each generation's share of Senate and House seats after the 2026 midterms, against its share of Americans old enough to serve. Boomers hold 51% of decided Senate seats, down from 62%.",
+    seoDescription: "Gen X outnumbers Boomers in the Congress elected in 2026, 228 to 181. Each generation's share of Senate and House seats since 1945, by party, and against Americans old enough to serve.",
   },
   {
     slug: "trump-trades",
@@ -45,5 +45,5 @@ export const insightBySlug = (slug) => INSIGHTS.find((i) => i.slug === slug);
 // characters with the number first, so it fits a phone in one or two lines.
 export const ANNOUNCED = {
   slug: "congress-generations",
-  text: "Boomers still hold half the Senate after the midterms",
+  text: "Gen X will outnumber Boomers in Congress for the first time",
 };
