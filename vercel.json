@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/congress/insights/trade-concentration",
+      "destination": "/congress/insights",
+      "permanent": false
+    },
+    {
       "source": "/congress/insights/committees",
       "destination": "/congress/lobbying",
       "permanent": true
