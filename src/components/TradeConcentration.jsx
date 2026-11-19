@@ -1,5 +1,6 @@
 import { useState } from "react";
 import data from "../static/trade-concentration.json";
+import timing from "../static/trade-timing.json";
 import { ChartCard, DataTable } from "../kit";
 import { ExtLink, fmtInt, HOUSE_FILINGS, Link, SENATE_FILINGS } from "../ui";
 
@@ -53,6 +54,43 @@ function Bars({ rows, max, label, compact = false }) {
             ? <Link key={r.key} to={r.to} title={r.hint} className={`group ${grid}${rule} -mx-1 rounded-[2px] px-1 !text-[#0b0c0c] !no-underline hover:bg-[#f3f2f1]`}>{body(r)}</Link>
             : <div key={r.key} className={`${grid}${rule}`}>{body(r)}</div>;
         })}
+      </div>
+    </figure>
+  );
+}
+
+// What stocks did after members traded, against the S&P 500 over the same days: for each period after the trade, a
+// bar for the stocks bought and one for the stocks sold, on one scale centred on zero. Left of zero the stocks did
+// worse than the market, right of it better. Each bar's figure sits on the other side of zero, so every bar has its
+// whole half of the width and the bars stay in proportion on a narrow screen.
+const SIDES = [["buys", "D", "Bought"], ["sells", "R", "Sold"]];
+const points = (v) => `${v < 0 ? "−" : "+"}${Math.abs(v).toFixed(2)}`;
+const percent = (v) => `${v < 0 ? "−" : "+"}${Math.abs(v).toFixed(2)}%`;
+function AfterTrades({ label }) {
+  const max = Math.max(...timing.horizons.flatMap((h) => SIDES.map(([side]) => Math.abs(timing[side][h.key].excess)))) * 1.15;
+  return (
+    <figure className="m-0" aria-label={label}>
+      <div className="mb-3 grid grid-cols-2 text-[15px] sm:pl-[170px]" style={{ color: C.muted }}>
+        <span className="pr-3 text-right">← Worse than the S&amp;P 500</span><span className="pl-3">Better →</span>
+      </div>
+      <div className="flex flex-col gap-4">
+        {timing.horizons.map((h) => (
+          <div key={h.key} className="grid items-center gap-x-3 gap-y-1 sm:grid-cols-[158px_minmax(0,1fr)]">
+            <b className="text-[16px] sm:text-[17px]">{h.label}</b>
+            <div className="flex flex-col gap-1.5">
+              {SIDES.map(([side, colour, word]) => {
+                const v = timing[side][h.key].excess, width = `${Math.max(0.6, (Math.abs(v) / max) * 100)}%`;
+                const value = <span className="whitespace-nowrap px-2 text-[16px]"><b>{points(v)}</b> <span style={{ color: C.muted }}>{word}</span></span>;
+                return (
+                  <div key={side} className="grid grid-cols-2">
+                    <div className="flex items-center justify-end border-r border-[#0b0c0c]">{v < 0 ? <span className="block h-6" style={{ width, background: C[colour] }} /> : value}</div>
+                    <div className="flex items-center">{v >= 0 ? <span className="block h-6" style={{ width, background: C[colour] }} /> : value}</div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ))}
       </div>
     </figure>
   );
@@ -135,6 +173,32 @@ export default function TradeConcentration() {
           },
         ]}
       />
+      <ChartCard
+        id="after-title"
+        title="Stocks that members bought trailed the market a month later"
+        description={`Average change against the S&P 500, in percentage points, after ${fmtInt(timing.buys.trades)} stock purchases and ${fmtInt(timing.sells.trades)} sales. After 30 days the stocks members bought were up ${percent(timing.buys.month.stock).slice(1)}, and the S&P 500 ${percent(timing.buys.month.market).slice(1)} over the same days.`}
+        date={`${day(timing.from)} to ${day(timing.to)}`}
+        tabs={[
+          { label: "Chart", content: <AfterTrades label="Average change in the stocks members of Congress bought and sold, against the S&P 500, one trading day, 7 days and 30 days after the trade" /> },
+          {
+            label: "Tabular data", short: "Tabular", scroll: true,
+            content: (
+              <DataTable
+                rows={timing.horizons.flatMap((h) => SIDES.map(([side, , word]) => ({ key: `${h.key}-${side}`, when: h.label, word, ...timing[side][h.key] })))}
+                rowKey={(r) => r.key}
+                columns={[
+                  { key: "when", header: "After the trade", render: (r) => r.when },
+                  { key: "word", header: "Stocks", render: (r) => r.word },
+                  { key: "stock", header: "Stock", align: "right", render: (r) => percent(r.stock) },
+                  { key: "market", header: "S&P 500", align: "right", render: (r) => percent(r.market) },
+                  { key: "excess", header: "Difference, points", align: "right", render: (r) => points(r.excess) },
+                  { key: "beat", header: "Beat the S&P 500", align: "right", render: (r) => `${Math.round(r.beat)}%` },
+                ]}
+              />
+            ),
+          },
+        ]}
+      />
       <section className="insight-about">
         <h2>About the data</h2>
         <ul>
@@ -142,6 +206,7 @@ export default function TradeConcentration() {
           <li>A member&apos;s trades include those of a spouse and dependent children, which the reports list together. The reports do not say who chose a trade. Ro Khanna has said the trades reported under his name are in his wife&apos;s trusts and run by outside managers.</li>
           <li>Trades are stocks, bonds, funds and other securities. {fmtInt(members.reduce((t, m) => t + m.stocks, 0))} of the {fmtInt(total)} are stocks, and the same four members made {Math.round((100 * lead.reduce((t, m) => t + m.stocks, 0)) / members.reduce((t, m) => t + m.stocks, 0))}% of those.</li>
           <li>Members have up to 45 days to report a trade, so the latest weeks are incomplete. Congress has {data.seats} voting seats, and members who reported no trade are not listed.</li>
+          <li>The second chart covers stock trades to {day(timing.to)}, so that each has 30 days of prices after it. A stock&apos;s change runs from the close on the trade date to the close one trading day, 7 days and 30 days later, less the S&amp;P 500&apos;s change over the same days (the SPY fund). It is an average over all trades: it cannot show whether any single trade was well timed. Without {timing.withoutTop.name === "Rohit Khanna" ? "Ro Khanna" : timing.withoutTop.name}, who made a third of the trades, stocks bought trailed the market by {Math.abs(timing.withoutTop.buys.month.excess).toFixed(2)} points after 30 days.</li>
           <li>For the president&apos;s trades, see <Link to="/insights/trump-trades">Trump&apos;s accounts against Congress</Link>.</li>
         </ul>
       </section>
