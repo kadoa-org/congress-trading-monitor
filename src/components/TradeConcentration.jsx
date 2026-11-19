@@ -1,3 +1,4 @@
+import { useState } from "react";
 import data from "../static/trade-concentration.json";
 import { ChartCard, DataTable } from "../kit";
 import { ExtLink, fmtInt, HOUSE_FILINGS, Link, SENATE_FILINGS } from "../ui";
@@ -25,34 +26,46 @@ function download(file, header, rows) {
 }
 
 // Horizontal bars on one scale: a name, an optional note after it, the bar (one colour, or parts side by side), then
-// the count and an optional share. The key names the two party colours.
-function Bars({ rows, max, label }) {
+// the count and an optional share. The key names the two party colours. A row with `to` is a link to that page: the
+// whole row is the target, and the name underlines on hover or focus. `compact` draws thinner rows for a long list.
+function Bars({ rows, max, label, compact = false }) {
+  const grid = "grid grid-cols-[124px_minmax(0,1fr)] items-center gap-3 sm:grid-cols-[250px_minmax(0,1fr)]";
+  const body = (r) => (
+    <>
+      <div className={`leading-tight ${compact ? "text-[15px]" : "text-[16px] sm:text-[17px]"}`}>
+        <b className={r.to ? "group-hover:underline group-focus-visible:underline" : ""}>{r.label}</b>{r.note && <span className="block sm:ml-2 sm:inline" style={{ color: C.muted }}>{r.note}</span>}
+      </div>
+      <div className="flex items-center gap-2">
+        <div className={`flex shrink-0 ${compact ? "h-5" : "h-7"}`} style={{ width: `max(3px, calc((100% - 112px) * ${(r.value / max).toFixed(4)}))`, background: r.colour }}>
+          {r.parts?.map((part) => <span key={part.key} style={{ width: `${(100 * part.value) / r.value}%`, background: part.colour }} />)}
+        </div>
+        <span className={`whitespace-nowrap ${compact ? "text-[15px]" : "text-[16px]"}`}><b>{fmtInt(r.value)}</b>{r.share != null && <span className="ml-2" style={{ color: C.muted }}>{r.share}</span>}</span>
+      </div>
+    </>
+  );
   return (
-    <figure className="m-0" role="img" aria-label={label}>
+    <figure className="m-0" aria-label={label}>
       <div className="mb-3 flex flex-wrap gap-x-6 gap-y-1 text-[16px]">
         {PARTIES.map(([k, name]) => <span key={k} className="flex items-center gap-2"><i className="block h-4 w-4 rounded-[2px]" style={{ background: C[k] }} /><b style={{ color: TEXT[k] }}>{name}</b></span>)}
       </div>
-      <div className="flex flex-col gap-2">
-        {rows.map((r) => (
-          <div key={r.key} className={`grid grid-cols-[124px_minmax(0,1fr)] items-center gap-3 sm:grid-cols-[250px_minmax(0,1fr)] ${r.rule ? "mt-2 border-t border-[#0b0c0c] pt-4" : ""}`}>
-            <div className="text-[16px] leading-tight sm:text-[17px]">
-              <b>{r.label}</b>{r.note && <span className="block sm:ml-2 sm:inline" style={{ color: C.muted }}>{r.note}</span>}
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="flex h-7 shrink-0" style={{ width: `max(3px, calc((100% - 112px) * ${(r.value / max).toFixed(4)}))`, background: r.colour }}>
-                {r.parts?.map((part) => <span key={part.key} style={{ width: `${(100 * part.value) / r.value}%`, background: part.colour }} />)}
-              </div>
-              <span className="whitespace-nowrap text-[16px]"><b>{fmtInt(r.value)}</b>{r.share != null && <span className="ml-2" style={{ color: C.muted }}>{r.share}</span>}</span>
-            </div>
-          </div>
-        ))}
+      <div className={`flex flex-col ${compact ? "gap-1" : "gap-2"}`}>
+        {rows.map((r) => {
+          const rule = r.rule ? " mt-2 border-t border-[#0b0c0c] pt-4" : "";
+          return r.to
+            ? <Link key={r.key} to={r.to} title={r.hint} className={`group ${grid}${rule} -mx-1 rounded-[2px] px-1 !text-[#0b0c0c] !no-underline hover:bg-[#f3f2f1]`}>{body(r)}</Link>
+            : <div key={r.key} className={`${grid}${rule}`}>{body(r)}</div>;
+        })}
       </div>
     </figure>
   );
 }
 
+// Members whose trades have a page on the site (every filer in the data file's list).
+const page = (id) => `/filer/${encodeURIComponent(id)}`;
+
 export default function TradeConcentration() {
   const { members, total, trump, from, to } = data;
+  const [all, setAll] = useState(false);
   const pct = (n) => `${Math.round((100 * n) / total)}%`;
   const sum = (rows) => rows.reduce((t, m) => t + m.trades, 0);
   const lead = members.slice(0, LEAD), top = members.slice(0, TOP), rest = members.slice(TOP);
@@ -62,14 +75,15 @@ export default function TradeConcentration() {
   const colour = (m) => C[m.party] ?? C.other;
   // A group of members as one bar, Democrats first, then Republicans, then anyone else.
   const byParty = (rows) => ["D", "R", "other"].map((k) => ({ key: k, value: sum(rows.filter((m) => (k === "other" ? m.party !== "D" && m.party !== "R" : m.party === k))), colour: C[k] })).filter((part) => part.value > 0);
-  const memberBars = [
-    ...top.map((m) => ({ key: m.id, label: m.name, note: seat(m), value: m.trades, share: pct(m.trades), colour: colour(m) })),
-    { key: "rest", label: `The other ${rest.length} who traded`, value: sum(rest), share: pct(sum(rest)), parts: byParty(rest), rule: true },
-  ];
+  const bar = (m) => ({ key: m.id, label: m.name, note: seat(m), value: m.trades, share: pct(m.trades), colour: colour(m), to: page(m.id), hint: `See ${m.name}'s trades` });
+  // The ten most active with everyone else as one bar, or every member as a bar of their own.
+  const memberBars = all
+    ? members.map(bar)
+    : [...top.map(bar), { key: "rest", label: `The other ${rest.length} who traded`, value: sum(rest), share: pct(sum(rest)), parts: byParty(rest), rule: true }];
   const against = [
-    { key: "congress", label: "All of Congress", note: `${members.length} members`, value: total, parts: byParty(members) },
-    { key: "lead", label: lead[0].name, note: seat(lead[0]), value: lead[0].trades, colour: colour(lead[0]) },
-    { key: "trump", label: "Trump's accounts", note: `to ${month(trump.to)}`, value: trump.trades, colour: C.trump, rule: true },
+    { key: "congress", label: "All of Congress", note: `${members.length} members`, value: total, parts: byParty(members), to: "/filers", hint: "See every politician" },
+    { ...bar(lead[0]), share: null },
+    { key: "trump", label: "Trump's accounts", note: `to ${month(trump.to)}`, value: trump.trades, colour: C.trump, rule: true, to: page("oge_donald_trump"), hint: "See Trump's trades" },
   ];
   const partyTrades = (k) => sum(members.filter((m) => m.party === k));
   const ranked = members.map((m, i) => ({ ...m, rank: i + 1 }));
@@ -85,7 +99,20 @@ export default function TradeConcentration() {
         description={`Trades reported by each of the ${TOP} most active members and their share of the total. ${busy} members made 100 or more. Democrats made ${fmtInt(partyTrades("D"))} of the trades and Republicans ${fmtInt(partyTrades("R"))}.`}
         date={`${day(from)} to ${day(to)}`}
         tabs={[
-          { label: "Chart", content: <Bars rows={memberBars} max={memberBars[0].value} label={`Trades reported by the ${TOP} most active members of Congress and by all other members together`} /> },
+          {
+            label: "Chart",
+            content: (
+              <>
+                <Bars rows={memberBars} max={members[0].trades} compact={all} label={all ? `Trades reported by each of the ${members.length} members of Congress who traded` : `Trades reported by the ${TOP} most active members of Congress and by all other members together`} />
+                <p className="mt-4 mb-0 text-[16px]" style={{ color: C.muted }}>
+                  Select a member to see their trades.{" "}
+                  <button type="button" className="cursor-pointer font-bold underline" style={{ color: "#0b0c0c" }} onClick={() => setAll((v) => !v)}>
+                    {all ? `Show the ${TOP} most active` : `Show all ${members.length} members`}
+                  </button>
+                </p>
+              </>
+            ),
+          },
           {
             label: "Tabular data", short: "Tabular", scroll: true,
             content: (
