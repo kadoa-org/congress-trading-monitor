@@ -70,7 +70,8 @@ const BUILDERS = {
       title: INSIGHTS.find((i) => i.slug === "trade-concentration").title,
       key: `Trades reported by ${members.length} members of Congress since January ${from.slice(0, 4)}.`,
       rows: [
-        ...lead.map((m) => ({ label: m.name, value: m.trades, text: int(m.trades), colour: TRUMP })),
+        // Party colours, as on the page (C in TradeConcentration.jsx).
+        ...lead.map((m) => ({ label: m.name, value: m.trades, text: int(m.trades), colour: { D: "#0072B2", R: "#D55E00" }[m.party] ?? CONGRESS })),
         { label: `The other ${members.length - lead.length}`, value: rest, text: int(rest), colour: CONGRESS },
       ],
       source: "House and Senate periodic transaction reports",
