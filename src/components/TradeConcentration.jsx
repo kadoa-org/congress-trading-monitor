@@ -4,18 +4,16 @@ import { ChartCard, DataTable } from "../kit";
 import { ExtLink, fmtInt, HOUSE_FILINGS, Link, SENATE_FILINGS } from "../ui";
 
 // How concentrated Congress's reported trades are: each member's count since the 119th Congress began, the most
-// active first, and the same total beside Trump's accounts. The data is built in the datasets repo
+// active first. The data is built in the datasets repo
 // (services/custom/datasets/congress-trading/charts/trade-concentration/site-data.mjs).
 // Colours: a member's party, in the two Okabe-Ito hues that stay apart under colour blindness (blue for Democrats,
-// vermilion for Republicans, with a darker vermilion for text). A bar of several members is split by party. Trump's
-// accounts are dark grey: a comparison, not a member.
-const C = { D: "#0072B2", R: "#D55E00", other: "#8a9096", trump: "#505a5f", muted: "#505a5f" };
+// vermilion for Republicans, with a darker vermilion for text). A bar of several members is split by party.
+const C = { D: "#0072B2", R: "#D55E00", other: "#8a9096", muted: "#505a5f" };
 const TEXT = { D: "#0072B2", R: "#B34E00" };
 const PARTIES = [["D", "Democrats"], ["R", "Republicans"]];
 const LEAD = 4, TOP = 10;
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const day = (s) => `${+s.slice(8)} ${MONTHS[+s.slice(5, 7) - 1]} ${s.slice(0, 4)}`;
-const month = (s) => `${MONTHS[+s.slice(5, 7) - 1]} ${s.slice(0, 4)}`;
 const CHAMBER = { house: "House", senate: "Senate" };
 const cell = (v) => (v == null ? "" : /[",\n]/.test(String(v)) ? `"${String(v).replace(/"/g, '""')}"` : String(v));
 
@@ -64,7 +62,7 @@ function Bars({ rows, max, label, compact = false }) {
 const page = (id) => `/filer/${encodeURIComponent(id)}`;
 
 export default function TradeConcentration() {
-  const { members, total, trump, from, to } = data;
+  const { members, total, from, to } = data;
   const [all, setAll] = useState(false);
   const pct = (n) => `${Math.round((100 * n) / total)}%`;
   const sum = (rows) => rows.reduce((t, m) => t + m.trades, 0);
@@ -80,11 +78,6 @@ export default function TradeConcentration() {
   const memberBars = all
     ? members.map(bar)
     : [...top.map(bar), { key: "rest", label: `The other ${rest.length} who traded`, value: sum(rest), share: pct(sum(rest)), parts: byParty(rest), rule: true }];
-  const against = [
-    { key: "congress", label: "All of Congress", note: `${members.length} members`, value: total, parts: byParty(members), to: "/filers", hint: "See every politician" },
-    { ...bar(lead[0]), share: null },
-    { key: "trump", label: "Trump's accounts", note: `to ${month(trump.to)}`, value: trump.trades, colour: C.trump, rule: true, to: page("oge_donald_trump"), hint: "See Trump's trades" },
-  ];
   const partyTrades = (k) => sum(members.filter((m) => m.party === k));
   const ranked = members.map((m, i) => ({ ...m, rank: i + 1 }));
   return (
@@ -142,13 +135,6 @@ export default function TradeConcentration() {
           },
         ]}
       />
-      <ChartCard
-        id="trump-title"
-        title="Trump's accounts made more trades than every member together"
-        description={<>Disclosed trades since January 2025. Trump&apos;s latest report ends in {month(trump.to)}. More in <Link to="/insights/trump-trades">Trump&apos;s trades against Congress</Link>.</>}
-      >
-        <Bars rows={against} max={trump.trades} label={`Trades by Trump's accounts, by all members of Congress and by ${lead[0].name}`} />
-      </ChartCard>
       <section className="insight-about">
         <h2>About the data</h2>
         <ul>
@@ -156,7 +142,7 @@ export default function TradeConcentration() {
           <li>A member&apos;s trades include those of a spouse and dependent children, which the reports list together. The reports do not say who chose a trade. Ro Khanna has said the trades reported under his name are in his wife&apos;s trusts and run by outside managers.</li>
           <li>Trades are stocks, bonds, funds and other securities. {fmtInt(members.reduce((t, m) => t + m.stocks, 0))} of the {fmtInt(total)} are stocks, and the same four members made {Math.round((100 * lead.reduce((t, m) => t + m.stocks, 0)) / members.reduce((t, m) => t + m.stocks, 0))}% of those.</li>
           <li>Members have up to 45 days to report a trade, so the latest weeks are incomplete. Congress has {data.seats} voting seats, and members who reported no trade are not listed.</li>
-          <li>Trump&apos;s count is from his filings with the Office of Government Ethics and covers {trump.accounts} accounts to {month(trump.to)}, the end of his latest report, so it stops earlier than the Congress count.</li>
+          <li>For the president&apos;s trades, see <Link to="/insights/trump-trades">Trump&apos;s accounts against Congress</Link>.</li>
         </ul>
       </section>
     </>

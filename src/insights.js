@@ -6,7 +6,7 @@ export const INSIGHTS = [
     title: "Four members of Congress made more than half of its trades",
     summary: "177 members reported 22,261 trades since January 2025. Ro Khanna, Michael McCaul, Gil Cisneros and Lisa McClain made 55% of them.",
     seoTitle: "Which Members of Congress Trade the Most? Four Made Over Half of All Trades",
-    seoDescription: "Since January 2025, 177 members of Congress reported 22,261 trades. Ro Khanna made 33% and the four most active made 55%. Every member ranked, with Trump's accounts for comparison.",
+    seoDescription: "Since January 2025, 177 members of Congress reported 22,261 trades. Ro Khanna made 33% and the four most active made 55%. Every member ranked, with a link to each one's trades.",
   },
   {
     slug: "congress-generations",
