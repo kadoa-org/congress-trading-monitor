@@ -2,6 +2,13 @@
 // shared data load and is prerendered with its own title and description so a link shares well.
 export const INSIGHTS = [
   {
+    slug: "trade-concentration",
+    title: "Four members of Congress made more than half of its trades",
+    summary: "177 members reported 22,261 trades since January 2025. Ro Khanna, Michael McCaul, Gil Cisneros and Lisa McClain made 55% of them.",
+    seoTitle: "Which Members of Congress Trade the Most? Four Made Over Half of All Trades",
+    seoDescription: "Since January 2025, 177 members of Congress reported 22,261 trades. Ro Khanna made 33% and the four most active made 55%. Every member ranked, with Trump's accounts for comparison.",
+  },
+  {
     slug: "congress-generations",
     title: "Gen X will outnumber Boomers in Congress for the first time",
     summary: "The Congress elected in November 2026 has 228 Gen X members and 181 Boomers. Boomers still hold 51% of decided Senate seats, down from 62%.",
@@ -44,6 +51,6 @@ export const insightBySlug = (slug) => INSIGHTS.find((i) => i.slug === slug);
 // insight when one ships, or set it to null to take the banner down. The text is written for the banner: about 50
 // characters with the number first, so it fits a phone in one or two lines.
 export const ANNOUNCED = {
-  slug: "congress-generations",
-  text: "Gen X will outnumber Boomers in Congress for the first time",
+  slug: "trade-concentration",
+  text: "Four members made more than half of Congress's trades",
 };

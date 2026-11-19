@@ -63,6 +63,19 @@ const BUILDERS = {
       source: "congress-legislators, Wikipedia, Census Bureau",
     };
   },
+  "trade-concentration": () => {
+    const { members, total, from } = JSON.parse(readFileSync(join(root, "src/static/trade-concentration.json"), "utf8"));
+    const lead = members.slice(0, 4), rest = total - lead.reduce((s, m) => s + m.trades, 0);
+    return {
+      title: INSIGHTS.find((i) => i.slug === "trade-concentration").title,
+      key: `Trades reported by ${members.length} members of Congress since January ${from.slice(0, 4)}.`,
+      rows: [
+        ...lead.map((m) => ({ label: m.name, value: m.trades, text: int(m.trades), colour: TRUMP })),
+        { label: `The other ${members.length - lead.length}`, value: rest, text: int(rest), colour: CONGRESS },
+      ],
+      source: "House and Senate periodic transaction reports",
+    };
+  },
   "trump-trades": () => {
     const t = JSON.parse(readFileSync(join(root, "src/static/trump-trades.json"), "utf8")).totals;
     return {
