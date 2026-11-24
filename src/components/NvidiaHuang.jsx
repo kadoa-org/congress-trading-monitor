@@ -134,7 +134,7 @@ export default function NvidiaHuang() {
     <>
       <h1 className="dk-h1">Who in Washington owns and trades Nvidia stock</h1>
       <p className="govuk-body-l">
-        Trump reported {range(trump.held.low, trump.held.high)} of Nvidia stock at the end of last year, and his accounts traded it {trump.trades.length} times between January and {dayLong(lastTrump.date)}.
+        Every disclosed Nvidia stock trade by Trump and {congress.members.length} members of Congress, around Jensen Huang&apos;s resignation and reinstatement.
       </p>
       <p className="govuk-body-l">
         Nvidia was down {Math.abs(pct(peak.close, beforeResign.close))}% from its {new Date(peak.date).toLocaleString("en-GB", { month: "long", timeZone: "UTC" })} high when Jensen Huang resigned on 11 November, and fell another {Math.abs(pct(beforeResign.close, low.close))}% by 20 November, after quarterly results. It rose {pct(low.close, latest.close)}% on {dayLong(latest.date)}, when the board reinstated him. The board cited input from senior levels of the US government, and Trump said he spoke to it &ldquo;directly and indirectly&rdquo; (<ExtLink href={REINSTATED}>NBC News</ExtLink>).
