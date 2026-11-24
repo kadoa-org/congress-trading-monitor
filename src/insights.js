@@ -3,10 +3,10 @@
 export const INSIGHTS = [
   {
     slug: "trump-nvidia",
-    title: "Trump reported $12.5 million to $58 million of Nvidia stock for 2025",
-    summary: "His accounts traded the stock 43 times from January to September 2026. 37 members of Congress traded it too.",
-    seoTitle: "Trump's Nvidia Stock and the Jensen Huang Reinstatement",
-    seoDescription: "Trump's annual report lists $12.5 million to $58 million of Nvidia shares, and his accounts traded it 43 times in 2026. Plus the 37 members of Congress who traded NVDA.",
+    title: "Who in Washington owns and trades Nvidia stock",
+    summary: "Trump held $12.5 million to $58 million of Nvidia at the end of last year and traded it 43 times since. 37 members of Congress traded it too.",
+    seoTitle: "Who in Washington Owns and Trades Nvidia Stock",
+    seoDescription: "Trump's Nvidia stock and 43 trades this year, and the 37 members of Congress who traded NVDA, around Jensen Huang's resignation and reinstatement.",
   },
   {
     slug: "congress-generations",
@@ -52,5 +52,5 @@ export const insightBySlug = (slug) => INSIGHTS.find((i) => i.slug === slug);
 // characters with the number first, so it fits a phone in one or two lines.
 export const ANNOUNCED = {
   slug: "trump-nvidia",
-  text: "$12.5M to $58M of Nvidia stock in Trump's 2025 report",
+  text: "Who in Washington owns and trades Nvidia stock",
 };
