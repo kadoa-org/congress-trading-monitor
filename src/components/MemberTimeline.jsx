@@ -9,9 +9,9 @@ const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "
 const ts = (s) => Date.parse(`${s}T00:00:00Z`);
 const dayYear = (s) => `${+s.slice(8, 10)} ${MONTHS[+s.slice(5, 7) - 1]} ${s.slice(0, 4)}`;
 export const SIZES = [
-  { max: 15_000, r: 4, label: "Up to $15K" },
-  { max: 250_000, r: 6, label: "$15K to $250K" },
-  { max: Infinity, r: 8, label: "Over $250K" },
+  { max: 15_000, r: 4, label: "≤ $15K" },
+  { max: 250_000, r: 6, label: "≤ $250K" },
+  { max: Infinity, r: 8, label: "> $250K" },
 ];
 const radius = (high) => SIZES.find((s) => high <= s.max).r;
 const isBuy = (t) => /^p/i.test(t.type);
@@ -32,9 +32,9 @@ export function useWidth() {
   return [ref, width];
 }
 
-function Triangle({ cx, cy, r, buy }) {
+function Triangle({ cx, cy, r, buy, fill }) {
   const pts = buy ? `${cx},${cy - r} ${cx - r},${cy + r * 0.8} ${cx + r},${cy + r * 0.8}` : `${cx},${cy + r} ${cx - r},${cy - r * 0.8} ${cx + r},${cy - r * 0.8}`;
-  return <polygon points={pts} fill={buy ? BUY : SELL} stroke="#fff" strokeWidth="1" />;
+  return <polygon points={pts} fill={fill ?? (buy ? BUY : SELL)} stroke="#fff" strokeWidth="1" />;
 }
 
 // A 14px swatch for a shaded span: a blue tint, or grey hatching for "may not be reported yet".
@@ -52,7 +52,7 @@ export function SpanSwatch({ hatch }) {
 }
 
 const keyRow = { display: "flex", gap: "6px 20px", flexWrap: "wrap", margin: "0 0 10px", fontSize: 16, alignItems: "center" };
-const keyItem = { display: "inline-flex", alignItems: "center", gap: 6 };
+const keyItem = { display: "inline-flex", alignItems: "center", gap: 6, whiteSpace: "nowrap" };
 export const KeySpans = ({ spans }) => spans.map((s) => <span key={s.label} style={keyItem}><SpanSwatch hatch={s.hatch} />{s.label}</span>);
 
 export function TimelineKey({ spans = [] }) {
@@ -60,12 +60,16 @@ export function TimelineKey({ spans = [] }) {
     <div className="dk-hint" style={keyRow}>
       <span><span style={{ color: BUY }}>▲</span> Purchase</span>
       <span><span style={{ color: SELL }}>▼</span> Sale</span>
-      {SIZES.map((s) => (
-        <span key={s.label} style={keyItem}>
-          <svg width={2 * s.r + 2} height={2 * s.r + 2} aria-hidden="true"><Triangle cx={s.r + 1} cy={s.r + 1} r={s.r} buy /></svg>
-          {s.label}
-        </span>
-      ))}
+      {/* Size is value, whatever the direction, so the size key is grey. */}
+      <span style={{ display: "inline-flex", flexWrap: "wrap", alignItems: "center", gap: "4px 10px" }}>
+        Value
+        {SIZES.map((s) => (
+          <span key={s.label} style={keyItem}>
+            <svg width={2 * s.r + 2} height={2 * s.r + 2} aria-hidden="true"><Triangle cx={s.r + 1} cy={s.r + 1} r={s.r} buy fill={MUTED} /></svg>
+            {s.label}
+          </span>
+        ))}
+      </span>
       <KeySpans spans={spans} />
     </div>
   );

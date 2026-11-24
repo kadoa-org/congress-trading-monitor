@@ -110,7 +110,7 @@ const Key = ({ spans = [] }) => (
 );
 
 // Sources for the board's and Trump's statements on the reinstatement.
-const REINSTATED = "https://www.ms.now/news/nvidia-board-reinstates-jensen-huang-as-ceo";
+const REINSTATED = "https://www.nbcnews.com/politics/trump-administration/trump-nvidia-board-reinstates-jensen-huang-rcna610882";
 const MANAGED = "https://wtop.com/business-finance/2026/05/trump-discloses-thousands-of-stock-trades-some-in-companies-directly-influenced-by-his-policies/";
 
 export default function NvidiaHuang() {
@@ -134,10 +134,10 @@ export default function NvidiaHuang() {
     <>
       <h1 className="dk-h1">Who in Washington owns and trades Nvidia stock</h1>
       <p className="govuk-body-l">
-        Trump&apos;s latest annual report lists {range(trump.held.low, trump.held.high)} of Nvidia stock at the end of last year, and his accounts traded the stock {trump.trades.length} times from January to {dayLong(lastTrump.date)}. Nvidia had fallen {Math.abs(pct(peak.close, beforeResign.close))}% from its {dayLong(peak.date)} high by 11 November, before Jensen Huang&apos;s resignation was announced. It closed another {Math.abs(pct(beforeResign.close, low.close))}% lower on 20 November, with quarterly results in between, and {pct(low.close, latest.close)}% higher on {dayLong(latest.date)}, after his reinstatement.
+        Trump reported {range(trump.held.low, trump.held.high)} of Nvidia stock at the end of last year, and his accounts traded it {trump.trades.length} times between January and {dayLong(lastTrump.date)}.
       </p>
-      <p className="govuk-body">
-        The board said it had input from senior levels of the US government, and Trump said he was represented at the board (<ExtLink href={REINSTATED}>MS NOW</ExtLink>). His reports so far cover trades up to {dayLong(lastTrump.date)}.
+      <p className="govuk-body-l">
+        Nvidia was down {Math.abs(pct(peak.close, beforeResign.close))}% from its {new Date(peak.date).toLocaleString("en-GB", { month: "long", timeZone: "UTC" })} high when Jensen Huang resigned on 11 November, and fell another {Math.abs(pct(beforeResign.close, low.close))}% by 20 November, after quarterly results. It rose {pct(low.close, latest.close)}% on {dayLong(latest.date)}, when the board reinstated him. The board cited input from senior levels of the US government, and Trump said he spoke to it &ldquo;directly and indirectly&rdquo; (<ExtLink href={REINSTATED}>NBC News</ExtLink>).
       </p>
       <ChartCard
         id="trump-title"
