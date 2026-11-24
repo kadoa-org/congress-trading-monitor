@@ -59,5 +59,9 @@
       }
     ]
   },
-  "generatedAt": "2026-11-23T16:19:05.447Z"
+  "generatedAt": "2026-11-23T16:19:05.447Z",
+  "congressLate": {
+    "trades": 63823,
+    "late": 10331
+  }
 }

@@ -52,10 +52,10 @@ function Headlines({ trades, asOf, stats }) {
   const [activeId, active] = [...byMember].sort((a, b) => b[1].trades - a[1].trades)[0] ?? [];
 
   const late = recent.filter((t) => t.is_late).length;
-  // Late share against the dataset's all-time rate, in percentage points, so the reader sees whether filing is
+  // Late share against Congress's all-time rate (executive filers left out, as above), in percentage points, so the reader sees whether filing is
   // getting more or less punctual. Both rounded first, so 10% against 30% reads as 20 points.
   const lateShare = Math.round((late / recent.length) * 100);
-  const allTimeLate = stats?.totalTrades ? Math.round((stats.lateFilings / stats.totalTrades) * 100) : null;
+  const allTimeLate = stats?.congressLate?.trades ? Math.round((stats.congressLate.late / stats.congressLate.trades) * 100) : null;
   const lags = recent.map((t) => t.days_to_file).filter((d) => d != null).sort((a, b) => a - b);
   const medianLag = lags.length ? lags[Math.floor(lags.length / 2)] : null;
   const fmtDay = (iso) => new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" });
