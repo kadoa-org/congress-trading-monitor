@@ -118,7 +118,6 @@ export default function NvidiaHuang() {
   const { yearEnd, beforeResign, low, reinstated } = points;
   const latest = reinstated;
   const out = { from: "2026-11-11", to: "2026-11-23", label: "Huang out" };
-  const loss = (s) => s * (beforeResign.close - low.close);
   const net = (s) => s * (beforeResign.close - latest.close);
   const lastTrump = trump.trades.at(-1);
   // The autumn high before the resignation, so the fall from 11 November is not read as the whole fall.
@@ -177,11 +176,11 @@ export default function NvidiaHuang() {
       <section className="insight-about">
         <h2>About the data</h2>
         <ul>
-          <li>Holdings: <ExtLink href={data.sources.annual}>Trump&apos;s annual report for 2025</ExtLink> values assets at the end of the year. At that day&apos;s close of {usd(yearEnd.close)}, {range(trump.held.low, trump.held.high)} is {shares(trump.shares.low)} to {shares(trump.shares.high)} shares.</li>
-          <li>If he still held those shares, the net change from 11 to {dayLong(latest.date)} is a loss of {millions(net(trump.shares.low))} to {millions(net(trump.shares.high))}: the fall to 20 November cost {millions(loss(trump.shares.low))} to {millions(loss(trump.shares.high))} and the rise after returned {millions(trump.gain.low)} to {millions(trump.gain.high)}. His current holding is not known: his 2026 purchases and sales are in ranges too wide to net.</li>
-          <li>The Trump Organization says his accounts are managed by independent third parties (<ExtLink href={MANAGED}>AP</ExtLink>). The reports do not show who decided a trade.</li>
-          <li>Trades must be reported within 30 days of the filer learning of them and no later than 45 days after, so trades from November are due by early January. We will update this page when they appear.</li>
-          <li>Congress: trades in members&apos; periodic transaction reports, families included. Trades reported only in annual or candidate reports are not counted, such as those NOTUS reported for Eric Swalwell and Ritchie Torres.</li>
+          <li>Holdings: <ExtLink href={data.sources.annual}>Trump&apos;s annual report</ExtLink> values his Nvidia stock at {range(trump.held.low, trump.held.high)} on 31 December 2025, or {shares(trump.shares.low)} to {shares(trump.shares.high)} shares at that day&apos;s close.</li>
+          <li>If he still held them, he lost {millions(net(trump.shares.low))} to {millions(net(trump.shares.high))} from 11 to {dayLong(latest.date)}. We can&apos;t tell whether he did: his 2026 trades are reported in ranges too wide to net.</li>
+          <li>His accounts are run by independent managers, according to the Trump Organization (<ExtLink href={MANAGED}>AP</ExtLink>). The reports don&apos;t show who decided a trade.</li>
+          <li>Trades can be reported up to 45 days late, so November&apos;s will appear by early January. We&apos;ll update the page then.</li>
+          <li>Congress: periodic transaction reports only, including family accounts. Trades in annual or candidate reports, like those NOTUS found for Eric Swalwell and Ritchie Torres, aren&apos;t included.</li>
         </ul>
       </section>
     </>
