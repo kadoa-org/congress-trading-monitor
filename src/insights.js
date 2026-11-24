@@ -2,6 +2,13 @@
 // shared data load and is prerendered with its own title and description so a link shares well.
 export const INSIGHTS = [
   {
+    slug: "trump-nvidia",
+    title: "Trump reported $12.5 million to $58 million of Nvidia stock for 2025",
+    summary: "His accounts traded the stock 43 times from January to September 2026. 37 members of Congress traded it too.",
+    seoTitle: "Trump's Nvidia Stock and the Jensen Huang Reinstatement",
+    seoDescription: "Trump's annual report lists $12.5 million to $58 million of Nvidia shares, and his accounts traded it 43 times in 2026. Plus the 37 members of Congress who traded NVDA.",
+  },
+  {
     slug: "congress-generations",
     title: "Gen X will outnumber Boomers in Congress for the first time",
     summary: "The Congress elected in November 2026 has 228 Gen X members and 181 Boomers. Boomers still hold 51% of decided Senate seats, down from 62%.",
@@ -44,6 +51,6 @@ export const insightBySlug = (slug) => INSIGHTS.find((i) => i.slug === slug);
 // insight when one ships, or set it to null to take the banner down. The text is written for the banner: about 50
 // characters with the number first, so it fits a phone in one or two lines.
 export const ANNOUNCED = {
-  slug: "congress-generations",
-  text: "Gen X will outnumber Boomers in Congress for the first time",
+  slug: "trump-nvidia",
+  text: "$12.5M to $58M of Nvidia stock in Trump's 2025 report",
 };

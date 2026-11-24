@@ -2,6 +2,7 @@ import React, { useMemo, useState } from "react";
 import CommitteeTrades from "../components/CommitteeTrades";
 import CongressGenerations from "../components/CongressGenerations";
 import TradeConcentration from "../components/TradeConcentration";
+import NvidiaHuang from "../components/NvidiaHuang";
 import LobbyingScatter, { GROUPS, money, perMillion } from "../components/LobbyingScatter";
 import TrumpTrades from "../components/TrumpTrades";
 import WeeklyFlows from "../components/WeeklyFlows";
@@ -124,6 +125,7 @@ export default function InsightPage({ slug, data }) {
         {insight.slug === "weekly-trading" && flows.length > 0 && <WeeklyTrading flows={flows} />}
         {insight.slug === "committee-trades" && <CommitteeTrades />}
         {insight.slug === "trump-trades" && <TrumpTrades />}
+        {insight.slug === "trump-nvidia" && <NvidiaHuang />}
         {insight.slug === "trade-concentration" && <TradeConcentration />}
         {insight.slug === "congress-generations" && <CongressGenerations />}
         {insight.slug === "lobbying-vs-market-cap" && lobbyingMcap && <LobbyingVsMarketCap data={lobbyingMcap} />}

@@ -77,6 +77,18 @@ const BUILDERS = {
       source: "House and Senate periodic transaction reports",
     };
   },
+  "trump-nvidia": () => {
+    const { trump, congress } = JSON.parse(readFileSync(join(root, "src/static/nvidia-huang.json"), "utf8"));
+    return {
+      title: INSIGHTS.find((i) => i.slug === "trump-nvidia").title,
+      key: `Nvidia stock trades disclosed by Trump for 2026 and by members of Congress since January ${congress.since.slice(0, 4)}.`,
+      figures: [
+        { value: int(trump.trades.length), label: "Trump's trades", colour: TRUMP },
+        { value: int(congress.trades.length), label: `Trades by ${congress.members.length} members of Congress`, colour: CONGRESS },
+      ],
+      source: "OGE, House and Senate disclosures",
+    };
+  },
   "trump-trades": () => {
     const t = JSON.parse(readFileSync(join(root, "src/static/trump-trades.json"), "utf8")).totals;
     return {
