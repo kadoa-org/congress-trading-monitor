@@ -1,7 +1,7 @@
-import { useLayoutEffect, useRef, useState } from "react";
+import { useState } from "react";
 import data from "../static/nvidia-huang.json";
 import { ChartCard, DataTable } from "../kit";
-import MemberTimeline, { TimelineKey } from "./MemberTimeline";
+import MemberTimeline, { KeySpans, TimelineKey, useWidth } from "./MemberTimeline";
 import { ExtLink, fmtInt, Link } from "../ui";
 
 // Trump's NVIDIA holdings and trades from his OGE reports, NVIDIA's price through Jensen Huang's resignation and
@@ -22,34 +22,22 @@ const pct = (a, b) => Math.round((b / a - 1) * 100);
 const isBuy = (t) => /purchase/i.test(t.type);
 const party = (m) => `${m.party}-${m.state}`;
 
-function useWidth() {
-  const ref = useRef(null);
-  const [width, setWidth] = useState(0);
-  useLayoutEffect(() => {
-    if (!ref.current) return undefined;
-    setWidth(ref.current.getBoundingClientRect().width);
-    const ro = new ResizeObserver((e) => setWidth(e[0].contentRect.width));
-    ro.observe(ref.current);
-    return () => ro.disconnect();
-  }, []);
-  return [ref, width];
-}
-
 // Daily closes as a line, with trades as triangles (purchases up, sales down, area by the top of the value range)
 // and an optional shaded band with a label, here the days Huang was out.
 function PriceChart({ prices, trades = [], band, pending, label }) {
   const [ref, width] = useWidth();
   const [hover, setHover] = useState(null);
   const narrow = width < 560;
-  const W = Math.max(300, width), H = narrow ? 260 : 320, P = { l: 44, r: 28, t: band ? 30 : 12, b: 28 };
+  const W = width, H = narrow ? 260 : 320, P = { l: 44, r: narrow ? 8 : 28, t: 12, b: 28 };
   const x0 = ts(prices[0].date), x1 = ts(prices.at(-1).date);
   const lo = Math.min(...prices.map((p) => p.close)), hi = Math.max(...prices.map((p) => p.close));
-  const step = hi - lo > 120 ? 50 : 25;
-  const yLo = Math.floor(lo / step) * step, yHi = Math.ceil(hi / step) * step;
+  const step = narrow || hi - lo > 120 ? 50 : 25;
+  // The range snaps to $25 so a coarse label step on phones does not add empty space; labels sit on the step.
+  const yLo = Math.floor(lo / 25) * 25, yHi = Math.ceil(hi / 25) * 25;
   const x = (d) => P.l + ((ts(d) - x0) / (x1 - x0 || 1)) * (W - P.l - P.r);
   const y = (v) => H - P.b - ((v - yLo) / (yHi - yLo)) * (H - P.t - P.b);
   const at = (d) => (prices.filter((p) => p.date <= d).at(-1) ?? prices[0]).close;
-  const ticks = []; for (let v = yLo; v <= yHi; v += step) ticks.push(v);
+  const ticks = []; for (let v = Math.ceil(yLo / step) * step; v <= yHi; v += step) ticks.push(v);
   const spanDays = (x1 - x0) / 864e5;
   // Month ticks; over a year, quarters with the year on each January.
   const monthStarts = prices.filter((p, i) => i === 0 || p.date.slice(5, 7) !== prices[i - 1].date.slice(5, 7));
@@ -73,7 +61,7 @@ function PriceChart({ prices, trades = [], band, pending, label }) {
       {width > 0 && (
         <svg width={W} height={H} role="img" aria-label={label} style={{ display: "block", touchAction: "pan-y" }} onPointerMove={onMove} onPointerDown={onMove} onPointerLeave={() => setHover(null)}>
           {ticks.map((v) => <g key={v}><line x1={P.l} x2={W - P.r} y1={y(v)} y2={y(v)} stroke={GRID} /><text x={P.l - 6} y={y(v) + 4} textAnchor="end" fontSize="13" fill={MUTED}>${v}</text></g>)}
-          {xTicks.map(([d, l]) => <text key={d} x={x(d)} y={H - 8} textAnchor="middle" fontSize="13" fill={MUTED}>{l}</text>)}
+          {xTicks.map(([d, l]) => <text key={d} x={x(d)} y={H - 8} textAnchor={x(d) + l.length * 4 > W ? "end" : "middle"} fontSize="13" fill={MUTED}>{l}</text>)}
           {pending && (
             <g>
               <defs>
@@ -87,7 +75,6 @@ function PriceChart({ prices, trades = [], band, pending, label }) {
           {band && (
             <g>
               <rect x={x(band.from)} y={P.t} width={Math.max(2, x(band.to) - x(band.from))} height={H - P.t - P.b} fill={EVENT} fillOpacity="0.12" />
-              <text x={Math.min(x(band.from), W - P.r - 4)} y={P.t - 10} textAnchor="end" fontSize="13" fontWeight="700" fill={EVENT}>{band.label}</text>
             </g>
           )}
           <path d={path} fill="none" stroke={LINE} strokeWidth="2" />
@@ -115,9 +102,10 @@ function PriceChart({ prices, trades = [], band, pending, label }) {
   );
 }
 
-const Key = () => (
-  <div className="dk-hint" style={{ display: "flex", gap: 20, flexWrap: "wrap", margin: "0 0 8px", fontSize: 16 }}>
-    <span><span style={{ color: BUY }}>▲</span> Purchase</span><span><span style={{ color: SELL }}>▼</span> Sale</span><span>Larger: higher value range</span>
+const Key = ({ spans = [] }) => (
+  <div className="dk-hint" style={{ display: "flex", gap: "6px 20px", flexWrap: "wrap", margin: "0 0 10px", fontSize: 16, alignItems: "center" }}>
+    <span><span style={{ color: BUY }}>▲</span> Purchase</span><span><span style={{ color: SELL }}>▼</span> Sale</span><span>Larger: higher value</span>
+    <KeySpans spans={spans} />
   </div>
 );
 
@@ -141,6 +129,7 @@ export default function NvidiaHuang() {
   const timelineRows = congress.members.map((r) => ({ key: r.member, name: r.name, note: party(r), href: `/filer/${encodeURIComponent(r.id)}`, trades: congress.trades.filter((t) => t.member === r.member) }));
   // Members have up to 45 days to report a trade, so the last 45 days are not complete.
   const reportedBy = new Date(Date.parse(latest.date) - 45 * 864e5).toISOString().slice(0, 10);
+  const pending = { from: reportedBy, to: latest.date, label: "May not be reported yet", hatch: true };
   return (
     <>
       <h1 className="dk-h1">Who in Washington owns and trades Nvidia stock</h1>
@@ -153,9 +142,9 @@ export default function NvidiaHuang() {
       <ChartCard
         id="trump-title"
         title="Trump's trades in Nvidia stock in 2026"
-        description={`${trump.bought.n} purchases (${range(trump.bought.low, trump.bought.high)}) and ${trump.sold.n} sales (${range(trump.sold.low, trump.sold.high)}), plotted on Nvidia's daily close. His latest report, released ${dayYear(trump.lastFiled)}, runs to ${dayLong(lastTrump.date)}. Blue shading marks the days Huang was out; hatching, trades that may not be reported yet.${latestNote}`}
+        description={`${trump.bought.n} purchases (${range(trump.bought.low, trump.bought.high)}) and ${trump.sold.n} sales (${range(trump.sold.low, trump.sold.high)}), plotted on Nvidia's daily close. His latest report, released ${dayYear(trump.lastFiled)}, runs to ${dayLong(lastTrump.date)}.${latestNote}`}
         tabs={[
-          { label: "Chart", content: <><Key /><PriceChart prices={prices.filter((p) => p.date >= "2026-01-01")} trades={trump.trades} band={out} pending={{ from: reportedBy, to: latest.date }} label={`${trump.trades.length} Nvidia trades by Trump's accounts in 2026 on Nvidia's price.`} /></> },
+          { label: "Chart", content: <><Key spans={[out, pending]} /><PriceChart prices={prices.filter((p) => p.date >= "2026-01-01")} trades={trump.trades} band={out} pending={pending} label={`${trump.trades.length} Nvidia trades by Trump's accounts in 2026 on Nvidia's price.`} /></> },
           { label: "Tabular data", short: "Tabular", scroll: true, content: <DataTable rows={[...trump.trades].reverse()} rowKey={(t, i) => `${t.date}-${i}`} columns={[{ key: "date", header: "Date", render: (t) => dayYear(t.date) }, { key: "type", header: "Type", render: (t) => t.type.replace(" (Full)", ", all shares in the account") }, { key: "label", header: "Value", align: "right" }]} /> },
         ]}
         footer={<p>Prices: Yahoo Finance.</p>}
@@ -165,7 +154,7 @@ export default function NvidiaHuang() {
         title="Members of Congress who traded Nvidia stock since January 2025"
         description={`${congress.trades.length} trades by ${congress.members.length} members, largest totals first. The latest disclosed trade is from ${dayLong(congress.lastTrade)}. Periodic transaction reports only.`}
         tabs={[
-          { label: "Chart", content: <><TimelineKey /><MemberTimeline rows={timelineRows} from={congress.since} to={latest.date} spans={[{ from: out.from, to: out.to, label: "Huang out" }, { from: reportedBy, to: latest.date, label: "May not be reported yet", hatch: true, row: true }]} label={`Nvidia trades by members of Congress since January 2025, one row per member: ${timelineRows.slice(0, 3).map((r) => r.name).join(", ")} and others.`} /></> },
+          { label: "Chart", content: <><TimelineKey spans={[out, pending]} /><MemberTimeline rows={timelineRows} from={congress.since} to={latest.date} spans={[out, pending]} label={`Nvidia trades by members of Congress since January 2025, one row per member: ${timelineRows.slice(0, 3).map((r) => r.name).join(", ")} and others.`} /></> },
           {
             label: "Tabular data",
             short: "Tabular",
