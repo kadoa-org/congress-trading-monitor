@@ -246,6 +246,45 @@ export function SiteFooter({ current, dataset = current }) {
   );
 }
 
+// The ask at the end of an insight: the reader has just seen what the data shows, so offer the data itself. The sales
+// link carries the dataset and article, so the request arrives with its context. `dataset` is the site's sales key
+// (as in SiteFooter), `article` the insight slug, `children` one sentence on what the dataset holds.
+export function InsightCta({ dataset, article, href, children }) {
+  const sales = `https://www.kadoa.com/contact/sales?${new URLSearchParams({ ref: "live-dataset", cta: "insight-end", dataset, article })}`;
+  return (
+    <section className="dk-insight-cta" aria-labelledby="dk-insight-cta-heading">
+      <h2 id="dk-insight-cta-heading" className="dk-insight-cta-heading">Get the data behind this insight</h2>
+      <p className="dk-insight-cta-body">{children} Delivered to your warehouse, S3 bucket or API.</p>
+      <div className="dk-insight-cta-actions">
+        <a className="dk-insight-cta-button" href={sales}>Get this dataset</a>
+        {href && <a className="dk-insight-cta-link" href={href}>Browse the dataset</a>}
+      </div>
+    </section>
+  );
+}
+
+// "More from Kadoa Insights": the newest insights from the other dataset sites, under each insight page, so a reader
+// (and a crawler) can move between sites. Items come from the kadoa.com/insights hub at build time, already without
+// this site's own insights ({ url, title, site, published }). Cross-site links are full navigations, so plain anchors.
+// Renders nothing without items.
+export function MoreInsights({ items }) {
+  if (!items?.length) return null;
+  return (
+    <section className="dk-more-insights" aria-labelledby="dk-more-insights-heading">
+      <h2 id="dk-more-insights-heading" className="dk-more-insights-heading">More from Kadoa Insights</h2>
+      <ul className="dk-more-insights-list">
+        {items.map((i) => (
+          <li key={i.url}>
+            <a href={i.url}>{i.title}</a>
+            <span className="dk-more-insights-site">{i.site}</span>
+          </li>
+        ))}
+      </ul>
+      <p className="dk-more-insights-all"><a href="https://www.kadoa.com/insights">All insights</a></p>
+    </section>
+  );
+}
+
 // The phase banner, under the navigation: a short tag, a label and a link, used to point every page at something
 // new (the latest insight). The message is written for the banner, about 50 characters with its number up front, so
 // it fits a phone in one or two lines; it wraps rather than being cut off. Renders nothing without a message.

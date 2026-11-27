@@ -11,7 +11,9 @@
 // Use as a module, renderOgImages(site, images), or from the command line with a JSON file of the same shape:
 //   bun scripts/og-insight.mjs og-specs.json
 // site:   { name, url, colour? }                   url without https, e.g. "kadoa.com/energy-prices"
-// image:  { out, title, key?, rows? | figures? | lines? }
+// image:  { out, thumb?, title, key?, rows? | figures? | lines? }
+//   thumb:   a second path for the visual alone (same size, no headline, key or foot), for listings that print the
+//            headline beside the image, such as the kadoa.com/insights hub
 //   rows:    [{ label, value, text, colour?, strong? }]  up to eight bars; value sets the length, text is printed
 //            beside it; a strong row is drawn in the site colour and the rest in grey, so one row is the story
 //   figures: [{ value, label, colour? }]                 two to four big numbers, printed as given ("17.8¢")
@@ -37,9 +39,11 @@ const keyHtml = (s) => esc(s).replace(/&lt;b(?: style=&quot;color:\s*(#[0-9a-fA-
 
 // Up to eight bars in the `room` the headline leaves. Fewer rows get taller rows and larger type, so a short list
 // fills the space as a long one does; rows that would not fit at the smallest size (24px type) are left off the end.
-function rowsHtml(rows, colour, room) {
+function rowsHtml(rows, colour, room, thumb = false) {
   const shown = rows.slice(0, Math.min(8, Math.floor(room / 34))), max = Math.max(...shown.map((r) => r.value), 0) || 1;
-  const h = Math.min(64, Math.floor(room / shown.length)), font = h >= 56 ? 30 : h >= 46 ? 27 : 24;
+  // A thumbnail is seen at a sixth of its size, so its rows and type grow into the room it has.
+  const h = Math.min(thumb ? 120 : 64, Math.floor(room / shown.length));
+  const font = thumb ? Math.min(40, Math.max(30, Math.floor(h * 0.38))) : h >= 56 ? 30 : h >= 46 ? 27 : 24;
   const anyStrong = shown.some((r) => r.strong);
   return `<div class="rows" style="--h:${h}px;--bar:${Math.round(h * 0.56)}px;--font:${font}px">${shown.map((r) => {
     const fill = r.colour ?? (!anyStrong || r.strong ? colour : GREY);
@@ -49,12 +53,15 @@ function rowsHtml(rows, colour, room) {
 
 // Two to four numbers side by side, each under a short rule in its colour. The size steps down with the longest
 // number and the count, so "$70-$78" beside two others still fits its column.
-function figuresHtml(figures) {
+// A thumbnail has the whole card for them, so its numbers and labels run larger.
+function figuresHtml(figures, thumb = false) {
   const shown = figures.slice(0, 4);
   const col = (W - 2 * M - 40 * (shown.length - 1)) / shown.length;
   const longest = Math.max(...shown.map((f) => String(f.value).length));
-  const size = Math.max(56, Math.min(112, Math.floor(col / (longest * 0.6))));
-  return `<div class="figs">${shown.map((f) => `<div class="fig" style="border-top-color:${esc(f.colour ?? INK)}"><b style="font-size:${size}px${f.colour ? `;color:${esc(f.colour)}` : ''}">${esc(f.value)}</b><span>${esc(f.label)}</span></div>`).join('')}</div>`;
+  // Bold digits run about 0.7 em wide; the link preview's cap of 112px leaves room to spare, a thumbnail's does not.
+  const size = Math.max(56, Math.min(thumb ? 200 : 112, Math.floor(col / (longest * (thumb ? 0.72 : 0.6)))));
+  const label = thumb ? ' style="font-size:40px"' : '';
+  return `<div class="figs">${shown.map((f) => `<div class="fig" style="border-top-color:${esc(f.colour ?? INK)}"><b style="font-size:${size}px${f.colour ? `;color:${esc(f.colour)}` : ''}">${esc(f.value)}</b><span${label}>${esc(f.label)}</span></div>`).join('')}</div>`;
 }
 
 // One to three lines over the same points, with no axes: a baseline, each line named at its end, and the first and
@@ -85,7 +92,7 @@ function linesHtml({ series, from, to }, colour, room) {
     + '</svg>';
 }
 
-export function ogHtml(site, img) {
+export function ogHtml(site, img, { thumb = false } = {}) {
   const colour = site.colour ?? BRAND;
   // The headline is the largest thing on the card; a longer one steps down so it stays within three lines.
   const size = img.title.length <= 30 ? 76 : img.title.length <= 48 ? 64 : img.title.length <= 76 ? 54 : 46;
@@ -93,13 +100,14 @@ export function ogHtml(site, img) {
   // Line counts are estimated from the text length, at about half an em a character.
   const linesOf = (text, px, most) => Math.min(most, Math.max(1, Math.ceil((String(text).length * px * 0.5) / (W - 2 * M))));
   const keyText = String(img.key ?? '').replace(/<[^>]+>/g, '');
-  const room = H - 12 - 52 - 40 - linesOf(img.title, size, 3) * size * 1.08 - (img.key ? 14 + linesOf(keyText, 28, 2) * 35 : 0) - 28 - 56;
-  const body = img.lines?.series?.length ? linesHtml(img.lines, colour, room) : img.rows?.length ? rowsHtml(img.rows, colour, room) : img.figures?.length ? figuresHtml(img.figures) : '';
+  // A thumbnail is the visual alone, so it gets the whole card less its strip and padding.
+  const room = thumb ? H - 12 - 2 * M : H - 12 - 52 - 40 - linesOf(img.title, size, 3) * size * 1.08 - (img.key ? 14 + linesOf(keyText, 28, 2) * 35 : 0) - 28 - 56;
+  const body = img.lines?.series?.length ? linesHtml(img.lines, colour, room) : img.rows?.length ? rowsHtml(img.rows, colour, room, thumb) : img.figures?.length ? figuresHtml(img.figures, thumb) : '';
   return `<!doctype html><html><head><meta charset="utf-8"><style>
 @font-face{font-family:"Atkinson Hyperlegible";font-weight:400;src:url(data:font/woff2;base64,${b64('atkinson-400.woff2')}) format("woff2")}
 @font-face{font-family:"Atkinson Hyperlegible";font-weight:700;src:url(data:font/woff2;base64,${b64('atkinson-700.woff2')}) format("woff2")}
 *{box-sizing:border-box}
-body{margin:0;width:${W}px;height:${H}px;padding:52px ${M}px 40px;font-family:"Atkinson Hyperlegible",Arial,sans-serif;font-feature-settings:"tnum";color:${INK};background:#fff;display:flex;flex-direction:column;overflow:hidden;border-top:12px solid ${esc(colour)}}
+body{margin:0;width:${W}px;height:${H}px;padding:${thumb ? `${M}px` : `52px ${M}px 40px`};font-family:"Atkinson Hyperlegible",Arial,sans-serif;font-feature-settings:"tnum";color:${INK};background:#fff;display:flex;flex-direction:column;overflow:hidden;border-top:12px solid ${esc(colour)}}
 h1{font-size:${size}px;line-height:1.08;letter-spacing:-0.5px;margin:0;max-height:${Math.ceil(size * 1.08 * 3)}px;overflow:hidden}
 .key{margin:14px 0 0;font-size:28px;line-height:1.25;color:${MUTED};display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}
 .body{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;padding:18px 0 10px}
@@ -112,10 +120,10 @@ svg{display:block;overflow:visible}svg text{font-family:"Atkinson Hyperlegible",
 .foot{display:flex;justify-content:space-between;align-items:center;border-top:2px solid ${RULE};padding-top:18px;font-size:26px}
 .foot b{font-weight:700}.foot span{color:${MUTED}}.foot img{height:34px;display:block}
 </style></head><body>
-<h1>${esc(img.title)}</h1>
-${img.key ? `<div class="key">${keyHtml(img.key)}</div>` : ''}
+${thumb ? '' : `<h1>${esc(img.title)}</h1>`}
+${img.key && !thumb ? `<div class="key">${keyHtml(img.key)}</div>` : ''}
 <div class="body">${body}</div>
-<div class="foot"><div><b>${esc(site.name)}</b> <span>· ${esc(site.url)}</span></div><img src="data:image/svg+xml;base64,${b64('kadoa-logo.svg')}" alt=""></div></body></html>`;
+${thumb ? '' : `<div class="foot"><div><b>${esc(site.name)}</b> <span>· ${esc(site.url)}</span></div><img src="data:image/svg+xml;base64,${b64('kadoa-logo.svg')}" alt=""></div>`}</body></html>`;
 }
 
 export function renderOgImages(site, images) {
@@ -125,11 +133,14 @@ export function renderOgImages(site, images) {
     for (const img of images) {
       const out = resolve(img.out);
       mkdirSync(dirname(out), { recursive: true });
-      const page = join(dir, 'og.html');
-      writeFileSync(page, ogHtml(site, img));
-      const run = spawnSync(CHROME, ['--headless=new', '--disable-gpu', '--hide-scrollbars', `--window-size=${W},${H}`, '--force-device-scale-factor=1', '--virtual-time-budget=3000', `--screenshot=${out}`, `file://${page}`], { stdio: 'pipe' });
-      if (run.status !== 0 || !existsSync(out)) throw new Error(`Chrome could not render ${img.out}: ${run.stderr?.toString().slice(0, 300)}`);
-      console.log(`Wrote ${img.out}`);
+      for (const [file, thumb] of [[out, false], ...(img.thumb ? [[resolve(img.thumb), true]] : [])]) {
+        mkdirSync(dirname(file), { recursive: true });
+        const page = join(dir, 'og.html');
+        writeFileSync(page, ogHtml(site, img, { thumb }));
+        const run = spawnSync(CHROME, ['--headless=new', '--disable-gpu', '--hide-scrollbars', `--window-size=${W},${H}`, '--force-device-scale-factor=1', '--virtual-time-budget=3000', `--screenshot=${file}`, `file://${page}`], { stdio: 'pipe' });
+        if (run.status !== 0 || !existsSync(file)) throw new Error(`Chrome could not render ${file}: ${run.stderr?.toString().slice(0, 300)}`);
+        console.log(`Wrote ${file}`);
+      }
     }
   } finally {
     rmSync(dir, { recursive: true, force: true });

@@ -105,6 +105,6 @@ const BUILDERS = {
 
 const images = INSIGHTS.filter((i) => !i.ogImage).map((i) => {
   if (!BUILDERS[i.slug]) throw new Error(`No link preview for insight ${i.slug}: add a builder to scripts/og-insights.mjs or an ogImage to src/insights.js`);
-  return { out: join(root, "public/og", `${i.slug}.png`), ...BUILDERS[i.slug]() };
+  return { out: join(root, "public/og", `${i.slug}.png`), thumb: join(root, "public/og/thumbs", `${i.slug}.png`), ...BUILDERS[i.slug]() };
 });
 renderOgImages({ name: "Congress Trading Monitor", icon: "🏛️", url: "kadoa.com/congress" }, images);

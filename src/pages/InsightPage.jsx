@@ -7,8 +7,9 @@ import LobbyingScatter, { GROUPS, money, perMillion } from "../components/Lobbyi
 import TrumpTrades from "../components/TrumpTrades";
 import WeeklyFlows from "../components/WeeklyFlows";
 import { insightBySlug } from "../insights";
-import { ChartCard, DataTable } from "../kit";
+import { ChartCard, DataTable, InsightCta, MoreInsights } from "../kit";
 import { ExtLink, fmtInt, HOUSE_FILINGS, Link, SENATE_FILINGS } from "../ui";
+import moreInsights from "../more-insights.json";
 
 // One insight on its own page, laid out as a dashboard topic: the finding and a short lede, a chart card with
 // Chart / Tabular data / Download tabs and a source line, then "About the data" for method and caveats.
@@ -129,6 +130,10 @@ export default function InsightPage({ slug, data }) {
         {insight.slug === "trade-concentration" && <TradeConcentration />}
         {insight.slug === "congress-generations" && <CongressGenerations />}
         {insight.slug === "lobbying-vs-market-cap" && lobbyingMcap && <LobbyingVsMarketCap data={lobbyingMcap} />}
+        <InsightCta dataset="congress" article={insight.slug} href={`${import.meta.env.BASE_URL}trades`}>
+          Every stock trade disclosed by members of Congress and the executive branch, matched to committees and lobbying, updated daily.
+        </InsightCta>
+        <MoreInsights items={moreInsights} />
       </main>
     </div>
   );
