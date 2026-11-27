@@ -270,3 +270,22 @@
 .dk-row__panel > td { max-width: 0; }
 @media (max-width: 640px) { .dk-table .dk-row__toggle { width: 22px; padding-left: 0; padding-right: 2px; } .dk-row__toggle-btn { padding: 2px; } }
 @media (max-width: 640px) { .dk-table th, .dk-table .dk-th-btn { white-space: normal; text-align: inherit; } }
+
+/* More from Kadoa Insights (MoreInsights): links to other sites' insights under an insight page. */
+.dk-more-insights { margin: 60px 0 0; padding-top: 20px; border-top: 1px solid var(--dk-rule); max-width: 640px; }
+.dk-more-insights-heading { margin: 0 0 15px; font: 700 19px/1.25 var(--dk-font); color: var(--dk-ink); }
+.dk-more-insights-list { list-style: none; margin: 0; padding: 0; }
+.dk-more-insights-list li { margin: 0 0 15px; line-height: 1.4; }
+.dk-more-insights-list a, .dk-more-insights-all a { color: var(--dk-ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+.dk-more-insights-list a:hover, .dk-more-insights-all a:hover { text-decoration-thickness: 3px; }
+.dk-more-insights-site { display: block; color: var(--dk-muted); font-size: var(--dk-fs-xs); }
+.dk-more-insights-all { margin: 0; }
+
+.dk-insight-cta { margin: 60px 0 0; padding: 20px; border: 1px solid var(--dk-rule); border-left: 5px solid var(--dk-ink); max-width: 640px; }
+.dk-insight-cta-heading { margin: 0 0 10px; font: 700 19px/1.25 var(--dk-font); color: var(--dk-ink); }
+.dk-insight-cta-body { margin: 0 0 15px; line-height: 1.4; color: var(--dk-ink); }
+.dk-insight-cta-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 20px; }
+.dk-insight-cta-button { display: inline-block; padding: 8px 14px; background: var(--dk-ink); color: var(--dk-bg); font-weight: 700; text-decoration: none; }
+.dk-insight-cta-button:hover { opacity: 0.85; }
+.dk-insight-cta-button:focus-visible { outline: 3px solid #fd0; outline-offset: 0; }
+.dk-insight-cta-link { color: var(--dk-ink); text-decoration: underline; text-underline-offset: 3px; }

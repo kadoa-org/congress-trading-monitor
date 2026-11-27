@@ -31,6 +31,51 @@ const crumbLd = (crumbs) => ({
   itemListElement: crumbs.map(([name, item], i) => ({ "@type": "ListItem", position: i + 1, name, item })),
 });
 
+// Article JSON-LD for an insight page. Kadoa is author and publisher on every site, so search engines tie the
+// insights on all dataset sites to one organisation. The date comes from src/insights.js and must be set.
+const KADOA = { "@type": "Organization", name: "Kadoa", url: "https://www.kadoa.com", logo: "https://www.kadoa.com/images/kadoa-icon.svg" };
+function articleLd(insight, url, image) {
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(insight.published ?? "")) throw new Error(`insight ${insight.slug} needs published: "YYYY-MM-DD" in src/insights.js`);
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: insight.title,
+    description: insight.seoDescription,
+    image,
+    datePublished: insight.published,
+    ...(insight.updated ? { dateModified: insight.updated } : {}),
+    author: KADOA,
+    publisher: KADOA,
+    mainEntityOfPage: url,
+    isPartOf: { "@type": "WebSite", name: "Congress Trading Monitor", url: BASE },
+  };
+}
+
+// The insights manifest at /congress/insights.json. The kadoa.com/insights hub reads it to list this site's insights
+// beside the other sites'. Same shape on every site.
+function insightsManifest() {
+  return {
+    version: 1,
+    site: { key: "congress", name: "Congress Trades", url: BASE },
+    items: INSIGHTS.map((i) => {
+      if (!["research", "chart"].includes(i.format)) throw new Error(`insight ${i.slug} needs format: "research" or "chart" in src/insights.js`);
+      // The thumbnail is the chart alone, from scripts/og-insights.mjs; insights with a custom image have none.
+      const hasThumb = fs.existsSync(path.join(ROOT, "public/og/thumbs", `${i.slug}.png`));
+      return {
+        slug: i.slug,
+        url: `${BASE}/insights/${i.slug}`,
+        title: i.title,
+        description: i.summary,
+        image: i.ogImage ? `${BASE}/${i.ogImage}` : `${BASE}/og/${i.slug}.png`,
+        ...(hasThumb ? { thumbnail: `${BASE}/og/thumbs/${i.slug}.png` } : {}),
+        format: i.format,
+        published: i.published,
+        ...(i.updated ? { updated: i.updated } : {}),
+      };
+    }).sort((a, b) => b.published.localeCompare(a.published)),
+  };
+}
+
 const fmtUsd = (n) => {
   if (!n) return null;
   if (n >= 1e9) return `$${(n / 1e9).toFixed(1)}B`;
@@ -118,15 +163,21 @@ function buildRoutes() {
       title: "Insights - Trends in Congressional Stock Trading | Congress Trading Monitor",
       description: "Charts of trends across every stock trade disclosed by members of Congress, each on its own page.",
     },
-    ...INSIGHTS.map((i) => ({
-      path: `/insights/${i.slug}`,
-      title: `${i.seoTitle} | Congress Trading Monitor`,
-      description: i.seoDescription,
+    ...INSIGHTS.map((i) => {
+      const url = `${BASE}/insights/${i.slug}`;
       // A custom image when the insight sets one, else the template image from scripts/og-insights.mjs.
-      ogImage: i.ogImage
+      const ogImage = i.ogImage
         ? { url: `${BASE}/${i.ogImage}`, alt: i.ogImageAlt, width: 2400, height: 1260 }
-        : { url: `${BASE}/og/${i.slug}.png`, alt: `${i.title}: ${i.summary}`, width: 1200, height: 630 },
-    })),
+        : { url: `${BASE}/og/${i.slug}.png`, alt: `${i.title}: ${i.summary}`, width: 1200, height: 630 };
+      return {
+        path: `/insights/${i.slug}`,
+        title: `${i.seoTitle} | Congress Trading Monitor`,
+        description: i.seoDescription,
+        ogImage,
+        lastmod: i.published,
+        jsonLd: articleLd(i, url, ogImage.url),
+      };
+    }),
     {
       path: "/lobbying",
       title: "Lobbying: Stock Trades in Companies That Lobby Their Committees | Congress Trading Monitor",
@@ -357,6 +408,7 @@ ${routes
 </urlset>
 `;
 fs.writeFileSync(path.join(DIST, "sitemap.xml"), sitemap);
+fs.writeFileSync(path.join(DIST, "insights.json"), JSON.stringify(insightsManifest(), null, 2) + "\n");
 fs.writeFileSync(path.join(DIST, "robots.txt"), `User-agent: *\nAllow: /\n\nSitemap: ${BASE}/sitemap.xml\n`);
 
-console.log(`prerendered ${written} routes + sitemap.xml (${routes.length + 1} urls) + robots.txt`);
+console.log(`prerendered ${written} routes + sitemap.xml (${routes.length + 1} urls) + robots.txt + insights.json`);
